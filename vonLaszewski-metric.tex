@@ -1,0 +1,174 @@
+\documentclass{sig-alternate} 
+
+\newcommand{\TITLE}{Put the title here}
+\newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LATEX DEFINITIONS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{hyperref} 
+\usepackage{array} 
+\usepackage{graphicx} 
+\usepackage{booktabs} 
+\usepackage{pifont} 
+\usepackage{todonotes} 
+\usepackage{rotating} 
+\usepackage{color} 
+ 
+\newcommand*\rot{\rotatebox{90}} 
+ 
+\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HYPERSETUP 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{ 
+    bookmarks=true,         % show bookmarks bar 
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks 
+    pdftoolbar=true,        % show Acrobat’s toolbar 
+    pdfmenubar=true,        % show Acrobat’s menu 
+    pdffitwindow=false,     % window fit to page when opened 
+    pdfstartview={FitH},    % fits the width of the page to the window 
+    pdftitle={\TITLE},    % title 
+    pdfauthor={\AUTHOR},     % author 
+    pdfsubject={Subject},   % subject of the document 
+    pdfcreator={Gregor von Laszewski, Fugang Wang},   % creator of the document 
+    pdfproducer={Gregor von Laszewski}, % producer of the document 
+    pdfkeywords={hindex} {metric}{XSEDE} {FutureGrid}, % list of keywords 
+    pdfnewwindow=true,      % links in new window 
+    colorlinks=false,       % false: boxed links; true: colored links 
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor) 
+    citecolor=green,        % color of links to bibliography 
+    filecolor=magenta,      % color of file links 
+    urlcolor=cyan           % color of external links 
+} 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\begin{document} 
+% 
+% --- Author Metadata here --- 
+\conferenceinfo{TBD}{TBD Address} 
+\CopyrightYear{2014}  
+\crdata{X-XXXXX-XX-X/XX/XX}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE. 
+% --- End of Author Metadata --- 
+ 
+\title{\TITLE} 
+%\subtitle{[Extended Abstract] 
+%\titlenote{A full version of this paper is available as 
+%\texttt{www.acm.org/eaddress.htm}}} 
+ 
+\numberofauthors{4}  
+\author{ 
+\alignauthor 
+Hyungro Lee\\ 
+       \affaddr{Indiana University}\\ 
+       \affaddr{2719 10th Street}\\ 
+       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
+\alignauthor 
+Gregor von Laszewski\titlenote{Corresponding Author.}\\ 
+       \affaddr{Indiana University}\\ 
+       \affaddr{2719 10th Street}\\ 
+       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
+       \email{laszewski@gmail.com} 
+\alignauthor 
+Fugang Wang\\ 
+       \affaddr{Indiana University}\\ 
+       \affaddr{2719 10th Street}\\ 
+       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
+% 3rd. author 
+\and
+\alignauthor 
+Geoffrey C. Fox\\ 
+       \affaddr{Indiana University}\\ 
+       \affaddr{2719 10th Street}\\ 
+       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
+\and  % use '\and' if you need 'another row' of author names 
+} 
+\date{13 March 2014} 
+ 
+\toappear{} 
+\maketitle 
+\begin{abstract} 
+ 
+In this paper we presented ...
+
+\end{abstract} 
+ 
+% A category with the (minimum) three required fields 
+\category{H.4}{Information Systems Applications}{Miscellaneous} 
+%A category including the fourth, optional field follows... 
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures] 
+ 
+\terms{Theory} 
+ 
+\keywords{Scientific impact, bibliometric, h-index, Technology audit, XSEDE} 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% SECTIONS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\section{Introduction} 
+
+\cite{las12fg-bookchapter}
+
+\cite{las2010gce}
+
+TBD 
+ 
+ 
+\section{Related Work} \label{S:related}
+ 
+TBD 
+
+ 
+\section{System Design} \label{S:design}
+ 
+%\begin{figure}[htb] 
+%  \centering 
+%    \includegraphics[width=1.0\columnwidth]{images/arch.pdf} 
+%  \caption{The Architecture of the Framework}\label{F:metrics-arch} 
+%\end{figure} 
+  
+ 
+\section{Implementation} \label{S:implementation}
+
+TBD
+\section{Results and Analyses} \label{S:result}
+
+TBD
+ 
+ 
+\section{Summary}
+
+TBD 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Acknowledgment 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+%ACKNOWLEDGMENTS are optional 
+%\section{Acknowledgments} 
+ 
+\section*{Acknowledgement} 
+ 
+This material is based upon work supported in part by the National Science Foundation under Grant No. 0910812.
+
+ 
+%\clearpage 
+ 
+\bibliographystyle{IEEEtranS} 
+%\bibliographystyle{abbrv} 
+\bibliography{% 
+bib/vonLaszewski-jabref,% 
+bib/cyberaide-cloud}
+%bib/image-refs,% 
+
+%bib/python,% 
+%tas.bib%
+ 
+\end{document} 
+ 
+ 
