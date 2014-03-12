@@ -125,12 +125,7 @@ TBD
 
  
 \section{System Design} \label{S:design}
- 
-%\begin{figure}[htb] 
-%  \centering 
-%    \includegraphics[width=1.0\columnwidth]{images/arch.pdf} 
-%  \caption{The Architecture of the Framework}\label{F:metrics-arch} 
-%\end{figure} 
+
   
  
 \section{Implementation} \label{S:implementation}
@@ -146,6 +141,117 @@ TBD
 TBD 
 
 \appendix{FROM OLD PAPER}
+
+\section{tables}
+
+use
+\begin{verbatim}
+p{2cm} 
+\end{verbatim}
+to replace some of the l's in the table, read up what p does, its
+width of column
+
+\begin{table*}[htb]
+\caption{table 1}\label{T:tab1}
+\begin{tabular}{lllll}
+Service & Cost Estimate & Pricing (Small/Medium/Large) & Restriction \\
+AWS & \$2 & 668.74  & \$0.06 \$0.12 \$0.24 per hour (US East Region; Linux) & Hour basis charge\\
+GCE & \$2 & 231.54  & \$0.054 \$0.104 \$0.207 per hour (US Region; Linux) & Minute basis charge with 10-minute minimum\\
+Azure & \$2 & 580.03  & \$0.06 \$0.12 \$0.24 per hour (Linux) & Minute basis charge with 5 less minute free\\
+\end{tabular}
+\end{table*}
+
+\begin{table*}[htb]
+\caption{table 2}\label{T:tab2}
+\begin{tabular}{llllll}
+Instance types & Instance count & Hour basis & Minute basis & With Google 10-minute minimum charge & with Azure 5-minute free \\
+small & 165 & 619 hrs (37,140 mins) & 29,622 mins & 29,875 mins &29,582 mins \\
+medium & 6 & 268 hrs (16,080 mins) & 15,891 mins & 15,891 mins & 15,891 mins\\
+large & 490 & 10,831 hrs (649,860 mins) & 629,969 mins & 631,047 mins & 629,667 mins\\
+Total & 661 & 11,718 hrs (703,080 mins) & 675,482 mins & 676,813 mins & 675,140 mins\\
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[htb]
+\caption{table 2}\label{T:tab2}
+\begin{tabular}{llllllllll}
+Provider & Charging & Cost & Cost & OS & Max vCPU & Memory min - max & \# of instance types & Discount program & Free allowance\\
+ &  & 1 vCPU /hour & 1 GB &  &  &  &  &  & \\
+ &  &  & /hour &  &  &  &  &  & \\
+Aws & hourly & \$0.04  & \$0.02  & Linux & 32 & 615MB - & 22 & spot instance;  & \$100 for educatorÕs student\\
+ &  &  &  & Windows +14-56\%  &  & 244GB &  & reserved instances & Grant for researcher\\
+ &  &  &  & Asia + 25\% &  &  &  &  & AWS educated grant program\\
+Google Compute Engine & 10 minutes + & \$0.08  & \$0.01  & Linux (Debian; CentOS) & 16 & 600MB - & 15 & n/a & Google app reward programs\\
+ & every minute after that &  &  & (RHEL; SUSE premium operating systems) *** &  & 104GB & (4 high cpu + 4 high memory + 2 small + 5 standard) &  & \$1000 for educator\\
+ &  &  & Europe + 4.5\% - 27\%  &  &  &  &  &  & \$60;000 for research project\\
+IBM CloudLayer (by Softlayer) & monthly & \$0.50  & varies & Linux;  & 16 & 1GB  & Build your own cloud server offers customized options &  & one month trial for 1 vcpu + 1gb memory + 25 storage\\
+ & hourly & to &  & Windows + \$0.05 to &  & Ð  &  &  & \\
+ &  & \$0.10  &  &               \$0.10 / hour &  & 64GB &  &  & \\
+HP cloud & hourly & \$0.02  & \$0.02  & Linux; Windows; SUSE & 16 & 1GB  & 11 (8 standard + 3 memory intensive) &  & \$300 free trial for 90 days (\$100 for each month)\\
+ &  &  &  & (windows: 10-200\% extra charge; &  & Ð  &  &  & \\
+ &  &  &  & SUSE: 4\% - 200\% extra charge) &  & 120GB &  &  & \\
+Microsoft Azure & Free first 5 minutes & \$0.05  & \$0.02 (approx.) & Linux;  & 8 & 768MB Ð  & 8 (A0-A7) & 6-Month; 12-month pre-pay membership & \$200 free trial of first month\\
+ &  &  & Windows is expensive 30-50\% more than linux & Windows + 30-50\%  &  & 56GB &  &  & \\
+Rackspace & minute &  & varies & Linux; Windows & 32 & 1GB Ð  & 9 & Volume discount (4\% to 20\% for spending over \$5;000 - \$ 10; 000 per month; 8\% for \$10;001 - 30;000; 12\% for \$30;001 - \$50;000) & \$300 developer discount (\$50 each for six months)\\
+ &  &  &  & (windows: 25\% extra charge) &  & 120GB &  & Commitment discount (4\% to 40\%) & \\
+ &  &  &  &  &  &  &  & Prepayment discount with commitment (7\% to 55\%) & \\
+\end{tabular}
+\end{table*}
+
+
+\section{Images}
+
+
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig1.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig1} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig2.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig2} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig3.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig3} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig4.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig4} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig5.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig5} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig6.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig6} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig3b.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig7} 
+\end{figure} 
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/fig4b.pdf} 
+  \caption{The Architecture of the Framework}\label{F:fig8} 
+\end{figure} 
+
 
 \section{BIG DATA}
 
@@ -291,9 +397,9 @@ Total	661	11,718 hrs (703,080 mins)	675,482 mins	676,813 mins	675,140 mins
 
 Table 4. Pricing comparison to the class
 Service	Cost Estimate	Pricing (Small/Medium/Large)	Restriction
-AWS	$2,668.74	$0.06/$0.12/$0.24 per hour (US East Region, Linux)	Hour basis charge
-GCE	$2,231.54	$0.054/$0.104/$0.207 per hour (US Region, Linux)	Minute basis charge with 10-minute minimum
-Azure	$2,580.03	$0.06/$0.12/$0.24 per hour (Linux)	Minute basis charge with 5 less minute free
+AWS	$2,668.74	$0.06\$0.12\$0.24 per hour (US East Region, Linux)	Hour basis charge
+GCE	$2,231.54	$0.054\$0.104\$0.207 per hour (US Region, Linux)	Minute basis charge with 10-minute minimum
+Azure	$2,580.03	$0.06\$0.12\$0.24 per hour (Linux)	Minute basis charge with 5 less minute free
 
 Charging model describe in text how they cjhharge and for what, e.g. what do they offer
 
