@@ -1,9 +1,10 @@
 \documentclass{sig-alternate} 
 
-\newcommand{\TITLE}{Put the title here}
+\newcommand{\TITLE}{Towards Understanding Cloud Usage with Statistical Analysis of Measured Data}
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % LATEX DEFINITIONS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -92,8 +93,8 @@ Geoffrey C. Fox\\
 \toappear{} 
 \maketitle 
 \begin{abstract} 
- 
-In this paper we presented ...
+
+In utility computing, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover usage pattern in historical data. Virtual resources such as compute, storage and network are typically measured to evaluate time and cost of user applications and the statistics for resource used offer visibility to utilization of the cloud.
 
 \end{abstract} 
  
@@ -112,16 +113,213 @@ In this paper we presented ...
  
 \section{Introduction} 
 
-\cite{las12fg-bookchapter}
+In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
 
-\cite{las2010gce}
+Real Consumption vs Allocation
 
-TBD 
- 
- 
+There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
+
+\section{Usage Measurement on IaaS}
+
+Openstack
+
+In late 2012, OpenStack community started a new project about measuring usage data from openstack components. This project named Ceilometer collects measurements within OpenStack to achieve monitoring and metering purposes. Ceilometer acquires all of the measurements across all current OpenStack components such as Nova (compute), Network, and Storage (swift), etc and provides a unique framework for the collected data. The latest release Havana includes Ceilometer as a mandatory component in OpenStack and the previous release Grizzly included it as an incubator component.
+
+OpenStack Compute (Nova) also provides a command line tools to retrieve usage statistics, for example, ‘nova usage-list’ provides usage data for all tenants. These management commands typically limited to system administrators to execute.
+
+Ceilometer
+
+Ceilometer project is a framework for monitoring and metering the OpenStack cloud and Ceilometer is a primary place to get access of all usage data in openstack components. It was mainly developed to charge customers as a billing system. Like other commercial cloud platforms, for example Amazon Web Services, these metrics are included, with an hour level granularity :
+
+* Compute (Nova)
+
+* instance type, availability zone
+
+* cpu core
+
+* memory size
+
+* nova volume block device type and availability zone
+
+* Network
+
+* data transfer (in / out), availability zone
+
+* external floating ip
+
+* Storage (Swift)
+
+* disk size used
+
+* data in/out
+
+Implementation
+
+There is a program named an agent on each OpenStack node and aggregates information about virtualized resources. The agent on each nova compute node uses Linux virtualization API (libvirt) and Windows Management Instrumentation (wmi) to extract essential information from hypervisor. Some other agents harvest the data from iptables, swift proxy or the nova database, if additional information can be obtained through these external services.
+
+There are four basic components to Ceilometer:
+
+* Agent: runs on each compute node and polls for resources utilization statistics.
+
+* Collector: runs on management servers to manage the message queues for data coming from the agent. Metering data are stored to the openstack data store directly and a notification message are delivered to the Openstack messaging bus once it is processed.
+
+* Data store: is a place of collected data. It provides interaction with the collector and a api server.
+
+* API server: runs on management servers to provide statistics about the measured data.
+
+Figure 1. Architecture of openStack Ceilometer [architectureofopenstackceilometer]
+
+An API server provides access to metering data in the database via a REST API. A central agent polls utilization statistics for other resources not tied to instances or compute nodes. There may be only one instance of the central agent running for the infrastructure. A compute agent polls metering data and instances statistics from the compute node (primarily the hypervisor). Compute agents must run on each compute node that needs to be monitored. A collector monitors the message queues (for notifications sent by the infrastructure and for metering data coming from the agents). Notification messages are processed, turned into metering messages, signed, and sent back out onto the message bus using the appropriate topic. The collector may run on one or more management servers. A data store is a database capable of handling concurrent writes (from one or more collector instances) and reads (from the API server). The collector, central agent, and API may run on any node. These services communicate using the standard OpenStack messaging bus. Only the collector and API server have access to the data store. The supported databases are MongoDB, MySQL, PostgreSQL, HBase and DB2 [ceilometerdatabase]; however, A dedicated host for storing the Ceilometer database is recommended, as it can generate lots of writes . Production scale metering is estimated to have 386 writes per second and 33,360,480 events a day, which would require 239 Gb of volume for storing statistics per month. [volumeofceilometer]
+
+Openstack itself has notification systems built into the existing OpenStack components. Most usage data are collected from these notification systems. Ceilometer also requests metering messages from a pollster plugin using the ‘ceilometer.poll.compute’ namespace.
+
+Ceilometer with OpenStack Heat for autoscaling
+
+The OpenStack Orchestration program, Heat, provides an autoscaling service with Ceilometer like Amazon CloudFormation. OpenStack Heat scales VM capacity up or down according to the metrics from Ceilometer. Ceilometer collects metrics for virtual machines and its alarming module calls the Heat API if the threshold for the metrics is reached. Heat triggers the upscaling or the downscaling virtual machines once it is notified by Ceilometer. This integration of Heat and Ceilometer allows you to ensure optimal utilization by managing the number of virtual machine instances. Amazon has a similar combination of AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values. [autoscalingwithheatandceilometer]
+
+Ceilometer on Horizon
+
+Horizon dashboard, a web-based graphical user interface, adds a new panel for Ceilometer in OpenStack Havana through the admin panel. Figure 2 to 4 show how they are displayed on the web.
+
+Figure 2. Screenshot of ceilometer for disk usage
+
+Figure 3. Screenshot of ceilometer for network usage
+
+Figure 4. Screenshot of ceilometer for visualization
+
+[ceilometeronhorizon]
+
+Nova command line tools for usage statistics
+
+Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version.
+
+Nova command line tools for usage statistics
+
+Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version.
+
+Example 1. Display a summary of resource usage of the devstack-grizzly host
+
+$ nova host-describe devstack-grizzly +------------------+----------------------------------+-----+-----------+---------+ | HOST | PROJECT | cpu | memory_mb | disk_gb | +------------------+----------------------------------+-----+-----------+---------+ | devstack-grizzly | (total) | 2 | 4003 | 157 | | devstack-grizzly | (used_now) | 3 | 5120 | 40 | | devstack-grizzly | (used_max) | 3 | 4608 | 40 | | devstack-grizzly | b70d90d65e464582b6b2161cf3603ced | 1 | 512 | 0 | | devstack-grizzly | 66265572db174a7aa66eba661f58eb9e | 2 | 4096 | 40 | +------------------+----------------------------------+-----+-----------+---------+
+
+Usage data can be provided by Tenant Id which is a group of openstack cloud users. Each tenant id represents a group or an account to the group members, so usage data for the tenant id are aggregated.
+
+Example 2. Summary statistics for tenants
+
+$ nova usage-list Usage from 2013-06-25 to 2013-07-24: +----------------------------------+-----------+--------------+-----------+---------------+ | Tenant ID | Instances | RAM MB-Hours | CPU Hours | Disk GB-Hours | +----------------------------------+-----------+--------------+-----------+---------------+ | b70d90d65e464582b6b2161cf3603ced | 1 | 344064.44 | 672.00 | 0.00 | | 66265572db174a7aa66eba661f58eb9e | 3 | 671626.76 | 327.94 | 6558.86 | +----------------------------------+-----------+--------------+-----------+---------------+
+
+[usagestatistics]
+
+Usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications' event_type, which is a hierarchical dotted string such as compute.instance.create, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate, created when a specific increment of usage occurs (such as creation of an instance) or periodic, generated by a periodic task, like a cron job, and covering usage for a certain period of time. Besides the standard Nova Notification priority, notification timestamp, and event_type, usage notifications contain a payload of data that will vary depending on the event_type. This is presented as a json-formatted hash of key-value pairs. Some of the keys, such as tenant_id will always be present in any usage notification, others will be data relevent to that event_type (For example, instance related notifications will contain data describing the instance.)
+
+[systemusagedata]
+
+Eucalyptus
+
+The Eucalyptus Amazon compatible private cloud has provided resource usage information through external monitoring tools such as Nagios and Ganglia. Since both Nagios and Ganglia have been proved to observe state data within distributed systems, Eucalyptus relied on integration with these tools for resource monitoring. To enhance system management, Eucalyptus recently improves summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties.
+
+[managing-reporting] [eureport-] [eureport-generate-report]
+
+Regarding to commercial clouds, usage data is provided to cloud services running under your account.
+
+Azure
+
+Windows Azure has enhanced their Azure Management Portal, a web-based graphical user interface, with monitoring panels.
+
+-customize monitoring displays,
+
+- verbose monitoring data, (usage data is stored in a storage account which you can access outside of the portal.)
+
+- plot in metrics charts on the monitor page and the dashboard.
+
+Performance Counters provides information about status of operating system, application, service or driver. Counter data can be used to determine resource consumption. Performance Counters is mainly used for monitoring which is gathered from the host operating system for the roles instances (vms). CPU usage(CPU percentage), Network traffic (data in/out), and disk usage (Read throughput, write throughput) are typically collected for minimal monitoring. This is also called performance data.
+
+[howtomonitorcloudservicesazure]
+
+The following diagram illustrates how consumers, the registry, PDH, and performance DLLs and application providers work together.
+
+Figure 5. Overview of Performance Counters
+
+Consumer A uses the registry interface to obtain counter information. Consumer B and the Performance Monitor use PDH to obtain counter information. In turn, the PDH functions can use either the registry interface or WMI.
+
+[AboutPerformanceCounters]
+
+Amazon
+
+Amazon CloudWatch
+
+“Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real-time.”
+
+- Keyword: real-time and monitor resources and applications both.
+
+how do they monitor resources and applications? does the applications mean that a specific applications? such as Elastic Map Reduce (EMR)?
+
+“ACW is basically a metrics repository. AWS product puts metrics into the repository, and you retrieve statistics based on those metrics.
+
+Metric - is a variable you want to measure for your resources and applications.
+
+* New terms; Namespaces, dimensions, Metrics
+
+Namespaces are containers for metrics.
+
+Metrics are time-ordered sets of data points, are isolated from one another in different namespaces so that metrics from different applications are not mistakenly aggregated into the same statistics.
+
+think of a metric as a variable to monitor, and the data points represent the values of that variable over time.
+
+You retrieve statistics about those data points as an ordered set of time-series data.
+
+Over the time value is important for metrics since it contains historical changes in it. Timestamp always follows with a metric.
+
+Amazon provides PutMetricData API to create a custom metrics and publish to ACW.
+
+2 weeks time period for store statistics.
+
+Each metrics has a dimension, which is a name / value pair that helps you to uniquely identify a metric.
+
+Alarm!
+
+CloudWatch has a notification to alert users and auto scaling (automatically make changes) to the resources you are monitoring based on rules that you define. Simply, CloudWatch manages threshold values to send a notification to users via email or text messages, and even more, apply changes with a pre-defined settings such as increasing virtual instances or diminishing.
+
+built-in metrics vs custom metrics
+
+“You gain system-wide visibility into resource utilization, application performance, and operational health”
+
+key concepts and terms
+
+We need to define
+
+- resources
+
+- applications
+
+- monitor
+
+- alert
+
+- automatic
+
+Amazon DevPay
+
+Amazon DevPay is a reseller model which provide a billing and account management service on top of Amazon Web Services (AWS). Amazon DevPay users can measure usage of AWS services, send a bill and collect payments from customers under their subscriptions. DevPay helps a process of billing and tracking for AWS services like Compute (EC2) and Storage (S3).
+
+[AmazonDevPay][resellaws]
+
+Figure 6. Billing Service - Amazon DevPay
+
+Monitoring in HPC
+
+Monitoring in high-performance computing has a similarity to Cloud Computing. It provides fixed number of jobs that a user can create and each job runs on a same size of nodes in clusters. There are also common management tools to clusters, so accounting data can be collected from these tools.
+
+XDMoD
+
+XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API.
+
+[Performance metrics and auditing framework using application kernels for high-performance computer systems]
+
+[Using XDMoD to Facilitate XSEDE Operations, Planning and Analysis]
+
+
 \section{Related Work} \label{S:related}
  
-TBD 
 
  
 \section{System Design} \label{S:design}
