@@ -160,13 +160,21 @@ There is a small number of accounting software to provide metered resource utili
 
 Once we started investigation on Cloud Accounting tools, similarity of accounting, billing, and monitoring tools is something that we need to clarify. In this section, we give our own words to identify differences among them. 
 
-Monitoring - is about measuring resource utilization. In a typical way, real-time monitoring is performed in a system/hardware layer to show activities. It is supposed to provide performance analysis by measuring CPU utilization, load average, memory usage (free/used), network bandwidth in/out and disk I/O. Given that metrics, monitoring system shows that how many resources are being used at any given time. 
+\subsubsection{Monitoring}
 
-Accounting - is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
+Monitoring is about measuring resource utilization. In a typical way, real-time monitoring is performed in a system/hardware layer to show activities. It is supposed to provide performance analysis by measuring CPU utilization, load average, memory usage (free/used), network bandwidth in/out and disk I/O. Given that metrics, monitoring system shows that how many resources are being used at any given time. 
 
-Billing - is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user. 
+\subsubsection{Accounting}
 
-Auditing - It is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system. 
+Accounting is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
+
+\subsubsection{Billing}
+
+Billing is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user. 
+
+\subsubsection{Auditing}
+
+Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system. 
 
 \section{Usage Measurement on IaaS}
 
@@ -300,6 +308,58 @@ Regarding to commercial clouds, usage data is provided to cloud services running
 
 \subsection{Azure}
 
+Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers [1]. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
+
+* Windows Azure: an operating system that provides scalable compute and storage facilities.
+
+* SQL Azure: a cloud based, scale out version of SQL server.
+
+* Windows Azure AppFabric: a collection of services supporting applications both in the cloud and on premise.
+
+The System Center Monitoring Pack for Windows Azure application is the most cost effective and flexible platform for managing traditional data centers, private and public clouds, and client computers and devices [2]. It provides monitoring of availability and performance for Windows Azure applications. It is the only unified management platform where multiple hypervisors, physical resources, and applications can be managed in a single offering. From a single console view, the IT assets like network, storage and compute can be organized into a hybrid cloud model spanning the private cloud and public cloud services.
+
+The monitoring pack runs on a specified agent and uses Windows API.s to remotely discover and collect information about a specified Windows Azure application. By default, the monitoring is not enabled. Therefore, the discovery must be configured by using the Windows Azure Application monitoring template for each Windows Azure Application to be monitored.
+
+The following functionalities are provided by the Monitoring Pack for Windows Azure Applications:
+
+* Discovers Windows Azure applications.
+
+* Provides status of each role instance.
+
+* Collects and monitors performance information.
+
+* Collects and monitors Windows events.
+
+* Collects and monitors the .NET Framework trace messages from each role instance.
+
+* Grooms performance, event, and the .NET Framework trace data from Windows Azure storage account.
+
+* Changes the number of role instances.
+
+Implementing monitoring means, launching the diagnostic instance and this instance will collect the data and at the interval user wants. The collected data will be copied to an Azure Table:
+
+* WADPerformanceCountersTable for the performance counters
+
+* WADWindowsEventLogsTable for the windows event logs.
+
+The performance monitoring can be enabled by implementing some code or using some tools like:
+
+* Powershell cmdlets for Windows Azure [3]
+
+* Azure Diagnostics Manager 2 from Cerebrata [4]
+
+By using these tools one instance of Windows Azure is configured to collect some performance counters without modifying the application code. The performance data will be collected by the Azure Diagnostic Monitor and moved at the interval user specified to a table called WADPerformanceCounters. User can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. Diagnostic data is not permanently stored unless user transfers the data to the Windows Azure storage emulator or to Windows Azure storage. After the data is transferred to storage it can be viewed with one of several available tools. To collect Windows Event logs in a Windows Azure application, the Event logs data source must be configured.
+
+Once, the Azure Management Pack is installed, three .run as. accounts must be created in System Center Operation Manager:
+
+* One for binary authentication. This account will use the management certificate to connect to Azure.
+
+* One for basic authentication. This account will be used for the certificate
+
+* One that will be used for the proxy agent.
+
+The monitoring data can be visualized using System Center Operation Manager Console. From Operation Manager, user can create custom dashboard or publish graphs on SharePoint to people who do not have the SCOM console.
+
 Windows Azure has enhanced their Azure Management Portal, a web-based graphical user interface, with monitoring panels.
 
 - customize monitoring displays,
@@ -349,20 +409,81 @@ XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buff
 [Using XDMoD to Facilitate XSEDE Operations, Planning and Analysis]
 
 \section{Related Work} \label{S:related}
- 
+
+\subsection{Nagios}
+
+Nagios is a web based Linux monitoring systems and it allows to monitor availability and response time of network services, usage of system resources like CPU load, RAM allocation etc., number of logged in users and so on. The main Nagios instance (server) collects information from Linux, BSD, Windows hosts or Cisco devices through Nagios clients (agents), and sees states of their services or processes in one place: Nagios web interface. Nagios generates a notification in case of any outage detected or any anomaly through wide range of alert methods such as e-mail, sms, chat messages and phone call notifications. And one more thing, Nagios monitors states but it doesn.t show any graphs like network interface usage etc.
+
+\subsection{Cacti}
+Cacti is a network monitoring tool using simple network management protocol (SNMP) and similar to other tools such as Nagios and Ganglia, it uses RRDtool as a DBMS and a visualization graphical tool. Since it supports polling monitoring data via shell scripts like php or c-based executable, it can be extended to measure other resources not only network traffic. It is also suitable for a hosting service with user-based management.
+
+\subsection{Zabbix}
+
+Zabbix is an open source monitoring not only for networks but also for servers using SNMP, IPMI, and JMX. The centralized server of Zabbix collects monitoring data through several Zabbix agents installed on desirable hosts and store them on the database to display and generate web-based reports when they are needed. Zabbix Agent which is deployed on a monitoring target obtains utilization data using various monitoring protocols and tools like SNMP, TCP, and ICMP. For the cloud monitoring, Zabbix active agent auto-registration helps monitoring cloud instances such as Amazon cloud, and OpenStack without configuring manually.
+
+\subsection{Zenoss}
+
+Zenoss (Zenoss Core) provides a unified resource management service which manages applications, networks, servers, and storage in terms of monitoring physical or virtual systems including the public, private and hybrid cloud. It is built on the Zope object-oriented web application server, and using RRDtool with MySQL as to store collected information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss provides additional features with other monitoring mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise version which is based on the open-source core version. The one of the key features of Zenoss is Model-Driven Monitoring which is about automatic and dynamic discovery, configuration and monitoring. As a communication tool, Zenoss utilizes Twisted Perspective Broker (PB) instead of AMQP typed messaging system like RabbitMQ. They claims Twisted provides an asynchronous, event-driven with co-operative multi-tasking which is a deferred object.
+
+\subsection{Rackspace Cloud Monitoring}
+
+Rackspace Cloud Monitoring is an API driven monitoring system which allows administrators to use or create APIs depending on their needs which can send notifications to any device including mobile devices. This allows administrators to be on top of their Rackspace-hosted infrastructure which includes websites, protocols, and ports.
+
 \section{System Design} \label{S:design}
+
+FutureGrid Cloud Metrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
+
+* A mechanism to parse various log messages
+
+* A framework to explore the cloud usage data via a command-line shell
+
+* A framework to display the data with chart libraries
+
+* A Python web framework (CherryPy) with JSON
+
+We have observed Eucalyptus generates resource usage information via log messages and OpenStack Essex stores virtual instances information to database. We have an idea for gathering resource utilization data using the log messages and database and for incorporating the data into one place. As a first step, we have implemented a log parsing tool for Eucalyptus to collect metering values and have provided a command line tool to obtain statistical results. For better presenting of numerical values and relationships with other metrics, we adopted charting libraries and they are helping us to provide succinct explanation for historical and real-time data.
+
+Figure 16 - Overview of FutureGrid Cloud Metrics
 
 \section{Implementation} \label{S:implementation}
 
-TBD
+FG Cloud Metrics consists of two main parts: 1) a log parser and 2) an analyzer with visualization tools. We named the log parser as fg-parser which is a python script executable on Unix/Linux command. fg-parser reads and examines log messages of cloud platforms to collect metrics values and stores the values into a database system using a python dictionary data type. fg-analyzer takes the role of measuring usage data and displaying output in a graphical way. We assume every measured data is stored in the database, fg-analyzer loads the database and be ready to calculate metrics when a user specifies on the python cmd command line framework. fg-analyzer line-oriented interpreters allow the user to describe desired metrics and help to generate graphical output in various chart types. At this time, fg cloud metric supports Eucalyptus 2.0, and 3.0 and OpenStack except Nimbus, and OpenNebula.
+
+\subsection{Log Parser}
+
+fg-parser is an executable python script on Linux/Unix shell. It gets a path of log files as an input or a standard input as well. There are fixed templates to parse log messages using regular expressions and they are important for that what type of log events will be collected and how to be parsed to avoid parsing errors that cause missing events. We examined log messages of eucalyptus and realized eucalyptus generates detailed instance information using print\_ccInstance( function in debug logging mode. So our fixed template for eucalyptus is parsing print\_ccInstance( events of logs and fg-parser collects metrical values such as userid, instanceid, start and end time of an instance, number of cpu cores, disks, and memories and so on.
+
+Figure 17 A simple procedure of the log parser (fg-parser)
+
+\subsection{Metric analyzer}
+
+fg-analyzer uses python cmd package to support command-line interpreters. It allows that a user describes desired data using basic commands, for example, set nodename india, and set analyze -M 05 -Y 2012. It also comes with graphical tools using external chart libraries such as Google Chart API, Highcharts, D3.js, and jQuery Sparkline.
+
+Figure 18 A simple procedure of the metric analyzer (fg-analyzer)
+
+\subsection{Data structure - Python Dictionary}
+
+Python dictionary (dict) provides key-value pair data structure which might be easy to handle unordered objects with any immutable type. It also can be easily converted to JSON or backwards using json and simplejson packages.
+
 \section{Results and Analyses} \label{S:result}
 
-TBD
- 
+Figure 5 Service changes for base environments between 2010 and 2013
+
+High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure 5, we can see Big Data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested Big Data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today.s trends for Big Data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus. One observation from Figure 5 is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale [1], cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure 5 is understandable in terms of finding cloud alternatives.
+
+Figure 2. Annual Wall Time Changes for Job Size in HPC between 2010 and 2013
+
+In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HPC in 2013 (See Figure 2). 24\% and 14\% of total wall time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU cores) has been intensively used in the last year. Compared to the previous year 2012, the request has been increasted about 350\%. In early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have been requested many times but in 2013, two thirds jobs are using more than 64 CPU cores in Figure 1.
  
 \section{Summary}
 
-TBD 
+We hope this activity provides a way of understanding performance and resource utilization across system and application layers. Cloud users can suffer performance degradation in a pool of shared resources, and monitoring physical resources is not enough to mitigate the degradation in the infrastructure. The classification of performance managements on the cloud provides an inside visibility to help identify the issues easily and finding solutions.
+
+\section{Future Work}
+
+We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting.
+
+In a sense of security, accounting is also able to provide some information for investigation of suspected security intrusions not only providing resource usage1 monitoring. Billing is another purpose of accounting.
 
 \appendix{FROM OLD PAPER}
 
