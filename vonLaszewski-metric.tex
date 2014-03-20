@@ -1,6 +1,6 @@
 \documentclass{sig-alternate} 
 
-\newcommand{\TITLE}{Towards Understanding Cloud Usage with Measuring Resource Allocation}
+\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis}
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,7 +111,7 @@ Geoffrey C. Fox\\
 \maketitle 
 \begin{abstract} 
 
-In utility computing, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover usage pattern in historical data. Virtual resources such as compute, storage and network are typically measured to evaluate time and cost of user applications and the statistics for resource used offer visibility to utilization of the cloud.
+In utility computing, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover usage pattern in historical data. Virtual resources such as compute, storage and network are typically measured to evaluate time and cost of user applications and the statistics for resource used offer visibility to utilization of the cloud. With FutureGrid CloudMetrics, cloud usage data can be collected in an integrated accounting framework across OpenStack, Eucalyptus, and Nimbus IaaS platforms. This article provides statistical analysis of FutureGrid projects by tracing resource allocation on FutureGrid resources.
 
 \end{abstract} 
  
@@ -176,7 +176,7 @@ Billing is about issuing a bill to a user for what they used. Billing system usu
 
 Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system. 
 
-\section{Usage Measurement on IaaS}
+\section{Usage Measurement for IaaS}
 
 \subsection{OpenStack}
 
@@ -396,19 +396,17 @@ Amazon DevPay is a reseller model which provide a billing and account management
 
 Figure 6. Billing Service - Amazon DevPay
 
-\subsection{Monitoring in HPC}
+\section{Monitoring on HPC}
 
 Monitoring in high-performance computing has a similarity to Cloud Computing. It provides fixed number of jobs that a user can create and each job runs on a same size of nodes in clusters. There are also common management tools to clusters, so accounting data can be collected from these tools.
 
-\subsubsection{XDMoD}
+\subsection{XDMoD}
 
 XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API.
 
 [Performance metrics and auditing framework using application kernels for high-performance computer systems]
 
 [Using XDMoD to Facilitate XSEDE Operations, Planning and Analysis]
-
-\section{Related Work} \label{S:related}
 
 \subsection{Nagios}
 
