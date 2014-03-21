@@ -474,11 +474,23 @@ In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HP
 
 \subsection{Pricing Comparison}
 
-Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine, HP Cloud, IBM and Rackspace are compared.
+Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine, HP Cloud, IBM and Rackspace are compared. Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have more options to save a cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time. In Table~\ref{T:tab0}, different price tags for virtual machine instances are described. With the comparison of the smallest vm instance which is 1 virtual core, 600-768MB memory and no storage option, we can see most IaaS service providers have similar pricing charts.
+
+\begin{table*}[h!]
+%\caption{Pricing chart for instances from AWS, GCE, and Azure \newline * China (Beijing) region will be available in early 2014, and GovCloud region is also included.}\label{T:tab0}
+\caption{Pricing chart for instances from AWS, GCE, and Azure}\label{T:tab0}
+\begin{tabular}{l|l|l|l}
+     &	Billing granularity &	Price &	Variation for Price \\
+  \hline
+AWS &	By hour	& \$0.02 &	10 regions*, 6 platforms \\
+GCE &	By minute, with a minimum of 10 minutes &	\$0.019  &	2 regions (Us, Europe) \\
+Azure &	By minute, No minimum, No billing for less than 5 minutes & \$0.02 &	6 regions, 5 platforms \\
+\end{tabular}
+\end{table*}
 
 \subsubsection{Example of Pricing Comparison}
 
-We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resource. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, 4 shows pricing comparison to the class.
+We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resource. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
 
 \begin{table*}[h!]
 \caption{Usage data to the class}\label{T:tab1}
@@ -507,18 +519,6 @@ Azure & \$2,580.03  & \$0.06 / \$0.12 / \$0.24 per hour (Linux) & Minute basis c
 \end{tabular}
 \end{table*}
 
-\subsubsection{Comparison}
-
-Table 1. Pricing chart for instances from AWS, GCE, and Azure
-	Billing granularity	Price	Variation for Price
-AWS	By hour	\$0.02 (smallest)*	10 regions**, 6 platforms
-GCE	By minute, with a minimum of 10 minutes	\$0.019 (smallest)*	2 regions (Us, Europe)
-Azure	By minute, No minimum, No billing for less than 5 minutes	\$0.02 (smallest)*	6 regions, 5 platforms
-* Smallest VM instance: 1 virtual core, 600~768MB memory, no storage
-** China (Beijing) region will be available in early 2014, and GovCloud region is also included.
-
-Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have more options to save a cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time.
-
 
 \section{Summary}
 
@@ -531,10 +531,9 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 In a sense of security, accounting is also able to provide some information for investigation of suspected security intrusions not only providing resource usage1 monitoring. Billing is another purpose of accounting.
 
 
-\section{tables}
 
 \begin{sidewaystable*}
-\caption{table 2}\label{T:tab2}
+\caption{table 3}\label{T:tab3}
 
 \begin{small}
 \begin{tabular}{|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|}
@@ -568,10 +567,6 @@ Rackspace & minute &  & varies & Linux; Windows, (windows: 25\% extra charge) & 
 \end{small}
 \end{sidewaystable*}
 
-
-\section{Images}
-
-\section{COMPARISON}
 
 % Provider	Charging	Cost
 % 1 vCPU /hour	Cost
