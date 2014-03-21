@@ -456,17 +456,27 @@ During the semester, 25 hosts, 216 vCPUs and 600GB memories were reserved for th
   \caption{vCPU Utilization (approximation per hour)}\label{F:fig6} 
 \end{figure} 
 
-High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure 5, we can see Big Data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested Big Data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today.s trends for Big Data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus. One observation from Figure 5 is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale [1], cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure 5 is understandable in terms of finding cloud alternatives.
+High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure~\ref{F:bigdata}, we can see Big Data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested Big Data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today.s trends for Big Data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale [1], cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
 
-Figure 2. Annual Wall Time Changes for Job Size in HPC between 2010 and 2013
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1.0\columnwidth]{images/bigdata.pdf} 
+  \caption{Service changes for along with Big Data between 2010 and 2013}\label{F:bigdata} 
+\end{figure} 
 
-In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HPC in 2013 (See Figure 2). 24\% and 14\% of total wall time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU cores) has been intensively used in the last year. Compared to the previous year 2012, the request has been increasted about 350\%. In early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have been requested many times but in 2013, two thirds jobs are using more than 64 CPU cores in Figure 1.
- 
+In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HPC in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and 14\% of total wall time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU cores) has been intensively used in the last year. Compared to the previous year 2012, the request has been increased about 350\%. In early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have been requested many times but in 2013, two thirds jobs are using more than 64 CPU cores.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1.0\columnwidth]{images/bigdatainhpc.pdf} 
+  \caption{Annual Wall Time Changes for Job Size in HPC between 2010 and 2013}\label{F:bigdatainhpc} 
+\end{figure} 
+
 \subsection{Pricing Comparison}
 
 Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine, HP Cloud, IBM and Rackspace are compared.
 
-\subsubsection{Example of pricing comparison}
+\subsubsection{Example of Pricing Comparison}
 
 We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resource. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table 3, 4 shows pricing comparison to the class.
 
