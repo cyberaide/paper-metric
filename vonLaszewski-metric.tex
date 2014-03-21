@@ -17,7 +17,7 @@
 \usepackage{rotating} 
 \usepackage{color} 
 \usepackage{listings}
- 
+
 \newcommand*\rot{\rotatebox{90}} 
  
 \newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
@@ -478,23 +478,34 @@ Comparing pricing of the cloud is complicated and may lead to false analogy beca
 
 \subsubsection{Example of Pricing Comparison}
 
-We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resource. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table 3, 4 shows pricing comparison to the class.
+We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resource. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, 4 shows pricing comparison to the class.
 
-Table 3. Usage data of the class
+\begin{table*}[h!]
+\caption{Usage data to the class}\label{T:tab1}
+\begin{tabular}{l|l|l|l|l|l}
+Instance types & Instance count & Hour basis & Minute basis & Google 10mins minimum charge & Azure 5mins free \\
+  \hline
+small & 165 & 37,140 & 29,622 & 29,875 &29,582 \\
+medium & 6 & 16,080 & 15,891 & 15,891 & 15,891 \\
+large & 490 & 649,860 & 629,969 & 631,047 & 629,667 \\
+  \hline \hline
+Total & 661 & 703,080 & 675,482 & 676,813 & 675,140 \\
+\end{tabular}
+\end{table*}
 
-Instance types	Instance count	Hour basis	Minute basis	With Google 10-minute minimum charge	with Azure 5-minute free
-small	165	619 hrs (37,140 mins)	29,622 mins	29,875 mins	29,582 mins
-medium	6	268 hrs (16,080 mins)	15,891 mins	15,891 mins	15,891 mins
-large	490	10,831 hrs (649,860 mins)	629,969 mins	631,047 mins	629,667 mins
-Total	661	11,718 hrs (703,080 mins)	675,482 mins	676,813 mins	675,140 mins
-* Instance types are not same. Chosen by a similarity of vCPU and Memory
-** Captured by January, 2014
+%* Instance types are not same. Chosen by a similarity of vCPU and Memory
+%** Captured by January, 2014
 
-Table 4. Pricing comparison to the class
-Service	Cost Estimate	Pricing (Small/Medium/Large)	Restriction
-AWS	$2,668.74	$0.06\$0.12\$0.24 per hour (US East Region, Linux)	Hour basis charge
-GCE	$2,231.54	$0.054\$0.104\$0.207 per hour (US Region, Linux)	Minute basis charge with 10-minute minimum
-Azure	$2,580.03	$0.06\$0.12\$0.24 per hour (Linux)	Minute basis charge with 5 less minute free
+\begin{table*}[h!]
+\caption{Pricing comparison to the class}\label{T:tab2}
+\begin{tabular}{l|l|l|l|l}
+Service & Cost Estimate & Pricing (Small/Medium/Large) & Restriction \\
+ \hline
+AWS & \$2,668.74  & \$0.06 / \$0.12 / \$0.24 per hour (US East Region; Linux) & Hour basis charge\\
+GCE & \$2,231.54  & \$0.054 / \$0.104 / \$0.207 per hour (US Region; Linux) & Minute basis charge with 10-minute minimum\\
+Azure & \$2,580.03  & \$0.06 / \$0.12 / \$0.24 per hour (Linux) & Minute basis charge with 5 less minute free\\
+\end{tabular}
+\end{table*}
 
 \subsubsection{Comparison}
 
@@ -521,28 +532,6 @@ In a sense of security, accounting is also able to provide some information for 
 
 
 \section{tables}
-
-\begin{table*}[htb]
-\caption{table 1}\label{T:tab1}
-\begin{tabular}{lllll}
-Service & Cost Estimate & Pricing (Small/Medium/Large) & Restriction \\
-AWS & \$2 & 668.74  & \$0.06 \$0.12 \$0.24 per hour (US East Region; Linux) & Hour basis charge\\
-GCE & \$2 & 231.54  & \$0.054 \$0.104 \$0.207 per hour (US Region; Linux) & Minute basis charge with 10-minute minimum\\
-Azure & \$2 & 580.03  & \$0.06 \$0.12 \$0.24 per hour (Linux) & Minute basis charge with 5 less minute free\\
-\end{tabular}
-\end{table*}
-
-\begin{table*}[htb]
-\caption{table 2}\label{T:tab2}
-\begin{tabular}{llllll}
-Instance types & Instance count & Hour basis & Minute basis & With Google 10-minute minimum charge & with Azure 5-minute free \\
-small & 165 & 619 hrs (37,140 mins) & 29,622 mins & 29,875 mins &29,582 mins \\
-medium & 6 & 268 hrs (16,080 mins) & 15,891 mins & 15,891 mins & 15,891 mins\\
-large & 490 & 10,831 hrs (649,860 mins) & 629,969 mins & 631,047 mins & 629,667 mins\\
-Total & 661 & 11,718 hrs (703,080 mins) & 675,482 mins & 676,813 mins & 675,140 mins\\
-\end{tabular}
-\end{table*}
-
 
 \begin{sidewaystable*}
 \caption{table 2}\label{T:tab2}
