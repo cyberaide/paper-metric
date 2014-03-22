@@ -133,7 +133,7 @@ In utility computing, usage data is necessary to identify utilization of the inf
 \subsection{Background}
 In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
 
-Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources [1]. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
+Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources ~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
 
 \subsection{Real Consumption vs Allocation}
 There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
@@ -215,19 +215,13 @@ There are four basic components to Ceilometer:
   \item API server: runs on management servers to provide statistics about the measured data.
 \end{itemize}
 
-An API server provides access to metering data in the database via a REST API. A central agent polls utilization statistics for other resources not tied to instances or compute nodes. There may be only one instance of the central agent running for the infrastructure. A compute agent polls metering data and instances statistics from the compute node (primarily the hypervisor). Compute agents must run on each compute node that needs to be monitored. A collector monitors the message queues (for notifications sent by the infrastructure and for metering data coming from the agents). Notification messages are processed, turned into metering messages, signed, and sent back out onto the message bus using the appropriate topic. The collector may run on one or more management servers. A data store is a database capable of handling concurrent writes (from one or more collector instances) and reads (from the API server). The collector, central agent, and API may run on any node. These services communicate using the standard OpenStack messaging bus. Only the collector and API server have access to the data store. The supported databases are MongoDB, MySQL, PostgreSQL, HBase and DB2 [ceilometerdatabase]; however, A dedicated host for storing the Ceilometer database is recommended, as it can generate lots of writes . Production scale metering is estimated to have 386 writes per second and 33,360,480 events a day, which would require 239 Gb of volume for storing statistics per month. [volumeofceilometer]
+An API server provides access to metering data in the database via a REST API. A central agent polls utilization statistics for other resources not tied to instances or compute nodes. There may be only one instance of the central agent running for the infrastructure. A compute agent polls metering data and instances statistics from the compute node (primarily the hypervisor). Compute agents must run on each compute node that needs to be monitored. A collector monitors the message queues (for notifications sent by the infrastructure and for metering data coming from the agents). Notification messages are processed, turned into metering messages, signed, and sent back out onto the message bus using the appropriate topic. The collector may run on one or more management servers. A data store is a database capable of handling concurrent writes (from one or more collector instances) and reads (from the API server). The collector, central agent, and API may run on any node. These services communicate using the standard OpenStack messaging bus. Only the collector and API server have access to the data store. The supported databases are MongoDB, MySQL, PostgreSQL, HBase and DB2; however, A dedicated host for storing the Ceilometer database is recommended, as it can generate lots of writes. Production scale metering is estimated to have 386 writes per second and 33,360,480 events a day, which would require 239 Gb of volume for storing statistics per month. ~\cite{Barcet12}
 
 Openstack itself has notification systems built into the existing OpenStack components. Most usage data are collected from these notification systems. Ceilometer also requests metering messages from a pollster plugin using the 'ceilometer.poll.compute' namespace.
 
 \subsubsection{Ceilometer with OpenStack Heat for autoscaling}
 
-The OpenStack Orchestration program, Heat, provides an autoscaling service with Ceilometer like Amazon CloudFormation. OpenStack Heat scales VM capacity up or down according to the metrics from Ceilometer. Ceilometer collects metrics for virtual machines and its alarming module calls the Heat API if the threshold for the metrics is reached. Heat triggers the upscaling or the downscaling virtual machines once it is notified by Ceilometer. This integration of Heat and Ceilometer allows you to ensure optimal utilization by managing the number of virtual machine instances. Amazon has a similar combination of AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values. [autoscalingwithheatandceilometer]
-
-\subsubsection{Ceilometer on Horizon}
-
-Horizon dashboard, a web-based graphical user interface, adds a new panel for Ceilometer in OpenStack Havana through the admin panel.
-
-[ceilometeronhorizon]
+The OpenStack Orchestration program, Heat, provides an autoscaling service with Ceilometer like Amazon CloudFormation. OpenStack Heat scales VM capacity up or down according to the metrics from Ceilometer. Ceilometer collects metrics for virtual machines and its alarming module calls the Heat API if the threshold for the metrics is reached. Heat triggers the upscaling or the downscaling virtual machines once it is notified by Ceilometer. This integration of Heat and Ceilometer allows you to ensure optimal utilization by managing the number of virtual machine instances. Amazon has a similar combination of AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values. ~\cite{Abaakouk13}
 
 \subsubsection{Nova command line tools for usage statistics}
 
@@ -270,23 +264,17 @@ Usage from 2014-02-14 to 2014-03-15:
 
 \end{lstlisting}
 
-[usagestatistics]
-
-Usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications' 'event\_type, which is a hierarchical dotted string such as compute.instance.create, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate, created when a specific increment of usage occurs (such as creation of an instance) or periodic, generated by a periodic task, like a cron job, and covering usage for a certain period of time. Besides the standard Nova Notification priority, notification timestamp, and event\_type, usage notifications contain a payload of data that will vary depending on the event\_type. This is presented as a json-formatted hash of key-value pairs. Some of the keys, such as tenant\_id will always be present in any usage notification, others will be data relevent to that event\_type (For example, instance related notifications will contain data describing the instance.)
-
-[systemusagedata]
+Usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications' 'event\_type, which is a hierarchical dotted string such as compute.instance.create, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate, created when a specific increment of usage occurs (such as creation of an instance) or periodic, generated by a periodic task, like a cron job, and covering usage for a certain period of time. Besides the standard Nova Notification priority, notification timestamp, and event\_type, usage notifications contain a payload of data that will vary depending on the event\_type. This is presented as a json-formatted hash of key-value pairs. Some of the keys, such as tenant\_id will always be present in any usage notification, others will be data relevent to that event\_type (For example, instance related notifications will contain data describing the instance.) ~\cite{SystemUsageData}
 
 \subsection{Eucalyptus}
 
-The Eucalyptus Amazon compatible private cloud has provided resource usage information through external monitoring tools such as Nagios and Ganglia. Since both Nagios and Ganglia have been proved to observe state data within distributed systems, Eucalyptus relied on integration with these tools for resource monitoring. To enhance system management, Eucalyptus recently improves summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties.
-
-[managing-reporting] [eureport-] [eureport-generate-report]
+The Eucalyptus Amazon compatible private cloud has provided resource usage information through external monitoring tools such as Nagios and Ganglia. Since both Nagios and Ganglia have been proved to observe state data within distributed systems, Eucalyptus relied on integration with these tools for resource monitoring. To enhance system management, Eucalyptus recently improves summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties. ~\cite{Euca2ools14}
 
 Regarding to commercial clouds, usage data is provided to cloud services running under your account.
 
 \subsection{Azure}
 
-Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers [1]. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
+Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers ~\cite{azure11}. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
 
 \begin{itemize}
  \item Windows Azure: an operating system that provides scalable compute and storage facilities.
@@ -294,7 +282,7 @@ Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to 
  \item Windows Azure AppFabric: a collection of services supporting applications both in the cloud and on premise.
 \end{itemize}
 
-The System Center Monitoring Pack for Windows Azure application is the most cost effective and flexible platform for managing traditional data centers, private and public clouds, and client computers and devices [2]. It provides monitoring of availability and performance for Windows Azure applications. It is the only unified management platform where multiple hypervisors, physical resources, and applications can be managed in a single offering. From a single console view, the IT assets like network, storage and compute can be organized into a hybrid cloud model spanning the private cloud and public cloud services.
+The System Center Monitoring Pack for Windows Azure application is the most cost effective and flexible platform for managing traditional data centers, private and public clouds, and client computers and devices ~\cite{MonitoringPackAzure11}. It provides monitoring of availability and performance for Windows Azure applications. It is the only unified management platform where multiple hypervisors, physical resources, and applications can be managed in a single offering. From a single console view, the IT assets like network, storage and compute can be organized into a hybrid cloud model spanning the private cloud and public cloud services.
 
 The monitoring pack runs on a specified agent and uses Windows API.s to remotely discover and collect information about a specified Windows Azure application. By default, the monitoring is not enabled. Therefore, the discovery must be configured by using the Windows Azure Application monitoring template for each Windows Azure Application to be monitored.
 
@@ -320,8 +308,8 @@ Implementing monitoring means, launching the diagnostic instance and this instan
 The performance monitoring can be enabled by implementing some code or using some tools like:
 
 \begin{itemize}
-\item Powershell cmdlets for Windows Azure [3]
-\item Azure Diagnostics Manager 2 from Cerebrata [4]
+  \item Powershell cmdlets for Windows Azure ~\cite{cmdlets}
+  \item Azure Diagnostics Manager 2 from Cerebrata ~\cite{cerebrata}
 \end{itemize}
 
 By using these tools one instance of Windows Azure is configured to collect some performance counters without modifying the application code. The performance data will be collected by the Azure Diagnostic Monitor and moved at the interval user specified to a table called WADPerformanceCounters. User can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. Diagnostic data is not permanently stored unless user transfers the data to the Windows Azure storage emulator or to Windows Azure storage. After the data is transferred to storage it can be viewed with one of several available tools. To collect Windows Event logs in a Windows Azure application, the Event logs data source must be configured.
@@ -350,11 +338,7 @@ Monitoring in high-performance computing has a similarity to Cloud Computing. It
 
 \subsection{XDMoD}
 
-XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API.
-
-[Performance metrics and auditing framework using application kernels for high-performance computer systems]
-
-[Using XDMoD to Facilitate XSEDE Operations, Planning and Analysis]
+XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API. ~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}
 
 \subsection{Nagios}
 
@@ -456,7 +440,7 @@ During the semester, 25 hosts, 216 vCPUs and 600GB memories were reserved for th
   \caption{vCPU Utilization (approximation per hour)}\label{F:fig6} 
 \end{figure} 
 
-High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure~\ref{F:bigdata}, we can see Big Data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested Big Data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today.s trends for Big Data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale [1], cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
+High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure~\ref{F:bigdata}, we can see Big Data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested Big Data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today.s trends for Big Data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale~\cite{rightscalereport13}, cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
 
 \begin{figure}[h!]
   \centering
@@ -615,19 +599,12 @@ Rackspace & minute &  & varies & Linux; Windows, (windows: 25\% extra charge) & 
 % Commitment discount (4% to 40%)
 % Prepayment discount with commitment (7% to 55%)	$300 developer discount ($50 each for six months)
 
-\section{Citations}
-
-just to show whats in cyberaide-metrics.bib
-
-% \cite{www-c,www-b,www-a,www-abc,www-salsa-class,www-amzon-calculator2,www-o,www-n,www-m,www-l,www-k,www-j,www-i,www-h,www-g,www-f,www-w,www-v,www-u,www-t,www-s,www-r,www-q,www-p,www-e,www-d,www-amzon-calculator-1,www-amzon-calculator-2}
- 
-
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Acknowledgment 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   
-\section*{Acknowledgement} 
+\section{Acknowledgement} 
  
 This material is based upon work supported in part by the National Science Foundation under Grant No. 0910812.
  
