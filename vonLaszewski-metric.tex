@@ -111,7 +111,7 @@ Geoffrey C. Fox\\
 \maketitle 
 \begin{abstract} 
 
-In utility computing, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance of the infrastructure is crucial to offer better user support, system management and capacity planning. In this paper, we present an integrated cloud accounting system on XSEDE, Cloud Metrics, to measure cloud usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With the Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of XSEDE cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid as XSEDE resources.
+In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution on XSEDE, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of XSEDE cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid as XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance on XSEDE.
 
 \end{abstract} 
  
@@ -120,9 +120,9 @@ In utility computing, usage data is necessary to identify utilization of the inf
 %A category including the fourth, optional field follows... 
 \category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures] 
  
-\terms{Theory} 
+\terms{Measurement, Performance} 
  
-\keywords{Resource monitoring, cloud accounting, metering, XSEDE} 
+\keywords{XSEDE, Cloud Metrics, FutureGrid, Resource monitoring, cloud accounting, metering} 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
@@ -154,7 +154,7 @@ Estimating future requests (Prediction) - it discovers usage patterns and trends
 
 Reporting - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
 
-There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values and a command line tool to show metered data. At a certain point, a graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen Google Chart API to generate PNG chart files via command line tools. 
+There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager ~\cite{jacksongold} are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts ~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
 
 \subsection{Definition}
 
@@ -361,39 +361,36 @@ Rackspace Cloud Monitoring is an API driven monitoring system which allows admin
 
 \section{System Design} \label{S:design}
 
-FutureGrid Cloud Metrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
+Cloud Metrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
 
 \begin{itemize}
- \item A parsing tool of log messages
+ \item A measuring tool of resource used
  \item A command-line interface to explore the cloud usage data
  \item A visualization to help understand usage data
- \item A REST Service to support external services
+ \item A RESTful API Service to support external services
 \end{itemize}
 
-We have observed Eucalyptus generates resource usage information via log messages and OpenStack Essex stores virtual instances information to database. We have an idea for gathering resource utilization data using the log messages and database and for incorporating the data into one place. As a first step, we have implemented a log parsing tool for Eucalyptus to collect metering values and have provided a command line tool to obtain statistical results. For better presenting of numerical values and relationships with other metrics, we adopted charting libraries and they are helping us to provide succinct explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how Cloud Metrics works on IaaS.
+We have observed Eucalyptus generates resource usage information via log messages and OpenStack stores virtual instances information into database. Nimbus has a separated database about the deployment of virtual instances. We have been collecting information about resource utilization from the log messages and the database and incorporating the collected data into one place. These data aligned with a unique user account to provide integrated resource utilization across geographically distributed regions and services. For better presenting of numerical values and relationships with other metrics, we used external charting libraries such as HighCharts, Google Chart APIs. With rich variety of charts, we can provide better explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how Cloud Metrics works on IaaS.
 
 \begin{figure}[h!] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/Picture1.pdf} 
-  \caption{Overview of FutureGrid Cloud Metrics}\label{F:fig1} 
+  \caption{Overview of Cloud Metrics}\label{F:fig1} 
 \end{figure} 
 
 
 \section{Implementation} \label{S:implementation}
 
-FG Cloud Metrics consists of two main parts: 1) a log parser and 2) an analyzer with visualization tools. We named the log parser as fg-parser which is a python script executable on Unix/Linux command. fg-parser reads and examines log messages of cloud platforms to collect metrics values and stores the values into a database system using a python dictionary data type. fg-analyzer takes the role of measuring usage data and displaying output in a graphical way. We assume every measured data is stored in the database, fg-analyzer loads the database and be ready to calculate metrics when a user specifies on the python cmd command line framework. fg-analyzer line-oriented interpreters allow the user to describe desired metrics and help to generate graphical output in various chart types. At this time, fg cloud metric supports Eucalyptus 2.0, and 3.0 and OpenStack except Nimbus, and OpenNebula.
+Cloud Metrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services ~\cite{cloudmesh14}.
 
-\subsection{Log Parser}
+\subsection{Metric Collector}
 
-fg-parser is an executable python script on Linux/Unix shell. It gets a path of log files as an input or a standard input as well. There are fixed templates to parse log messages using regular expressions and they are important for that what type of log events will be collected and how to be parsed to avoid parsing errors that cause missing events. We examined log messages of eucalyptus and realized eucalyptus generates detailed instance information using print\_ccInstance( function in debug logging mode. So our fixed template for eucalyptus is parsing print\_ccInstance( events of logs and fg-parser collects metrical values such as userid, instanceid, start and end time of an instance, number of cpu cores, disks, and memories and so on.
+fg-metric-converter and fg-log-parser are executable python scripts on Linux/Unix shell. These scripts are mainly collecting information of resource allocation from virtual instances. To get the information from Eucalyptus and OpenStack, basic templates are used to parse log messages using our pre-defined regular expressions. These are critical for that what type of log events will be collected and how it will be parsed without parsing errors and missing events. We have examined log messages of Eucalyptus and OpenStack and created templates for their instance information i.e. print\_ccInstance() function and nova.compute.resource_tracker in a debug logging mode. Our custom templates for these IaaS platforms parse the events of the logs in a periodic basis or a real-time. There are basic metrics such as userid, instanceid, time values of a vm instance, a number of virtual cpu cores, disks, and a size of memories.
 
-\subsection{Metric analyzer}
+\subsection{Metric analysis}
 
-fg-analyzer uses python cmd package to support command-line interpreters. It allows that a user describes desired data using basic commands, for example, set nodename india, and set analyze -M 05 -Y 2012. It also comes with graphical tools using external chart libraries such as Google Chart API, Highcharts, D3.js, and jQuery Sparkline.
+In FutureGrid, XSEDE users have a unique account id along with a project id across 8 different resources (Alamo, Bravo, Delta, Foxtrot, Hotel, India, Sierra, Xray). The Metric analysis tool named by fg-metrics searches usage information across distributed resouces and services with their unique id and provides results with search options. For example, a user can specify the options using basic commands such as, set nodename india, and set date -M 05 -Y 2012 to get usage information of India resource on May 2012. In addition , it supports different output types with graphical representation tools such as Google Chart API, Highcharts, D3.js, and jQuery Sparkline.
 
-\subsection{Data structure - Python Dictionary}
-
-Python dictionary (dict) provides key-value pair data structure which might be easy to handle unordered objects with any immutable type. It also can be easily converted to JSON or backwards using json and simplejson packages.
 
 \section{Results and Analyses} \label{S:result}
 
