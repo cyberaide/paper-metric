@@ -1,6 +1,6 @@
 \documentclass{sig-alternate} 
 
-\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis}
+\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis on XSEDE}
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,7 +68,7 @@ tabsize=3
 \begin{document} 
 % 
 % --- Author Metadata here --- 
-\conferenceinfo{TBD}{TBD Address} 
+\conferenceinfo{XSEDE}{Atlanta, Georgia 30303 USA} 
 \CopyrightYear{2014}  
 \crdata{X-XXXXX-XX-X/XX/XX}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE. 
 % --- End of Author Metadata --- 
@@ -105,13 +105,13 @@ Geoffrey C. Fox\\
        \affaddr{Bloomington, Indiana, U.S.A.}\\ 
 \and  % use '\and' if you need 'another row' of author names 
 } 
-\date{13 March 2014} 
+\date{24 March 2014} 
  
 \toappear{} 
 \maketitle 
 \begin{abstract} 
 
-In utility computing, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover usage pattern in historical data. Virtual resources such as compute, storage and network are typically measured to evaluate time and cost of user applications and the statistics for resource used offer visibility to utilization of the cloud. With FutureGrid CloudMetrics, cloud usage data can be collected in an integrated accounting framework across OpenStack, Eucalyptus, and Nimbus IaaS platforms. This article provides statistical analysis of FutureGrid projects by tracing resource allocation on FutureGrid resources.
+In utility computing, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance of the infrastructure is crucial to offer better user support, system management and capacity planning. In this paper, we present an integrated cloud accounting system on XSEDE, Cloud Metrics, to measure cloud usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With the Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of XSEDE cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid as XSEDE resources.
 
 \end{abstract} 
  
@@ -122,7 +122,7 @@ In utility computing, usage data is necessary to identify utilization of the inf
  
 \terms{Theory} 
  
-\keywords{Scientific impact, bibliometric, h-index, Technology audit, XSEDE} 
+\keywords{Resource monitoring, cloud accounting, metering, XSEDE} 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
@@ -623,4 +623,4 @@ bib/cyberaide-cloud}
  
 \end{document} 
  
- 
+
