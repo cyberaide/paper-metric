@@ -133,7 +133,7 @@ In shared resource environments, usage data is necessary to identify utilization
 \subsection{Background}
 In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
 
-Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources ~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
+Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
 
 \subsection{Real Consumption vs Allocation}
 There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
@@ -154,7 +154,7 @@ Estimating future requests (Prediction) - it discovers usage patterns and trends
 
 Reporting - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
 
-There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager ~\cite{jacksongold} are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts ~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
+There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager~\cite{jacksongold} are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
 
 \subsection{Definition}
 
@@ -215,21 +215,21 @@ There are four basic components to Ceilometer:
   \item API server: runs on management servers to provide statistics about the measured data.
 \end{itemize}
 
-An API server provides access to metering data in the database via a REST API. A central agent polls utilization statistics for other resources not tied to instances or compute nodes. There may be only one instance of the central agent running for the infrastructure. A compute agent polls metering data and instances statistics from the compute node (primarily the hypervisor). Compute agents must run on each compute node that needs to be monitored. A collector monitors the message queues (for notifications sent by the infrastructure and for metering data coming from the agents). Notification messages are processed, turned into metering messages, signed, and sent back out onto the message bus using the appropriate topic. The collector may run on one or more management servers. A data store is a database capable of handling concurrent writes (from one or more collector instances) and reads (from the API server). The collector, central agent, and API may run on any node. These services communicate using the standard OpenStack messaging bus. Only the collector and API server have access to the data store. The supported databases are MongoDB, MySQL, PostgreSQL, HBase and DB2; however, A dedicated host for storing the Ceilometer database is recommended, as it can generate lots of writes. Production scale metering is estimated to have 386 writes per second and 33,360,480 events a day, which would require 239 Gb of volume for storing statistics per month. ~\cite{Barcet12}
+An API server provides access to metering data in the database via a REST API. A central agent polls utilization statistics for other resources not tied to instances or compute nodes. There may be only one instance of the central agent running for the infrastructure. A compute agent polls metering data and instances statistics from the compute node (primarily the hypervisor). Compute agents must run on each compute node that needs to be monitored. A collector monitors the message queues (for notifications sent by the infrastructure and for metering data coming from the agents). Notification messages are processed, turned into metering messages, signed, and sent back out onto the message bus using the appropriate topic. The collector may run on one or more management servers. A data store is a database capable of handling concurrent writes (from one or more collector instances) and reads (from the API server). The collector, central agent, and API may run on any node. These services communicate using the standard OpenStack messaging bus. Only the collector and API server have access to the data store. The supported databases are MongoDB, MySQL, PostgreSQL, HBase and DB2; however, A dedicated host for storing the Ceilometer database is recommended, as it can generate lots of writes. Production scale metering is estimated to have 386 writes per second and 33,360,480 events a day, which would require 239 Gb of volume for storing statistics per month~\cite{Barcet12}.
 
 Openstack itself has notification systems built into the existing OpenStack components. Most usage data are collected from these notification systems. Ceilometer also requests metering messages from a pollster plugin using the 'ceilometer.poll.compute' namespace.
 
 \subsubsection{Ceilometer with OpenStack Heat for autoscaling}
 
-The OpenStack Orchestration program, Heat, provides an autoscaling service with Ceilometer like Amazon CloudFormation. OpenStack Heat scales VM capacity up or down according to the metrics from Ceilometer. Ceilometer collects metrics for virtual machines and its alarming module calls the Heat API if the threshold for the metrics is reached. Heat triggers the upscaling or the downscaling virtual machines once it is notified by Ceilometer. This integration of Heat and Ceilometer allows you to ensure optimal utilization by managing the number of virtual machine instances. Amazon has a similar combination of AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values. ~\cite{Abaakouk13}
+The OpenStack Orchestration program, Heat, provides an autoscaling service with Ceilometer like Amazon CloudFormation. OpenStack Heat scales VM capacity up or down according to the metrics from Ceilometer. Ceilometer collects metrics for virtual machines and its alarming module calls the Heat API if the threshold for the metrics is reached. Heat triggers the upscaling or the downscaling virtual machines once it is notified by Ceilometer. This integration of Heat and Ceilometer allows you to ensure optimal utilization by managing the number of virtual machine instances. Amazon has a similar combination of AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values~\cite{Abaakouk13}.
 
 \subsubsection{Nova command line tools for usage statistics}
 
-Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version. \newline
-Example 1. Display a summary of resource usage of the devstack-grizzly host
+Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version. 
 
-\begin{lstlisting}
-
+\begin{figure}[htb]
+\begin{small}
+\begin{verbatim}
 $ nova host-describe sierra
 +--------+------------+-----+-----------+---------+
 |  HOST  | PROJECT    | cpu | memory_mb | disk_gb |
@@ -241,40 +241,48 @@ $ nova host-describe sierra
 | sierra | project2   | 2   | 4096      | 40      |
 | sierra | project3   | 1   | 2048      | 20      |
 +--------+------------+-----+-----------+---------+
+\end{verbatim}
+\end{small}
+\caption{Example 1. Display a summary of resource usage of the devstack-grizzly host.}
+\label{F:host-describe}
+\end{figure}
 
-\end{lstlisting}
 
-Usage data can be provided by Tenant Id which is a group of openstack cloud users. Each tenant id represents a group or an account to the group members, so usage data for the tenant id are aggregated. \newline
+Usage data can be provided by Tenant Id which is a group of openstack cloud users. Each tenant id represents a group or an account to the group members, so usage data for the tenant id are aggregated. 
 
-Example 2. Summary statistics for tenants
-
-\begin{lstlisting}
-
+\begin{figure}[htb]
+\begin{small}
+\begin{verbatim}
 $ nova usage-list
 Usage from 2014-02-14 to 2014-03-15:
-+-----------+-----------+--------------+-----------+---------------+
-| Tenant ID | Instances | RAM MB-Hours | CPU Hours | Disk GB-Hours |
-+-----------+-----------+--------------+-----------+---------------+
-| user1     | 17        | 6840394.43   | 3340.04   | 66800.73      |
-| user2     | 17        | 185683.06    | 90.67     | 1813.31       |
-| user3     | 1         | 932256.36    | 455.20    | 9104.07       |
-| user4     | 26        | 4947215.08   | 2415.63   | 48312.65      |
-| user5     | 5         | 18644854.23  | 9103.93   | 182078.65     |
-+-----------+-----------+--------------+-----------+---------------+
++--------+---------+--------------+---------+-----------+
+| Tenant | Instan- | RAM MB-Hours | CPU     | Disk GB-  |
+| ID     | ces     |              | Hours   | GB-Hours  |
++--------+---------+--------------+---------+-----------+
+| user1  | 17      | 6840394.43   | 3340.04 | 66800.73  |
+| user2  | 17      | 185683.06    | 90.67   | 1813.31   |
+| user3  | 1       | 932256.36    | 455.20  | 9104.07   |
+| user4  | 26      | 4947215.08   | 2415.63 | 48312.65  |
+| user5  | 5       | 18644854.23  | 9103.93 | 182078.65 |
++--------+---------+--------------+---------+-----------+
+\end{verbatim}
+\end{small}
+\caption{Example 2. Summary statistics for tenants.}
+\label{F:host-describe}
+\end{figure}
 
-\end{lstlisting}
 
-Usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications' 'event\_type, which is a hierarchical dotted string such as compute.instance.create, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate, created when a specific increment of usage occurs (such as creation of an instance) or periodic, generated by a periodic task, like a cron job, and covering usage for a certain period of time. Besides the standard Nova Notification priority, notification timestamp, and event\_type, usage notifications contain a payload of data that will vary depending on the event\_type. This is presented as a json-formatted hash of key-value pairs. Some of the keys, such as tenant\_id will always be present in any usage notification, others will be data relevent to that event\_type (For example, instance related notifications will contain data describing the instance.) ~\cite{SystemUsageData}
+Usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications' 'event\_type, which is a hierarchical dotted string such as compute.instance.create, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate, created when a specific increment of usage occurs (such as creation of an instance) or periodic, generated by a periodic task, like a cron job, and covering usage for a certain period of time. Besides the standard Nova Notification priority, notification timestamp, and event\_type, usage notifications contain a payload of data that will vary depending on the event\_type. This is presented as a json-formatted hash of key-value pairs. Some of the keys, such as tenant\_id will always be present in any usage notification, others will be data relevent to that event\_type (for example, instance related notifications will contain data describing the instance)~\cite{SystemUsageData}.
 
 \subsection{Eucalyptus}
 
-The Eucalyptus Amazon compatible private cloud has provided resource usage information through external monitoring tools such as Nagios and Ganglia. Since both Nagios and Ganglia have been proved to observe state data within distributed systems, Eucalyptus relied on integration with these tools for resource monitoring. To enhance system management, Eucalyptus recently improves summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties. ~\cite{Euca2ools14}
+The Eucalyptus Amazon compatible private cloud has provided resource usage information through external monitoring tools such as Nagios and Ganglia. Since both Nagios and Ganglia have been proved to observe state data within distributed systems, Eucalyptus relied on integration with these tools for resource monitoring. To enhance system management, Eucalyptus recently improves summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties~\cite{Euca2ools14}.
 
 Regarding to commercial clouds, usage data is provided to cloud services running under your account.
 
 \subsection{Azure}
 
-Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers ~\cite{azure11}. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
+Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers~\cite{azure11}. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
 
 \begin{itemize}
  \item Windows Azure: an operating system that provides scalable compute and storage facilities.
@@ -282,7 +290,7 @@ Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to 
  \item Windows Azure AppFabric: a collection of services supporting applications both in the cloud and on premise.
 \end{itemize}
 
-The System Center Monitoring Pack for Windows Azure application is the most cost effective and flexible platform for managing traditional data centers, private and public clouds, and client computers and devices ~\cite{MonitoringPackAzure11}. It provides monitoring of availability and performance for Windows Azure applications. It is the only unified management platform where multiple hypervisors, physical resources, and applications can be managed in a single offering. From a single console view, the IT assets like network, storage and compute can be organized into a hybrid cloud model spanning the private cloud and public cloud services.
+The System Center Monitoring Pack for Windows Azure application is the most cost effective and flexible platform for managing traditional data centers, private and public clouds, and client computers and devices~\cite{MonitoringPackAzure11}. It provides monitoring of availability and performance for Windows Azure applications. It is the only unified management platform where multiple hypervisors, physical resources, and applications can be managed in a single offering. From a single console view, the IT assets like network, storage and compute can be organized into a hybrid cloud model spanning the private cloud and public cloud services.
 
 The monitoring pack runs on a specified agent and uses Windows API.s to remotely discover and collect information about a specified Windows Azure application. By default, the monitoring is not enabled. Therefore, the discovery must be configured by using the Windows Azure Application monitoring template for each Windows Azure Application to be monitored.
 
@@ -308,8 +316,8 @@ Implementing monitoring means, launching the diagnostic instance and this instan
 The performance monitoring can be enabled by implementing some code or using some tools like:
 
 \begin{itemize}
-  \item Powershell cmdlets for Windows Azure ~\cite{cmdlets}
-  \item Azure Diagnostics Manager 2 from Cerebrata ~\cite{cerebrata}
+  \item Powershell cmdlets for Windows Azure~\cite{cmdlets}
+  \item Azure Diagnostics Manager 2 from Cerebrata~\cite{cerebrata}
 \end{itemize}
 
 By using these tools one instance of Windows Azure is configured to collect some performance counters without modifying the application code. The performance data will be collected by the Azure Diagnostic Monitor and moved at the interval user specified to a table called WADPerformanceCounters. User can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. Diagnostic data is not permanently stored unless user transfers the data to the Windows Azure storage emulator or to Windows Azure storage. After the data is transferred to storage it can be viewed with one of several available tools. To collect Windows Event logs in a Windows Azure application, the Event logs data source must be configured.
@@ -338,7 +346,7 @@ Monitoring in high-performance computing has a similarity to Cloud Computing. It
 
 \subsection{XDMoD}
 
-XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API. ~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}
+XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}
 
 \subsection{Nagios}
 
@@ -381,7 +389,7 @@ We have observed Eucalyptus generates resource usage information via log message
 
 \section{Implementation} \label{S:implementation}
 
-Cloud Metrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services ~\cite{cloudmesh14}.
+Cloud Metrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
 
 \subsection{Metric Collector}
 
@@ -455,48 +463,60 @@ In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HP
 
 Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine (GCE), HP Cloud, IBM and Rackspace are compared. Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have several options to reduce cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time. In Table~\ref{T:tab0}, different price tags for virtual machine instances are described. With the comparison of the smallest vm instance which is 1 virtual core, 600-768MB memory and no storage option, we can see most IaaS service providers have similar pricing charts.
 
-\begin{table*}[h!]
+\begin{table}[h!]
 %\caption{Pricing chart for instances from AWS, GCE, and Azure \newline * China (Beijing) region will be available in early 2014, and GovCloud region is also included.}\label{T:tab0}
 \caption{Pricing chart for instances from AWS, GCE, and Azure}\label{T:tab0}
-\begin{tabular}{l|l|l|l}
-     &	Billing granularity &	Price &	Variation for Price \\
+\begin{tabular}{l|p{2.5cm}|l|p{2cm}}
+     &  \shortstack{Billing\\ granularity} &   Price & \shortstack{Price\\ Variation} \\
   \hline
-AWS &	By hour	& \$0.02 &	10 regions*, 6 platforms \\
-GCE &	By minute, with a minimum of 10 minutes &	\$0.019  &	2 regions (Us, Europe) \\
-Azure &	By minute, No minimum, No billing for less than 5 minutes & \$0.02 &	6 regions, 5 platforms \\
+AWS &   By hour & \$0.02 &      \shortstack{10 regions*,\\ 6 platforms} \\
+GCE &   By minute, with a minimum of 10 minutes &       \$0.019  &      \shortstack{2 regions\\ (US, Europe)} \\
+Azure & By minute, No minimum, No billing for less than 5 minutes & \$0.02 &    \shortstack{6 regions,\\ 5 platforms} \\
 \end{tabular}
-\end{table*}
+\end{table}
 
 \subsubsection{Example of Pricing Comparison}
 
 We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of the class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resources. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
 
-\begin{table*}[h!]
+\begin{table}[htb]
 \caption{Usage data to the class}\label{T:tab1}
-\begin{tabular}{l|l|l|l|l|l}
-Instance types & Instance count & Hour basis & Minute basis & Google 10mins minimum charge & Azure 5mins free \\
+\begin{small}
+\begin{tabular}{l|r|l|l|r|r}
+\shortstack{Instance\\types} & \shortstack{Instan-\\ces} & \shortstack{Charge\\by hour} & \shortstack{Charge\\by min} & Google$^1$ & Azure$^2$ \\
   \hline
 small & 165 & 37,140 & 29,622 & 29,875 &29,582 \\
 medium & 6 & 16,080 & 15,891 & 15,891 & 15,891 \\
 large & 490 & 649,860 & 629,969 & 631,047 & 629,667 \\
   \hline \hline
 Total & 661 & 703,080 & 675,482 & 676,813 & 675,140 \\
-\end{tabular}
-\end{table*}
+\end{tabular}\\
+$^1$ includes 10~min minimum charge\\
+$^2$ includes 5~min free charge
+\end{small}
+\end{table}
 
 %* Instance types are not same. Chosen by a similarity of vCPU and Memory
 %** Captured by January, 2014
 
-\begin{table*}[h!]
+\begin{table}[htb]
 \caption{Pricing comparison to the class}\label{T:tab2}
-\begin{tabular}{l|l|l|l|l}
-Service & Cost Estimate & Pricing (Small/Medium/Large) & Restriction \\
+\begin{small}
+\begin{tabular}{l|l|l|l|l|l|p{2cm}|}
+Service & Cost & \multicolumn{3}{|c|}{Price per hour} \\
+  & Estimate &  Small& Medium& Large \\
  \hline
-AWS & \$2,668.74  & \$0.06 / \$0.12 / \$0.24 per hour (US East Region; Linux) & Hour basis charge\\
-GCE & \$2,231.54  & \$0.054 / \$0.104 / \$0.207 per hour (US Region; Linux) & Minute basis charge with 10-minute minimum\\
-Azure & \$2,580.03  & \$0.06 / \$0.12 / \$0.24 per hour (Linux) & Minute basis charge with 5 less minute free\\
+AWS$^1$ & \$2,668.74  & \$0.06 & \$0.12 & \$0.24 \\
+GCE$^2$ & \$2,231.54  & \$0.054 & \$0.104 & \$0.207 \\
+Azure$^3$ & \$2,580.03  & \$0.06 & \$0.12 & \$0.24 \\ 
 \end{tabular}
-\end{table*}
+\\
+\\
+$^1$US East, Linux, charged 1 hour if runtime is <1 hour\\
+$^2$US, Linux, charged 10 minutes if runtime <10 minutes\\
+$^3$Linux, charged by minute but free is <5 minutes\\
+\end{small}
+\end{table}
 
 
 \section{Summary}
@@ -517,12 +537,12 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 % \begin{small}
 % \begin{tabular}{|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|}
 % \hline
-% Provider & Charging & Cost 1vCPU/hour	   & Cost 1GB/hour & OS & Max vCPU & Memory min - max &\# of instance types & Discount program & Free allowance\\
+% Provider & Charging & Cost 1vCPU/hour    & Cost 1GB/hour & OS & Max vCPU & Memory min - max &\# of instance types & Discount program & Free allowance\\
 % \hline
 % \hline
 % Aws & hourly & \$0.04  & \$0.02  & Linux & 32 & 615MB - & 22 & spot instance;  & \$100 for educators and student\\
-%     &  	     &         &  	 & Windows +14-56\%   	&    & 244GB    &       & reserved instances & Grant for researcher, AWS educated grant program\\
-%     &  	     &         &  	 & Asia + 25\% 		&    & 		       &       &  	  	    & \\
+%     &              &         &         & Windows +14-56\%     &    & 244GB    &       & reserved instances & Grant for researcher, AWS educated grant program\\
+%     &              &         &         & Asia + 25\%          &    &                 &       &                    & \\
 % \hline
 % Google Compute Engine & 10 minutes + & \$0.08  & \$0.01  & Linux (Debian; CentOS) & 16 & 600MB - & 1- & n/a & Google app reward programs\\
 %  & every minute after that &  &  & (RHEL; SUSE premium operating systems) *** &  & 104GB & (4 high cpu + 4 high memory + 2 small + 5 standard) &  & \$1000 for educator\\
@@ -547,52 +567,52 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 % \end{sidewaystable*}
 % 
 % 
-% Provider	Charging	Cost
-% 1 vCPU /hour	Cost
+% Provider      Charging        Cost
+% 1 vCPU /hour  Cost
 % 1 GB
-% /hour	OS	Max vCPU	Memory min - max	\# of instance types	Discount program	Free allowance
+% /hour OS      Max vCPU        Memory min - max        \# of instance types    Discount program        Free allowance
 % Aws
-% 	hourly	\$0.04
-% 	$0.01927	Linux
+%       hourly  \$0.04
+%       $0.01927        Linux
 % Windows +14-56% 
-% Asia + 25%	32	615MB -
-% 244GB	22	spot instance, 
-% reserved instances	$100 for educator's student
+% Asia + 25%    32      615MB -
+% 244GB 22      spot instance, 
+% reserved instances    $100 for educator's student
 % Grant for researcher
 % AWS educated grant program
-% Google Compute Engine	10 minutes +
-% every minute after that	$0.0788
-% 	$0.006636
+% Google Compute Engine 10 minutes +
+% every minute after that       $0.0788
+%       $0.006636
 % 
-% Europe + 4.5% - 27% 	Linux (Debian, CentOS)
-% (RHEL, SUSE premium operating systems) ***	16	600MB -
-% 104GB	15
-% (4 high cpu + 4 high memory + 2 small + 5 standard)	n/a	Google app reward programs
+% Europe + 4.5% - 27%   Linux (Debian, CentOS)
+% (RHEL, SUSE premium operating systems) ***    16      600MB -
+% 104GB 15
+% (4 high cpu + 4 high memory + 2 small + 5 standard)   n/a     Google app reward programs
 % $1000 for educator
 % $60,000 for research project
-% IBM CloudLayer (by Softlayer)	monthly
-% hourly	$0.5
+% IBM CloudLayer (by Softlayer) monthly
+% hourly        $0.5
 % to
-% $0.10	varies	Linux, 
+% $0.10 varies  Linux, 
 % Windows + $0.05 to
-%               $0.10 / hour	16	1GB 
+%               $0.10 / hour    16      1GB 
 % – 
-% 64GB	Build your own cloud server offers customized options		one month trial for 1 vcpu + 1gb memory + 25 storage
-% HP cloud	hourly	$0.015	$0.015	Linux, Windows, SUSE
+% 64GB  Build your own cloud server offers customized options           one month trial for 1 vcpu + 1gb memory + 25 storage
+% HP cloud      hourly  $0.015  $0.015  Linux, Windows, SUSE
 % (windows: 10-200% extra charge,
-% SUSE: 4% - 200% extra charge)	16	1GB 
+% SUSE: 4% - 200% extra charge) 16      1GB 
 % – 
-% 120GB	11 (8 standard + 3 memory intensive)		$300 free trial for 90 days ($100 for each month)
-% Microsoft Azure	Free first 5 minutes
-% 	$ 0.05	$0.02 (approx.)
-% Windows is expensive 30-50% more than linux	Linux, 
-% Windows + 30-50% 	8	768MB – 
-% 56GB	8 (A0-A7)	6-Month, 12-month pre-pay membership	$200 free trial of first month
-% Rackspace	minute		varies	Linux, Windows
-% (windows: 25% extra charge)	32	1GB – 
-% 120GB	9	Volume discount (4% to 20% for spending over $5,000 - $ 10, 000 per month, 8% for $10,001 - 30,000, 12% for $30,001 - $50,000)
+% 120GB 11 (8 standard + 3 memory intensive)            $300 free trial for 90 days ($100 for each month)
+% Microsoft Azure       Free first 5 minutes
+%       $ 0.05  $0.02 (approx.)
+% Windows is expensive 30-50% more than linux   Linux, 
+% Windows + 30-50%      8       768MB – 
+% 56GB  8 (A0-A7)       6-Month, 12-month pre-pay membership    $200 free trial of first month
+% Rackspace     minute          varies  Linux, Windows
+% (windows: 25% extra charge)   32      1GB – 
+% 120GB 9       Volume discount (4% to 20% for spending over $5,000 - $ 10, 000 per month, 8% for $10,001 - 30,000, 12% for $30,001 - $50,000)
 % Commitment discount (4% to 40%)
-% Prepayment discount with commitment (7% to 55%)	$300 developer discount ($50 each for six months)
+% Prepayment discount with commitment (7% to 55%)       $300 developer discount ($50 each for six months)
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
