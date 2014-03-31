@@ -230,7 +230,7 @@ The OpenStack Orchestration program, Heat, provides an autoscaling service with 
 
 Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version. 
 
-\begin{figure}[htb]
+\begin{figure}[h!]
 \begin{small}
 \begin{verbatim}
 $ nova host-describe sierra
@@ -246,14 +246,13 @@ $ nova host-describe sierra
 +--------+------------+-----+-----------+---------+
 \end{verbatim}
 \end{small}
-\caption{Example 1. Display a summary of resource usage of the devstack-grizzly host.}
+\caption{Display a summary of resource usage of the devstack-grizzly host}
 \label{F:host-describe}
 \end{figure}
 
-
 Usage data can be provided by Tenant Id which is a group of openstack cloud users. Each tenant id represents a group or an account to the group members, so usage data for the tenant id are aggregated. 
 
-\begin{figure}[htb]
+\begin{figure}[h!]
 \begin{small}
 \begin{verbatim}
 $ nova usage-list
@@ -270,7 +269,7 @@ Usage from 2014-02-14 to 2014-03-15:
 +--------+---------+--------------+---------+-----------+
 \end{verbatim}
 \end{small}
-\caption{Example 2. Summary statistics for tenants.}
+\caption{Summary statistics for tenants}
 \label{F:host-describe}
 \end{figure}
 
@@ -473,16 +472,18 @@ Comparing pricing of the cloud is complicated and may lead to false analogy beca
      &  \shortstack{Billing\\ granularity} &   Price & \shortstack{Price\\ Variation} \\
   \hline
 AWS &   By hour & \$0.02 &      \shortstack{10 regions*,\\ 6 platforms} \\
-GCE &   By minute, with a minimum of 10 minutes &       \$0.019  &      \shortstack{2 regions\\ (US, Europe)} \\
-Azure & By minute, No minimum, No billing for less than 5 minutes & \$0.02 &    \shortstack{6 regions,\\ 5 platforms} \\
-\end{tabular}
+GCE &   By minute$^1$ &       \$0.019  &      \shortstack{2 regions\\ (US, Europe)} \\
+Azure & By minute$^2$ & \$0.02 &    \shortstack{6 regions,\\ 5 platforms} \\
+\end{tabular}\\
+$^1$ with a minimum of 10 minutes\\
+$^2$ with a no minimum and free of charge for less than 5 minutes
 \end{table}
 
 \subsubsection{Example of Pricing Comparison}
 
 We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of the class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resources. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
 
-\begin{table}[htb]
+\begin{table}[h!]
 \caption{Usage data to the class}\label{T:tab1}
 \begin{small}
 \begin{tabular}{l|r|l|l|r|r}
@@ -502,7 +503,7 @@ $^2$ includes 5~min free charge
 %* Instance types are not same. Chosen by a similarity of vCPU and Memory
 %** Captured by January, 2014
 
-\begin{table}[htb]
+\begin{table}[h!]
 \caption{Pricing comparison to the class}\label{T:tab2}
 \begin{small}
 \begin{tabular}{l|l|l|l|l|l|p{2cm}|}
@@ -516,7 +517,7 @@ Azure$^3$ & \$2,580.03  & \$0.06 & \$0.12 & \$0.24 \\
 \\
 \\
 $^1$US East, Linux, charged 1 hour if runtime is <1 hour\\
-$^2$US, Linux, charged 10 minutes if runtime <10 minutes\\
+$^2$US, Linux, charged 10 minutes if runtime is <10 minutes\\
 $^3$Linux, charged by minute but free is <5 minutes\\
 \end{small}
 \end{table}
