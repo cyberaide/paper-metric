@@ -1,6 +1,6 @@
 \documentclass{sig-alternate} 
 
-\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis on XSEDE}
+\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis}
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,7 +41,7 @@
     pdfsubject={Subject},   % subject of the document 
     pdfcreator={Gregor von Laszewski, Fugang Wang},   % creator of the document 
     pdfproducer={Gregor von Laszewski}, % producer of the document 
-    pdfkeywords={hindex} {metric}{XSEDE} {FutureGrid}, % list of keywords 
+    pdfkeywords={hindex} {metric}{FutureGrid}, % list of keywords 
     pdfnewwindow=true,      % links in new window 
     colorlinks=false,       % false: boxed links; true: colored links 
     linkcolor=red,          % color of internal links (change box color with linkbordercolor) 
@@ -71,7 +71,7 @@ tabsize=3
 \begin{document} 
 % 
 % --- Author Metadata here --- 
-\conferenceinfo{XSEDE}{Atlanta, Georgia 30303 USA} 
+\conferenceinfo{}{Atlanta, Georgia 30303 USA} 
 \CopyrightYear{2014}  
 \crdata{X-XXXXX-XX-X/XX/XX}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE. 
 % --- End of Author Metadata --- 
@@ -114,7 +114,7 @@ Geoffrey C. Fox\\
 \maketitle 
 \begin{abstract} 
 
-In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution on XSEDE, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of XSEDE cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid as XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance on XSEDE.
+In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance.
 
 \end{abstract} 
  
@@ -125,7 +125,7 @@ In shared resource environments, usage data is necessary to identify utilization
  
 \terms{Measurement, Performance} 
  
-\keywords{XSEDE, Cloud Metrics, FutureGrid, Resource monitoring, cloud accounting, metering} 
+\keywords{Cloud Metrics, FutureGrid, Resource monitoring, cloud accounting, metering} 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
@@ -405,7 +405,7 @@ fg-metric-converter and fg-log-parser are executable python scripts on Linux/Uni
 
 \subsection{Metric Analysis}
 
-In FutureGrid~\cite{las2010gce,las12fg-bookchapter}, XSEDE users have a unique account id along with a project id across 8 different resources (Alamo, Bravo, Delta, Foxtrot, Hotel, India, Sierra, and Xray). The Metric analysis tool named by fg-metrics searches usage information across distributed resouces and services with their unique id and provides results with search options. For example, a user can specify the options using basic commands such as 'set nodename india' and 'set date -M 05 -Y 2012' to get usage information of India resource on May 2012. In addition, it supports different output types to help understanding statistics. Comma-separated values (CSV) files and graphical representation tools such as Google Chart API, Highcharts, D3.js, and jQuery Sparkline are used to generate results in image files (e.g. png, gif, and jpg).
+In FutureGrid~\cite{las2010gce,las12fg-bookchapter}, users have a unique account id along with a project id across 8 different resources (Alamo, Bravo, Delta, Foxtrot, Hotel, India, Sierra, and Xray). The Metric analysis tool named by fg-metrics searches usage information across distributed resouces and services with their unique id and provides results with search options. For example, a user can specify the options using basic commands such as 'set nodename india' and 'set date -M 05 -Y 2012' to get usage information of India resource on May 2012. In addition, it supports different output types to help understanding statistics. Comma-separated values (CSV) files and graphical representation tools such as Google Chart API, Highcharts, D3.js, and jQuery Sparkline are used to generate results in image files (e.g. png, gif, and jpg).
 
 \section{Results and Statistical Analysis} \label{S:result}
 
@@ -451,7 +451,7 @@ During the semester, 25 hosts, 216 vCPUs and 600GB memories were reserved for th
   \caption{vCPU Utilization (approximation per hour)}\label{F:fig6} 
 \end{figure} 
 
-High Performance Computing (HPC) has been used to support parallel data processing of Big Data on XSEDE resources. With Figure~\ref{F:bigdata}, we can see big data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested big data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today's trends for big data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus on the FutureGrid test-bed. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale~\cite{rightscalereport13}, cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
+High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure~\ref{F:bigdata}, we can see big data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested big data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today's trends for big data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus on the FutureGrid test-bed. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale~\cite{rightscalereport13}, cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
 
 \begin{figure}[h!]
   \centering
@@ -531,11 +531,11 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 
 \section{Summary}
 
-We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on XSEDE cloud resources. With the various requests of resource allocation on the cloud, XSEDE project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
+We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
 \section{Future Work}
 
-We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources of XSEDE.
+We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.
 
 %In a sense of security, accounting is also able to provide some information for investigation of suspected security intrusions not only providing resource usage1 monitoring. Billing is another purpose of accounting.
 
