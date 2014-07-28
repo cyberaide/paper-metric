@@ -6,8 +6,11 @@ all:
 	pdflatex ${FILE}
 	pdflatex ${FILE}
 
+real-clean: clean
+	rm -rf *.pdf
+
 clean:
-	rm -rf *~ *.aux *.bbl *.dvi *.log *.out *.blg *.pdf *.toc *.fdb_latexmk *.fls
+	rm -rf *~ *.aux *.bbl *.dvi *.log *.out *.blg *.toc *.fdb_latexmk *.fls
 view:
 	open ${FILE}.pdf
 

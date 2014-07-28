@@ -1,6 +1,6 @@
 \documentclass{sig-alternate} 
 
-\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis on XSEDE}
+\newcommand{\TITLE}{Federated Cloud Usage Analysis on FutureGrid}
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,7 +114,9 @@ Geoffrey C. Fox\\
 \maketitle 
 \begin{abstract} 
 
-In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution on XSEDE, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of XSEDE cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid as XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance on XSEDE.
+In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution applicable to federated cloud environments. We have tested this framework on FutureGrid. 
+Our system is integrated as a CloudMetric component into a larger framework called cloudmesh that targets explicit user or administor controlled federation of clouds. 
+Our cloudmesh CloudMetrics component is ablehich is an XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. CloudMetrics enables users and project leaders to identify utilization and performance.
 
 \end{abstract} 
  
@@ -125,7 +127,7 @@ In shared resource environments, usage data is necessary to identify utilization
  
 \terms{Measurement, Performance} 
  
-\keywords{XSEDE, Cloud Metrics, FutureGrid, Resource monitoring, cloud accounting, metering} 
+\keywords{FutureGrid, cloud, metrics, resource monitoring, cloud accounting, metering, XSEDE.} 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
@@ -185,25 +187,23 @@ Auditing is about finding a proof and a trait of an action a user made while res
 
 In late 2012, OpenStack community started a new project about measuring usage data from openstack components. This project named Ceilometer collects measurements within OpenStack to achieve monitoring and metering purposes. Ceilometer acquires all of the measurements across all current OpenStack components such as Nova (compute), Network, and Storage (swift), etc and provides a unique framework for the collected data. The latest release Havana includes Ceilometer as a mandatory component in OpenStack and the previous release Grizzly included it as an incubator component.
 
-OpenStack Compute (Nova) also provides a command line tools to retrieve usage statistics, for example, 'nova usage-list' provides usage data for all tenants. These management commands typically limited to system administrators to execute.
+OpenStack Compute (nova) also provides a command line tools to retrieve usage statistics, for example, 'nova usage-list' provides usage data for all tenants. These management commands typically limited to system administrators to execute.
 
 \subsubsection{Ceilometer}
 
-Ceilometer project is a framework for monitoring and metering the OpenStack cloud and Ceilometer is a primary place to get access of all usage data in openstack components. It was mainly developed to charge customers as a billing system. Like other commercial cloud platforms, for example Amazon Web Services, these metrics are included, with an hour level granularity :
-
-\begin{itemize}
-  \item Compute (Nova)
-  \item instance type, availability zone
-  \item cpu core
-  \item memory size
-  \item nova volume block device type and availability zone
-  \item Network
-  \item data transfer (in / out), availability zone
-  \item external floating ip
-  \item Storage (Swift)
-  \item disk size used
-  \item data in/out
-\end{itemize}
+Ceilometer project is a framework for monitoring and metering the OpenStack cloud and Ceilometer is a primary place to get access of all usage data in openstack components. It was mainly developed to charge customers as a billing system. Like other commercial cloud platforms, for example Amazon Web Services, these metrics are included, with an hour level granularity:
+  compute utilization;
+   instance type;
+   availability zone;
+   cpu core;
+   memory size;
+   nova volume block device type and availability zone;
+   Network;
+   data transfer (in / out), availability zone;
+   external floating ip;
+   Storage (Swift);
+   disk size used;
+   data in/out.
 
 \subsubsection{Implementation}
 
@@ -258,20 +258,20 @@ Usage data can be provided by Tenant Id which is a group of openstack cloud user
 \begin{verbatim}
 $ nova usage-list
 Usage from 2014-02-14 to 2014-03-15:
-+--------+---------+--------------+---------+-----------+
-| Tenant | Instan- | RAM MB-Hours | CPU     | Disk GB-  |
-| ID     | ces     |              | Hours   | GB-Hours  |
-+--------+---------+--------------+---------+-----------+
-| user1  | 17      | 6840394.43   | 3340.04 | 66800.73  |
-| user2  | 17      | 185683.06    | 90.67   | 1813.31   |
-| user3  | 1       | 932256.36    | 455.20  | 9104.07   |
-| user4  | 26      | 4947215.08   | 2415.63 | 48312.65  |
-| user5  | 5       | 18644854.23  | 9103.93 | 182078.65 |
-+--------+---------+--------------+---------+-----------+
++--------+---------+-------------+---------+-----------+
+| Tenant | Instan- | RAM         | CPU     | Disk      |
+| ID     | ces     | MB-Hours    | Hours   | GB-Hours  |
++--------+---------+-------------+---------+-----------+
+| user1  | 17      |  6840394.43 | 3340.04 |  66800.73 |
+| user2  | 17      |   185683.06 |   90.67 |   1813.31 |
+| user3  | 1       |   932256.36 |  455.20 |   9104.07 |
+| user4  | 26      |  4947215.08 | 2415.63 |  48312.65 |
+| user5  | 5       | 18644854.23 | 9103.93 | 182078.65 |
++--------+---------+-------------+---------+-----------+
 \end{verbatim}
 \end{small}
 \caption{Example 2. Summary statistics for tenants.}
-\label{F:host-describe}
+\label{F:host-list}
 \end{figure}
 
 
@@ -372,7 +372,7 @@ Rackspace Cloud Monitoring is an API driven monitoring system which allows admin
 
 \section{System Design} \label{S:design}
 
-Cloud Metrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
+CloudMetrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
 
 \begin{itemize}
  \item A measuring tool of resource used
@@ -381,18 +381,18 @@ Cloud Metrics pursues to provide an integrated accounting service which users an
  \item A RESTful API Service to support external services
 \end{itemize}
 
-We have observed Eucalyptus generates resource usage information via log messages and OpenStack stores virtual instances information into database. Nimbus has a separated database about the deployment of virtual instances. We have been collecting information about resource utilization from the log messages and the database and incorporating the collected data into one place. These data aligned with a unique user account to provide integrated resource utilization across geographically distributed regions and services. For better presenting of numerical values and relationships with other metrics, we used external charting libraries such as HighCharts, Google Chart APIs. With rich variety of charts, we can provide better explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how Cloud Metrics works on IaaS.
+We have observed Eucalyptus generates resource usage information via log messages and OpenStack stores virtual instances information into database. Nimbus has a separated database about the deployment of virtual instances. We have been collecting information about resource utilization from the log messages and the database and incorporating the collected data into one place. These data aligned with a unique user account to provide integrated resource utilization across geographically distributed regions and services. For better presenting of numerical values and relationships with other metrics, we used external charting libraries such as HighCharts, Google Chart APIs. With rich variety of charts, we can provide better explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how CloudMetrics works on IaaS.
 
 \begin{figure}[h!] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/Picture1.pdf} 
-  \caption{Overview of Cloud Metrics}\label{F:fig1} 
+  \caption{Overview of CloudMetrics}\label{F:fig1} 
 \end{figure} 
 
 
 \section{Implementation} \label{S:implementation}
 
-Cloud Metrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
+CloudMetrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
 
 \subsection{Metric Collector}
 
@@ -469,6 +469,7 @@ Comparing pricing of the cloud is complicated and may lead to false analogy beca
 \begin{table}[h!]
 %\caption{Pricing chart for instances from AWS, GCE, and Azure \newline * China (Beijing) region will be available in early 2014, and GovCloud region is also included.}\label{T:tab0}
 \caption{Pricing chart for instances from AWS, GCE, and Azure}\label{T:tab0}
+\begin{small}
 \begin{tabular}{l|p{2.5cm}|l|p{2cm}}
      &  \shortstack{Billing\\ granularity} &   Price & \shortstack{Price\\ Variation} \\
   \hline
@@ -476,6 +477,7 @@ AWS &   By hour & \$0.02 &      \shortstack{10 regions*,\\ 6 platforms} \\
 GCE &   By minute, with a minimum of 10 minutes &       \$0.019  &      \shortstack{2 regions\\ (US, Europe)} \\
 Azure & By minute, No minimum, No billing for less than 5 minutes & \$0.02 &    \shortstack{6 regions,\\ 5 platforms} \\
 \end{tabular}
+\end{small}
 \end{table}
 
 \subsubsection{Example of Pricing Comparison}
@@ -524,7 +526,7 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 
 \section{Summary}
 
-We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on XSEDE cloud resources. With the various requests of resource allocation on the cloud, XSEDE project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
+We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on XSEDE cloud resources. With the various requests of resource allocation on the cloud, XSEDE project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, CloudMetricsxs offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
 \section{Future Work}
 
