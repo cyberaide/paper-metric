@@ -1,6 +1,6 @@
 \documentclass{sig-alternate} 
 
-\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis}
+\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis on FutureGrid}
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,7 +71,7 @@ tabsize=3
 \begin{document} 
 % 
 % --- Author Metadata here --- 
-\conferenceinfo{}{Atlanta, Georgia 30303 USA} 
+\conferenceinfo{}{}
 \CopyrightYear{2014}  
 \crdata{X-XXXXX-XX-X/XX/XX}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE. 
 % --- End of Author Metadata --- 
@@ -137,6 +137,9 @@ In shared resource environments, usage data is necessary to identify utilization
 In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
 
 Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
+
+%%%%%%%%%%%%%%%%% comments starts %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 
 \subsection{Real Consumption vs Allocation}
 There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
@@ -369,6 +372,9 @@ Zenoss (Zenoss Core) provides a unified resource management service which manage
 
 Rackspace Cloud Monitoring is an API driven monitoring system which allows administrators to use or create APIs depending on their needs which can send notifications to any device including mobile devices. This allows administrators to be on top of their Rackspace-hosted infrastructure which includes websites, protocols, and ports.
 
+\fi
+%%%%%%%%%%%%%%%%% comments ends %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{System Design} \label{S:design}
 
 Cloud Metrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
@@ -422,6 +428,32 @@ In FutureGrid~\cite{las2010gce,las12fg-bookchapter}, users have a unique account
 \section{Results and Statistical Analysis} \label{S:result}
 
 Based on the observation on FutureGrid, there is a different pattern between a research project and class work when they acquire cloud resources. Resource allocation of academic coursework shows time dependent request patterns. It shows a surge when there is a class, a lab session, and a project. For example, the undergraduate course for Distributed Systems at Indiana University introduced IaaS in the class and used the IaaS platform for a class project. Figure~\ref{F:fig2} shows a spike in the class and variability until the project due. A research project, on the contrary, requests VM instances in a steady usage. The Next Generation Sequencing (NGS) in the cloud project on FutureGrid shows relatively consistent resource allocation requested in Figure~\ref{F:fig3}. With a certain period of time, vm instances of this project have been launched without unplanned spike requests. These two examples show different patterns for deploying resources but both cases have a factor to predict loads. The class schedule and the monitoring data for applications can be used to measure the amount of resources and identify incoming requests. In paid cloud platforms such as AWS, GCE, and Azure, understanding these patterns is important to bring cost effectiveness over on-demand allocation. For example, Amazon EC2 Reserved Instances and Azure pre-pay plans may help reduce usage costs for periodic and planned workloads. These service plans simply provide discounts with an upfront payment. As long as a class and a project go as planned, cost saving chances are increased.
+
+\begin{table}[h!]
+  \caption{New accounts in FutureGrid}\label{T:tab00}
+  \begin{tabular}{l|c|c}
+   Year & Users & Projects \\
+   \hline
+   2011 & 637 & 100 \\
+   2012 & 900 & 114 \\
+   2013 & 614 & 103 \\
+ \end{tabular}\\
+ \end{table}
+
+ \begin{table}[h!]
+   \caption{Active Users in Cloud, HPC or Both}\label{T:tab000}
+   \begin{tabular}{l|c|c|c}
+     Year & Cloud & HPC & Both \\
+     \hline
+     2011 & 134 (123) & 154 (120) & 33 (26) \\
+     2012 & 195 (130) & 164 (122) & 183 (144) \\
+     2013 & 235 (140) & 200 (133) & 70 (38) \\
+   \end{tabular}\\
+   $^*$ Number of new users shown in parenthesis
+ \end{table}
+
+In average, FutureGrid accepted more than 100 projects every year, and around 60 to 90 members participated in each project. 
+
 
 \begin{figure}[h!] 
   \centering 
