@@ -163,10 +163,12 @@ General Terms
 Management, Measurement, Performance, Design.
 Keywords
 Cloud, Metric, Cloud Provider, FutureSystems, XSEDE.
-1.      INTRODUCTION
+
+
+\section{INTRODUCTION}
 TBD
 
-2.      METRICS
+\section{METRICS}
 TBD
 
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.
@@ -181,7 +183,7 @@ Copyright 2010 ACM 978-1-60558-638-0/10/03…\$10.00.
 
 
 
-3.      Summary Report (All) 3
+\section{Summary Report (All)}
                                                                                                         format, table, piechart, barchart, stacked barchart, period month quarter, week day, hour current                                       
 o       1.1  WallHoursbyClusters(Total,monthly)................................. 4                              
 o       .2  VMCountbyClusters(Total,monthly)................................. 6
@@ -190,7 +192,7 @@ o       1.3  UsersCountbyClusters(Total,monthly) ...............................
 *       
 *       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project, Project Leader, and Institu- tion, and Systems 
 *                                               
-Summary (Monthly) 
+\section{Summary (Monthly) }
 *                       
 *       put multiple metrics in same chart
 *       perid y, m, d, h                                                                                                
@@ -198,7 +200,7 @@ Summary (Monthly)
         system information on which hosts do we run, count vms, runtime
 
 
-4.      Keywords
+\section{Keywords}
 
 \begin{Verbatim}[fontfamily=times]
 * usage
@@ -276,18 +278,20 @@ Summary (Monthly)
     o   autoscaling
 \end{Verbatim}
 
-5.      Cloud Metrics
+\section{Cloud Metrics}
 
 *  VM
 *  Usage
 *  Failure
 *  Prediction
-6.      Description
+
+\section{Description}
+
 Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
 
 
-7.      List of Metrics
-7.1     User Count
+\section{List of Metrics}
+\subsection{User Count}
 *  Name: User Count
 *  Description: This metric counts the active users for the cloud
 *  Motivation: User count is important for measuring the popularity of the cloud
@@ -330,7 +334,8 @@ Fig 5. Usage by Institution
  
 Fig 6. Running Hour by Project Leader
 
-9.      Real Time Usage
+\section{Real Time Usage}
+
 *  Name: Current running VMs or accessed users
 *  Description: This metric shows instant usage data to see current status
 *  Motivation: real time usage is important for checking peak or detecting unusual usage
@@ -344,16 +349,19 @@ Fig 7. Real-Time Usage of VM instances
  
 Fig 8. Real-time userlist of running VM instances
 
-9.1     Sample Reports
+\subsection{Sample Reports}
+
 \begin{verbatim}
 *  FutureGrid html: http://archive.futuregrid.org/metrics/html/
 *  FutureGrid pdf: http://archive.futuregrid.org/metrics/html/pdf_reports/2014HY1/FGResourceReport.pdf
 \end{verbatim}
 
-10.     Report for Errors (TBD)
+\section{Report for Errors (TBD)}
+
 Cloudmesh Metrics reads system and application logs to generate error reports. If there are error messages stored in the database, Cloudmesh Metrics can lookup the database to collect the messages. Error information collected are stored in the Metrics database.
 
-10.1    Possible Analysis (TBD)
+\subsection{Possible Analysis (TBD)}
+
 There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
 
 *  Identify problematic hosts
@@ -405,12 +413,18 @@ o       e.g. nova.api.ec2 (/services/Cloud/) has “Unexpected TypeError raised�
 *  Possible other metrics (TBD)
 *  quota management
 *  alert notification
-11.     Notes
+
+\section{Notes}
+
 *  Stackdriver provides monitoring service at Google Cloud
-12.     Useful links
+
+\subsection{Useful links}
+
 *  Google Monitoring Docs: https://cloud.google.com/monitoring/docs
 *  azure monitoring article: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/
-13.     Related Work
+
+\section{Related Work}
+
 Nist [1]
 Blueflood[2]
 \begin{verbatim}
@@ -442,13 +456,9 @@ http://www.sebastien-han.fr/blog/2013/09/06/openstack-heat-and-ceilometer-got-th
 
 
 
-14.     ACKNOWLEDGMENTS
-Our thanks to ACM SIGCHI for allowing us to modify templates they had developed.
-Linkss and References
-Put refernces here so we can integrate them later
 
 
-15.     REFERENCES
+\section{REFERENCES}
 
 [1]     "Cloud Computing Service Metrics Description," 2015.
 [2]     (2013). BlueFlood DB. Available: http://blueflood.io
@@ -1021,8 +1031,8 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
   
 \section{Acknowledgement} 
  
-This material is based upon work supported in part by the National Science Foundation under Grant No. 0910812.
- 
+This material based upon work is partially supported in part by the National Science Foundation under Grant No. 1445806, 1445806, and 0910812.
+
 %\clearpage 
  
 \bibliographystyle{IEEEtranS} 
