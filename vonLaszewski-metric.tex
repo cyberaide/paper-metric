@@ -2,7 +2,9 @@
 
 
 
-\newcommand{\TITLE}{Towards Understanding Cloud Usage through Resource Allocation Analysis on FutureGrid}
+\newcommand{\TITLE}{
+Cloudmetrics fro Resource providers -
+Towards Understanding Cloud Usage through Resource Allocation Analysis on FutureGrid}
 
 \newcommand{\AUTHOR}{Hyungro Lee, Gregor von Laszewski, Fugang Wang} 
 
@@ -75,8 +77,11 @@ tabsize=3
 \begin{document} 
 % 
 % --- Author Metadata here --- 
-\conferenceinfo{}{}
-\CopyrightYear{2014}  
+\conferenceinfo{Report}{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.
+%SAC’10, March 22-26, 2010, Sierre, Switzerland.
+%Copyright 2010 ACM 978-1-60558-638-0/10/03…\$10.00.
+}
+\CopyrightYear{2015}  
 \crdata{X-XXXXX-XX-X/XX/XX}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE. 
 % --- End of Author Metadata --- 
  
@@ -85,34 +90,17 @@ tabsize=3
 %\titlenote{A full version of this paper is available as 
 %\texttt{www.acm.org/eaddress.htm}}} 
  
-\numberofauthors{4}  
+\numberofauthors{1}  
 \author{ 
-\alignauthor 
-Hyungro Lee\\ 
-       \affaddr{Indiana University}\\ 
-       \affaddr{2719 10th Street}\\ 
-       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
-\alignauthor 
-Gregor von Laszewski\titlenote{Corresponding Author.}\\ 
-       \affaddr{Indiana University}\\ 
-       \affaddr{2719 10th Street}\\ 
-       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
-       \email{laszewski@gmail.com} 
-\alignauthor 
-Fugang Wang\\ 
-       \affaddr{Indiana University}\\ 
-       \affaddr{2719 10th Street}\\ 
-       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
-% 3rd. author 
-\and
-\alignauthor 
-Geoffrey C. Fox\\ 
-       \affaddr{Indiana University}\\ 
-       \affaddr{2719 10th Street}\\ 
-       \affaddr{Bloomington, Indiana, U.S.A.}\\ 
-\and  % use '\and' if you need 'another row' of author names 
-} 
-\date{24 March 2014} 
+\alignauthor
+Gregor  von Laszewski $^1$\titlenote{Corresponding Author.}, Hyungro Lee$^1$, Fugang Wang$^1$, Geoffrey C. Fox$^1$, \\
+Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
+       \smallskip
+       \affaddr{$^1$Indiana University, 2719 10th Street, Bloomington, Indiana, U.S.A.}\\ 
+       \affaddr{$^2$SUNY at Buffalo, 701 Ellicott Street, Buffalo, New York, 14203, U.S.A.}\\ 
+       \smallskip\email{$^*$rlaszewski@gmail.com} 
+}
+\date{24 March 2014}  
  
 \toappear{} 
 \maketitle 
@@ -134,12 +122,12 @@ In shared resource environments, usage data is necessary to identify utilization
 %A category including the fourth, optional field follows... 
 \category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures] 
  
+%[Distributed Architectures]: Distributed architectures → Cloud computing; General and reference → Metrics
+
+
 \terms{Measurement, Performance} 
- 
 
-%\keywords{FutureGrid, cloud, metrics, resource monitoring, cloud accounting, metering, XSEDE.} 
-
-\keywords{Cloud Metrics, FutureGrid, Resource monitoring, cloud accounting, metering} 
+\keywords{Cloud Metrics, Resource Monitoring, Cloud Accounting, Metering, FutureGrid, FutureSystems, XSEDE} 
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -147,22 +135,15 @@ In shared resource environments, usage data is necessary to identify utilization
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
-Cloud Metrics for Resource Providers
-Gregor von Laszewski, H. Lee, F. Wang, G. C. Fox, T. Furlani, Q. Chunming
-School of Informatics and Computing
-Indiana University, Bloomington, IN 47401, U.S.A.
-laszewski@gmail.com 
+
  
 
  
-ABSTRACT
+\section{ABSTRACT}
+
 Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations. One of the important aspects to a successfully operational cloud is the availability of sophisticated metric information and frameworks to assure a number of key operational factors. In this paper we provide an overview of the different aspects that are shaping the need for cloud metrics. We especially identify the needs for cloud metrics and monitoring solutions for various user communities. The motivation for cloud metrics are shaped by users, administrators, service providers and funders. Metrics include usage, failure and auditing data to identify user and system behavior. Many of the metrics presented here have been used as part of the FutureGrid and FutureSystems clouds. This includes also the unified metrics service framework allowing integration of metrics from heterogeneous clouds such as OpenStack, Eucalyptus and Nimbus. 
 Categories and Subject Descriptors
-[Distributed Architectures]: Distributed architectures → Cloud computing; General and reference → Metrics
-General Terms
-Management, Measurement, Performance, Design.
-Keywords
-Cloud, Metric, Cloud Provider, FutureSystems, XSEDE.
+
 
 
 \section{INTRODUCTION}
@@ -170,11 +151,6 @@ TBD
 
 \section{METRICS}
 TBD
-
-Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.
-SAC’10, March 22-26, 2010, Sierre, Switzerland.
-Copyright 2010 ACM 978-1-60558-638-0/10/03…\$10.00.
-
 
 
 
@@ -292,41 +268,44 @@ Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handli
 
 \section{List of Metrics}
 \subsection{User Count}
-*  Name: User Count
-*  Description: This metric counts the active users for the cloud
-*  Motivation: User count is important for measuring the popularity of the cloud
-*  Samples: FutureGrid Reports (See attached Fig 1, 2)
 
+\begin{description}
+\item[Name:] User Count
+\item[Description:] This metric counts the active users for the cloud
+\item[Motivation:] User count is important for measuring the popularity of the cloud
+\item[Samples:] FutureGrid Reports (See attached Fig 1, 2)
+\end{description}
   
 Fig 1. Active user count by host                  
 
 Fig 2. Active user count monthly
-
-*  VM Count
-*  Name: VM Count
-*  Description: This metric counts the launched VM instances on the cloud.
-*  Motivation: VM Count is important for measuring the volume of requested instances
-*  Samples: FutureGrid Reports (See attached)
-
+\begin{description}
+\item[Metric:] VM Count
+\item[Name:] VM Count
+\item[Description:] This metric counts the launched VM instances on the cloud.
+\item[Motivation:] VM Count is important for measuring the volume of requested instances
+\item[Samples:] FutureGrid Reports (See attached)
+\end{description}
  
 Fig 3. VM Count daily
-
-*  Running Hour
-*  Name: Running Hour
-*  Description: This metric shows the total amount of running time for launched instances
-*  Motivation: Running hour is important for measuring actual running time of instances
-*  Samples: FutureGrid Reports (See attached)
-
+\begin{description}
+\item[Metric:] Running Hour
+\item[Name:] Running Hour
+\item[Description:] This metric shows the total amount of running time for launched instances
+\item[Motivation:] Running hour is important for measuring actual running time of instances
+\item[Samples:] FutureGrid Reports (See attached)
+\end{description}
 
  
 Fig 4. VM Count by running time distribution
 
 8.      Group Usage
-*  Name: VM Count by Project, Leader, or Institution
-*  Description: This metric shows share of resource by group metrics such as project, leader or institution.
-*  Motivation: Group usage is important for measuring group usage
-*  Samples: FutureGrid Reports (See attached)
-
+\begin{description}
+\item[Name:] VM Count by Project, Leader, or Institution
+\item[Description:] This metric shows share of resource by group metrics such as project, leader or institution.
+\item[Motivation:] Group usage is important for measuring group usage
+\item[Samples:] FutureGrid Reports (See attached)
+\end{description}
 
  
 Fig 5. Usage by Institution
@@ -335,12 +314,12 @@ Fig 5. Usage by Institution
 Fig 6. Running Hour by Project Leader
 
 \section{Real Time Usage}
-
-*  Name: Current running VMs or accessed users
-*  Description: This metric shows instant usage data to see current status
-*  Motivation: real time usage is important for checking peak or detecting unusual usage
-*  Samples: FutureSystems (See attached)
-
+\begin{description}
+\item[Name:] Current running VMs or accessed users
+\item[Description:] This metric shows instant usage data to see current status
+\item[Motivation:] real time usage is important for checking peak or detecting unusual usage
+\item[Samples:] FutureSystems (See attached)
+\end{description}
 
  
 Fig 7. Real-Time Usage of VM instances
@@ -465,12 +444,7 @@ http://www.sebastien-han.fr/blog/2013/09/06/openstack-heat-and-ceilometer-got-th
 
 
 
- 
-
-
-
-
- 
+  
 \section{Introduction} 
 
 \subsection{Background}
