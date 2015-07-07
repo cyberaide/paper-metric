@@ -106,14 +106,32 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \maketitle 
 \begin{abstract} 
 
+Cloud computing has established itself as one of the key components in
+modern datacenters. This includes academic, government, and for profit
+institutions and organizations. One of the important aspects to a
+successfully operational cloud is the availability of sophisticated
+metric information and frameworks to assure a number of key
+operational factors. In this paper we provide an overview of the
+different aspects that are shaping the need for cloud metrics. We
+especially identify the needs for cloud metrics and monitoring
+solutions for various user communities. The motivation for cloud
+metrics are shaped by application users, administrators, service providers and
+funders. Metrics include usage, failure and auditing data to identify
+user and system behavior. Many of the metrics presented here have been
+used as part of the FutureGrid and FutureSystems clouds. This includes
+also the unified metrics service framework allowing integration of
+metrics from heterogeneous clouds such as OpenStack, Eucalyptus and
+Nimbus. Additionally, we see the importance of metrics also in higher
+level platform as a services delivered through the various user
+communities. Thus it is important to identify common features of
+existing and future services that benefit from metrics and their
+exposure to its users.
+
+
 
 %In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution applicable to federated cloud environments. We have tested this framework on FutureGrid. 
 %Our system is integrated as a CloudMetric component into a larger framework called cloudmesh that targets explicit user or administor controlled federation of clouds. 
 %Our cloudmesh CloudMetrics component is ablehich is an XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. CloudMetrics enables users and project leaders to identify utilization and performance.
-
-
-In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance.
-
 
 \end{abstract} 
  
@@ -129,21 +147,23 @@ In shared resource environments, usage data is necessary to identify utilization
 
 \keywords{Cloud Metrics, Resource Monitoring, Cloud Accounting, Metering, FutureGrid, FutureSystems, XSEDE} 
 
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
+\section{OLD ABSTRACT} 
+
+
+In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance.
+
+
+
+
 
  
 
  
-\section{ABSTRACT}
-
-Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations. One of the important aspects to a successfully operational cloud is the availability of sophisticated metric information and frameworks to assure a number of key operational factors. In this paper we provide an overview of the different aspects that are shaping the need for cloud metrics. We especially identify the needs for cloud metrics and monitoring solutions for various user communities. The motivation for cloud metrics are shaped by users, administrators, service providers and funders. Metrics include usage, failure and auditing data to identify user and system behavior. Many of the metrics presented here have been used as part of the FutureGrid and FutureSystems clouds. This includes also the unified metrics service framework allowing integration of metrics from heterogeneous clouds such as OpenStack, Eucalyptus and Nimbus. 
-Categories and Subject Descriptors
-
 
 
 \section{INTRODUCTION}
@@ -154,6 +174,17 @@ TBD
 
 
 
+\begin{figure}[h!] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/cloudmetric.pdf} 
+  \caption{Overview of CloudMetrics}\label{F:taxonomy-1} 
+\end{figure} 
+
+\begin{figure}[h!] 
+  \centering 
+    \includegraphics[width=1.0\columnwidth]{images/cloudmetric-2.pdf} 
+  \caption{Overview of CloudMetrics}\label{F:taxonomy-2} 
+\end{figure} 
 
 
 
@@ -302,9 +333,6 @@ This metric shows instant usage data to see current status &
 real time usage is important for checking peak or detecting unusual usage &
 FutureGrid Reports (See attached Fig 1, 2) \\
 \hline
-\end{description}
-
-
 \end{tabular}
 
 \end{table*}
