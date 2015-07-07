@@ -196,101 +196,101 @@ o       1.1  WallHoursbyClusters(Total,monthly).................................
 o       .2  VMCountbyClusters(Total,monthly)................................. 6
 o       1.3  UsersCountbyClusters(Total,monthly) ................................ 8 
 
-*       
-*       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project, Project Leader, and Institu- tion, and Systems 
-*                                               
+o       
+o       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project, Project Leader, and Institu- tion, and Systems 
+o                                               
 \section{Summary (Monthly) }
-*                       
-*       put multiple metrics in same chart
-*       perid y, m, d, h                                                                                                
-*       Metrics: VMs count, Users count, Wall time (hours), Distribution by wall time, project, project leader, and institution, and systems 
+o                       
+o       put multiple metrics in same chart
+o       perid y, m, d, h                                                                                                
+o       Metrics: VMs count, Users count, Wall time (hours), Distribution by wall time, project, project leader, and institution, and systems 
         system information on which hosts do we run, count vms, runtime
 
 
 \section{Keywords}
 
 \begin{Verbatim}[fontfamily=times]
-* usage
-    o   VM image
-    o   instance
-*  running time
-*  size (flavor)
-*  image
-*  regions
-    o   network
-*  public/private ip address
-*  traffics
-    o   storage
-*  block storage
-*  objects
-*  files
-*  space
-*  audit/assurance
-    o   user behavior
-*  server utilization
-*  errors
-    o   detect incidents
-    o   trace issues/ bugs
-    o   prevent long downtime
-*  billing/charging/accounting
-*  commercial monitoring services
-    o   openstack ceilometer / telemetry
-    o   aws cloud watch
-    o   google cloud monitoring beta
-*  performance
-    o   cpu usage (utilization) 
-    o   network in/out bytes
-    o   disk read/write throughput
-    o   power consumption
-    o   memory usage
-    o   latency (e.g. network response or vm start)
-*  monitoring service
-    o   alert/notification (e.g. text, email)
-    o   diagnostics
-    o   security
-    o   capacity planning/prediction
-    o   trend changes
-* Physical hardware monitoring
-    o   host contention
-    o   degraded hardware
-     o  outages
-     o  downtime
-*  automation
-     o  recovery
-     o  autoscaling
-     o  policy/threshold to take actions
-     o  live migration
-*  monitoring frequency
-     o  real-time
-     o  interval
-     o  lifespan of measured data
-*  Consideration of Cloud Metrics
-     o  architecture
-     o  overhead
-     o  security/privacy
-     o  interface
-*  rest api
-*  dashboard
-*  management console
-    o   visualization
-*  charts
-*  time series data
-*  consideration of implementing metrics system
-    o   scalability
-    o   overhead
-    o   availability
-    o   accuracy
-    o   security
-    o   agility
-    o   autoscaling
+o usage
+   -   VM image
+   -   instance
+o running time
+o size (flavor)
+o image
+o regions
+   -   network
+o public/private ip address
+o traffics
+   -   storage
+o block storage
+o objects
+o files
+o space
+o audit/assurance
+  -   user behavior
+o server utilization
+o errors
+  - detect incidents
+  - trace issues/ bugs
+  - prevent long downtime
+o billing/charging/accounting
+o commercial monitoring services
+  - openstack ceilometer / telemetry
+  - aws cloud watch
+  - google cloud monitoring beta
+o performance
+  - cpu usage (utilization) 
+  - network in/out bytes
+  - disk read/write throughput
+  - power consumption
+  - memory usage
+  - latency (e.g. network response or vm start)
+o monitoring service
+  - alert/notification (e.g. text, email)
+  - diagnostics
+  - security
+  - capacity planning/prediction
+  - trend changes
+o Physical hardware monitoring
+  - host contention
+  - degraded hardware
+  - outages
+  - downtime
+o automation
+  - recovery
+  - autoscaling
+  - policy/threshold to take actions
+  - live migration
+o monitoring frequency
+  - real-time
+  - interval
+  - lifespan of measured data
+o Consideration of Cloud Metrics
+  - architecture
+  - overhead
+  - security/privacy
+  - interface
+o rest api
+o dashboard
+o management console
+  - visualization
+o charts
+o time series data
+o consideration of implementing metrics system
+  - scalability
+  - overhead
+  - availability
+  - accuracy
+  - security
+  - agility
+  - autoscaling
 \end{Verbatim}
 
 \section{Cloud Metrics}
 
-*  VM
-*  Usage
-*  Failure
-*  Prediction
+o  VM
+o  Usage
+o  Failure
+o  Prediction
 
 \section{Description}
 
@@ -410,8 +410,8 @@ Fig 8. Real-time userlist of running VM instances
 \subsection{Sample Reports}
 
 \begin{verbatim}
-*  FutureGrid html: http://archive.futuregrid.org/metrics/html/
-*  FutureGrid pdf: http://archive.futuregrid.org/metrics/html/pdf_reports/2014HY1/FGResourceReport.pdf
+o  FutureGrid html: http://archive.futuregrid.org/metrics/html/
+o  FutureGrid pdf: http://archive.futuregrid.org/metrics/html/pdf_reports/2014HY1/FGResourceReport.pdf
 \end{verbatim}
 
 \section{Report for Errors (TBD)}
@@ -422,11 +422,11 @@ Cloudmesh Metrics reads system and application logs to generate error reports. I
 
 There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
 
-*  Identify problematic hosts
+o  Identify problematic hosts
 - e.g. 20% of errors occurred in i57
-*  Identify problematic term
+o  Identify problematic term
 o       e.g. 46% of errors occurred in April 2014
-*  Identify errors with a hierarchical classifier
+o  Identify errors with a hierarchical classifier
 o       1st level: code
 o       2nd level: message
 o       3rd level: Python exceptions
@@ -459,27 +459,27 @@ Code    Message Parsing Details - Python Module Parsing Details - Python Functio
 500     Instance type's disk is too small for requested image.  nova/compute/manager.py \_build\_instance()     133
 ...                             
 
-*  Error rate
-o       e.g. 1.5 % error rate on nova-api requests on 03/25/2014
+o  Error rate
+-       e.g. 1.5 % error rate on nova-api requests on 03/25/2014
 (based on nova-api.log-20140325: 17338 accepted requests and 266 errors)
-*  Audit information (nova-compute)
-o       Resource tracking
-o       e.g. available/free disks, memories or vcpus
-*  Error Tracing
-o       e.g. nova.api.ec2 (/services/Cloud/) has “Unexpected TypeError raised” with a user from 128.9.136.58
+o  Audit information (nova-compute)
+-       Resource tracking
+-       e.g. available/free disks, memories or vcpus
+o  Error Tracing
+-       e.g. nova.api.ec2 (/services/Cloud/) has “Unexpected TypeError raised” with a user from 128.9.136.58
 
-*  Possible other metrics (TBD)
-*  quota management
-*  alert notification
+o  Possible other metrics (TBD)
+o  quota management
+o  alert notification
 
 \section{Notes}
 
-*  Stackdriver provides monitoring service at Google Cloud
+o  Stackdriver provides monitoring service at Google Cloud
 
 \subsection{Useful links}
 
-*  Google Monitoring Docs: https://cloud.google.com/monitoring/docs
-*  azure monitoring article: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/
+o  Google Monitoring Docs: https://cloud.google.com/monitoring/docs
+o  azure monitoring article: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/
 
 \section{Related Work}
 
