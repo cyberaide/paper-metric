@@ -21,6 +21,7 @@
 \usepackage{color} 
 \usepackage{listings}
 \usepackage{enumitem}
+\usepackage{fancyvrb}
 
 \newcommand*\rot{\rotatebox{90}} 
  
@@ -144,6 +145,321 @@ In shared resource environments, usage data is necessary to identify utilization
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+Cloud Metrics for Resource Providers
+Gregor von Laszewski, H. Lee, F. Wang, G. C. Fox, T. Furlani, Q. Chunming
+School of Informatics and Computing
+Indiana University, Bloomington, IN 47401, U.S.A.
+laszewski@gmail.com 
+ 
+
+ 
+ABSTRACT
+Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations. One of the important aspects to a successfully operational cloud is the availability of sophisticated metric information and frameworks to assure a number of key operational factors. In this paper we provide an overview of the different aspects that are shaping the need for cloud metrics. We especially identify the needs for cloud metrics and monitoring solutions for various user communities. The motivation for cloud metrics are shaped by users, administrators, service providers and funders. Metrics include usage, failure and auditing data to identify user and system behavior. Many of the metrics presented here have been used as part of the FutureGrid and FutureSystems clouds. This includes also the unified metrics service framework allowing integration of metrics from heterogeneous clouds such as OpenStack, Eucalyptus and Nimbus. 
+Categories and Subject Descriptors
+[Distributed Architectures]: Distributed architectures → Cloud computing; General and reference → Metrics
+General Terms
+Management, Measurement, Performance, Design.
+Keywords
+Cloud, Metric, Cloud Provider, FutureSystems, XSEDE.
+1.      INTRODUCTION
+TBD
+
+2.      METRICS
+TBD
+
+Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.
+SAC’10, March 22-26, 2010, Sierre, Switzerland.
+Copyright 2010 ACM 978-1-60558-638-0/10/03…\$10.00.
+
+
+
+
+
+
+
+
+
+3.      Summary Report (All) 3
+                                                                                                        format, table, piechart, barchart, stacked barchart, period month quarter, week day, hour current                                       
+o       1.1  WallHoursbyClusters(Total,monthly)................................. 4                              
+o       .2  VMCountbyClusters(Total,monthly)................................. 6
+o       1.3  UsersCountbyClusters(Total,monthly) ................................ 8 
+
+*       
+*       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project, Project Leader, and Institu- tion, and Systems 
+*                                               
+Summary (Monthly) 
+*                       
+*       put multiple metrics in same chart
+*       perid y, m, d, h                                                                                                
+*       Metrics: VMs count, Users count, Wall time (hours), Distribution by wall time, project, project leader, and institution, and systems 
+        system information on which hosts do we run, count vms, runtime
+
+
+4.      Keywords
+
+\begin{Verbatim}[fontfamily=times]
+* usage
+    o   VM image
+    o   instance
+*  running time
+*  size (flavor)
+*  image
+*  regions
+    o   network
+*  public/private ip address
+*  traffics
+    o   storage
+*  block storage
+*  objects
+*  files
+*  space
+*  audit/assurance
+    o   user behavior
+*  server utilization
+*  errors
+    o   detect incidents
+    o   trace issues/ bugs
+    o   prevent long downtime
+*  billing/charging/accounting
+*  commercial monitoring services
+    o   openstack ceilometer / telemetry
+    o   aws cloud watch
+    o   google cloud monitoring beta
+*  performance
+    o   cpu usage (utilization) 
+    o   network in/out bytes
+    o   disk read/write throughput
+    o   power consumption
+    o   memory usage
+    o   latency (e.g. network response or vm start)
+*  monitoring service
+    o   alert/notification (e.g. text, email)
+    o   diagnostics
+    o   security
+    o   capacity planning/prediction
+    o   trend changes
+* Physical hardware monitoring
+    o   host contention
+    o   degraded hardware
+     o  outages
+     o  downtime
+*  automation
+     o  recovery
+     o  autoscaling
+     o  policy/threshold to take actions
+     o  live migration
+*  monitoring frequency
+     o  real-time
+     o  interval
+     o  lifespan of measured data
+*  Consideration of Cloud Metrics
+     o  architecture
+     o  overhead
+     o  security/privacy
+     o  interface
+*  rest api
+*  dashboard
+*  management console
+    o   visualization
+*  charts
+*  time series data
+*  consideration of implementing metrics system
+    o   scalability
+    o   overhead
+    o   availability
+    o   accuracy
+    o   security
+    o   agility
+    o   autoscaling
+\end{Verbatim}
+
+5.      Cloud Metrics
+
+*  VM
+*  Usage
+*  Failure
+*  Prediction
+6.      Description
+Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
+
+
+7.      List of Metrics
+7.1     User Count
+*  Name: User Count
+*  Description: This metric counts the active users for the cloud
+*  Motivation: User count is important for measuring the popularity of the cloud
+*  Samples: FutureGrid Reports (See attached Fig 1, 2)
+
+  
+Fig 1. Active user count by host                  
+
+Fig 2. Active user count monthly
+
+*  VM Count
+*  Name: VM Count
+*  Description: This metric counts the launched VM instances on the cloud.
+*  Motivation: VM Count is important for measuring the volume of requested instances
+*  Samples: FutureGrid Reports (See attached)
+
+ 
+Fig 3. VM Count daily
+
+*  Running Hour
+*  Name: Running Hour
+*  Description: This metric shows the total amount of running time for launched instances
+*  Motivation: Running hour is important for measuring actual running time of instances
+*  Samples: FutureGrid Reports (See attached)
+
+
+ 
+Fig 4. VM Count by running time distribution
+
+8.      Group Usage
+*  Name: VM Count by Project, Leader, or Institution
+*  Description: This metric shows share of resource by group metrics such as project, leader or institution.
+*  Motivation: Group usage is important for measuring group usage
+*  Samples: FutureGrid Reports (See attached)
+
+
+ 
+Fig 5. Usage by Institution
+
+ 
+Fig 6. Running Hour by Project Leader
+
+9.      Real Time Usage
+*  Name: Current running VMs or accessed users
+*  Description: This metric shows instant usage data to see current status
+*  Motivation: real time usage is important for checking peak or detecting unusual usage
+*  Samples: FutureSystems (See attached)
+
+
+ 
+Fig 7. Real-Time Usage of VM instances
+
+
+ 
+Fig 8. Real-time userlist of running VM instances
+
+9.1     Sample Reports
+\begin{verbatim}
+*  FutureGrid html: http://archive.futuregrid.org/metrics/html/
+*  FutureGrid pdf: http://archive.futuregrid.org/metrics/html/pdf_reports/2014HY1/FGResourceReport.pdf
+\end{verbatim}
+
+10.     Report for Errors (TBD)
+Cloudmesh Metrics reads system and application logs to generate error reports. If there are error messages stored in the database, Cloudmesh Metrics can lookup the database to collect the messages. Error information collected are stored in the Metrics database.
+
+10.1    Possible Analysis (TBD)
+There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
+
+*  Identify problematic hosts
+- e.g. 20% of errors occurred in i57
+*  Identify problematic term
+o       e.g. 46% of errors occurred in April 2014
+*  Identify errors with a hierarchical classifier
+o       1st level: code
+o       2nd level: message
+o       3rd level: Python exceptions
+o       e.g. 88% of errors occurred in 500 code and 33% of the errors were due to invalid instance types: “Instance type's disk is too small for requested image.”
+o       1st level
+Code Number     \# of Errors
+400     12
+404     4
+409     41
+500     399
+
+o       2nd level
+
+
+Code Number     Message \# of Errors
+500     'NoneType' object has no attribute 'defineXML'  
+
+        1
+        Instance type's disk is too small for requested image.          133
+        No valid host was found.        93
+        Unable to read from monitor: Connection reset by peer   126
+        Unexpected error while running command. 11
+        Requested operation is not valid: domain is already running     1
+        ...     
+
+o       3rd level (for debugging error messages)
+
+
+Code    Message Parsing Details - Python Module Parsing Details - Python Function       \# of Errors
+500     Instance type's disk is too small for requested image.  nova/compute/manager.py \_build\_instance()     133
+...                             
+
+*  Error rate
+o       e.g. 1.5 % error rate on nova-api requests on 03/25/2014
+(based on nova-api.log-20140325: 17338 accepted requests and 266 errors)
+*  Audit information (nova-compute)
+o       Resource tracking
+o       e.g. available/free disks, memories or vcpus
+*  Error Tracing
+o       e.g. nova.api.ec2 (/services/Cloud/) has “Unexpected TypeError raised” with a user from 128.9.136.58
+
+*  Possible other metrics (TBD)
+*  quota management
+*  alert notification
+11.     Notes
+*  Stackdriver provides monitoring service at Google Cloud
+12.     Useful links
+*  Google Monitoring Docs: https://cloud.google.com/monitoring/docs
+*  azure monitoring article: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/
+13.     Related Work
+Nist [1]
+Blueflood[2]
+\begin{verbatim}
+http://ijcaonline.net/volume23/number3/pxc3873714.pdf
+http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5488443
+https://www.infosys.tuwien.ac.at/staff/ivona/papers/M4Cloud.pdf
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.464.1914&rep=rep1&type=pdf
+http://www.dmtf.org/standards/cadf
+https://developer.ibm.com/opentech/2015/07/06/viewing-keystone-cadf-notifications-with-ceilometer-and-rabbitmq/
+
+https://cloud.google.com/monitoring/custom-metrics/
+
+http://www.enterprisecioforum.com/en/blogs/terencengai/8-simple-metrics-track-your-cloud-succes
+http://www.cio.com/article/2413731/cloud-computing/cloud-performance-metrics--no-standards---so-mileage-varies.html
+http://techcrunch.com/2015/01/24/as-cloud-arrives-on-main-street-we-need-a-new-set-of-metrics-for-cloud-slas/
+https://sysdig.com/collect-analyze-custom-metrics-with-sysdig-cloud-statsd/
+http://aws.amazon.com/cloudwatch/
+https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/
+http://www.soa.si/2011/07/25/monitoring-eucalyptus-cloud-with-nagios-and-ganglia/
+https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/
+
+http://www.sciencedirect.com/science/article/pii/S1389128613001084
+https://www.eucalyptus.com/eucalyptus-cloud/iaas
+https://github.com/eucalyptus/eucalyptus/commits/master
+https://wiki.openstack.org/wiki/Ceilometer
+https://docs.hpcloud.com/helion/openstack/1.1/services/reporting/overview/
+http://www.sebastien-han.fr/blog/2013/09/06/openstack-heat-and-ceilometer-got-their-dashboard-panel/
+\end{verbatim}
+
+
+
+14.     ACKNOWLEDGMENTS
+Our thanks to ACM SIGCHI for allowing us to modify templates they had developed.
+Linkss and References
+Put refernces here so we can integrate them later
+
+
+15.     REFERENCES
+
+[1]     "Cloud Computing Service Metrics Description," 2015.
+[2]     (2013). BlueFlood DB. Available: http://blueflood.io
+
+
+
+ 
+
+
+
+
  
 \section{Introduction} 
 
