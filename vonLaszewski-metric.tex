@@ -130,7 +130,24 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 
   \begin{comment} 
 
-In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution applicable to federated cloud environments. We have tested this framework on FutureGrid.  Our system is integrated as a CloudMetric component into a larger framework called cloudmesh that targets explicit user or administor controlled federation of clouds.  Our cloudmesh CloudMetrics component is ablehich is an XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources.  CloudMetrics enables users and project leaders to identify utilization and performance.
+    In shared resource environments, usage data is necessary to
+    identify utilization of the infrastructure by users. Many cloud
+    platforms recently started to collect measurements for use of
+    resources that can be applied to billing and
+    monitoring. Understanding utilization and performance through
+    these measurements is crucial in the infrastructure in order to
+    provide better cloud provisioning, system management and capacity
+    planning. In this paper, we present an integrated cloud accounting
+    solution applicable to federated cloud environments. We have
+    tested this framework on FutureGrid.  Our system is integrated as
+    a CloudMetric component into a larger framework called cloudmesh
+    that targets explicit user or administor controlled federation of
+    clouds.  Our cloudmesh CloudMetrics component is ablehich is an
+    XSEDE resources. Based on the observation on FutureGrid, we found
+    that different patterns between scientific research projects and
+    educational projects regarding the type of virtual machines (VMs)
+    and the patterns of using virtual resources.  CloudMetrics enables
+    users and project leaders to identify utilization and performance.
 
 \end{comment}
 
@@ -282,19 +299,67 @@ to the operational metrics to keep the system running.
 \subsection{Motivation}
 
 Another important factor for a cloud metric is the motivation and
-purpose for the metric. Based on this factor additional aspects need
-to be introduced such as granularity and population. We distinguish
+purpose for it. We distinguish
 the following factors:
 
 \begin{description}
 \setlength\itemsep{-4pt}
-\item{Monitoring} Troubleshooting, development, deployment, production
-\item{Planning}
-\item{Billing}
-\item{Testing}
-\item{Auditing}
-\item{Consuming} by users and services
+
+\item{\it Monitoring.} Monitoring is an important aspect for
+  administrators but also for users. The purpose of metrics associated
+  to monitoring allows us to observe the current system and make
+  decissions based upon it. Naturally, this could also be services
+  that act in behalf of the user or administrator. A center director
+  may be interested in the high level aspects of monitoring as to be
+  informed about specific catastrophic service events, while an
+  administrator is interested in more detailed monitoring aspects that
+  alert even on conditions that could lead to issues.
+
+\item{\it Planning.} To assist in setting goals and developing strategies
+  several metrics can be beneficial. This includes metrics about
+  utilization of the resources, satisfaction by the users and other
+  more general aspects. As academic resources are often funded by
+  government organizations such as NSF, specific metrics that answer
+  to broader impacts need to be addressed.
+
+\item{\it Billing.} As academic clouds are provided free to the academic
+  user community upon peer reviewed projects, it is also important to
+  avoid situations that either over-stress or adversely lead to
+  underutilization. For example in absence of billing against real
+  monetary values, we observed that many users ignore the cost that is
+  involved by running an actual VM. Furthermore, it is important to
+  communicate to the users the potential estimated cost to them in
+  order to educate them towards deleting or suspending unused
+  resources. However, at the same time it must be assured that large
+  enough experiments can be conducted to further some of the more
+  challenging scientific problems.
+
+\item{\it Testing.} As cloud environments and they usage in applications
+  may be complex (at times more complex that their HPC counter parts)
+  it is important that metrics be provided that support the testing of
+  the functionality, the performance, and the scalability. Ideally
+  these metrics should be available as part of automatic testing
+  services that however may be customized for a particular application.
+
+\item{Consuming.} Many metrics will assist the users and services to
+  consume the cloud services efficiently. They will provide
+  information in optimizing resource use and distribution amongst
+  them. They will also alert towards limitations of the underlaying
+  systems and provide insight on where application limitations my
+  hinder adoption. A specific case is the creation of user motivated
+  benchmarks that through their metrics can inform users about which
+  cloud setup is particularly beneficial.
+
+\item{Auditing.} Metrics for auditing support the process to evaluate
+  the clouds design and effectiveness. This includes security,
+  deployment processes, development processes and governance and
+  oversight  processes. Some of these metrics are out of scope for
+  this paper and should be addressed in future in a separate document.
+  Important is that they be answered by independent and unbiased
+  observer.
+
 \end{description}
+
 
 \subsection{Security}
 
@@ -302,11 +367,12 @@ the following factors:
 
 \subsection{Frameworks}
 
-
 \subsection{Resources}
 
 \subsection{Sources}
 
+To complete this factor additional aspects need
+to be introduced such as granularity and population.
 
 
 
@@ -1408,6 +1474,12 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 This material based upon work is partially supported in part by the National Science Foundation under Grant No. 1445806, 1445806, and 0910812.
 
 %\clearpage 
+
+Other references:
+
+http://csrc.nist.gov/groups/SMA/ispab/documents/minutes/2006-12/Metrics.pdf
+
+http://www.educause.edu/library/security-metrics
  
 \bibliographystyle{IEEEtranS} 
 %\bibliographystyle{abbrv} 
