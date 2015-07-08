@@ -217,15 +217,18 @@ structured as follows:
 
 TBD 
 
-\section{Towards a Taxonomy for Cloud Metrics}
+\section{Cloud Metric Factors}
 
-Cloud metrics must address a wide variety of aspects including which
-stakeholders and roles to address, which frameworks
-to address,  which purpose the metrics are designed for, which
-concrete resources are targeted, which sources are used for the metric,
-and which security aspects are considered. We are summarizing these
-influential aspects in Figure \ref{F:taxonomy-1} and explaining them
-in more detail. 
+When we look at a particular cloud metric, it may be shaped by a
+number of factors that determines the applicability and usability of
+the metric in general. To provide an overview of a selected number of
+factors fro cloud metrics we have identified the following factors of
+significant importance: (a) stakeholders and roles to address, (b) the
+frameworks to address, (c) the purpose the metrics are designed for,
+(d) concrete resources are targeted by the metric, (e) which sources
+are used for the metric, and (f) which security aspects are
+considered. We are summarizing these influential aspects in Figure
+\ref{F:taxonomy-1} and explaining them in more detail.
 
 \begin{figure}[h!] 
   \centering 
@@ -254,18 +257,39 @@ ethnicity and classification into scientific disciplines are of great
 value for center directors and Funders, while they play no importance
 to the operational metrics to keep the system running.
 
+\subsection{Motivation}
+
+Another important factor for a cloud metric is the motivation and
+purpose for the metric. Based on this factor additional aspects need
+to be introduced such as granularity and population. We distinguish
+the following factors:
+
+\begin{description}
+\setlength\itemsep{-4pt}
+\item{Monitoring} Troubleshooting, development, deployment, production
+\item{Planning}
+\item{Billing}
+\item{Testing}
+\item{Auditing}
+\item{Consuming} by users and services
+\end{description}
+
+\subsection{Security}
+
+
+
 \subsection{Frameworks}
 
 
 
 
-\subsection{Purpose}
+
 
 \subsection{Resources}
 
 \subsection{Sources}
 
-\subsection{Security}
+
 
 
 \begin{figure}[h!] 
