@@ -166,19 +166,62 @@ exposure to its users.
 \section{OLD ABSTRACT} 
 
 
-In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance.
-
-
-
-
-
- 
-
- 
-
+In shared resource environments, usage data is necessary to identify
+utilization of the infrastructure by users. Many cloud platforms recently
+started to collect measurements for use of resources that can be applied to
+billing and monitoring. Understanding utilization and performance through these
+measurements is crucial in the infrastructure in order to provide better cloud
+provisioning, system management and capacity planning. In this paper, we
+present an integrated cloud accounting solution, Cloud Metrics, to measure
+cloud resource usage across several cloud platforms such as OpenStack, Nimbus,
+and Eucalyptus. The usage data allows a user to see as how all resources are
+efficiently supplied to their applications and discover patterns from
+cumulative data. With Cloud Metrics, virtual resources such as compute, storage
+and network are measured to evaluate time and cost of user applications and the
+statistics for these resources offer visibility to utilization of cloud
+resources. This article shows statistical analysis of several case studies by
+tracing resource allocation on FutureGrid. Based on the observation on
+FutureGrid, we found that different patterns between scientific research
+projects and educational projects regarding the type of virtual machines (VMs)
+and the patterns of using virtual resources. Cloud Metrics enables users and
+project leaders to identify utilization and performance.
 
 \section{INTRODUCTION}
 TBD
+
+\subsection{Background of Cloud Computing}
+
+Cloud computing provides a resource pool using virtualization technologies on
+multi-tenant environments. Convenient and dynamic access to the shared
+resources is mandatory without performance interference, otherwise people may
+not choose cloud services although it offers cost savings. Availability and
+scalability also need to be ensured to manage rapid changes in the demands for
+cloud resources. These characteristics of cloud computing can be satisfied with
+the support of performance analysis and monitoring. There are some
+considerations when performance analysis and monitoring are applied to cloud
+computing below:
+
+\begin{itemize}
+\item performance isolation against interference
+\item Availability and Scalability
+\item Cost effectiveness to fully utilize available resources
+\end{itemize}
+
+\subsection{Purpose of performance monitoring on the cloud}
+
+To provide efficient resource utilization from a small instance to a large
+virtual cluster on the cloud, performance management and monitoring are
+necessary for performance analysis. Apache Mesos or MongoDB Sharded cluster ,
+for example, are responsible to support large dataset and heavy compute
+requests with proper resource allocation and the performance analysis is a key
+component to increase the efficiency of cloud platforms. There are certain
+benefits of using the performance monitoring on the cloud:
+\begin{itemize}
+\item cost-effective use of cloud resources
+\item Power saving options by increasing energy efficiency
+\item Further development opportunities by using measured usage data e.g. cost
+      prediction, load balance, scaling up or down, capacity planning
+\end{itemize}
 
 \section{METRICS}
 TBD
@@ -303,10 +346,9 @@ o  Usage
 o  Failure
 o  Prediction
 
-\section{Description}
+\subsection{Description}
 
 Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
-
 
 \section{List of Metrics}
 \subsection{User Count}
@@ -522,6 +564,38 @@ https://wiki.openstack.org/wiki/Ceilometer
 https://docs.hpcloud.com/helion/openstack/1.1/services/reporting/overview/
 http://www.sebastien-han.fr/blog/2013/09/06/openstack-heat-and-ceilometer-got-their-dashboard-panel/
 \end{verbatim}
+
+\section{Extra tables}
+
+\begin{table*}[htb]
+
+\caption{Basic Concept of Metric}
+\label{T:BCmetrics}
+\bigskip
+\begin{tabular}{p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.2\textwidth}}
+Name & Unit & Type of Value & Refresh Interval (Measuring time) \\
+\hline
+Runtime &
+hour, min, sec &
+cumulative,
+aggregation &
+event-triggered \\
+\hline 
+running jobs &
+count &
+delta, 
+(change from the previous value) &
+time-triggered e.g. 5 secs, 5 mins\\
+\hline
+CPU, Memory, Load &
+Percentage &
+gauge,  
+(standalone value relating only to the current duration) &
+time-triggered e.g. 5 secs, 5 mins\\
+\hline
+\end{tabular}
+
+\end{table*}
 
 
 
