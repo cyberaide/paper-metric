@@ -756,7 +756,7 @@ http://www.sebastien-han.fr/blog/2013/09/06/openstack-heat-and-ceilometer-got-th
 \caption{Basic Concept of Metric}
 \label{T:BCmetrics}
 \bigskip
-\begin{tabular}{p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.2\textwidth}}
+\begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.4\textwidth}}
 Name & Unit & Type of Value & Refresh Interval (Measuring time) \\
 \hline
 Runtime &
@@ -782,7 +782,124 @@ time-triggered e.g. 5 secs, 5 mins\\
 \end{table*}
 
 
+\begin{table*}[htb]
 
+\caption{System Performance Metric (OS Level)}
+\label{T:SPmetrics}
+\bigskip
+\begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+Metric & Description & Type & Level & Unit & Example \\
+\hline
+CPU Utilization &
+Percentages of total CPU time &
+System Monitoring &
+Operating System & 
+Percentage & 
+vmstat \\
+\hline
+I/O Read &
+Read operations on disks &
+&
+&
+Count or Bytes &
+iostat \\
+\hline
+I/O Write &
+Write operations on disks &
+&
+&
+Count or Bytes  &
+\\
+\hline
+Network In &
+Received bytes to network interfaces &
+&
+&
+Bytes &
+\\
+\hline
+Network Out &
+Sent bytes from network interfaces &
+&
+&
+Bytes &
+\\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[htb]
+\caption{Network Monitoring Features (source from wikipedia)}
+\label{T:NMmetrics}
+\bigskip
+\begin{tabular}{p{0.1\textwidth}p{0.3\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+Metric (legend) & Description & Ganglia & Nagios \\
+\hline
+Trending &
+provides trending of network data over time &
+Yes &
+Yes \\
+\hline
+Trend Prediction &
+The software features algorithms designed to predict future network statistics &
+No &
+No \\
+\hline
+Auto Discovery &
+The software automatically discovers hosts or network devices it is connected to &
+Via gmond check in &
+Via Plugin \\
+\hline
+Agentless & 
+The product does not rely on a software agent that must run on hosts it is monitoring so that data can be pushed back to a central server. &
+No &
+Supported \\
+\hline
+SNMP &
+able to retrieve and report on SNMP statistics &
+via plugin &
+Via plugin \\
+\hline
+Syslog &
+Able to receive and report on Syslogs &
+No &
+Via plugin \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[htb]
+\caption{Metrics for Cloud Computing}
+\label{T:NMmetrics}
+\bigskip
+\begin{tabular}{p{0.1\textwidth}p{0.2\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+Metric & Cloud Platform & Purpose & Related Service \\
+\hline
+CPU Utilization &
+IaaS, PaaS &
+Performance &
+Scale Up/Down \\
+\hline
+Task completion time &
+PaaS &
+Performance &
+\\
+\hline
+Number of VMs &
+IaaS &
+Traffic &
+Scale Up/Down \\
+\hline
+VM sizes (flavors) &
+IaaS &
+Capacity &
+\\
+\hline
+\end{tabular}
+\end{table*}
+[aceto2013cloud]
 
 
 \section{REFERENCES}
