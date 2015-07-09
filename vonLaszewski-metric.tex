@@ -11,24 +11,29 @@
 % LATEX DEFINITIONS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{hyperref} 
+\usepackage[colorlinks]{hyperref}
 \usepackage{array} 
 \usepackage{graphicx} 
 \usepackage{booktabs} 
 \usepackage{pifont} 
-\usepackage{todonotes} 
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{rotating} 
 \usepackage{color} 
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{fancyvrb}
 
+
+
 \newcommand*\rot{\rotatebox{90}} 
  
-\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
+%\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
 
 
-\setlist[itemize]{noitemsep, topsep=0pt} 
+\newcommand{\hyungro}[1]{\todo[inline, color=green!40]{Hyungro:~#1}} 
+\newcommand{\gregor}[1]{\todo[inline, color=blue!40]{Gregor:~#1}} 
+
+%\setlist[itemize]{noitemsep, topsep=0pt} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HYPERSETUP 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,6 +60,8 @@
 } 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
 
 \lstset{frame=tb,
 language=sh,
@@ -99,7 +106,9 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
        \smallskip\email{$^*$laszewski@gmail.com} 
 }
 \date{24 March 2014}  
- 
+\newpage
+\listoftodos[Notes]
+\newpage
 \toappear{} 
 \maketitle 
 \begin{abstract} 
@@ -124,7 +133,8 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
   importance of metrics also in higher level platform as a services
   delivered through the various user communities. Thus it is important
   to identify common features of existing and future services that
-  benefit from metrics and their exposure to its users.
+  benefit from metrics and their exposure to its users. \gregor{test
+    todo notes}
 
 
 
@@ -206,6 +216,8 @@ projects and educational projects regarding the type of virtual machines (VMs)
 and the patterns of using virtual resources. Cloud Metrics enables users and
 project leaders to identify utilization and performance.
 
+\todo[inline]{remove old abstract, but read if there is info we need
+  to maintain.}
 \end{comment}
 
 
@@ -525,7 +537,8 @@ Technical Report, ICL-UT-13-02, August, 2013.
 \end{description}
 
 
-\cite{LeeFGresource}
+Hyungro Report: \cite{LeeFGresource}
+
 \subsection{Sources}
 
 A comprehensive metrics framework consists of a data mashup of various
@@ -572,6 +585,7 @@ http://www.admin-magazine.com/HPC/Articles/Moving-HPC-to-the-Cloud
 https://www.theubercloud.com/cost/
 
 
+\hyungro{Add references to bib file}
 
 
 
@@ -744,9 +758,9 @@ This metric counts the launched VM instances on the cloud &
 VM Count is important for measuring the volume of requested instances &
 Reports (Fig~1,~2) \\
 \hline
-Running Hour &
+runtime by Hour &
 This metric shows the total amount of runtime for launched instances &
-Running hour is important for measuring actual runtime of instances &
+runtime by hour is important for measuring actual runtime of instances &
 Reports (Fig~1,~2) \\
 \hline
 VM Count by Project, Leader, or Institution &
@@ -763,72 +777,24 @@ Reports (Fig~1,~2) \\
 \end{scriptsize}
 \end{table*}
 
+ID
+realtime
+stakeholder = user, administrator, management, funder
+type = count, sum, distribution, ....
 
-
-\begin{tabular}{p{0.2\columnwidth}p{0.7\columnwidth}}
-{\bf\it\small} Name &  User Count \\
-{\bf\it\small} Description & This metric counts the active users for the cloud \\
-{\bf\it\small} Motivation & User count is important for measuring the popularity of the cloud\\
-{\bf\it\small} Samples & FutureGrid Reports (See attached Fig 1, 2) \\
-\end{tabular}
-
-
-\begin{description}
-\item[Name:] User Count
-\item[Description:] This metric counts the active users for the cloud
-\item[Motivation:] User count is important for measuring the popularity of the cloud
-\item[Samples:] FutureGrid Reports (See attached Fig 1, 2)
-\end{description}
-  
 Fig 1. Active user count by host                  
 
 Fig 2. Active user count monthly
-\begin{description}
-\item[Metric:] VM Count
-\item[Name:] VM Count
-\item[Description:] This metric counts the launched VM instances on the cloud.
-\item[Motivation:] VM Count is important for measuring the volume of requested instances
-\item[Samples:] FutureGrid Reports (See attached)
-\end{description}
- 
-Fig 3. VM Count daily
-\begin{description}
-\item[Metric:] Running Hour
-\item[Name:] Running Hour
-\item[Description:] This metric shows the total amount of runtime for launched instances
-\item[Motivation:] Running hour is important for measuring actual runtime of instances
-\item[Samples:] FutureGrid Reports (See attached)
-\end{description}
 
+Fig 3. VM Count daily
  
 Fig 4. VM Count by runtime distribution
 
-8.      Group Usage
-\begin{description}
-\item[Name:] VM Count by Project, Leader, or Institution
-\item[Description:] This metric shows share of resource by group metrics such as project, leader or institution.
-\item[Motivation:] Group usage is important for measuring group usage
-\item[Samples:] FutureGrid Reports (See attached)
-\end{description}
-
- 
 Fig 5. Usage by Institution
-
  
-Fig 6. Running Hour by Project Leader
+Fig 6. runtime by Hour by Project Leader
 
-\section{Real Time Usage}
-\begin{description}
-\item[Name:] Current running VMs or accessed users
-\item[Description:] This metric shows instant usage data to see current status
-\item[Motivation:] real time usage is important for checking peak or detecting unusual usage
-\item[Samples:] FutureSystems (See attached)
-\end{description}
-
- 
 Fig 7. Real-Time Usage of VM instances
-
-
  
 Fig 8. Real-time userlist of running VM instances
 
@@ -1327,7 +1293,27 @@ Monitoring in high-performance computing has a similarity to Cloud Computing. It
 
 \subsection{XDMoD}
 
-XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}
+
+
+
+
+
+
+XDMoD (XSEDE Metrics on Demand)
+\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is
+primarily developed as UBMoD (University Buffalo Metrics on Demand)
+and is an open source tools for collecting and mining statistical data
+from cluster resource managers such as Torque/Maui, OpenPBS, SGE and
+Slurm commonly found in high-performance computing environments. There
+are three fundamental components: a metrics repository (XDMoD Data
+Warehouse), a RESTful API, and a web-based application (XDMoD
+Portal). Its web graphical user interface, XDMoD Portal, provides rich
+set of statistics with different type of charts and tables with
+communicating its RESTful
+API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}\hyungro{identify
+  duplicated refeneces and remove them, remember to use vonLazewski
+  refs from the vonLaszewski-jabref.bib file}
+
 
 \subsection{Nagios}
 
