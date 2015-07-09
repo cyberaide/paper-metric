@@ -657,7 +657,12 @@ benefits of using the performance monitoring on the cloud:
 
 
 
-\section{Summary Report (All)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CLOUD METRICS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Summary Report (All)}
 
                                                                                        
 format, table, piechart, barchart, stacked barchart, period month quarter, week day, hour current                                       
@@ -671,7 +676,7 @@ o       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project,
 
 \end{verbatim}
 
-\section{Summary (Monthly) }
+\subsection{Summary (Monthly) }
 
 \begin{verbatim}
 o       put multiple metrics in same chart
@@ -680,7 +685,7 @@ o       Metrics: VMs count, Users count, Wall time (hours), Distribution by wall
         system information on which hosts do we run, count vms, runtime
 \end{verbatim}
 
-\section{Keywords}
+\subsection{Keywords}
 
 \begin{Verbatim}[fontfamily=times]
 o usage
@@ -757,10 +762,6 @@ o consideration of implementing metrics system
   - agility
   - autoscaling
 \end{Verbatim}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{CLOUD METRICS}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{verbatim}
 o  VM
@@ -851,7 +852,7 @@ Fig 8. Real-time userlist of running VM instances
 FutureGrid html \cite{LeeFGresourceWeb}
  FutureGrid pdf \cite{LeeFGresource}
 
-\section{Report for Errors (TBD)}
+\subsection{Report for Errors (TBD)}
 
 Cloudmesh Metrics reads system and application logs to generate error reports. If there are error messages stored in the database, Cloudmesh Metrics can lookup the database to collect the messages. Error information collected are stored in the Metrics database.
 
@@ -918,7 +919,7 @@ o  alert notification
 \end{verbatim}
 
 
-\section{Extra tables}
+\subsection{Extra tables}
 
 \hyungro{introduce begin center and center in all tables}
 \hyungro{lets use scriptsize in all tables, this way they look uniform}
@@ -1312,8 +1313,28 @@ Zabbix is an open source monitoring not only for networks but also for servers u
 Zenoss (Zenoss Core) provides a unified resource management service which manages applications, networks, servers, and storage in terms of monitoring physical or virtual systems including the public, private and hybrid cloud. It is built on the Zope object-oriented web application server, and using RRDtool with MySQL as to store collected information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss provides additional features with other monitoring mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise version which is based on the open-source core version. The one of the key features of Zenoss is Model-Driven Monitoring which is about automatic and dynamic discovery, configuration and monitoring. As a communication tool, Zenoss utilizes Twisted Perspective Broker (PB) instead of AMQP typed messaging system like RabbitMQ. They claims Twisted provides an asynchronous, event-driven with co-operative multi-tasking which is a deferred object.
 
 
+\subsubsection{Inca}
+
+Keenland, Darter, FutureGrid
+
+\task{add information}
+
+\subsubsection{Ipm} Stempede
+
+http://projekt17.pub.lab.nm.ifi.lmu.de/ipm/publications.html
+
+https://github.com/nerscadmin/ipm
+
+\cite{ipm10}
+
+\task{add information} 
+
+\subsubsection{PAPI}
+
+\task{add information} Stempede
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{CLOUDMESH METRICS}
+\section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
@@ -1366,7 +1387,7 @@ Once we started investigation on Cloud Accounting tools, similarity of accountin
 \end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{IMPLEMENTATION} \label{S:implementation}
+\subsection{Implementation} \label{S:implementation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{System Design} \label{S:design}
@@ -1517,6 +1538,8 @@ In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HP
   \caption{Annual Wall Time Changes for Job Size in HPC between 2010 and 2013}\label{F:bigdatainhpc} 
 \end{figure} 
 
+\begin{comment}
+
 \subsection{Pricing Comparison}
 
 Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine (GCE), HP Cloud, IBM and Rackspace are compared. Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have several options to reduce cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time. In Table~\ref{T:tab0}, different price tags for virtual machine instances are described. With the comparison of the smallest vm instance which is 1 virtual core, 600-768MB memory and no storage option, we can see most IaaS service providers have similar pricing charts.
@@ -1581,6 +1604,8 @@ $^2$US, Linux, charged 10 minutes if runtime is <10 minutes\\
 $^3$Linux, charged by minute but free is <5 minutes\\
 \end{footnotesize}
 \end{table}
+
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{RELATED WORK}
