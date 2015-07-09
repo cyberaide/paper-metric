@@ -891,7 +891,9 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{gcemonitoring}
 
 \section{Extra tables}
+
 \hyungro{introduce begin center and center in all tables}
+\hyungro{lets use scriptsize in all tables, this way they look uniform}
 
 \begin{table*}[htb]
 
@@ -1186,6 +1188,7 @@ Openstack provides usage statistics for OpenStack Compute (Nova), a main compone
     | sierra | project3   | 1   | 2048      | 20      |
     +--------+------------+-----+-----------+---------+
 \end{verbatim}
+\vspace{-20pt}
 \end{scriptsize}
 
 \caption{Display a summary of resource usage of the devstack-grizzly host}
@@ -1211,6 +1214,7 @@ Usage data can be provided by Tenant Id which is a group of openstack cloud user
     | user5  | 5       | 18644854.23 | 9103.93 | 182078.65 |
     +--------+---------+-------------+---------+-----------+
 \end{verbatim}
+\vspace{-20pt}
 \end{scriptsize}
 
 \caption{Summary statistics for tenants}
@@ -1657,12 +1661,14 @@ This material based upon work is partially supported in part by the National Sci
 
 %\clearpage 
 
-Other references:
+\section{Other references}
 
+\hyungro{add to bibs or find if they already exist}
 http://csrc.nist.gov/groups/SMA/ispab/documents/minutes/2006-12/Metrics.pdf
 
 http://www.educause.edu/library/security-metrics
- 
+
+\begin{scriptsize} 
 \bibliographystyle{IEEEtranS} 
 %\bibliographystyle{abbrv} 
 \bibliography{% 
@@ -1672,7 +1678,8 @@ bib/cyberaide-metric,%
 bib/cyberaide-cloud,%
 metric-new}
 %bib/image-refs,% 
-
+\end{scriptsize}
+   
 %bib/python,% 
 %tas.bib%
  
