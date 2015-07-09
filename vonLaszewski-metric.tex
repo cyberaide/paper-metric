@@ -1,6 +1,13 @@
 \documentclass{sig-alternate-05-2015}
 
-
+\makeatletter
+\setcounter{tocdepth}{3}
+\def\contentsname{Contents}
+\def\tableofcontents{%
+    \section*{\MakeUppercase{\contentsname}}%
+    \@starttoc{toc}%
+    }
+\makeatother
 
 \newcommand{\TITLE}{Cloud Metrics for Academic Resource Providers}
 
@@ -22,6 +29,7 @@
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{fancyvrb}
+%\usepackage{titling}
 
 
 
@@ -30,8 +38,9 @@
 %\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
 
 
-\newcommand{\hyungro}[1]{\todo[inline, color=green!40]{Hyungro:~#1}} 
-\newcommand{\gregor}[1]{\todo[inline, color=blue!40]{Gregor:~#1}} 
+\newcommand{\hyungro}[1]{\todo[inline, color=green!20]{Hyungro:~#1}} 
+\newcommand{\gregor}[1]{\todo[inline, color=blue!20]{Gregor:~#1}} 
+\newcommand{\task}[1]{\smallskip\todo[inline, color=gray!20]{#1}} 
 
 %\setlist[itemize]{noitemsep, topsep=0pt} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,6 +115,11 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
        \smallskip\email{$^*$laszewski@gmail.com} 
 }
 \date{24 March 2014}  
+
+
+\newpage
+
+\tableofcontents
 \newpage
 \listoftodos[Notes]
 \newpage
@@ -133,8 +147,7 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
   importance of metrics also in higher level platform as a services
   delivered through the various user communities. Thus it is important
   to identify common features of existing and future services that
-  benefit from metrics and their exposure to its users. \gregor{test
-    todo notes}
+  benefit from metrics and their exposure to its users. 
 
 
 
@@ -220,35 +233,45 @@ project leaders to identify utilization and performance.
   to maintain.}
 \end{comment}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Cloud Computing}
 
 Cloud computing has established itself as one of the key components in
 modern datacenters. This includes academic, government, and for profit
-institutions and organizations. One of the important aspects to a
-successfully operational cloud is the availability of sophisticated
-metric information and frameworks to assure a number of key
-operational factors. As cloud computing is typically part of a large
-scale data center it touches and also must integrate common data
-center metrics. Furthermore, it is essential to cloud specific
-application metrics while benchmarking a cloud at regular intervals to
-detect potential issues. Cloud metrics are important to a number of
-users interested in the various aspects dealing with a operation, use,
-and management of a cloud. Hence, the motivation for cloud metrics are
-shaped by application users, administrators, service providers and
-funders. Metrics include usage, failure and auditing data to identify
-user and system behavior. Many of the metrics presented here have been
-used as part of the FutureGrid and FutureSystems clouds. These general
-aspects are not only common to a particular IaaS framework but are
-common across heterogeneous cloud IaaS such as OpenStack, Eucalyptus
-and Nimbus including unified metrics across such deployments.
-Additionally, we see the importance of metrics also in higher level
-platform as a services delivered as part of high level cloud services
-designed to support various user communities and virtual
-organizations. Thus it is important to identify common features of
-existing and future services that benefit from metrics and their
-exposure to its users. Based on our short introduction it is clear
-that a more formal approach is needed to identify
+institutions and organizations. 
+
+\task{This section will include a brief introduction to cloud computing
+as introduced by the NIST definition.}
+
+\subsection{Cloud Metrics}
+
+One of the important aspects to a successfully operational cloud is
+the availability of sophisticated metric information and frameworks to
+assure a number of key operational factors. As cloud computing is
+typically part of a large scale data center it touches and also must
+integrate common data center metrics. Furthermore, it is essential to
+cloud specific application metrics while benchmarking a cloud at
+regular intervals to detect potential issues. Cloud metrics are
+important to a number of users interested in the various aspects
+dealing with a operation, use, and management of a cloud. Hence, the
+motivation for cloud metrics are shaped by application users,
+administrators, service providers and funders. Metrics include usage,
+failure and auditing data to identify user and system behavior. Many
+of the metrics presented here have been used as part of the FutureGrid
+and FutureSystems clouds. These general aspects are not only common to
+a particular IaaS framework but are common across heterogeneous cloud
+IaaS such as OpenStack, Eucalyptus and Nimbus including unified
+metrics across such deployments.  Additionally, we see the importance
+of metrics also in higher level platform as a services delivered as
+part of high level cloud services designed to support various user
+communities and virtual organizations. Thus it is important to
+identify common features of existing and future services that benefit
+from metrics and their exposure to its users. Based on our short
+introduction it is clear that a more formal approach is needed to
+identify
 
 \begin{enumerate}
 \setlength\itemsep{-2pt}
@@ -274,9 +297,16 @@ services for these projects.
 These aspects are addressed in the following paper. Our paper is
 structured as follows:
 
-TBD 
+\subsection{Academic cloud computing}
 
-\section{Cloud Metric Factors}
+\task{This section will include a brief introduction about academic
+  cloud computing efforts. We need to avoid potential duplication with
+  a later section, so this section here may be removed and introduced
+  later.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CLOUD METRIC FACTORS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 When we look at a particular cloud metric, it may be shaped by a
 number of factors that determines the applicability and usability of
@@ -566,8 +596,9 @@ be employed to evaluate the effectiveness of such infrastructures
   \caption{Overview of CloudMetrics}\label{F:taxonomy-2} 
 \end{figure*} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background of Cloud Computing}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Nist cloud definition~\cite{mell2011nist}
 
@@ -604,6 +635,7 @@ computing below:
 \item Cost effectiveness to fully utilize available resources
 \end{itemize}
 
+
 \section{Purpose of performance monitoring on the cloud}
 
 To provide efficient resource utilization from a small instance to a large
@@ -625,21 +657,27 @@ benefits of using the performance monitoring on the cloud:
 
 
 \section{Summary Report (All)}
-                                                                                                        format, table, piechart, barchart, stacked barchart, period month quarter, week day, hour current                                       
-o       1.1  WallHoursbyClusters(Total,monthly)................................. 4                              
-o       .2  VMCountbyClusters(Total,monthly)................................. 6
-o       1.3  UsersCountbyClusters(Total,monthly) ................................ 8 
 
+                                                                                       
+format, table, piechart, barchart, stacked barchart, period month quarter, week day, hour current                                       
+
+\begin{verbatim}
+o       1.1  WallHoursbyClusters(Total,monthly)
+o       .2  VMCountbyClusters(Total,monthly)
+o       1.3  UsersCountbyClusters(Total,monthly)
 o       
 o       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project, Project Leader, and Institu- tion, and Systems 
-o                                               
+
+\end{verbatim}
+
 \section{Summary (Monthly) }
-o                       
+
+\begin{verbatim}
 o       put multiple metrics in same chart
-o       perid y, m, d, h                                                                                                
+o       period y, m, d, h                                                                                                
 o       Metrics: VMs count, Users count, Wall time (hours), Distribution by wall time, project, project leader, and institution, and systems 
         system information on which hosts do we run, count vms, runtime
-
+\end{verbatim}
 
 \section{Keywords}
 
@@ -719,22 +757,26 @@ o consideration of implementing metrics system
   - autoscaling
 \end{Verbatim}
 
-\section{Cloud Metrics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CLOUD METRICS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{verbatim}
 o  VM
 o  Usage
 o  Failure
 o  Prediction
-
+\end{verbatim}
 
 \section{List of Metrics}
 
 
-
+\begin{verbatim}
 Total User Count
 Count over Group
 Project, Center, Organization
 Counts the active users in the cloud
+\end{verbatim}
 
 \subsection{User Count}
 
@@ -809,8 +851,8 @@ Fig 8. Real-time userlist of running VM instances
 
 \subsection{Sample Reports}
 
-o  FutureGrid html \cite{LeeFGresourceWeb}
-o  FutureGrid pdf \cite{LeeFGresource}
+FutureGrid html \cite{LeeFGresourceWeb}
+ FutureGrid pdf \cite{LeeFGresource}
 
 \section{Report for Errors (TBD)}
 
@@ -820,6 +862,7 @@ Cloudmesh Metrics reads system and application logs to generate error reports. I
 
 There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
 
+\begin{verbatim}
 o  Identify problematic hosts
 - e.g. 20% of errors occurred in i57
 o  Identify problematic term
@@ -837,8 +880,11 @@ Code Number     \# of Errors
 500     399
 
 o       2nd level
+\end{verbatim}
 
+\hyungro{transfer tables here and eliminate the verbatim} 
 
+\begin{verbatim}
 Code Number     Message \# of Errors
 500     'NoneType' object has no attribute 'defineXML'  
 
@@ -857,6 +903,9 @@ Code    Message Parsing Details - Python Module Parsing Details - Python Functio
 500     Instance type's disk is too small for requested image.  nova/compute/manager.py \_build\_instance()     133
 ...                             
 
+\end{verbatim}
+
+\begin{verbatim}
 o  Error rate
 -       e.g. 1.5 % error rate on nova-api requests on 03/25/2014
 (based on nova-api.log-20140325: 17338 accepted requests and 266 errors)
@@ -869,36 +918,8 @@ o  Error Tracing
 o  Possible other metrics (TBD)
 o  quota management
 o  alert notification
+\end{verbatim}
 
-\section{Notes}
-
-o  Stackdriver provides monitoring service at Google Cloud
-
-\section{Related Work}
-
-Nist~\cite{NIST2015}
-Blueflood~\cite{BlueFloodDB}
-CM-measurement facets for cloud performance~\cite{singh2011cm}
-Online detection of utility cloud anomalies using metric distributions~\cite{wang2010online}
-M4Cloud-Generic Application Level Monitoring for Resource-shared Cloud Environments.~\cite{mastelic2012m4cloud}
-Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Environment~\cite{vondesign}
-\cite{CloudAuditingDataFederation}
-\cite{viewing-keystone-cadf-notifications-with-ceilometer-and-rabbitmq}
-\cite{GoogleCustomMetrics}
-\cite{terencengai}
-\cite{KevinFogarty}
-\cite{SharonWagner}
-\cite{MarcusSarmento}
-\cite{awscloudwatch}
-\cite{RobBoucher}
-\cite{GregorBeslic}
-\cite{aceto2013cloud}
-\cite{HPHelionEucalyptus}
-\cite{eucalyptusgithub}
-\cite{ceilometer}
-\cite{HPHelionOpenStack}
-\cite{SeBASTIENhAN}
-\cite{gcemonitoring}
 
 \section{Extra tables}
 
@@ -1073,76 +1094,19 @@ Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \end{tabular}
 \end{table*}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{TOOLS AND SERVICES}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Usage Measurement for IaaS}
 
-
-\section{REFERENCES}
-
-
-
-
-\section{Cloudmesh Metrics}
-
-Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
-  
-\section{Introduction} 
-
-\subsection{Background}
-In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
-
-Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
-
-
-\subsection{Real Consumption vs Allocation}
-There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
-
-\subsection{Motivation}
-
-Investigation for performance managements on the cloud would provide understanding of resource usage and statistics in several ways such as accounting/billing and provisioning. This classification will help evaluate the current performance of the cloud systems and gain the visibility of resource utilization across application layer and system layer. 
-
-\subsection{Problem}
-
-Cloud platform relies on sharing of computing and storage resources with many people like a public utility, understanding amounts of the usage of resources is getting important to the cloud users and cloud providers. It is not only important measuring use of resources but also important displaying metrics via graphical charts. There are concrete challenges for this research area: 
-
-Understanding - it is a basic functionality to see how reliable the system is and to prevent system failures by knowing the resource utilization. It also gives an opportunity to manage the system efficiently by knowing the performance of the system. 
-
-Getting informed - the system of alerts allows system administrators to react when the incidence of problems are detected. If the alerts are related to a resource reallocation, it is important to react on time according to the notifications. These alerts are not limited to delivering errors and warnings which are passive means, but rather they can be used as a proactive and defensive measure. 
-
-Estimating future requests (Prediction) - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance. 
-
-Reporting - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
-
-There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager~\cite{jacksongold} are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
-
-\subsection{Definition}
-
-Once we started investigation on Cloud Accounting tools, similarity of accounting, billing, and monitoring tools is something that we need to clarify. In this section, we give our own words to identify differences among them. 
-
-\subsubsection{Monitoring}
-
-Monitoring is about measuring resource utilization. In a typical way, real-time monitoring is performed in a system/hardware layer to show activities. It is supposed to provide performance analysis by measuring CPU utilization, load average, memory usage (free/used), network bandwidth in/out and disk I/O. Given that metrics, monitoring system shows that how many resources are being used at any given time. 
-
-\subsubsection{Accounting}
-
-Accounting is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
-
-\subsubsection{Billing}
-
-Billing is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user. 
-
-\subsubsection{Auditing}
-
-Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system. 
-
-\section{Usage Measurement for IaaS}
-
-\subsection{OpenStack}
+\subsubsection{OpenStack}
 
 In late 2012, OpenStack community started a new project about measuring usage data from openstack components. This project named Ceilometer collects measurements within OpenStack to achieve monitoring and metering purposes. Ceilometer acquires all of the measurements across all current OpenStack components such as Nova (compute), Network, and Storage (swift), etc and provides a unique framework for the collected data. The latest release Havana includes Ceilometer as a mandatory component in OpenStack and the previous release Grizzly included it as an incubator component.
 
 OpenStack Compute (nova) also provides a command line tools to retrieve usage statistics, for example, 'nova usage-list' provides usage data for all tenants. These management commands typically limited to system administrators to execute.
 
-\subsubsection{Ceilometer}
+\paragraph{Ceilometer}
 
 Ceilometer project is a framework for monitoring and metering the OpenStack cloud and Ceilometer is a primary place to get access of all usage data in openstack components. It was mainly developed to charge customers as a billing system. Like other commercial cloud platforms, for example Amazon Web Services, these metrics are included, with an hour level granularity:
   compute utilization;
@@ -1160,6 +1124,8 @@ Ceilometer project is a framework for monitoring and metering the OpenStack clou
 
 \subsubsection{Implementation}
 
+\task{Wrong section heading}
+
 There is a program named an agent on each OpenStack node and aggregates information about virtualized resources. The agent on each nova compute node uses Linux virtualization API (libvirt) and Windows Management Instrumentation (wmi) to extract essential information from hypervisor. Some other agents harvest the data from iptables, swift proxy or the nova database, if additional information can be obtained through these external services.
 
 There are four basic components to Ceilometer:
@@ -1175,11 +1141,11 @@ An API server provides access to metering data in the database via a REST API. A
 
 Openstack itself has notification systems built into the existing OpenStack components. Most usage data are collected from these notification systems. Ceilometer also requests metering messages from a pollster plugin using the 'ceilometer.poll.compute' namespace.
 
-\subsubsection{Ceilometer with OpenStack Heat for autoscaling}
+\paragraph{Ceilometer with OpenStack Heat for autoscaling}
 
 The OpenStack Orchestration program, Heat, provides an autoscaling service with Ceilometer like Amazon CloudFormation. OpenStack Heat scales VM capacity up or down according to the metrics from Ceilometer. Ceilometer collects metrics for virtual machines and its alarming module calls the Heat API if the threshold for the metrics is reached. Heat triggers the upscaling or the downscaling virtual machines once it is notified by Ceilometer. This integration of Heat and Ceilometer allows you to ensure optimal utilization by managing the number of virtual machine instances. Amazon has a similar combination of AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values~\cite{Abaakouk13}.
 
-\subsubsection{Nova command line tools for usage statistics}
+\paragraph{Nova command line tools for usage statistics}
 
 Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version. 
 
@@ -1235,13 +1201,13 @@ Usage data can be provided by Tenant Id which is a group of openstack cloud user
 
 Usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications' 'event\_type, which is a hierarchical dotted string such as compute.instance.create, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate, created when a specific increment of usage occurs (such as creation of an instance) or periodic, generated by a periodic task, like a cron job, and covering usage for a certain period of time. Besides the standard Nova Notification priority, notification timestamp, and event\_type, usage notifications contain a payload of data that will vary depending on the event\_type. This is presented as a json-formatted hash of key-value pairs. Some of the keys, such as tenant\_id will always be present in any usage notification, others will be data relevent to that event\_type (for example, instance related notifications will contain data describing the instance)~\cite{SystemUsageData}.
 
-\subsection{Eucalyptus}
+\subsubsection{Eucalyptus}
 
 The Eucalyptus Amazon compatible private cloud has provided resource usage information through external monitoring tools such as Nagios and Ganglia. Since both Nagios and Ganglia have been proved to observe state data within distributed systems, Eucalyptus relied on integration with these tools for resource monitoring. To enhance system management, Eucalyptus recently improves summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties~\cite{Euca2ools14}.
 
 Regarding to commercial clouds, usage data is provided to cloud services running under your account.
 
-\subsection{Azure}
+\subsubsection{Azure}
 
 Microsoft Azure - Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers~\cite{azure11}. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
 
@@ -1293,25 +1259,29 @@ Once, the Azure Management Pack is installed, three .run as. accounts must be cr
  
 The monitoring data can be visualized using System Center Operation Manager Console. From Operation Manager, user can create custom dashboard or publish graphs on SharePoint to people who do not have the SCOM console.
 
-\subsection{Amazon}
+\subsubsection{Amazon}
 
-\subsubsection{Amazon CloudWatch}
+\paragraph{Amazon CloudWatch}
 
 Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real-time. ACW is a metrics repository. AWS product puts metrics into the repository, and users retrieve statistics based on those metrics. Metric is a variable you want to measure for your resources and applications. Namespaces are containers for metrics. Metrics are time-ordered sets of data points, are isolated from one another in different namespaces so that metrics from different applications are not mistakenly aggregated into the same statistics. Users retrieve statistics about those data points as an ordered set of time-series data. Over the time value is important for metrics since it contains historical changes in it. Timestamp always follows with a metric. Amazon provides PutMetricData API to create a custom metrics and publish to ACW. 2 weeks time period for store statistics. Each metrics has a dimension, which is a name / value pair that helps you to uniquely identify a metric.
 
 CloudWatch has a notification to alert users and auto scaling (automatically make changes) to the resources you are monitoring based on rules that you define. Simply, CloudWatch manages threshold values to send a notification to users via email or text messages, and even more, apply changes with a pre-defined settings such as increasing virtual instances or diminishing. You gain system-wide visibility into resource utilization, application performance, and operational health.
 
-\section{Monitoring on HPC}
+\subsubsection{Rackspace Cloud Monitoring}
+
+Rackspace Cloud Monitoring is an API driven monitoring system which allows administrators to use or create APIs depending on their needs which can send notifications to any device including mobile devices. This allows administrators to be on top of their Rackspace-hosted infrastructure which includes websites, protocols, and ports.
+
+\subsubsection{Google Cloud}
+
+Stackdriver provides monitoring service at Google Cloud
+
+\task{Add a section to describe monitoring on Google Cloud}
+
+\subsection{Monitoring on HPC}
 
 Monitoring in high-performance computing has a similarity to Cloud Computing. It provides fixed number of jobs that a user can create and each job runs on a same size of nodes in clusters. There are also common management tools to clusters, so accounting data can be collected from these tools.
 
-\subsection{XDMoD}
-
-
-
-
-
-
+\subsubsection{XDMoD}
 
 XDMoD (XSEDE Metrics on Demand)
 \cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is
@@ -1329,29 +1299,80 @@ API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}\hyungro{identify
   refs from the vonLaszewski-jabref.bib file}
 
 
-\subsection{Nagios}
+\subsubsection{Nagios}
 
 Nagios is a web based Linux monitoring systems and it allows to monitor availability and response time of network services, usage of system resources like CPU load, RAM allocation etc., number of logged in users and so on. The main Nagios instance (server) collects information from Linux, BSD, Windows hosts or Cisco devices through Nagios clients (agents), and sees states of their services or processes in one place: Nagios web interface. Nagios generates a notification in case of any outage detected or any anomaly through wide range of alert methods such as e-mail, sms, chat messages and phone call notifications. And one more thing, Nagios monitors states but it doesn.t show any graphs like network interface usage etc.
 
-\subsection{Cacti}
+\subsubsection{Cacti}
 Cacti is a network monitoring tool using simple network management protocol (SNMP) and similar to other tools such as Nagios and Ganglia, it uses RRDtool as a DBMS and a visualization graphical tool. Since it supports polling monitoring data via shell scripts like php or c-based executable, it can be extended to measure other resources not only network traffic. It is also suitable for a hosting service with user-based management.
 
-\subsection{Zabbix}
+\subsubsection{Zabbix}
 
 Zabbix is an open source monitoring not only for networks but also for servers using SNMP, IPMI, and JMX. The centralized server of Zabbix collects monitoring data through several Zabbix agents installed on desirable hosts and store them on the database to display and generate web-based reports when they are needed. Zabbix Agent which is deployed on a monitoring target obtains utilization data using various monitoring protocols and tools like SNMP, TCP, and ICMP. For the cloud monitoring, Zabbix active agent auto-registration helps monitoring cloud instances such as Amazon cloud, and OpenStack without configuring manually.
 
-\subsection{Zenoss}
+\subsubsection{Zenoss}
 
 Zenoss (Zenoss Core) provides a unified resource management service which manages applications, networks, servers, and storage in terms of monitoring physical or virtual systems including the public, private and hybrid cloud. It is built on the Zope object-oriented web application server, and using RRDtool with MySQL as to store collected information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss provides additional features with other monitoring mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise version which is based on the open-source core version. The one of the key features of Zenoss is Model-Driven Monitoring which is about automatic and dynamic discovery, configuration and monitoring. As a communication tool, Zenoss utilizes Twisted Perspective Broker (PB) instead of AMQP typed messaging system like RabbitMQ. They claims Twisted provides an asynchronous, event-driven with co-operative multi-tasking which is a deferred object.
 
-\subsection{Rackspace Cloud Monitoring}
 
-Rackspace Cloud Monitoring is an API driven monitoring system which allows administrators to use or create APIs depending on their needs which can send notifications to any device including mobile devices. This allows administrators to be on top of their Rackspace-hosted infrastructure which includes websites, protocols, and ports.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{CLOUDMESH METRICS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
+  
+\subsection{Overview}
+In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
+
+Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
 
 
-%%%%%%%%%%%%%%%%% comments ends %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Real Consumption vs Allocation}
+There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
 
-\section{System Design} \label{S:design}
+\subsection{Motivation}
+
+Investigation for performance managements on the cloud would provide understanding of resource usage and statistics in several ways such as accounting/billing and provisioning. This classification will help evaluate the current performance of the cloud systems and gain the visibility of resource utilization across application layer and system layer. 
+
+\subsection{Problem}
+
+Cloud platform relies on sharing of computing and storage resources with many people like a public utility, understanding amounts of the usage of resources is getting important to the cloud users and cloud providers. It is not only important measuring use of resources but also important displaying metrics via graphical charts. There are concrete challenges for this research area: 
+
+\begin{description}
+
+\item[Understanding] - it is a basic functionality to see how reliable the system is and to prevent system failures by knowing the resource utilization. It also gives an opportunity to manage the system efficiently by knowing the performance of the system. 
+
+\item[Getting informed] - the system of alerts allows system administrators to react when the incidence of problems are detected. If the alerts are related to a resource reallocation, it is important to react on time according to the notifications. These alerts are not limited to delivering errors and warnings which are passive means, but rather they can be used as a proactive and defensive measure. 
+
+\item[Estimating future requests (Prediction)] - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance. 
+
+\item[Reporting] - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
+
+\end{description}
+
+There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager~\cite{jacksongold} are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
+
+\subsection{Definitions}
+
+Once we started investigation on Cloud Accounting tools, similarity of accounting, billing, and monitoring tools is something that we need to clarify. In this section, we give our own words to identify differences among them. 
+
+\begin{description}
+
+\item[Monitoring.] Monitoring is about measuring resource utilization. In a typical way, real-time monitoring is performed in a system/hardware layer to show activities. It is supposed to provide performance analysis by measuring CPU utilization, load average, memory usage (free/used), network bandwidth in/out and disk I/O. Given that metrics, monitoring system shows that how many resources are being used at any given time. 
+
+\item[Accounting.] Accounting is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
+
+\item[Billing.] Billing is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user. 
+
+\item[Auditing.] Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system. 
+
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{IMPLEMENTATION} \label{S:implementation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{System Design} \label{S:design}
 
 CloudMetrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
 
@@ -1377,11 +1398,10 @@ We have observed Eucalyptus generates resource usage information via log message
 \end{figure*} 
 
 
-\section{Implementation} \label{S:implementation}
-
 
 %CloudMetrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
 
+\subsection{Component}
 
 Cloud Metrics consists of four components as described in Figure~\ref{F:fig7}: 1) Metric Collector: a measuring tool of resource allocation and 2) Metric Shell: a CLI tool to define metrics and collect usage data 3) Metric Portal and Report: a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{las14cloudmeshmultiple}.
 
@@ -1414,7 +1434,7 @@ The Metric Collector is the sensor for collecting usage data allocated from IaaS
 
 In FutureGrid~\cite{las2010gce,las12fg-bookchapter}, users have a unique account id along with a project id across 8 different resources (Alamo, Bravo, Delta, Foxtrot, Hotel, India, Sierra, and Xray). The Metric analysis tool named by fg-metrics searches usage information across distributed resouces and services with their unique id and provides results with search options. For example, a user can specify the options using basic commands such as 'set nodename india' and 'set date -M 05 -Y 2012' to get usage information of India resource on May 2012. In addition, it supports different output types to help understanding statistics. Comma-separated values (CSV) files and graphical representation tools such as Google Chart API, Highcharts, D3.js, and jQuery Sparkline are used to generate results in image files (e.g. png, gif, and jpg).
 
-\section{Results and Statistical Analysis} \label{S:result}
+\subsection{Results and Statistical Analysis} \label{S:result}
 
 Based on the observation on FutureGrid, there is a different pattern between a research project and class work when they acquire cloud resources. Resource allocation of academic coursework shows time dependent request patterns. It shows a surge when there is a class, a lab session, and a project. For example, the undergraduate course for Distributed Systems at Indiana University introduced IaaS in the class and used the IaaS platform for a class project. Figure~\ref{F:fig2} shows a spike in the class and variability until the project due. A research project, on the contrary, requests VM instances in a steady usage. The Next Generation Sequencing (NGS) in the cloud project on FutureGrid shows relatively consistent resource allocation requested in Figure~\ref{F:fig3}. With a certain period of time, vm instances of this project have been launched without unplanned spike requests. These two examples show different patterns for deploying resources but both cases have a factor to predict loads. The class schedule and the monitoring data for applications can be used to measure the amount of resources and identify incoming requests. In paid cloud platforms such as AWS, GCE, and Azure, understanding these patterns is important to bring cost effectiveness over on-demand allocation. For example, Amazon EC2 Reserved Instances and Azure pre-pay plans may help reduce usage costs for periodic and planned workloads. These service plans simply provide discounts with an upfront payment. As long as a class and a project go as planned, cost saving chances are increased.
 
@@ -1565,17 +1585,97 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 \end{footnotesize}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{RELATED WORK}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\section{Summary}
 
+\task{This section will contain some relevant related work. We have
+  included a small set of references that may be helpful to establish
+  this section}
+
+Nist~\cite{NIST2015}
+Blueflood~\cite{BlueFloodDB}
+CM-measurement facets for cloud performance~\cite{singh2011cm}
+Online detection of utility cloud anomalies using metric distributions~\cite{wang2010online}
+M4Cloud-Generic Application Level Monitoring for Resource-shared Cloud Environments.~\cite{mastelic2012m4cloud}
+Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Environment~\cite{vondesign}
+\cite{CloudAuditingDataFederation}
+\cite{viewing-keystone-cadf-notifications-with-ceilometer-and-rabbitmq}
+\cite{GoogleCustomMetrics}
+\cite{terencengai}
+\cite{KevinFogarty}
+\cite{SharonWagner}
+\cite{MarcusSarmento}
+\cite{awscloudwatch}
+\cite{RobBoucher}
+\cite{GregorBeslic}
+\cite{aceto2013cloud}
+\cite{HPHelionEucalyptus}
+\cite{eucalyptusgithub}
+\cite{ceilometer}
+\cite{HPHelionOpenStack}
+\cite{SeBASTIENhAN}
+\cite{gcemonitoring}
+
+\hyungro{add to bibs or find if they already exist}
+
+http://csrc.nist.gov/groups/SMA/ispab/documents/minutes/2006-12/Metrics.pdf
+
+http://www.educause.edu/library/security-metrics
+
+
+\subsection{Surveys and Taxonomies}
+
+\begin{verbatim}
+http://ac.els-cdn.com/S0743731514001099/1-s2.0-S0743731514001099-main.pdf?_tid=ad0b6ce8-2671-11e5-824a-00000aab0f27&acdnat=1436470718_066aa6c4fd57bc1a1a28962e44639cb4
+
+http://www.infosys.com/engineering-services/features-opinions/Documents/cloud-performance-monitoring.pdf
+
+http://arxiv.org/pdf/1312.6170.pdf
+
+https://www.manageengine.com/products/applications_manager/four-keys-for-monitoring-cloud-services.pdf
+
+http://wpage.unina.it/a.botta/pub/cloudnet_2012.pdf
+
+http://www.future-internet.eu/fileadmin/documents/valencia_documents/plenary/Monitoring_service_clouds_in_the_Future_Internet.pdf
+
+http://www.researchgate.net/publication/263774524_A_survey_of_Cloud_monitoring_tools_Taxonomy_capabilities_and_objectives
+
+http://assets.paessler.com/common/files/pdf/whitepaper/private-cloud-monitoring_en.pdf
+
+http://www.ijmlc.org/papers/382-C0068.pdf
+
+http://easi-clouds.eu/wp-content/uploads/2013/11/ScalableMonitoring_ITAAC_2013_JGU_Materna_Atos.pdf
+
+http://san.ee.ic.ac.uk/publications/ggorbil_ISCIS_2014.pdf
+
+http://link.springer.com/article/10.1186%2Fs13677-014-0024-2#page-1
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&ved=0CHUQFjAIahUKEwj9-NiI9c7GAhXRWYgKHW1SDGM&url=http%3A%2F%2Fwww.thinkmind.org%2Fdownload.php%3Farticleid%3Dicn_2012_1_20_10123&ei=F92eVb2RGNGzoQTtpLGYBg&usg=AFQjCNEmdW9AxSXMVtdPj8Dzowe_2V-pvg&sig2=-eyoe_hoK4AeRsfvWwVhCA&bvm=bv.96952980,d.cGU
+
+https://files.ifi.uzh.ch/stiller/CLOSER%202014/CLOSER/CLOSER/Cloud%20Computing%20Enabling%20Technology/Short%20Papers/CLOSER_2014_104_CR.pdf
+
+http://i.cs.hku.hk/~cwu/papers/zzzhang-sigreview13.pdf
+\end{verbatim}
+
+see what shava and w smith did check previous xsede conferences
+
+rightscale
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{SUMMARY}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on XSEDE cloud resources. With the various requests of resource allocation on the cloud, XSEDE project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, CloudMetricsxs offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
 
 We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
-
-\section{Future Work}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{FUTURE WORK}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.
 
@@ -1668,7 +1768,8 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 % Commitment discount (4% to 40%)
 % Prepayment discount with commitment (7% to 55%)       $300 developer discount ($50 each for six months)
 
- 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Acknowledgment 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1678,51 +1779,6 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 This material based upon work is partially supported in part by the National Science Foundation under Grant No. 1445806, 1445806, and 0910812.
 
 %\clearpage 
-
-\section{Other references}
-
-\hyungro{add to bibs or find if they already exist}
-
-http://csrc.nist.gov/groups/SMA/ispab/documents/minutes/2006-12/Metrics.pdf
-
-http://www.educause.edu/library/security-metrics
-
-
-surveys and taxonomies
-
-http://ac.els-cdn.com/S0743731514001099/1-s2.0-S0743731514001099-main.pdf?_tid=ad0b6ce8-2671-11e5-824a-00000aab0f27&acdnat=1436470718_066aa6c4fd57bc1a1a28962e44639cb4
-
-http://www.infosys.com/engineering-services/features-opinions/Documents/cloud-performance-monitoring.pdf
-
-http://arxiv.org/pdf/1312.6170.pdf
-
-https://www.manageengine.com/products/applications_manager/four-keys-for-monitoring-cloud-services.pdf
-
-http://wpage.unina.it/a.botta/pub/cloudnet_2012.pdf
-
-http://www.future-internet.eu/fileadmin/documents/valencia_documents/plenary/Monitoring_service_clouds_in_the_Future_Internet.pdf
-
-http://www.researchgate.net/publication/263774524_A_survey_of_Cloud_monitoring_tools_Taxonomy_capabilities_and_objectives
-
-http://assets.paessler.com/common/files/pdf/whitepaper/private-cloud-monitoring_en.pdf
-
-http://www.ijmlc.org/papers/382-C0068.pdf
-
-http://easi-clouds.eu/wp-content/uploads/2013/11/ScalableMonitoring_ITAAC_2013_JGU_Materna_Atos.pdf
-
-http://san.ee.ic.ac.uk/publications/ggorbil_ISCIS_2014.pdf
-
-http://link.springer.com/article/10.1186%2Fs13677-014-0024-2#page-1
-
-https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&ved=0CHUQFjAIahUKEwj9-NiI9c7GAhXRWYgKHW1SDGM&url=http%3A%2F%2Fwww.thinkmind.org%2Fdownload.php%3Farticleid%3Dicn_2012_1_20_10123&ei=F92eVb2RGNGzoQTtpLGYBg&usg=AFQjCNEmdW9AxSXMVtdPj8Dzowe_2V-pvg&sig2=-eyoe_hoK4AeRsfvWwVhCA&bvm=bv.96952980,d.cGU
-
-https://files.ifi.uzh.ch/stiller/CLOSER%202014/CLOSER/CLOSER/Cloud%20Computing%20Enabling%20Technology/Short%20Papers/CLOSER_2014_104_CR.pdf
-
-http://i.cs.hku.hk/~cwu/papers/zzzhang-sigreview13.pdf
-
-see what shava and w smith did
-
-rightscale
 
 \begin{scriptsize} 
 \bibliographystyle{IEEEtranS} 
