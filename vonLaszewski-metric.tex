@@ -11,24 +11,29 @@
 % LATEX DEFINITIONS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{hyperref} 
+\usepackage[colorlinks]{hyperref}
 \usepackage{array} 
 \usepackage{graphicx} 
 \usepackage{booktabs} 
 \usepackage{pifont} 
-\usepackage{todonotes} 
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{rotating} 
 \usepackage{color} 
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{fancyvrb}
 
+
+
 \newcommand*\rot{\rotatebox{90}} 
  
-\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
+%\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
 
 
-\setlist[itemize]{noitemsep, topsep=0pt} 
+\newcommand{\hyungro}[1]{\todo[inline, color=green!40]{Hyungro:~#1}} 
+\newcommand{\gregor}[1]{\todo[inline, color=blue!40]{Gregor:~#1}} 
+
+%\setlist[itemize]{noitemsep, topsep=0pt} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HYPERSETUP 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,6 +60,8 @@
 } 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
 
 \lstset{frame=tb,
 language=sh,
@@ -99,7 +106,9 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
        \smallskip\email{$^*$laszewski@gmail.com} 
 }
 \date{24 March 2014}  
- 
+\newpage
+\listoftodos[Notes]
+\newpage
 \toappear{} 
 \maketitle 
 \begin{abstract} 
@@ -124,7 +133,8 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
   importance of metrics also in higher level platform as a services
   delivered through the various user communities. Thus it is important
   to identify common features of existing and future services that
-  benefit from metrics and their exposure to its users.
+  benefit from metrics and their exposure to its users. \gregor{test
+    todo notes}
 
 
 
@@ -206,9 +216,8 @@ projects and educational projects regarding the type of virtual machines (VMs)
 and the patterns of using virtual resources. Cloud Metrics enables users and
 project leaders to identify utilization and performance.
 
-\section{INTRODUCTION}
-TBD
-
+\todo[inline]{remove old abstract, but read if there is info we need
+  to maintain.}
 \end{comment}
 
 
@@ -424,7 +433,8 @@ may include the following
   of time limited user based usage may not be of importance it becomes
   essential if actual money is paid to provide this service to
   academic users. Important may not only the amount of money paid, but
-  to justify the academic impact \cite{??} that is derived by such efforts.
+  to justify the academic and scientific impact
+  \cite{las2015cluster,las2015xsede} that is derived by such efforts.
 
 \item[\it Academic public clouds.] Recently NSF has provided a significant
   amount of funding to cloud offerings for the academic community. In
@@ -527,35 +537,36 @@ Technical Report, ICL-UT-13-02, August, 2013.~\cite{JohnNelsonAnalyzingPAPI}
 \end{description}
 
 
-\cite{LeeFGresource}
+Hyungro Report: \cite{LeeFGresource}
+
 \subsection{Sources}
 
 A comprehensive metrics framework consists of a data mashup of various
 sources of information. It will not be sufficient to just present a
 heterogeneous set of metrics to the users, but it will be desirable to
 integrate several into an easy to use framework. This has been
-effectively demonstrated by XDMod for HPC. This was possible due to a
-sustained effort within the project to provide such integrated
-metrics. In the cloud IaaS area the FutureGrid project has pioneered
-such an integrated framework that combined multiple sources into an
-easy to use report generation framework. It was operational for a
-number of years and is still actively used by the FutureSystems
+effectively demonstrated by XDMod for HPC
+\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel}. This was
+possible due to a sustained effort within the project to provide such
+integrated metrics. In the cloud IaaS area the FutureGrid project has
+pioneered such an integrated framework that combined multiple sources
+into an easy to use report generation framework. It was operational
+for a number of years and is still actively used by the FutureSystems
 project. At this time it is unknown which strategies are pursued by
-projects such as chameleon cloud and other NSF sponsored projects. 
-In fact there may be an advantage that such activities be continued by
-an external party such as FutureSystems and be adopted by other in
-order to be true to the independence of the auditing principle which
-need to be employed to evaluate the effectiveness of such
-infrastructures 
+projects such as chameleon cloud and other NSF sponsored projects.  In
+fact there may be an advantage that such activities be continued by an
+external party such as FutureSystems and be adopted by other in order
+to be true to the independence of the auditing principle which need to
+be employed to evaluate the effectiveness of such infrastructures
 
 
-\begin{figure}[h!] 
+\begin{figure*}[htb] 
   \centering 
-    \includegraphics[width=1.0\columnwidth]{images/cloudmetric-2.pdf} 
+    \includegraphics[width=0.6\textwidth]{images/cloudmetric-2.pdf} 
   \caption{Overview of CloudMetrics}\label{F:taxonomy-2} 
-\end{figure} 
+\end{figure*} 
 
-\subsection{Background of Cloud Computing}
+\section{Background of Cloud Computing}
 
 
 Nist cloud definition~\cite{mell2011nist}
@@ -573,6 +584,7 @@ Moving HPC to the Cloud~\cite{DouglasEadline}
 How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
 
 
+\hyungro{Add references to bib file}
 
 
 
@@ -592,7 +604,7 @@ computing below:
 \item Cost effectiveness to fully utilize available resources
 \end{itemize}
 
-\subsection{Purpose of performance monitoring on the cloud}
+\section{Purpose of performance monitoring on the cloud}
 
 To provide efficient resource utilization from a small instance to a large
 virtual cluster on the cloud, performance management and monitoring are
@@ -714,9 +726,6 @@ o  Usage
 o  Failure
 o  Prediction
 
-\subsection{Description}
-
-Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
 
 \section{List of Metrics}
 
@@ -732,108 +741,69 @@ Counts the active users in the cloud
 \begin{table*}[htb]
 
 \caption{Metrics Table}
-{\scriptsize
+\begin{scriptsize}
 \label{T:metrics}
 \bigskip
-\begin{tabular}{p{0.1\textwidth}p{0.4\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
-Name & Description & Motivation & Sample \\
+\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
+ID & Name & Stackeholder & Description & Motivation & Sample \\
 \hline
+UC.1&
 User Count & 
+~&
 This metric counts the active users for the cloud &
 User count is important for measuring the popularity of the cloud & 
 Reports (Fig~1,~2) \\
 \hline
+VC.1&
 VM Count & 
+~&
 This metric counts the launched VM instances on the cloud &
 VM Count is important for measuring the volume of requested instances &
 Reports (Fig~1,~2) \\
 \hline
-Running Hour &
+RS&
+Runtime Sum&
+~&
 This metric shows the total amount of runtime for launched instances &
-Running hour is important for measuring actual runtime of instances &
+runtime by hour is important for measuring actual runtime of instances &
 Reports (Fig~1,~2) \\
 \hline
+VC.2&
 VM Count by Project, Leader, or Institution &
+~&
 This metric shows share of resource by group metrics such as project, leader or institution &
 Group usage is important for measuring group usage &
 Reports (Fig~1,~2) \\
 \hline
+VC.3 &
 Current running VMs or accessed users &
+~&
 This metric shows instant usage data to see current status &
 real time usage is important for checking peak or detecting unusual usage &
 Reports (Fig~1,~2) \\
 \hline
 \end{tabular}
-}
+\end{scriptsize}
 \end{table*}
 
+ID
+realtime
+stakeholder = user, administrator, management, funder
+type = count, sum, distribution, ....
 
-
-\flushleft
-\begin{tabular}{p{0.2\columnwidth}p{0.7\columnwidth}}
-{\bf\it\small} Name &  User Count \\
-{\bf\it\small} Description & This metric counts the active users for the cloud \\
-{\bf\it\small} Motivation & User count is important for measuring the popularity of the cloud\\
-{\bf\it\small} Samples & FutureGrid Reports (See attached Fig 1, 2) \\
-\end{tabular}
-
-
-\begin{description}
-\item[Name:] User Count
-\item[Description:] This metric counts the active users for the cloud
-\item[Motivation:] User count is important for measuring the popularity of the cloud
-\item[Samples:] FutureGrid Reports (See attached Fig 1, 2)
-\end{description}
-  
 Fig 1. Active user count by host                  
 
 Fig 2. Active user count monthly
-\begin{description}
-\item[Metric:] VM Count
-\item[Name:] VM Count
-\item[Description:] This metric counts the launched VM instances on the cloud.
-\item[Motivation:] VM Count is important for measuring the volume of requested instances
-\item[Samples:] FutureGrid Reports (See attached)
-\end{description}
- 
-Fig 3. VM Count daily
-\begin{description}
-\item[Metric:] Running Hour
-\item[Name:] Running Hour
-\item[Description:] This metric shows the total amount of runtime for launched instances
-\item[Motivation:] Running hour is important for measuring actual runtime of instances
-\item[Samples:] FutureGrid Reports (See attached)
-\end{description}
 
+Fig 3. VM Count daily
  
 Fig 4. VM Count by runtime distribution
 
-8.      Group Usage
-\begin{description}
-\item[Name:] VM Count by Project, Leader, or Institution
-\item[Description:] This metric shows share of resource by group metrics such as project, leader or institution.
-\item[Motivation:] Group usage is important for measuring group usage
-\item[Samples:] FutureGrid Reports (See attached)
-\end{description}
-
- 
 Fig 5. Usage by Institution
-
  
-Fig 6. Running Hour by Project Leader
+Fig 6. runtime by Hour by Project Leader
 
-\section{Real Time Usage}
-\begin{description}
-\item[Name:] Current running VMs or accessed users
-\item[Description:] This metric shows instant usage data to see current status
-\item[Motivation:] real time usage is important for checking peak or detecting unusual usage
-\item[Samples:] FutureSystems (See attached)
-\end{description}
-
- 
 Fig 7. Real-Time Usage of VM instances
-
-
  
 Fig 8. Real-time userlist of running VM instances
 
@@ -931,6 +901,9 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{gcemonitoring}
 
 \section{Extra tables}
+
+\hyungro{introduce begin center and center in all tables}
+\hyungro{lets use scriptsize in all tables, this way they look uniform}
 
 \begin{table*}[htb]
 
@@ -1106,6 +1079,11 @@ Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \section{REFERENCES}
 
 
+
+
+\section{Cloudmesh Metrics}
+
+Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
   
 \section{Introduction} 
 
@@ -1114,8 +1092,6 @@ In distributed systems and HPC, resource usage are typically monitored to detect
 
 Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
 
-%%%%%%%%%%%%%%%%% comments starts %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
 
 \subsection{Real Consumption vs Allocation}
 There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
@@ -1207,45 +1183,49 @@ The OpenStack Orchestration program, Heat, provides an autoscaling service with 
 
 Openstack provides usage statistics for OpenStack Compute (Nova), a main component for provisioning and managing virtual machines, with command-line tools. Simple commands displays basic statistics on resource usage for hosts (physica nodes) and instances (virtual objects running on the host). Basic information such as CPU, memory, and disk usage are viewed. These information about allocated resources to the instances do not indicate resource usage on the physical host. For more detailed information about resource usage, Ceilometer has rich functions to see user related or system related usage data. Ceilometer is available on OpenStack Hanava and Grizzly version. 
 
-\begin{figure}[h!]
-\begin{small}
+\begin{figure}[htb]
+\begin{scriptsize}
 \begin{verbatim}
-$ nova host-describe sierra
-+--------+------------+-----+-----------+---------+
-|  HOST  | PROJECT    | cpu | memory_mb | disk_gb |
-+--------+------------+-----+-----------+---------+
-| sierra | (total)    | 8   | 32176     | 144     |
-| sierra | (used_max) | 6   | 12288     | 120     |
-| sierra | (used_now) | 6   | 12800     | 120     |
-| sierra | project1   | 3   | 6144      | 60      |
-| sierra | project2   | 2   | 4096      | 40      |
-| sierra | project3   | 1   | 2048      | 20      |
-+--------+------------+-----+-----------+---------+
+    $ nova host-describe sierra
+    +--------+------------+-----+-----------+---------+
+    |  HOST  | PROJECT    | cpu | memory_mb | disk_gb |
+    +--------+------------+-----+-----------+---------+
+    | sierra | (total)    | 8   | 32176     | 144     |
+    | sierra | (used_max) | 6   | 12288     | 120     |
+    | sierra | (used_now) | 6   | 12800     | 120     |
+    | sierra | project1   | 3   | 6144      | 60      |
+    | sierra | project2   | 2   | 4096      | 40      |
+    | sierra | project3   | 1   | 2048      | 20      |
+    +--------+------------+-----+-----------+---------+
 \end{verbatim}
-\end{small}
+\vspace{-20pt}
+\end{scriptsize}
+
 \caption{Display a summary of resource usage of the devstack-grizzly host}
 \label{F:host-describe}
+
 \end{figure}
 
 Usage data can be provided by Tenant Id which is a group of openstack cloud users. Each tenant id represents a group or an account to the group members, so usage data for the tenant id are aggregated. 
 
-\begin{figure}[h!]
-\begin{small}
+\begin{figure}[htb]
+\begin{scriptsize}
 \begin{verbatim}
-$ nova usage-list
-Usage from 2014-02-14 to 2014-03-15:
-+--------+---------+-------------+---------+-----------+
-| Tenant | Instan- | RAM         | CPU     | Disk      |
-| ID     | ces     | MB-Hours    | Hours   | GB-Hours  |
-+--------+---------+-------------+---------+-----------+
-| user1  | 17      |  6840394.43 | 3340.04 |  66800.73 |
-| user2  | 17      |   185683.06 |   90.67 |   1813.31 |
-| user3  | 1       |   932256.36 |  455.20 |   9104.07 |
-| user4  | 26      |  4947215.08 | 2415.63 |  48312.65 |
-| user5  | 5       | 18644854.23 | 9103.93 | 182078.65 |
-+--------+---------+-------------+---------+-----------+
+    $ nova usage-list
+    Usage from 2014-02-14 to 2014-03-15:
+    +--------+---------+-------------+---------+-----------+
+    | Tenant | Instan- | RAM         | CPU     | Disk      |
+    | ID     | ces     | MB-Hours    | Hours   | GB-Hours  |
+    +--------+---------+-------------+---------+-----------+
+    | user1  | 17      |  6840394.43 | 3340.04 |  66800.73 |
+    | user2  | 17      |   185683.06 |   90.67 |   1813.31 |
+    | user3  | 1       |   932256.36 |  455.20 |   9104.07 |
+    | user4  | 26      |  4947215.08 | 2415.63 |  48312.65 |
+    | user5  | 5       | 18644854.23 | 9103.93 | 182078.65 |
+    +--------+---------+-------------+---------+-----------+
 \end{verbatim}
-\end{small}
+\vspace{-20pt}
+\end{scriptsize}
 
 \caption{Summary statistics for tenants}
 \label{F:host-describe}
@@ -1327,7 +1307,27 @@ Monitoring in high-performance computing has a similarity to Cloud Computing. It
 
 \subsection{XDMoD}
 
-XDMoD (XSEDE Metrics on Demand) is primarily developed as UBMoD (University Buffalo Metrics on Demand) and is an open source tools for collecting and mining statistical data from cluster resource managers such as Torque/Maui, OpenPBS, SGE and Slurm commonly found in high-performance computing environments. There are three fundamental components: a metrics repository (XDMoD Data Warehouse), a RESTful API, and a web-based application (XDMoD Portal). Its web graphical user interface, XDMoD Portal, provides rich set of statistics with different type of charts and tables with communicating its RESTful API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}
+
+
+
+
+
+
+XDMoD (XSEDE Metrics on Demand)
+\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is
+primarily developed as UBMoD (University Buffalo Metrics on Demand)
+and is an open source tools for collecting and mining statistical data
+from cluster resource managers such as Torque/Maui, OpenPBS, SGE and
+Slurm commonly found in high-performance computing environments. There
+are three fundamental components: a metrics repository (XDMoD Data
+Warehouse), a RESTful API, and a web-based application (XDMoD
+Portal). Its web graphical user interface, XDMoD Portal, provides rich
+set of statistics with different type of charts and tables with
+communicating its RESTful
+API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}\hyungro{identify
+  duplicated refeneces and remove them, remember to use vonLazewski
+  refs from the vonLaszewski-jabref.bib file}
+
 
 \subsection{Nagios}
 
@@ -1348,7 +1348,7 @@ Zenoss (Zenoss Core) provides a unified resource management service which manage
 
 Rackspace Cloud Monitoring is an API driven monitoring system which allows administrators to use or create APIs depending on their needs which can send notifications to any device including mobile devices. This allows administrators to be on top of their Rackspace-hosted infrastructure which includes websites, protocols, and ports.
 
-\fi
+
 %%%%%%%%%%%%%%%%% comments ends %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{System Design} \label{S:design}
@@ -1364,11 +1364,17 @@ CloudMetrics pursues to provide an integrated accounting service which users and
 
 We have observed Eucalyptus generates resource usage information via log messages and OpenStack stores virtual instances information into database. Nimbus has a separated database about the deployment of virtual instances. We have been collecting information about resource utilization from the log messages and the database and incorporating the collected data into one place. These data aligned with a unique user account to provide integrated resource utilization across geographically distributed regions and services. For better presenting of numerical values and relationships with other metrics, we used external charting libraries such as HighCharts, Google Chart APIs. With rich variety of charts, we can provide better explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how CloudMetrics works on IaaS.
 
-\begin{figure}[h!] 
-  \centering 
-    \includegraphics[width=1.0\columnwidth]{images/Picture1.pdf} 
-  \caption{Overview of CloudMetrics}\label{F:fig1} 
-\end{figure} 
+\begin{figure*}[htb] 
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{images/Picture1.pdf} 
+\end{center}
+  \caption{Overview of CloudMetrics \hyungro{we need to redraw as
+      color scheme is not so good for reproduction. what is original
+      file? I hope this is pptx? Maybe this picture is not that
+      important as contained already in architecture drawing? bu we do
+    not see there auditing, monitoring, billing, as well as defining and
+  adding new metrics. customization is something we missed in introduction.}}\label{F:fig1} 
+\end{figure*} 
 
 
 \section{Implementation} \label{S:implementation}
@@ -1379,11 +1385,13 @@ We have observed Eucalyptus generates resource usage information via log message
 
 Cloud Metrics consists of four components as described in Figure~\ref{F:fig7}: 1) Metric Collector: a measuring tool of resource allocation and 2) Metric Shell: a CLI tool to define metrics and collect usage data 3) Metric Portal and Report: a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{las14cloudmeshmultiple}.
 
-\begin{figure}[h!] 
-  \centering 
-    \includegraphics[width=1.0\columnwidth]{images/system_overview.pdf} 
-  \caption{Overview of Cloud Metrics}\label{F:fig7} 
-\end{figure} 
+\begin{figure*}[htb] 
+\begin{center}
+ \includegraphics[width=1.0\textwidth]{images/system_overview.pdf} 
+\end{center}
+  \caption{Overview of Cloud Metrics \hyungro{we need to redraw, can
+      this be dne in ppt or omni graffel}}\label{F:fig7} 
+\end{figure*} 
 
 
 \subsection{Metric Collector}
@@ -1392,13 +1400,13 @@ The Metric Collector is the sensor for collecting usage data allocated from IaaS
 
 \subsection{Metric Analysis}
 
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/metrics-portal.pdf} 
   \caption{Cloud Metrics Portal: pie chart and stacked bar chart represent monthly usage of FutureGrid resources. Summary of regional clusters and different IaaS cloud platforms are displayed with various charts and different terms including monthly, quarterly and yearly.}\label{F:fig8} 
 \end{figure} 
 
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/metrics-portal-realtime.pdf} 
   \caption{Real-time usage report on Cloud Metrics Portal: In every 5 seconds, the line chart is updated with the number of working virtual machine instances.}\label{F:fig9} 
@@ -1410,7 +1418,7 @@ In FutureGrid~\cite{las2010gce,las12fg-bookchapter}, users have a unique account
 
 Based on the observation on FutureGrid, there is a different pattern between a research project and class work when they acquire cloud resources. Resource allocation of academic coursework shows time dependent request patterns. It shows a surge when there is a class, a lab session, and a project. For example, the undergraduate course for Distributed Systems at Indiana University introduced IaaS in the class and used the IaaS platform for a class project. Figure~\ref{F:fig2} shows a spike in the class and variability until the project due. A research project, on the contrary, requests VM instances in a steady usage. The Next Generation Sequencing (NGS) in the cloud project on FutureGrid shows relatively consistent resource allocation requested in Figure~\ref{F:fig3}. With a certain period of time, vm instances of this project have been launched without unplanned spike requests. These two examples show different patterns for deploying resources but both cases have a factor to predict loads. The class schedule and the monitoring data for applications can be used to measure the amount of resources and identify incoming requests. In paid cloud platforms such as AWS, GCE, and Azure, understanding these patterns is important to bring cost effectiveness over on-demand allocation. For example, Amazon EC2 Reserved Instances and Azure pre-pay plans may help reduce usage costs for periodic and planned workloads. These service plans simply provide discounts with an upfront payment. As long as a class and a project go as planned, cost saving chances are increased.
 
-\begin{table}[h!]
+\begin{table}[htb]
   \caption{New accounts in FutureGrid}\label{T:tab00}
   \begin{tabular}{l|c|c}
    Year & Users & Projects \\
@@ -1421,7 +1429,7 @@ Based on the observation on FutureGrid, there is a different pattern between a r
  \end{tabular}\\
  \end{table}
 
- \begin{table}[h!]
+ \begin{table}[htb]
    \caption{Active Users in Cloud, HPC or Both}\label{T:tab000}
    \begin{tabular}{l|c|c|c}
      Year & Cloud & HPC & Both \\
@@ -1436,7 +1444,7 @@ Based on the observation on FutureGrid, there is a different pattern between a r
  In average, FutureGrid accepted more than 100 projects every year, and around 60 to 90 members participated in each project. In table~\ref{T:tab000}, we noticed that more user were getting used both Cloud and HPC over the years instead of only using either Cloud or HPC. It implies that Cloud and HPC together can be beneficial to users.
 
 
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/fig1.pdf} 
   \caption{IaaS Usage data for the Distributed System class at Indiana University*}\label{F:fig2} 
@@ -1446,7 +1454,7 @@ Based on the observation on FutureGrid, there is a different pattern between a r
 % * Based on the class schedule and metrics. Class schedule is here: http://salsahpc.indiana.edu/csci-p434-fall-2013/
 % Metrics is here: http://129.79.49.94/accounting/reports/custom/p434fall13/FGResourceReport.pdf
 
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/fig2.pdf} 
   \caption{VM count for Next Generation Sequencing (NGS) in the cloud project}\label{F:fig3} 
@@ -1454,7 +1462,7 @@ Based on the observation on FutureGrid, there is a different pattern between a r
 
 With the Gantt chart in Figure~\ref{F:fig4}, allocation activities are viewed for all virtual instances launched for the class. At the beginning of the class, the gaps between the start and completed dates of the vm instances are small but a large number of instances are initiated. Once the class is became operative, the runtime of vm instances is getting longer and a less number of instances are requested compared to the beginning. This observation tells us that academic projects require training sessions at the beginning of a project to get familiar with using infrastructure and to prepare environments by installing software and datasets.
 
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/fig3.pdf} 
   \caption{Timeline for VM walltime}\label{F:fig4} 
@@ -1462,7 +1470,7 @@ With the Gantt chart in Figure~\ref{F:fig4}, allocation activities are viewed fo
 
 Other observation is a resource usage for administrative purposes. Figure~\ref{F:fig5} describes that instructors consumed a large number of vCPU cores before class starts and small tests just before class projects. It indicates that the preparation of courses require extensive load testing on cloud resources to estimate compute capacity needed for applications.
 
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/fig4.pdf} 
   \caption{Usage between instructors and students for vCPU cores}\label{F:fig5} 
@@ -1470,7 +1478,7 @@ Other observation is a resource usage for administrative purposes. Figure~\ref{F
 
 During the semester, 25 hosts, 216 vCPUs and 600GB memories were reserved for the class since it required large virtual instances. In Figure~\ref{F:fig6} shows that the dedicated resources were being underutilized most time although the high volume requests had been made a few times including 273\% overutilization on October 21th for testing and preparing.
   
-\begin{figure}[h!] 
+\begin{figure}[htb] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/fig5.pdf} 
   \caption{vCPU Utilization (approximation per hour)}\label{F:fig6} 
@@ -1478,7 +1486,7 @@ During the semester, 25 hosts, 216 vCPUs and 600GB memories were reserved for th
 
 High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure~\ref{F:bigdata}, we can see big data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested big data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today's trends for big data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus on the FutureGrid test-bed. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale~\cite{rightscalereport13}, cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
   \centering
     \includegraphics[width=1.0\columnwidth]{images/bigdata.pdf} 
   \caption{Service changes for along with Big Data between 2010 and 2013}\label{F:bigdata} 
@@ -1486,7 +1494,7 @@ High Performance Computing (HPC) has been used to support parallel data processi
 
 In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HPC in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and 14\% of total wall time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU cores) has been intensively used in the last year. Compared to the previous year 2012, the request has been increased about 350\%. In early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have been requested many times but in 2013, two thirds jobs are using more than 64 CPU cores.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
   \centering
     \includegraphics[width=1.0\columnwidth]{images/bigdatainhpc.pdf} 
   \caption{Annual Wall Time Changes for Job Size in HPC between 2010 and 2013}\label{F:bigdatainhpc} 
@@ -1496,13 +1504,13 @@ In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HP
 
 Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine (GCE), HP Cloud, IBM and Rackspace are compared. Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have several options to reduce cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time. In Table~\ref{T:tab0}, different price tags for virtual machine instances are described. With the comparison of the smallest vm instance which is 1 virtual core, 600-768MB memory and no storage option, we can see most IaaS service providers have similar pricing charts.
 
-\begin{table}[h!]
+\begin{table}[htb]
 
 %\caption{Pricing chart for instances from AWS, GCE, and Azure \newline * China (Beijing) region will be available in early 2014, and GovCloud region is also included.}\label{T:tab0}
 
 
 \caption{Pricing chart for instances from AWS, GCE, and Azure}\label{T:tab0}
-%\begin{small}
+%\begin{footnotesize}
 %\begin{tabular}{l|p{2.5cm}|l|p{2cm}}
  %    &  \shortstack{Billing\\ granularity} &   Price & \shortstack{Price\\ Variation} \\
  % \hline
@@ -1518,9 +1526,9 @@ Comparing pricing of the cloud is complicated and may lead to false analogy beca
 
 We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of the class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resources. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
 
-\begin{table}[h!]
+\begin{table}[htb]
 \caption{Usage data to the class}\label{T:tab1}
-\begin{small}
+\begin{footnotesize}
 \begin{tabular}{l|r|l|l|r|r}
 \shortstack{Instance\\types} & \shortstack{Instan-\\ces} & \shortstack{Charge\\by hour} & \shortstack{Charge\\by min} & Google$^1$ & Azure$^2$ \\
   \hline
@@ -1532,15 +1540,15 @@ Total & 661 & 703,080 & 675,482 & 676,813 & 675,140 \\
 \end{tabular}\\
 $^1$ includes 10~min minimum charge\\
 $^2$ includes 5~min free charge
-\end{small}
+\end{footnotesize}
 \end{table}
 
 %* Instance types are not same. Chosen by a similarity of vCPU and Memory
 %** Captured by January, 2014
 
-\begin{table}[h!]
+\begin{table}[htb]
 \caption{Pricing comparison to the class}\label{T:tab2}
-\begin{small}
+\begin{footnotesize}
 \begin{tabular}{l|l|l|l|l|l|p{2cm}|}
 Service & Cost & \multicolumn{3}{|c|}{Price per hour} \\
   & Estimate &  Small& Medium& Large \\
@@ -1554,7 +1562,7 @@ Azure$^3$ & \$2,580.03  & \$0.06 & \$0.12 & \$0.24 \\
 $^1$US East, Linux, charged 1 hour if runtime is <1 hour\\
 $^2$US, Linux, charged 10 minutes if runtime is <10 minutes\\
 $^3$Linux, charged by minute but free is <5 minutes\\
-\end{small}
+\end{footnotesize}
 \end{table}
 
 
@@ -1580,7 +1588,7 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 % \begin{sidewaystable*}
 % \caption{table 3}\label{T:tab3}
 % 
-% \begin{small}
+% \begin{footnotesize}
 % \begin{tabular}{|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|}
 % \hline
 % Provider & Charging & Cost 1vCPU/hour    & Cost 1GB/hour & OS & Max vCPU & Memory min - max &\# of instance types & Discount program & Free allowance\\
@@ -1609,7 +1617,7 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 % Rackspace & minute &  & varies & Linux; Windows, (windows: 25\% extra charge) & 32 & 1GB - 120GB  & 9 & Volume discount (4\% to 20\% for spending over \$5;000 - \$ 10; 000 per month; 8\% for \$10;001 - 30;000; 12\% for \$30;001 - \$50;000) Commitment discount (4\% to 40\%) Prepayment discount with commitment (7\% to 55\%)& \$300 developer discount (\$50 each for six months)\\
 % \hline
 % \end{tabular}
-% \end{small}
+% \end{footnotesize}
 % \end{sidewaystable*}
 % 
 % 
@@ -1671,21 +1679,25 @@ This material based upon work is partially supported in part by the National Sci
 
 %\clearpage 
 
-Other references:
+\section{Other references}
 
+\hyungro{add to bibs or find if they already exist}
 http://csrc.nist.gov/groups/SMA/ispab/documents/minutes/2006-12/Metrics.pdf
 
 http://www.educause.edu/library/security-metrics
- 
+
+\begin{scriptsize} 
 \bibliographystyle{IEEEtranS} 
 %\bibliographystyle{abbrv} 
 \bibliography{% 
 metric-new,%
 bib/vonLaszewski-jabref,% 
 bib/cyberaide-metric,%
-bib/cyberaide-cloud}
+bib/cyberaide-cloud,%
+metric-new}
 %bib/image-refs,% 
-
+\end{scriptsize}
+   
 %bib/python,% 
 %tas.bib%
  
