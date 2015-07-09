@@ -744,30 +744,40 @@ Counts the active users in the cloud
 \begin{scriptsize}
 \label{T:metrics}
 \bigskip
-\begin{tabular}{p{0.1\textwidth}p{0.4\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
-Name & Description & Motivation & Sample \\
+\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
+ID & Name & Stackeholder & Description & Motivation & Sample \\
 \hline
+UC.1&
 User Count & 
+~&
 This metric counts the active users for the cloud &
 User count is important for measuring the popularity of the cloud & 
 Reports (Fig~1,~2) \\
 \hline
+VC.1&
 VM Count & 
+~&
 This metric counts the launched VM instances on the cloud &
 VM Count is important for measuring the volume of requested instances &
 Reports (Fig~1,~2) \\
 \hline
-runtime by Hour &
+RS&
+Runtime Sum&
+~&
 This metric shows the total amount of runtime for launched instances &
 runtime by hour is important for measuring actual runtime of instances &
 Reports (Fig~1,~2) \\
 \hline
+VC.2&
 VM Count by Project, Leader, or Institution &
+~&
 This metric shows share of resource by group metrics such as project, leader or institution &
 Group usage is important for measuring group usage &
 Reports (Fig~1,~2) \\
 \hline
+VC.3 &
 Current running VMs or accessed users &
+~&
 This metric shows instant usage data to see current status &
 real time usage is important for checking peak or detecting unusual usage &
 Reports (Fig~1,~2) \\
@@ -1354,11 +1364,17 @@ CloudMetrics pursues to provide an integrated accounting service which users and
 
 We have observed Eucalyptus generates resource usage information via log messages and OpenStack stores virtual instances information into database. Nimbus has a separated database about the deployment of virtual instances. We have been collecting information about resource utilization from the log messages and the database and incorporating the collected data into one place. These data aligned with a unique user account to provide integrated resource utilization across geographically distributed regions and services. For better presenting of numerical values and relationships with other metrics, we used external charting libraries such as HighCharts, Google Chart APIs. With rich variety of charts, we can provide better explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how CloudMetrics works on IaaS.
 
-\begin{figure}[h!] 
-  \centering 
-    \includegraphics[width=1.0\columnwidth]{images/Picture1.pdf} 
-  \caption{Overview of CloudMetrics}\label{F:fig1} 
-\end{figure} 
+\begin{figure*}[h!] 
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{images/Picture1.pdf} 
+\end{center}
+  \caption{Overview of CloudMetrics \hyungro{we need to redraw as
+      color scheme is not so good for reproduction. what is original
+      file? I hope this is pptx? Maybe this picture is not that
+      important as contained already in architecture drawing? bu we do
+    not see there auditing, monitoring, billing, as well as defining and
+  adding new metrics. customization is something we missed in introduction.}}\label{F:fig1} 
+\end{figure*} 
 
 
 \section{Implementation} \label{S:implementation}
@@ -1369,11 +1385,13 @@ We have observed Eucalyptus generates resource usage information via log message
 
 Cloud Metrics consists of four components as described in Figure~\ref{F:fig7}: 1) Metric Collector: a measuring tool of resource allocation and 2) Metric Shell: a CLI tool to define metrics and collect usage data 3) Metric Portal and Report: a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{las14cloudmeshmultiple}.
 
-\begin{figure}[h!] 
-  \centering 
-    \includegraphics[width=1.0\columnwidth]{images/system_overview.pdf} 
-  \caption{Overview of Cloud Metrics}\label{F:fig7} 
-\end{figure} 
+\begin{figure*}[htb] 
+\begin{center}
+ \includegraphics[width=1.0\textwidth]{images/system_overview.pdf} 
+\end{center}
+  \caption{Overview of Cloud Metrics \hyungro{we need to redraw, can
+      this be dne in ppt or omni graffel}}\label{F:fig7} 
+\end{figure*} 
 
 
 \subsection{Metric Collector}
