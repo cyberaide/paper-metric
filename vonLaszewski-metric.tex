@@ -602,7 +602,7 @@ academic users will have a potential impact on the definition of Metrics:
 \setlength\itemsep{-2pt}
 
 \item[\it MRIs.] According to the NSF web pages, the `Major Research
-  Instrumentation Program (MRI) catalyzes new knowledge and
+  Instrumentation Program (MRI) ~\cite{nsf-mri}  catalyzes new knowledge and
   discoveries by empowering the Nation?s scientists and engineers with
   state-of-the-art research instrumentation. The MRI Program enables
   research-intensive learning environments that promote the
@@ -613,8 +613,6 @@ academic users will have a potential impact on the definition of Metrics:
   such cases it would be beneficial if the metrics and services
   introduced here can be reused by such efforts and adapted
   accordingly. 
-
-http://www.nsf.gov/od/oia/programs/mri/~\cite{nsf-mri}
 
 \item[\it Networks.] With the advent of 100GBEthernet research
   environments as provided in Chameleon cloud and XSEDE it is
@@ -1000,7 +998,7 @@ time-triggered e.g. 5 secs, 5 mins\\
 \label{T:SPmetrics}
 \bigskip
 \begin{center}
-\begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\begin{tabular}{p{0.15\textwidth}p{0.3\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
 Metric & Description & Type & Level & Unit & Example \\
 \hline
 CPU Utilization &
@@ -1697,11 +1695,7 @@ RightScale~\cite{rightscalereport13}
 \section{CONCLUSION}\label{S:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-his activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
-
-\task{We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.}
-
+\task{write conclusion}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1970,4 +1964,12 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 % 120GB 9       Volume discount (4% to 20% for spending over $5,000 - $ 10, 000 per month, 8% for $10,001 - 30,000, 12% for $30,001 - $50,000)
 % Commitment discount (4% to 40%)
 % Prepayment discount with commitment (7% to 55%)       $300 developer discount ($50 each for six months)
+
+\task{We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.}
+
+
+\section{conlcusion}
+
+This activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
+
 
