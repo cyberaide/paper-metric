@@ -41,6 +41,7 @@
 \newcommand{\hyungro}[1]{\todo[inline, color=green!20]{Hyungro:~#1}} 
 \newcommand{\gregor}[1]{\todo[inline, color=blue!20]{Gregor:~#1}} 
 \newcommand{\task}[1]{\smallskip\todo[inline, color=gray!20]{#1}} 
+\newcommand{\improve}[1]{\smallskip\todo[inline, color=gray!20]{old: #1}} 
 
 %\setlist[itemize]{noitemsep, topsep=0pt} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -247,6 +248,38 @@ institutions and organizations.
 \task{This section will include a brief introduction to cloud computing
 as introduced by the NIST definition.}
 
+\improve{Cloud computing provides a resource pool using virtualization
+  technologies on multi-tenant environments. Convenient and dynamic
+  access to the shared resources is mandatory without performance
+  interference, otherwise people may not choose cloud services
+  although it offers cost savings. Availability and scalability also
+  need to be ensured to manage rapid changes in the demands for cloud
+  resources. These characteristics of cloud computing can be satisfied
+  with the support of performance analysis and monitoring. There are
+  some considerations when performance analysis and monitoring are
+  applied to cloud computing: (a) performance isolation against
+  interference (b) availability and Scalability (c) cost effectiveness
+  to fully utilize available resources }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Background of Cloud Computing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Nist cloud definition~\cite{mell2011nist}
+
+\subsection{HPC in the cloud}
+
+is hpc in the cloud fulfilling nists definition?
+
+Amazon High Performance Computing~\cite{awshpc}
+
+IBM Platform Computing~\cite{ibmhpc}
+
+Moving HPC to the Cloud~\cite{DouglasEadline}
+
+How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
+
+
 \subsection{Cloud Metrics}
 
 One of the important aspects to a successfully operational cloud is
@@ -353,18 +386,28 @@ Another important factor for a cloud metric is the motivation and
 purpose for it. We distinguish
 the following factors:
 
+
 \begin{description}
 \setlength\itemsep{-2pt}
 
 \item[\it  Monitoring.] Monitoring is an important aspect for
   administrators but also for users. The purpose of metrics associated
   to monitoring allows us to observe the current system and make
-  decissions based upon it. Naturally, this could also be services
+  decisions based upon it. Naturally, this could also be services
   that act in behalf of the user or administrator. A center director
   may be interested in the high level aspects of monitoring as to be
   informed about specific catastrophic service events, while an
   administrator is interested in more detailed monitoring aspects that
   alert even on conditions that could lead to issues.
+  
+  {\it Monitoring is about measuring resource utilization. In a
+  typical way, real-time monitoring is performed in a system/hardware
+  layer to show activities. It is supposed to provide performance
+  analysis by measuring CPU utilization, load average, memory usage
+  (free/used), network bandwidth in/out and disk I/O. Given that
+  metrics, monitoring system shows that how many resources are being
+  used at any given time.}
+
 
 \item[\it  Planning.] To assist in setting goals and developing strategies
   several metrics can be beneficial. This includes metrics about
@@ -372,6 +415,21 @@ the following factors:
   more general aspects. As academic resources are often funded by
   government organizations such as NSF, specific metrics that answer
   to broader impacts need to be addressed.
+
+\improve{Purpose of performance monitoring on the cloud.
+ To provide efficient
+  resource utilization from a small instance to a large virtual
+  cluster on the cloud, performance management and monitoring are
+  necessary for performance analysis. Apache Mesos or MongoDB Sharded
+  cluster , for example, are responsible to support large dataset and
+  heavy compute requests with proper resource allocation and the
+  performance analysis is a key component to increase the efficiency
+  of cloud platforms. There are certain benefits of using the
+  performance monitoring on the cloud: (a) cost-effective use of cloud
+  resources (b) power saving options by increasing energy efficiency
+  (c) further development opportunities by using measured usage data
+  e.g. cost prediction, load balance, scaling up or down, capacity
+  planning }
 
 \item[\it  Billing.] As academic clouds are provided free to the academic
   user community upon peer reviewed projects, it is also important to
@@ -384,6 +442,8 @@ the following factors:
   resources. However, at the same time it must be assured that large
   enough experiments can be conducted to further some of the more
   challenging scientific problems.
+
+\improve{Billing is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user.}
 
 \item[\it  Testing.] As cloud environments and they usage in applications
   may be complex (at times more complex that their HPC counter parts)
@@ -409,7 +469,38 @@ the following factors:
   Important is that they be answered by independent and unbiased
   observer.
 
+\improve{Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system.}
+
+\item[\it Accounting.] Accounting is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
+
 \end{description}
+
+
+
+
+\subsection{old text}
+\subsubsection{Motivation}
+
+Investigation for performance managements on the cloud would provide understanding of resource usage and statistics in several ways such as accounting/billing and provisioning. This classification will help evaluate the current performance of the cloud systems and gain the visibility of resource utilization across application layer and system layer. 
+
+A cloud relies on sharing of computing and storage resources with many people like a public utility, understanding amounts of the usage of resources is getting important to the cloud users and cloud providers. It is not only important measuring use of resources but also important displaying metrics via graphical charts. There are concrete challenges for this research area: 
+
+\begin{description}
+
+\item[Understanding] - it is a basic functionality to see how reliable the system is and to prevent system failures by knowing the resource utilization. It also gives an opportunity to manage the system efficiently by knowing the performance of the system. 
+
+\item[Getting informed] - the system of alerts allows system administrators to react when the incidence of problems are detected. If the alerts are related to a resource reallocation, it is important to react on time according to the notifications. These alerts are not limited to delivering errors and warnings which are passive means, but rather they can be used as a proactive and defensive measure. 
+
+\item[Estimating future requests (Prediction)] - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance. 
+
+\item[Reporting] - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
+
+\end{description}
+
+
+
+
+Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
 
 
 \subsection{Security}
@@ -596,64 +687,6 @@ be employed to evaluate the effectiveness of such infrastructures
     \includegraphics[width=0.6\textwidth]{images/cloudmetric-2.pdf} 
   \caption{Overview of CloudMetrics}\label{F:taxonomy-2} 
 \end{figure*} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Background of Cloud Computing}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Nist cloud definition~\cite{mell2011nist}
-
-HPC in the cloud
-
-is hpc in the cloud fulfilling nists definition?
-
-Amazon High Performance Computing~\cite{awshpc}
-
-IBM Platform Computing~\cite{ibmhpc}
-
-Moving HPC to the Cloud~\cite{DouglasEadline}
-
-How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
-
-
-\hyungro{Add references to bib file}
-
-
-
-Cloud computing provides a resource pool using virtualization technologies on
-multi-tenant environments. Convenient and dynamic access to the shared
-resources is mandatory without performance interference, otherwise people may
-not choose cloud services although it offers cost savings. Availability and
-scalability also need to be ensured to manage rapid changes in the demands for
-cloud resources. These characteristics of cloud computing can be satisfied with
-the support of performance analysis and monitoring. There are some
-considerations when performance analysis and monitoring are applied to cloud
-computing below:
-
-\begin{itemize}
-\item performance isolation against interference
-\item Availability and Scalability
-\item Cost effectiveness to fully utilize available resources
-\end{itemize}
-
-
-\section{Purpose of performance monitoring on the cloud}
-
-To provide efficient resource utilization from a small instance to a large
-virtual cluster on the cloud, performance management and monitoring are
-necessary for performance analysis. Apache Mesos or MongoDB Sharded cluster ,
-for example, are responsible to support large dataset and heavy compute
-requests with proper resource allocation and the performance analysis is a key
-component to increase the efficiency of cloud platforms. There are certain
-benefits of using the performance monitoring on the cloud:
-\begin{itemize}
-\item cost-effective use of cloud resources
-\item Power saving options by increasing energy efficiency
-\item Further development opportunities by using measured usage data e.g. cost
-      prediction, load balance, scaling up or down, capacity planning
-\end{itemize}
-
-
 
 
 
@@ -1093,10 +1126,10 @@ Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \end{table*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{TOOLS AND SERVICES}
+\section{METRIC TOOLS AND SERVICES}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Usage Measurement for IaaS}
+\subsection{IaaS}
 
 \subsubsection{OpenStack}
 
@@ -1275,7 +1308,7 @@ Stackdriver provides monitoring service at Google Cloud
 
 \task{Add a section to describe monitoring on Google Cloud}
 
-\subsection{Monitoring on HPC}
+\subsection{HPC}
 
 Monitoring in high-performance computing has a similarity to Cloud Computing. It provides fixed number of jobs that a user can create and each job runs on a same size of nodes in clusters. There are also common management tools to clusters, so accounting data can be collected from these tools.
 
@@ -1295,7 +1328,7 @@ communicating its RESTful
 API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}\hyungro{identify
   duplicated refeneces and remove them, remember to use vonLazewski
   refs from the vonLaszewski-jabref.bib file}
-
+ 
 
 \subsubsection{Nagios}
 
@@ -1333,6 +1366,25 @@ https://github.com/nerscadmin/ipm
 
 \task{add information} Stempede
 
+\subsubsection{Gold}
+
+There is a small number of accounting software to provide metered
+resource utilization in open source cloud platforms. Those tools such
+as Gold accounting Manager~\cite{jacksongold} are very simple and are
+supposed to support system administrators not cloud users. 
+
+\improve{Gold is no longer supported}
+
+\task{XSEDE accounting software}
+
+http://docs.adaptivecomputing.com/gold/
+
+\subsubsection{XRAS}
+
+\begin{verbatim}
+http://www.researchgate.net/publication/264737715_XRAS_Allocations_software_as_a_service_in_XSEDE
+\end{verbatim}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1348,43 +1400,6 @@ Many places now adopt virtualization and cloud services to enhance the capacity 
 \subsection{Real Consumption vs Allocation}
 There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
 
-\subsection{Motivation}
-
-Investigation for performance managements on the cloud would provide understanding of resource usage and statistics in several ways such as accounting/billing and provisioning. This classification will help evaluate the current performance of the cloud systems and gain the visibility of resource utilization across application layer and system layer. 
-
-\subsection{Problem}
-
-Cloud platform relies on sharing of computing and storage resources with many people like a public utility, understanding amounts of the usage of resources is getting important to the cloud users and cloud providers. It is not only important measuring use of resources but also important displaying metrics via graphical charts. There are concrete challenges for this research area: 
-
-\begin{description}
-
-\item[Understanding] - it is a basic functionality to see how reliable the system is and to prevent system failures by knowing the resource utilization. It also gives an opportunity to manage the system efficiently by knowing the performance of the system. 
-
-\item[Getting informed] - the system of alerts allows system administrators to react when the incidence of problems are detected. If the alerts are related to a resource reallocation, it is important to react on time according to the notifications. These alerts are not limited to delivering errors and warnings which are passive means, but rather they can be used as a proactive and defensive measure. 
-
-\item[Estimating future requests (Prediction)] - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance. 
-
-\item[Reporting] - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
-
-\end{description}
-
-There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager~\cite{jacksongold} are very simple and are supposed to support system administrators not cloud users. Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
-
-\subsection{Definitions}
-
-Once we started investigation on Cloud Accounting tools, similarity of accounting, billing, and monitoring tools is something that we need to clarify. In this section, we give our own words to identify differences among them. 
-
-\begin{description}
-
-\item[Monitoring.] Monitoring is about measuring resource utilization. In a typical way, real-time monitoring is performed in a system/hardware layer to show activities. It is supposed to provide performance analysis by measuring CPU utilization, load average, memory usage (free/used), network bandwidth in/out and disk I/O. Given that metrics, monitoring system shows that how many resources are being used at any given time. 
-
-\item[Accounting.] Accounting is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
-
-\item[Billing.] Billing is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user. 
-
-\item[Auditing.] Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system. 
-
-\end{description}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Implementation} \label{S:implementation}
