@@ -134,22 +134,22 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
   profit institutions and organizations. One of the important aspects
   to a successfully operational cloud is the availability of
   sophisticated metric information and frameworks to assure a number
-  of key operational factors. We provide an overview of
-  the different aspects that are shaping the need for cloud metrics.
-  We especially identify the needs for cloud metrics and monitoring
-  solutions for various user communities that are an important aspect
-  for cloud providers. The motivation for cloud metrics are shaped by
+  of key operational factors. We provide an overview of the different
+  aspects that are shaping the need for cloud metrics.  We especially
+  identify the needs for cloud metrics and monitoring solutions for
+  various user communities that are an important aspect for cloud
+  providers. The motivation for cloud metrics are shaped by
   application users, administrators, service providers and funders.
   Metrics include usage, failure and auditing data to identify user
-  and system behavior. Many of the metrics
-  presented here have been used as part of the FutureGrid and
-  FutureSystems clouds. This includes also the unified metrics service
-  framework allowing integration of metrics from heterogeneous clouds
-  such as OpenStack, Eucalyptus and Nimbus. Additionally, we see the
-  importance of metrics also in higher level platform as a services
-  delivered through the various user communities. Thus it is important
-  to identify common features of existing and future services that
-  benefit from metrics and their exposure to its users. 
+  and system behavior. Many of the metrics presented here have been
+  used as part of the FutureGrid and FutureSystems clouds. This
+  includes also the unified metrics service framework allowing
+  integration of metrics from heterogeneous clouds such as OpenStack,
+  Eucalyptus and Nimbus. Additionally, we see the importance of
+  metrics also in higher level platform as a services delivered
+  through the various user communities. Thus it is important to
+  identify common features of existing and future services that
+  benefit from metrics and their exposure to its users.
 
 
 
@@ -243,41 +243,49 @@ project leaders to identify utilization and performance.
 
 Cloud computing has established itself as one of the key components in
 modern datacenters. This includes academic, government, and for profit
-institutions and organizations. 
+institutions and organizations.  According the NIST definition ``Cloud
+computing is a model for enabling ubiquitous, convenient, on-demand
+network access to a shared pool of configurable computing resources
+(e.g., networks, servers, storage, applications, and services) that
+can be rapidly provisioned and released with minimal management effort
+or service provider interaction''~\cite{mell2011nist}. Essential
+characteristics include on-demand self-service, broad network access,
+rapid elasticity, measured service. Important service models are
+Software as a Service (SaaS), Software as a Service (SaaS), and
+Infrastructure as a Service (IaaS). Deployments include typically
+private clouds, community clouds, public clouds, and hybrid clouds.
 
-\task{This section will include a brief introduction to cloud computing
-as introduced by the NIST definition.}
+\subsection{Academic Cloud Computing}
 
-\improve{Cloud computing provides a resource pool using virtualization
-  technologies on multi-tenant environments. Convenient and dynamic
-  access to the shared resources is mandatory without performance
-  interference, otherwise people may not choose cloud services
-  although it offers cost savings. Availability and scalability also
-  need to be ensured to manage rapid changes in the demands for cloud
-  resources. These characteristics of cloud computing can be satisfied
-  with the support of performance analysis and monitoring. There are
-  some considerations when performance analysis and monitoring are
-  applied to cloud computing: (a) performance isolation against
-  interference (b) availability and Scalability (c) cost effectiveness
-  to fully utilize available resources }
+Academic cloud computing offers clouds to the academic community. In
+contrast to commercial offerings they may have some very specific
+properties that need to be considered. First we distinguish two
+different target communities. On the one hand includes the operational
+IT organization that may provide e-mail, calendars, and document
+sharing environments to the staff members of the university. The
+demands for them are typically not different from any other
+organization running operational production services. On the other
+institutions are in the need to provide infrastructures, services, and
+platforms to the academic research and education community. We will
+focus in this paper on the latter communities.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Background of Cloud Computing}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Within the offerings to the academic community we observe the usage of
+the following clouds (a) commercial public clouds, Academic public
+clouds, and Academic private clouds. Furthermore, traditional high
+performance computing )HPC) is offered as a platform in many
+organizations and allows to support the paradigm of {\it HPC in the
+  cloud} as showcased for example by the XSEDE project (see
+Section~\ref {S:resources} for more details). The validity of HPC as a
+service in the cloud is reflected not only by academic offerings, but
+also by commercial offerings commercial offerings as demonstrated by
+Amazon High Performance Computing~\cite{awshpc}, IBM Platform
+Computing~\cite{ibmhpc}, and with additional examples provided
+in~\cite{DouglasEadline}.
 
-Nist cloud definition~\cite{mell2011nist}
+% How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
 
-\subsection{HPC in the cloud}
 
-is hpc in the cloud fulfilling nists definition?
 
-Amazon High Performance Computing~\cite{awshpc}
-
-IBM Platform Computing~\cite{ibmhpc}
-
-Moving HPC to the Cloud~\cite{DouglasEadline}
-
-How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
 
 
 \subsection{Cloud Metrics}
@@ -309,8 +317,8 @@ identify
 
 \begin{enumerate}
 \setlength\itemsep{-2pt}
-\item Which metrics are useful for whom?
-\item Which efforts exists?
+\item Which metrics are useful for whom and why?
+\item Which metric efforts exists?
 \item Which community is targeted?
 \item Which services are targeted?
 \item Which resources are monitored?
@@ -321,22 +329,68 @@ We observe that in may cases there is no distinction between academic,
 or non academic resource providers. Areas where there exists
 distinction are metrics based on charging models, and the utilization
 of hybrid clouds. Furthermore, we find that higher level metrics and
-metrics integrating into other frameworks provides as PaaS and HPC
+metrics integrating into other frameworks provided as PaaS and HPC
 frameworks. The reason for this is that some projects may require a
 combination of technologies that motivate project wide metrics to not
 only display usage and utilization of the various frameworks and
-services for these projects.
+services for these projects. The pooling of resources in a
+heterogeneous environment provides a {\it computational mesh} going
+potentially beyond just the utilization of cloud, HPC, and Grid
+computing all of which may need to be integrated into a comprehensive
+metrics framework. Due to the limited resources in academic
+organizations we also often do not have (when private clouds) are
+utilized an unlimited resource pool. For example the XSEDE resources
+receive resource requests that are four times higher than the
+available resources. Hence, it is important to identify performance
+metrics and benchmarks that lead to an improvement of the applications
+using such resources. For academic cloud resources availability and
+scalability also need to be ensured to manage rapid changes (which we
+see for example in educational usage patterns as part of classes) in the
+demands for cloud resources. These characteristics of cloud computing
+can be satisfied with the support of performance analysis and
+monitoring. There are some considerations when performance analysis
+and monitoring are applied to cloud computing: (a) performance
+isolation against interference (b) availability and Scalability (c)
+cost effectiveness to fully utilize available resources.
 
 
-These aspects are addressed in the following paper. Our paper is
+As other clouds academic clouds rely on sharing of the offered
+services. However, just as in public clouds many users may not
+understand the implication and cost that is prevalent when using a
+particular service. Hence detailed metrics informing the user not only
+at time of an experiment, but access to information that helps planing
+such experiments are needed. Thus metrics will address and provide an
+essential input to several concrete challenges for academic clouds
+including:
+
+\begin{description}
+\setlength\itemsep{-2pt}
+
+\item[\it Understanding] - how reliable the system is and to prevent
+  system failures. It also gives an opportunity to manage the system
+  efficiently by knowing the performance of the system.
+
+\item[\it Getting informed] - of the current status and the impact of
+  previous activities allowing the various user communities to act
+  appropriately and invoke defensive measures as well as being an
+  input to btter understanding the system over time.
+
+\item[\it Estimating future requests] - it discovers usage patterns
+  and trends of system resources which allows to projection the
+  increasing of system capacity and performance.
+
+\item[\it Reporting] - Measured statistics can be viewed in different
+  ways with various visualization tools. Several graphical tools and
+  charts APIs can help identify which resources are consumed the most
+  by whom, what, where, why and when.
+
+\end{description}
+
+These and other aspects are addressed in the following paper. Our paper is
 structured as follows:
 
-\subsection{Academic cloud computing}
+\bigskip\gregor{include how paper is structured}
 
-\task{This section will include a brief introduction about academic
-  cloud computing efforts. We need to avoid potential duplication with
-  a later section, so this section here may be removed and introduced
-  later.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRIC FACTORS}
@@ -478,29 +532,6 @@ the following factors:
 
 
 
-\subsection{old text}
-\subsubsection{Motivation}
-
-Investigation for performance managements on the cloud would provide understanding of resource usage and statistics in several ways such as accounting/billing and provisioning. This classification will help evaluate the current performance of the cloud systems and gain the visibility of resource utilization across application layer and system layer. 
-
-A cloud relies on sharing of computing and storage resources with many people like a public utility, understanding amounts of the usage of resources is getting important to the cloud users and cloud providers. It is not only important measuring use of resources but also important displaying metrics via graphical charts. There are concrete challenges for this research area: 
-
-\begin{description}
-
-\item[Understanding] - it is a basic functionality to see how reliable the system is and to prevent system failures by knowing the resource utilization. It also gives an opportunity to manage the system efficiently by knowing the performance of the system. 
-
-\item[Getting informed] - the system of alerts allows system administrators to react when the incidence of problems are detected. If the alerts are related to a resource reallocation, it is important to react on time according to the notifications. These alerts are not limited to delivering errors and warnings which are passive means, but rather they can be used as a proactive and defensive measure. 
-
-\item[Estimating future requests (Prediction)] - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance. 
-
-\item[Reporting] - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when. 
-
-\end{description}
-
-
-
-
-Eucalyptus 2.0 and 3.0 Enterprise generates resource usage information via log messages with user information. We have an idea for a log parsing tool to collect metering values from Eucalyptus and a command line tool to show measured data. A graphical representation of measured data is required to represent multiple numbers of numerical metrics and we have chosen HighCharts~\cite{highsoft2012highcharts}, Google Chart API to generate chart images.
 
 
 \subsection{Security}
@@ -541,7 +572,7 @@ framework. Thus Nimbus must provide group support in order to become
 meaningful in academic project based deployments while providing
 comprehensive metrics.
 
-\subsection{Resources}
+\subsection{Resources}\label {S:resources}
 
 Metrics that are implicitly provided by various cloud providers are
 important for gaining a complete picture of a particular project. This
@@ -1126,7 +1157,7 @@ Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \end{table*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{METRIC TOOLS AND SERVICES}
+\section{MONITORING TOOLS AND SERVICES}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{IaaS}
@@ -1391,6 +1422,15 @@ http://www.researchgate.net/publication/264737715_XRAS_Allocations_software_as_a
 
 Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
   
+\improve{ Eucalyptus 2.0 and 3.0 Enterprise generates resource usage
+  information via log messages with user information. We have an idea
+  for a log parsing tool to collect metering values from Eucalyptus
+  and a command line tool to show measured data. A graphical
+  representation of measured data is required to represent multiple
+  numbers of numerical metrics and we have chosen
+  HighCharts~\cite{highsoft2012highcharts}, Google Chart API to
+  generate chart images.  }
+
 \subsection{Overview}
 In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
 
@@ -1811,7 +1851,7 @@ We can think about rerouting VM instances to ensure scalable services by avoidin
 % Acknowledgment 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
   
-\section{Acknowledgement} 
+\section{ACKNOWLEDGEMENT} 
  
 This material based upon work is partially supported in part by the National Science Foundation under Grant No. 1445806, 1445806, and 0910812.
 
