@@ -1611,31 +1611,12 @@ that allow autoscaling in support of this class.
 \end{figure} 
 
 High Performance Computing (HPC) has been used to support parallel
-data processing of Big Data. With Figure~\ref{F:bigdata}, we can see
-big data projects have also requested HPC and other services to work
-on their projects. HPC is the most requested services to whom also
-requested big data services and IaaS cloud platforms are also
-requested many times followed by HPC. It explains that platform hybrid
-implementations are one of today's trends for big data scientists and
-researchers. 
-
-
-
- EEEEEEEEEE
-
-Regarding IaaS cloud platforms, there are three
-difference choices between OpenStack, Eucalyptus, and Nimbus on the
-FutureGrid test-bed. One observation from Figure~\ref{F:bigdata} is
-that OpenStack has taken Eucalyptus share since 2011 and became the
-most popular IaaS platform last year (2013). According to the recent
-report from, cloud competition is
-heating up not only in public cloud including Amazon Web Services
-(AWS) and Google Compute Engine (GCE), but also in private cloud. 
-
-The
-report shows that OpenStack is the most popular cloud environment for
-private cloud users so the changes in Figure~\ref{F:bigdata} is
-understandable in terms of finding cloud alternatives.
+data processing of big data. In Figure~\ref{F:bigdata} we see that in
+addition to IaaS big data projects have also requested HPC and other
+services. Additionally we can see that the initial dominant usage of
+Eucalyptus and Nimbus as IaaS has been replaced with OpenStack.
+Toghether this data shows it is desirable to provide a hybrid cloud
+that integrates HPC and IaaS service to scientists and researchers.
 
 \begin{figure}[htb]
   \centering
@@ -1643,14 +1624,17 @@ understandable in terms of finding cloud alternatives.
   \caption{Service changes for along with Big Data between 2010 and 2013}\label{F:bigdata} 
 \end{figure} 
 
-In HPC, 64 and 128 CPU cores per job are most popular job sizes in
-FutureGrid HPC in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and
-14\% of total wall time are for 64 and 128 cpu jobs. An extra large
-jobs (i.e. 512 CPU cores) has been intensively used in the last
-year. Compared to the previous year 2012, the request has been
-increased about 350\%. In early stage of FutureGrid between 2010 and
-2011, tiny CPU jobs have been requested many times but in 2013, two
-thirds jobs are using more than 64 CPU cores.
+Another important result was that the number of servers per job
+requested as part of HPC usage increased. We found that for HPC, 64
+and 128 CPU cores per job are most popular job sizes in FutureGrid HPC
+in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and 14\% of total wall
+time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU
+cores) has been intensively used in the last year. Compared to the
+previous year 2012, the request has been increased about 350\%. In
+early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have
+been requested many times but in 2013, two thirds jobs are using more
+than 64 CPU cores. This shows the user community in FuturGrid
+matured using more servers at a time than before.
 
 \begin{figure}[htb]
   \centering
@@ -1658,6 +1642,12 @@ thirds jobs are using more than 64 CPU cores.
   \caption{Annual Wall Time Changes for Job Size in HPC between 2010 and 2013}\label{F:bigdatainhpc} 
 \end{figure} 
 
+CLearly we see from our examples that valuable information can be
+derived already with the cloudmesh metrics framework. The ability to
+have access to standard reports makes reporting and oversight
+easier. Furthermore data we collected could be used to convince those
+that are used to exclusive use of resources in favor of shared cloud
+resources.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{RELATED WORK}\label{S:related}
@@ -1666,7 +1656,7 @@ thirds jobs are using more than 64 CPU cores.
 
 \task{This section will contain some relevant related work. We have
   included a small set of references that may be helpful to establish
-  this section}
+  this section. Right now we provide a list of unordered refernces}
 
 Nist~\cite{NIST2015}
 Blueflood~\cite{BlueFloodDB}
@@ -1689,11 +1679,13 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{eucalyptusgithub}
 \cite{ceilometer}
 \cite{gcemonitoring}
-
 \cite{securitymetrics}
 \cite{securitymetrics-educause}
 
 \subsection{Surveys and Taxonomies}
+
+\task{This section will include a small survey of paper that provide
+  them selfs surveys to cloud metrics.}
 
 \cite{vineetha2012performance}
 \cite{alhamazani2013overview}
@@ -1720,98 +1712,9 @@ RightScale~\cite{rightscalereport13}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
+his activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
 \task{We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.}
-
-% scheduling
-
-%In a sense of security, accounting is also able to provide some information for investigation of suspected security intrusions not only providing resource usage1 monitoring. Billing is another purpose of accounting.
-
-
-
-% \begin{sidewaystable*}
-% \caption{table 3}\label{T:tab3}
-% 
-% \begin{footnotesize}
-% \begin{tabular}{|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|}
-% \hline
-% Provider & Charging & Cost 1vCPU/hour    & Cost 1GB/hour & OS & Max vCPU & Memory min - max &\# of instance types & Discount program & Free allowance\\
-% \hline
-% \hline
-% Aws & hourly & \$0.04  & \$0.02  & Linux & 32 & 615MB - & 22 & spot instance;  & \$100 for educators and student\\
-%     &              &         &         & Windows +14-56\%     &    & 244GB    &       & reserved instances & Grant for researcher, AWS educated grant program\\
-%     &              &         &         & Asia + 25\%          &    &                 &       &                    & \\
-% \hline
-% Google Compute Engine & 10 minutes + & \$0.08  & \$0.01  & Linux (Debian; CentOS) & 16 & 600MB - & 1- & n/a & Google app reward programs\\
-%  & every minute after that &  &  & (RHEL; SUSE premium operating systems) *** &  & 104GB & (4 high cpu + 4 high memory + 2 small + 5 standard) &  & \$1000 for educator\\
-%  &  &  & Europe + 4.5\% - 27\%  &  &  &  &  &  & \$60;000 for research project\\
-% \hline 
-% IBM CloudLayer (by Softlayer) & monthly & \$0.50  & varies & Linux;  & 16 & 1GB  & Build your own cloud server offers customized options &  & one month trial for 1 vcpu + 1gb memory + 25 storage\\
-% \hline
-%  & hourly & to &  & Windows + \$0.05 to &  & -  &  &  & \\
-%  &  & \$0.10  &  &               \$0.10 / hour &  & 64GB &  &  & \\
-% \hline 
-% HP cloud & hourly & \$0.02  & \$0.02  & Linux; Windows; SUSE & 16 & 1GB  & 11 (8 standard + 3 memory intensive) &  & \$300 free trial for 90 days (\$100 for each month)\\
-%  &  &  &  & (windows: 10-200\% extra charge; &  & -  &  &  & \\
-%  &  &  &  & SUSE: 4\% - 200\% extra charge) &  & 120GB &  &  & \\
-% \hline 
-% Microsoft Azure & Free first 5 minutes & \$0.05  & \$0.02 (approx.) & Linux;  & 8 & 768MB -  & 8 (A0-A7) & 6-Month; 12-month pre-pay membership & \$200 free trial of first month\\
-%  &  &  & Windows is expensive 30-50\% more than linux & Windows + 30-50\%  &  & 56GB &  &  & \\
-% \hline 
-% Rackspace & minute &  & varies & Linux; Windows, (windows: 25\% extra charge) & 32 & 1GB - 120GB  & 9 & Volume discount (4\% to 20\% for spending over \$5;000 - \$ 10; 000 per month; 8\% for \$10;001 - 30;000; 12\% for \$30;001 - \$50;000) Commitment discount (4\% to 40\%) Prepayment discount with commitment (7\% to 55\%)& \$300 developer discount (\$50 each for six months)\\
-% \hline
-% \end{tabular}
-% \end{footnotesize}
-% \end{sidewaystable*}
-% 
-% 
-% Provider      Charging        Cost
-% 1 vCPU /hour  Cost
-% 1 GB
-% /hour OS      Max vCPU        Memory min - max        \# of instance types    Discount program        Free allowance
-% Aws
-%       hourly  \$0.04
-%       $0.01927        Linux
-% Windows +14-56% 
-% Asia + 25%    32      615MB -
-% 244GB 22      spot instance, 
-% reserved instances    $100 for educator's student
-% Grant for researcher
-% AWS educated grant program
-% Google Compute Engine 10 minutes +
-% every minute after that       $0.0788
-%       $0.006636
-% 
-% Europe + 4.5% - 27%   Linux (Debian, CentOS)
-% (RHEL, SUSE premium operating systems) ***    16      600MB -
-% 104GB 15
-% (4 high cpu + 4 high memory + 2 small + 5 standard)   n/a     Google app reward programs
-% $1000 for educator
-% $60,000 for research project
-% IBM CloudLayer (by Softlayer) monthly
-% hourly        $0.5
-% to
-% $0.10 varies  Linux, 
-% Windows + $0.05 to
-%               $0.10 / hour    16      1GB 
-% – 
-% 64GB  Build your own cloud server offers customized options           one month trial for 1 vcpu + 1gb memory + 25 storage
-% HP cloud      hourly  $0.015  $0.015  Linux, Windows, SUSE
-% (windows: 10-200% extra charge,
-% SUSE: 4% - 200% extra charge) 16      1GB 
-% – 
-% 120GB 11 (8 standard + 3 memory intensive)            $300 free trial for 90 days ($100 for each month)
-% Microsoft Azure       Free first 5 minutes
-%       $ 0.05  $0.02 (approx.)
-% Windows is expensive 30-50% more than linux   Linux, 
-% Windows + 30-50%      8       768MB – 
-% 56GB  8 (A0-A7)       6-Month, 12-month pre-pay membership    $200 free trial of first month
-% Rackspace     minute          varies  Linux, Windows
-% (windows: 25% extra charge)   32      1GB – 
-% 120GB 9       Volume discount (4% to 20% for spending over $5,000 - $ 10, 000 per month, 8% for $10,001 - 30,000, 12% for $30,001 - $50,000)
-% Commitment discount (4% to 40%)
-% Prepayment discount with commitment (7% to 55%)       $300 developer discount ($50 each for six months)
 
 
 
@@ -1841,7 +1744,10 @@ metric-new}
 %tas.bib%
  
 \end{document} 
- 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% END DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \subsection{Overview}
 In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
@@ -1988,3 +1894,94 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 \end{table}
 
 \end{comment}
+
+
+% scheduling
+
+%In a sense of security, accounting is also able to provide some information for investigation of suspected security intrusions not only providing resource usage1 monitoring. Billing is another purpose of accounting.
+
+
+
+% \begin{sidewaystable*}
+% \caption{table 3}\label{T:tab3}
+% 
+% \begin{footnotesize}
+% \begin{tabular}{|p{2cm}|p{2cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{1cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|}
+% \hline
+% Provider & Charging & Cost 1vCPU/hour    & Cost 1GB/hour & OS & Max vCPU & Memory min - max &\# of instance types & Discount program & Free allowance\\
+% \hline
+% \hline
+% Aws & hourly & \$0.04  & \$0.02  & Linux & 32 & 615MB - & 22 & spot instance;  & \$100 for educators and student\\
+%     &              &         &         & Windows +14-56\%     &    & 244GB    &       & reserved instances & Grant for researcher, AWS educated grant program\\
+%     &              &         &         & Asia + 25\%          &    &                 &       &                    & \\
+% \hline
+% Google Compute Engine & 10 minutes + & \$0.08  & \$0.01  & Linux (Debian; CentOS) & 16 & 600MB - & 1- & n/a & Google app reward programs\\
+%  & every minute after that &  &  & (RHEL; SUSE premium operating systems) *** &  & 104GB & (4 high cpu + 4 high memory + 2 small + 5 standard) &  & \$1000 for educator\\
+%  &  &  & Europe + 4.5\% - 27\%  &  &  &  &  &  & \$60;000 for research project\\
+% \hline 
+% IBM CloudLayer (by Softlayer) & monthly & \$0.50  & varies & Linux;  & 16 & 1GB  & Build your own cloud server offers customized options &  & one month trial for 1 vcpu + 1gb memory + 25 storage\\
+% \hline
+%  & hourly & to &  & Windows + \$0.05 to &  & -  &  &  & \\
+%  &  & \$0.10  &  &               \$0.10 / hour &  & 64GB &  &  & \\
+% \hline 
+% HP cloud & hourly & \$0.02  & \$0.02  & Linux; Windows; SUSE & 16 & 1GB  & 11 (8 standard + 3 memory intensive) &  & \$300 free trial for 90 days (\$100 for each month)\\
+%  &  &  &  & (windows: 10-200\% extra charge; &  & -  &  &  & \\
+%  &  &  &  & SUSE: 4\% - 200\% extra charge) &  & 120GB &  &  & \\
+% \hline 
+% Microsoft Azure & Free first 5 minutes & \$0.05  & \$0.02 (approx.) & Linux;  & 8 & 768MB -  & 8 (A0-A7) & 6-Month; 12-month pre-pay membership & \$200 free trial of first month\\
+%  &  &  & Windows is expensive 30-50\% more than linux & Windows + 30-50\%  &  & 56GB &  &  & \\
+% \hline 
+% Rackspace & minute &  & varies & Linux; Windows, (windows: 25\% extra charge) & 32 & 1GB - 120GB  & 9 & Volume discount (4\% to 20\% for spending over \$5;000 - \$ 10; 000 per month; 8\% for \$10;001 - 30;000; 12\% for \$30;001 - \$50;000) Commitment discount (4\% to 40\%) Prepayment discount with commitment (7\% to 55\%)& \$300 developer discount (\$50 each for six months)\\
+% \hline
+% \end{tabular}
+% \end{footnotesize}
+% \end{sidewaystable*}
+% 
+% 
+% Provider      Charging        Cost
+% 1 vCPU /hour  Cost
+% 1 GB
+% /hour OS      Max vCPU        Memory min - max        \# of instance types    Discount program        Free allowance
+% Aws
+%       hourly  \$0.04
+%       $0.01927        Linux
+% Windows +14-56% 
+% Asia + 25%    32      615MB -
+% 244GB 22      spot instance, 
+% reserved instances    $100 for educator's student
+% Grant for researcher
+% AWS educated grant program
+% Google Compute Engine 10 minutes +
+% every minute after that       $0.0788
+%       $0.006636
+% 
+% Europe + 4.5% - 27%   Linux (Debian, CentOS)
+% (RHEL, SUSE premium operating systems) ***    16      600MB -
+% 104GB 15
+% (4 high cpu + 4 high memory + 2 small + 5 standard)   n/a     Google app reward programs
+% $1000 for educator
+% $60,000 for research project
+% IBM CloudLayer (by Softlayer) monthly
+% hourly        $0.5
+% to
+% $0.10 varies  Linux, 
+% Windows + $0.05 to
+%               $0.10 / hour    16      1GB 
+% – 
+% 64GB  Build your own cloud server offers customized options           one month trial for 1 vcpu + 1gb memory + 25 storage
+% HP cloud      hourly  $0.015  $0.015  Linux, Windows, SUSE
+% (windows: 10-200% extra charge,
+% SUSE: 4% - 200% extra charge) 16      1GB 
+% – 
+% 120GB 11 (8 standard + 3 memory intensive)            $300 free trial for 90 days ($100 for each month)
+% Microsoft Azure       Free first 5 minutes
+%       $ 0.05  $0.02 (approx.)
+% Windows is expensive 30-50% more than linux   Linux, 
+% Windows + 30-50%      8       768MB – 
+% 56GB  8 (A0-A7)       6-Month, 12-month pre-pay membership    $200 free trial of first month
+% Rackspace     minute          varies  Linux, Windows
+% (windows: 25% extra charge)   32      1GB – 
+% 120GB 9       Volume discount (4% to 20% for spending over $5,000 - $ 10, 000 per month, 8% for $10,001 - 30,000, 12% for $30,001 - $50,000)
+% Commitment discount (4% to 40%)
+% Prepayment discount with commitment (7% to 55%)       $300 developer discount ($50 each for six months)
+
