@@ -971,11 +971,10 @@ o  alert notification
 \subsection{Extra tables}
 
 \hyungro{introduce begin center and center in all tables}
-\hyungro{lets use scriptsize in all tables, this way they look uniform}
 
 \begin{table*}[htb]
-
 \caption{Basic Concept of Metric}
+\begin{scriptsize}
 \label{T:BCmetrics}
 \bigskip
 \begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.4\textwidth}}
@@ -1000,13 +999,14 @@ gauge,
 time-triggered e.g. 5 secs, 5 mins\\
 \hline
 \end{tabular}
-
+\end{scriptsize}
 \end{table*}
 
 
 \begin{table*}[htb]
 
 \caption{System Performance Metric (OS Level)}
+\begin{scriptsize}
 \label{T:SPmetrics}
 \bigskip
 \begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
@@ -1048,11 +1048,13 @@ Bytes &
 \\
 \hline
 \end{tabular}
+\end{scriptsize}
 \end{table*}
 
 
 \begin{table*}[htb]
 \caption{Network Monitoring Features (source from wikipedia)}
+\begin{scriptsize}
 \label{T:NMmetrics}
 \bigskip
 \begin{tabular}{p{0.1\textwidth}p{0.3\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
@@ -1089,11 +1091,13 @@ No &
 Via plugin \\
 \hline
 \end{tabular}
+\end{scriptsize}
 \end{table*}
 
 
 \begin{table*}[htb]
 \caption{Metrics for Cloud Computing}
+\begin{scriptsize}
 \label{T:NMmetrics}
 \bigskip
 \begin{tabular}{p{0.1\textwidth}p{0.2\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
@@ -1120,11 +1124,13 @@ Capacity &
 \\
 \hline
 \end{tabular}
+\end{scriptsize}
 \end{table*}
 \cite{aceto2013cloud}
 
 \begin{table*}[htb]
 \caption{System Monitoring on Cloud platforms}
+\begin{scriptsize}
 \label{T:SMmetrics}
 \bigskip
 \begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
@@ -1139,6 +1145,7 @@ I/O Write & Yes & TBD & TBD & TBD & TBD & TBD \\
 Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \hline
 \end{tabular}
+\end{scriptsize}
 \end{table*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1668,7 +1675,9 @@ Comparing pricing of the cloud is complicated and may lead to false analogy beca
 We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of the class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resources. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
 
 \begin{table}[htb]
-\caption{Usage data to the class}\label{T:tab1}
+\caption{Usage data to the class}
+\begin{scriptsize}
+\label{T:tab1}
 \begin{footnotesize}
 \begin{tabular}{l|r|l|l|r|r}
 \shortstack{Instance\\types} & \shortstack{Instan-\\ces} & \shortstack{Charge\\by hour} & \shortstack{Charge\\by min} & Google$^1$ & Azure$^2$ \\
@@ -1682,13 +1691,16 @@ Total & 661 & 703,080 & 675,482 & 676,813 & 675,140 \\
 $^1$ includes 10~min minimum charge\\
 $^2$ includes 5~min free charge
 \end{footnotesize}
+\end{scriptsize}
 \end{table}
 
 %* Instance types are not same. Chosen by a similarity of vCPU and Memory
 %** Captured by January, 2014
 
 \begin{table}[htb]
-\caption{Pricing comparison to the class}\label{T:tab2}
+\caption{Pricing comparison to the class}
+\begin{scriptsize}
+\label{T:tab2}
 \begin{footnotesize}
 \begin{tabular}{l|l|l|l|l|l|p{2cm}|}
 Service & Cost & \multicolumn{3}{|c|}{Price per hour} \\
@@ -1704,6 +1716,7 @@ $^1$US East, Linux, charged 1 hour if runtime is <1 hour\\
 $^2$US, Linux, charged 10 minutes if runtime is <10 minutes\\
 $^3$Linux, charged by minute but free is <5 minutes\\
 \end{footnotesize}
+\end{scriptsize}
 \end{table}
 
 \end{comment}
@@ -1759,8 +1772,6 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{danetwork}
 \cite{petcu2014towards}
 \cite{zhang2013survey}
-
-\hyungro{see what shava and w smith did check previous xsede conferences}
 \cite{smith2014building}
 
 RightScale~\cite{rightscalereport13}
@@ -1934,7 +1945,9 @@ CloudMetrics pursues to provide an integrated accounting service which users and
 %CloudMetrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
 
 \begin{table}[htb]
-  \caption{New accounts in FutureGrid}\label{T:tab00}
+  \caption{New accounts in FutureGrid}
+\begin{scriptsize}
+\label{T:tab00}
   \begin{tabular}{l|c|c}
    Year & Users & Projects \\
    \hline
@@ -1942,10 +1955,13 @@ CloudMetrics pursues to provide an integrated accounting service which users and
    2012 & 900 & 114 \\
    2013 & 614 & 103 \\
  \end{tabular}\\
+\end{scriptsize}
  \end{table}
 
  \begin{table}[htb]
-   \caption{Active Users in Cloud, HPC or Both}\label{T:tab000}
+   \caption{Active Users in Cloud, HPC or Both}
+\begin{scriptsize}
+\label{T:tab000}
    \begin{tabular}{l|c|c|c}
      Year & Cloud & HPC & Both \\
      \hline
@@ -1954,6 +1970,7 @@ CloudMetrics pursues to provide an integrated accounting service which users and
      2013 & 235 (140) & 200 (133) & 70 (38) \\
    \end{tabular}\\
    $^*$ New users shown in parenthesis
+\end{scriptsize}
  \end{table}
 
  In average, FutureGrid accepted more than 100 projects every year, and around 60 to 90 members participated in each project. In table~\ref{T:tab000}, we noticed that more user were getting used both Cloud and HPC over the years instead of only using either Cloud or HPC. It implies that Cloud and HPC together can be beneficial to users.
