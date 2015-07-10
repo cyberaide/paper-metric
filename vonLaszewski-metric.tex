@@ -833,6 +833,7 @@ Counts the active users in the cloud
 \begin{scriptsize}
 \label{T:metrics}
 \bigskip
+\begin{center}
 \begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
 ID & Name & Stackeholder & Description & Motivation & Sample \\
 \hline
@@ -872,6 +873,7 @@ real time usage is important for checking peak or detecting unusual usage &
 Reports (Fig~1,~2) \\
 \hline
 \end{tabular}
+\end{center}
 \end{scriptsize}
 \end{table*}
 
@@ -977,6 +979,7 @@ o  alert notification
 \begin{scriptsize}
 \label{T:BCmetrics}
 \bigskip
+\begin{center}
 \begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.4\textwidth}}
 Name & Unit & Type of Value & Refresh Interval (Measuring time) \\
 \hline
@@ -999,6 +1002,7 @@ gauge,
 time-triggered e.g. 5 secs, 5 mins\\
 \hline
 \end{tabular}
+\end{center}
 \end{scriptsize}
 \end{table*}
 
@@ -1009,6 +1013,7 @@ time-triggered e.g. 5 secs, 5 mins\\
 \begin{scriptsize}
 \label{T:SPmetrics}
 \bigskip
+\begin{center}
 \begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
 Metric & Description & Type & Level & Unit & Example \\
 \hline
@@ -1048,6 +1053,7 @@ Bytes &
 \\
 \hline
 \end{tabular}
+\end{center}
 \end{scriptsize}
 \end{table*}
 
@@ -1057,6 +1063,7 @@ Bytes &
 \begin{scriptsize}
 \label{T:NMmetrics}
 \bigskip
+\begin{center}
 \begin{tabular}{p{0.1\textwidth}p{0.3\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
 Metric (legend) & Description & Ganglia & Nagios \\
 \hline
@@ -1091,6 +1098,7 @@ No &
 Via plugin \\
 \hline
 \end{tabular}
+\end{center}
 \end{scriptsize}
 \end{table*}
 
@@ -1100,6 +1108,7 @@ Via plugin \\
 \begin{scriptsize}
 \label{T:NMmetrics}
 \bigskip
+\begin{center}
 \begin{tabular}{p{0.1\textwidth}p{0.2\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
 Metric & Cloud Platform & Purpose & Related Service \\
 \hline
@@ -1124,6 +1133,7 @@ Capacity &
 \\
 \hline
 \end{tabular}
+\end{center}
 \end{scriptsize}
 \end{table*}
 \cite{aceto2013cloud}
@@ -1133,6 +1143,7 @@ Capacity &
 \begin{scriptsize}
 \label{T:SMmetrics}
 \bigskip
+\begin{center}
 \begin{tabular}{p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
 Metric & AWS & GCE & Azure & OpenStack & HP Cloud (Eucalyptus) & Nimbus \\
 \hline
@@ -1145,6 +1156,7 @@ I/O Write & Yes & TBD & TBD & TBD & TBD & TBD \\
 Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \hline
 \end{tabular}
+\end{center}
 \end{scriptsize}
 \end{table*}
 
@@ -1646,80 +1658,6 @@ thirds jobs are using more than 64 CPU cores.
   \caption{Annual Wall Time Changes for Job Size in HPC between 2010 and 2013}\label{F:bigdatainhpc} 
 \end{figure} 
 
-\begin{comment}
-
-\subsection{Pricing Comparison}
-
-Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine (GCE), HP Cloud, IBM and Rackspace are compared. Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have several options to reduce cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time. In Table~\ref{T:tab0}, different price tags for virtual machine instances are described. With the comparison of the smallest vm instance which is 1 virtual core, 600-768MB memory and no storage option, we can see most IaaS service providers have similar pricing charts.
-
-\begin{table}[htb]
-
-%\caption{Pricing chart for instances from AWS, GCE, and Azure \newline * China (Beijing) region will be available in early 2014, and GovCloud region is also included.}\label{T:tab0}
-
- 
-\caption{Pricing chart for instances from AWS, GCE, and Azure}\label{T:tab0}
-%\begin{footnotesize}
-%\begin{tabular}{l|p{2.5cm}|l|p{2cm}}
- %    &  \shortstack{Billing\\ granularity} &   Price & \shortstack{Price\\ Variation} \\
- % \hline
-%AWS &   By hour & \$0.02 &      \shortstack{10 regions*,\\ 6 platforms} \\
-%GCE &   By minute$^1$ &       \$0.019  &      \shortstack{2 regions\\ (US, Europe)} \\
-%Azure & By minute$^2$ & \$0.02 &    \shortstack{6 regions,\\ 5 platforms} \\
-%\end{tabular}\\
-%$^1$ with a minimum of 10 minutes\\
-%$^2$ with a no minimum and free of charge for less than 5 minutes
-\end{table}
-
-\subsubsection{Example of Pricing Comparison}
-
-We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of the class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resources. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
-
-\begin{table}[htb]
-\caption{Usage data to the class}
-\begin{scriptsize}
-\label{T:tab1}
-\begin{footnotesize}
-\begin{tabular}{l|r|l|l|r|r}
-\shortstack{Instance\\types} & \shortstack{Instan-\\ces} & \shortstack{Charge\\by hour} & \shortstack{Charge\\by min} & Google$^1$ & Azure$^2$ \\
-  \hline
-small & 165 & 37,140 & 29,622 & 29,875 &29,582 \\
-medium & 6 & 16,080 & 15,891 & 15,891 & 15,891 \\
-large & 490 & 649,860 & 629,969 & 631,047 & 629,667 \\
-  \hline \hline
-Total & 661 & 703,080 & 675,482 & 676,813 & 675,140 \\
-\end{tabular}\\
-$^1$ includes 10~min minimum charge\\
-$^2$ includes 5~min free charge
-\end{footnotesize}
-\end{scriptsize}
-\end{table}
-
-%* Instance types are not same. Chosen by a similarity of vCPU and Memory
-%** Captured by January, 2014
-
-\begin{table}[htb]
-\caption{Pricing comparison to the class}
-\begin{scriptsize}
-\label{T:tab2}
-\begin{footnotesize}
-\begin{tabular}{l|l|l|l|l|l|p{2cm}|}
-Service & Cost & \multicolumn{3}{|c|}{Price per hour} \\
-  & Estimate &  Small& Medium& Large \\
- \hline
-AWS$^1$ & \$2,668.74  & \$0.06 & \$0.12 & \$0.24 \\
-GCE$^2$ & \$2,231.54  & \$0.054 & \$0.104 & \$0.207 \\
-Azure$^3$ & \$2,580.03  & \$0.06 & \$0.12 & \$0.24 \\ 
-\end{tabular}
-\\
-\\
-$^1$US East, Linux, charged 1 hour if runtime is <1 hour\\
-$^2$US, Linux, charged 10 minutes if runtime is <10 minutes\\
-$^3$Linux, charged by minute but free is <5 minutes\\
-\end{footnotesize}
-\end{scriptsize}
-\end{table}
-
-\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{RELATED WORK}\label{S:related}
@@ -1975,3 +1913,78 @@ CloudMetrics pursues to provide an integrated accounting service which users and
 
  In average, FutureGrid accepted more than 100 projects every year, and around 60 to 90 members participated in each project. In table~\ref{T:tab000}, we noticed that more user were getting used both Cloud and HPC over the years instead of only using either Cloud or HPC. It implies that Cloud and HPC together can be beneficial to users.
 
+
+\begin{comment}
+
+\subsection{Pricing Comparison}
+
+Comparing pricing of the cloud is complicated and may lead to false analogy because each cloud provider offers various services with different performance. The pricing comparison, however, is important when people start to consider adopting cloud services among a lot of selections from different providers. In the comparison, important criteria are revealed through its pricing table. For example, there are a range of service offered, a size of available systems, costs, discounts and benefits such as technical support, and development tools. Amazon AWS, Windows Azure, Google Compute Engine (GCE), HP Cloud, IBM and Rackspace are compared. Pricing is scenario based. It can't be simply compared with numbers. GCE looks cheaper than other competitors, but others have several options to reduce cost. For example, a pay-ahead model provides a discount for same instances, and a spot instance also provides a way of saving entire cost for task intensive workloads in a small amount of time. In Table~\ref{T:tab0}, different price tags for virtual machine instances are described. With the comparison of the smallest vm instance which is 1 virtual core, 600-768MB memory and no storage option, we can see most IaaS service providers have similar pricing charts.
+
+\begin{table}[htb]
+
+%\caption{Pricing chart for instances from AWS, GCE, and Azure \newline * China (Beijing) region will be available in early 2014, and GovCloud region is also included.}\label{T:tab0}
+
+ 
+\caption{Pricing chart for instances from AWS, GCE, and Azure}\label{T:tab0}
+%\begin{footnotesize}
+%\begin{tabular}{l|p{2.5cm}|l|p{2cm}}
+ %    &  \shortstack{Billing\\ granularity} &   Price & \shortstack{Price\\ Variation} \\
+ % \hline
+%AWS &   By hour & \$0.02 &      \shortstack{10 regions*,\\ 6 platforms} \\
+%GCE &   By minute$^1$ &       \$0.019  &      \shortstack{2 regions\\ (US, Europe)} \\
+%Azure & By minute$^2$ & \$0.02 &    \shortstack{6 regions,\\ 5 platforms} \\
+%\end{tabular}\\
+%$^1$ with a minimum of 10 minutes\\
+%$^2$ with a no minimum and free of charge for less than 5 minutes
+\end{table}
+
+\subsubsection{Example of Pricing Comparison}
+
+We tried to apply each pricing model; Amazon AWS, Google Compute Engine, Microsoft Azure; to the usage data of the class (P434 distributed systems at Indiana University), to compare cost estimate of cloud resources. Google Compute Engine is the least expensive and 16\% lower than Amazon AWS. It is mostly because of that Google has 10\% discount pricing chart compared to AWS. We observed that a minute basis charge is only 3.3\% less expensive for this class. Some restrictions and offers such as Google's 10-minute minimum charge and Azure's less 5-minute free of charge are relatively small amount of a discount or an extra charge. Google's 10-minute minimum charge asks 0.18\% extra charge to the class, Azure provides 0.05\% discount through their less 5-minute free of charge. Amazon only has an hourly based pricing model, while Google Compute Engine and Windows Azure offer a minute basis charge for use of virtual machine instances. Three types of instances (small/medium/large) had been used for its coursework and projects and usage of virtual machine instances was only calculated without network and storage usage. Table~\ref{T:tab1}, ~\ref{T:tab2} shows pricing comparison to the class.
+
+\begin{table}[htb]
+\caption{Usage data to the class}
+\begin{scriptsize}
+\label{T:tab1}
+\begin{footnotesize}
+\begin{tabular}{l|r|l|l|r|r}
+\shortstack{Instance\\types} & \shortstack{Instan-\\ces} & \shortstack{Charge\\by hour} & \shortstack{Charge\\by min} & Google$^1$ & Azure$^2$ \\
+  \hline
+small & 165 & 37,140 & 29,622 & 29,875 &29,582 \\
+medium & 6 & 16,080 & 15,891 & 15,891 & 15,891 \\
+large & 490 & 649,860 & 629,969 & 631,047 & 629,667 \\
+  \hline \hline
+Total & 661 & 703,080 & 675,482 & 676,813 & 675,140 \\
+\end{tabular}\\
+$^1$ includes 10~min minimum charge\\
+$^2$ includes 5~min free charge
+\end{footnotesize}
+\end{scriptsize}
+\end{table}
+
+%* Instance types are not same. Chosen by a similarity of vCPU and Memory
+%** Captured by January, 2014
+
+\begin{table}[htb]
+\caption{Pricing comparison to the class}
+\begin{scriptsize}
+\label{T:tab2}
+\begin{footnotesize}
+\begin{tabular}{l|l|l|l|l|l|p{2cm}|}
+Service & Cost & \multicolumn{3}{|c|}{Price per hour} \\
+  & Estimate &  Small& Medium& Large \\
+ \hline
+AWS$^1$ & \$2,668.74  & \$0.06 & \$0.12 & \$0.24 \\
+GCE$^2$ & \$2,231.54  & \$0.054 & \$0.104 & \$0.207 \\
+Azure$^3$ & \$2,580.03  & \$0.06 & \$0.12 & \$0.24 \\ 
+\end{tabular}
+\\
+\\
+$^1$US East, Linux, charged 1 hour if runtime is <1 hour\\
+$^2$US, Linux, charged 10 minutes if runtime is <10 minutes\\
+$^3$Linux, charged by minute but free is <5 minutes\\
+\end{footnotesize}
+\end{scriptsize}
+\end{table}
+
+\end{comment}
