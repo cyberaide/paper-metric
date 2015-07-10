@@ -1402,63 +1402,51 @@ supposed to support system administrators not cloud users.
 \section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}\label{S:cloudmesh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
-  
-\improve{ Eucalyptus 2.0 and 3.0 Enterprise generates resource usage
-  information via log messages with user information. We have an idea
-  for a log parsing tool to collect metering values from Eucalyptus
-  and a command line tool to show measured data. A graphical
-  representation of measured data is required to represent multiple
-  numbers of numerical metrics and we have chosen
-  HighCharts~\cite{highsoft2012highcharts}, Google Chart API to
-  generate chart images.  }
+Cloudmesh Metrics extends our cloudmesh framework \cite{??} by
+integrating a metrics framework for monitoring essential IaaS
+metrics. It can handle handling multiple heterogeneous cloud
+platforms, to provide measurement of usage data about cloud resources.
+It collects usage data directly from various cloud management services
+and integrates them into a single report. This framework was
+extensively used in FutureGrid \cite{??,lasgce2010paper} and its use
+is continued in FutureSystaems \cite{??}. It has served as integrator
+to three different IaaS frameworks, namely, Eucalyptus, OpenStack, and
+Nimbus. It has served to provide integrated information of at least
+eight different cloud deployments on various hosts in FutureGrid and
+FutureSystems.  The native usage data from different clouds are
+integrated into the Metrics database. Analysis of this data can be
+integrated into different report formats including PDF, and HTML. An
+API and a command line interface is available to customize reports
+while exposing them also through a REST interface. A Web interface
+provides a number of predesigned reports. Interactivity to min the
+graphs~\cite{highsoft2012highcharts} is provided through java script
+enabled charts or tables.
 
-\subsection{Overview}
-In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
+\subsecton{Design}
 
-Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
+The design of the cloudmesh metrics framework allows the mashup of
+information from various data sources including cloud management
+databases, but also log files. This mashup provides us with a rich
+data set supporting sophisticated analysis that may spawn multiple
+information sources. Figure~~\ref{F:fig7} shows a layered architectural
+view of the Cloudmesh Metrics service and how it interfaces with
+various IaaS frameworks.
 
+Cloudmesh Metrics consists of four components: (1) Metric Collector: a
+measuring tool of resource allocation, (2) Cloudmesh Metric Shell providing a CLI tool to
+define metrics and collect usage data, (3) Cloudmesh Metric Portal and Report
+providing a visualization tool to provide graphical representative of
+the data, and (4) a Web Service APIs to support other applications
+e.g. scheduling and dynamic provisioning.
 
-\subsection{Real Consumption vs Allocation}
-There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
+A log parser named allows reading and examining log messages of IaaS
+platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores
+the metrics into a database that allows exposing its information as
+JSON objects. The system has been used in FutureGrid to support metric
+information for more than 400 projects and 3200 members as of and of 2014
+~\cite{las14cloudmeshmultiple}.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Implementation} \label{S:implementation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{System Design} \label{S:design}
-
-CloudMetrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
-
-\begin{itemize}
- \item A measuring tool of resource used
- \item A command-line interface to explore the cloud usage data
- \item A visualization to help understand usage data
- \item A RESTful API Service to support external services
-\end{itemize}
-
-We have observed Eucalyptus generates resource usage information via log messages and OpenStack stores virtual instances information into database. Nimbus has a separated database about the deployment of virtual instances. We have been collecting information about resource utilization from the log messages and the database and incorporating the collected data into one place. These data aligned with a unique user account to provide integrated resource utilization across geographically distributed regions and services. For better presenting of numerical values and relationships with other metrics, we used external charting libraries such as HighCharts, Google Chart APIs. With rich variety of charts, we can provide better explanation for historical and real-time data. Figure~\ref{F:fig1} shows a conceptual view as to how CloudMetrics works on IaaS.
-
-\begin{figure*}[htb] 
-\begin{center}
-    \includegraphics[width=1.0\textwidth]{images/Picture1.pdf} 
-\end{center}
-  \caption{Overview of CloudMetrics \hyungro{we need to redraw as
-      color scheme is not so good for reproduction. what is original
-      file? I hope this is pptx? Maybe this picture is not that
-      important as contained already in architecture drawing? bu we do
-    not see there auditing, monitoring, billing, as well as defining and
-  adding new metrics. customization is something we missed in introduction.}}\label{F:fig1} 
-\end{figure*} 
-
-
-
-%CloudMetrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
-
-\subsection{Component}
-
-Cloud Metrics consists of four components as described in Figure~\ref{F:fig7}: 1) Metric Collector: a measuring tool of resource allocation and 2) Metric Shell: a CLI tool to define metrics and collect usage data 3) Metric Portal and Report: a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{las14cloudmeshmultiple}.
+\hyungro(work with Fugang to update and verify the numbers}
 
 \begin{figure*}[htb] 
 \begin{center}
@@ -1468,12 +1456,25 @@ Cloud Metrics consists of four components as described in Figure~\ref{F:fig7}: 1
       this be dne in ppt or omni graffel}}\label{F:fig7} 
 \end{figure*} 
 
+The Metric Collector enables collecting usage data allocated from IaaS
+cloud platforms such as Eucalyptus, Nimbus, and OpenStack including
+HPC from TORQUE. The collecor enables also real-time monitoring and
+statistics. Data can be integrated from OpenStack MySQL databases or
+Nimbus sqlite3 to the unified database. Fro Eucalyptus we obtained
+most of the information through its log files as at the time
+Eucalyptus did not provide a sophisticated monitoring or metrics
+framework beyond the available logging facility. Account information
+such as a user name and a project associated with are also imported to
+the main database so the overall usage data can be viewed for vm
+instances and jobs launched on FutureGrid resources via LDAP.
 
-\subsection{Metric Collector}
-
-The Metric Collector is the sensor for collecting usage data allocated from IaaS cloud platforms such as Eucalyptus, Nimbus, and OpenStack including HPC from TORQUE. The collecor enables real-time monitoring and statistics by fg-metric-converter and fg-log-parser which are executable python scripts on Linux/Unix shell. fg-metric-converter (aggregator) imports usage data from a certain database such as MySQL or sqlite3 to the unified database. Account information such as a user name and a project associated with are also imported to the main database so the overall usage data can be viewed for vm instances and jobs launched on FutureGrid resources. OpenStack and Nimbus are measured by fg-metric-converter and Eucalyptus is measured by fg-log-parser. On the management nodes of cloud platforms, usage data can be captured in a format of logs or databases at a regular interval. Eucalyptus provides detailed information in a log file (cc.logs) which is generated by the compute controller (CC), about the number of launched instances, vCPUs, memories, disks and runtime. fg-log-parser collects these data from logs of the compute controlloer of eucalyptus. These two scripts are about to collect information of resource allocation from virtual machine instances (VMs). To get the information from Eucalyptus and OpenStack, basic templates are used to parse log messages using our pre-defined regular expressions. These are critical for that what type of log events will be collected and how it will be parsed without parsing errors and missing events. We have examined log messages of Eucalyptus and OpenStack and created templates for their instance information i.e. print\_ccInstance() function and nova.compute.resource\_tracker in a debug logging mode. Our custom templates for these IaaS platforms parse the events of the logs in a periodic basis or a real-time. There are basic metrics such as userid, instanceid, time values of a vm instance, a number of virtual cpu cores, disks, and a size of memories.
+To keep the load on the original services minimal, we pull data on
+regular intervals from these production systems. Other mechanisms
+such as access to replicated databases could easily be supported. 
 
 \subsection{Metric Analysis}
+
+\gregor{review from here}
 
 \begin{figure}[htb] 
   \centering 
@@ -1559,7 +1560,24 @@ During the semester, 25 hosts, 216 vCPUs and 600GB memories were reserved for th
   \caption{vCPU Utilization (approximation per hour)}\label{F:fig6} 
 \end{figure} 
 
-High Performance Computing (HPC) has been used to support parallel data processing of Big Data. With Figure~\ref{F:bigdata}, we can see big data projects have also requested HPC and other services to work on their projects. HPC is the most requested services to whom also requested big data services and IaaS cloud platforms are also requested many times followed by HPC. It explains that platform hybrid implementations are one of today's trends for big data scientists and researchers. Regarding IaaS cloud platforms, there are three difference choices between OpenStack, Eucalyptus, and Nimbus on the FutureGrid test-bed. One observation from Figure~\ref{F:bigdata} is that OpenStack has taken Eucalyptus share since 2011 and became the most popular IaaS platform last year (2013). According to the recent report from RightScale~\cite{rightscalereport13}, cloud competition is heating up not only in public cloud including Amazon Web Services (AWS) and Google Compute Engine (GCE), but also in private cloud. The report shows that OpenStack is the most popular cloud environment for private cloud users so the changes in Figure~\ref{F:bigdata} is understandable in terms of finding cloud alternatives.
+High Performance Computing (HPC) has been used to support parallel
+data processing of Big Data. With Figure~\ref{F:bigdata}, we can see
+big data projects have also requested HPC and other services to work
+on their projects. HPC is the most requested services to whom also
+requested big data services and IaaS cloud platforms are also
+requested many times followed by HPC. It explains that platform hybrid
+implementations are one of today's trends for big data scientists and
+researchers. Regarding IaaS cloud platforms, there are three
+difference choices between OpenStack, Eucalyptus, and Nimbus on the
+FutureGrid test-bed. One observation from Figure~\ref{F:bigdata} is
+that OpenStack has taken Eucalyptus share since 2011 and became the
+most popular IaaS platform last year (2013). According to the recent
+report from RightScale~\cite{rightscalereport13}, cloud competition is
+heating up not only in public cloud including Amazon Web Services
+(AWS) and Google Compute Engine (GCE), but also in private cloud. The
+report shows that OpenStack is the most popular cloud environment for
+private cloud users so the changes in Figure~\ref{F:bigdata} is
+understandable in terms of finding cloud alternatives.
 
 \begin{figure}[htb]
   \centering
@@ -1567,7 +1585,14 @@ High Performance Computing (HPC) has been used to support parallel data processi
   \caption{Service changes for along with Big Data between 2010 and 2013}\label{F:bigdata} 
 \end{figure} 
 
-In HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HPC in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and 14\% of total wall time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU cores) has been intensively used in the last year. Compared to the previous year 2012, the request has been increased about 350\%. In early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have been requested many times but in 2013, two thirds jobs are using more than 64 CPU cores.
+In HPC, 64 and 128 CPU cores per job are most popular job sizes in
+FutureGrid HPC in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and
+14\% of total wall time are for 64 and 128 cpu jobs. An extra large
+jobs (i.e. 512 CPU cores) has been intensively used in the last
+year. Compared to the previous year 2012, the request has been
+increased about 350\%. In early stage of FutureGrid between 2010 and
+2011, tiny CPU jobs have been requested many times but in 2013, two
+thirds jobs are using more than 64 CPU cores.
 
 \begin{figure}[htb]
   \centering
@@ -1679,7 +1704,7 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{securitymetrics-educause}
 
 \subsection{Surveys and Taxonomies}
-\begin{verbatim}
+
 \cite{vineetha2012performance}
 \cite{alhamazani2013overview}
 \cite{fourkeys-for-monitoring}
@@ -1695,11 +1720,10 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{danetwork}
 \cite{petcu2014towards}
 \cite{zhang2013survey}
-\end{verbatim}
 
-see what shava and w smith did check previous xsede conferences
+\hyungro{see what shava and w smith did check previous xsede conferences}
 
-rightscale
+\hyungro{rightscale}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1830,3 +1854,41 @@ metric-new}
 \end{document} 
  
 
+\subsection{Overview}
+In distributed systems and HPC, resource usage are typically monitored to detect any hardware and software issues. Real-time monitoring applications help provide sustain and consistent services and engage performance of their system. Distributed systems were built with complex hardwares and require to incorporate with various hardwares such as router, switch, network, and servers along with computing resources like cpu, memory and disk. In Cloud Computing, people have attention to monitoring and accounting systems in virtualized environments, so that they can measure resource consumption which is what they are paying for on the on-demand service, cloud computing. 
+
+Many places now adopt virtualization and cloud services to enhance the capacity of their system infrastructure and performance. Performance management is getting more important in this regard for identifying and delivering reasonable resource allocation. But traditional performance software are still designed to measure a certain type of resources and system administrators raised needs for a unified performance management with virtual resource allocation which provides a bird eye's view to monitor system utilization with the proper provision and allocation of resources~\cite{Habibzai12}. The unified monitoring software is not only about an integrating metric units and aggregating numerical values but also about making sure that the applications on the services are efficiently consuming allocated resources and the resources are properly allocated in the right place at the right time. Understanding system utilization and application performance with the observation from the software is important to satisfy service-level agreements (SLAs) and improve the system administration, however in a virtualized environment, measuring shared resources is not an easy task since they are in multiple points and different layers. 
+
+
+
+\subsection{Real Consumption vs Allocation}
+There are two types of measuring resource usage on the cloud. Like a conventional monitoring, resource consumption on the cloud is based on current usage data for cpu, memory, network and disk traffics. These are dynamically changing according to traffics, and are important to validate system health frequently. The other type of measuring resource usage is measuring the amount of allocated resources. It is an accounting system that records allocation of resources. In a shared resource environment which is a fundamental concept in utility computing, the amount of allocated resource means that your requested resource will be dominated to you not interrupted by any other users. Resource allocation is not measuring real-time resource usage. Instead, it records rented resources in an accounting book for billing and charging. There are static metrics for allocation such as allocated number of cpu cores, memories, and disks. Number of public IP addresses is also counted for metrics.
+
+ 
+\subsection{Design} \label{S:design}
+
+CloudMetrics pursues to provide an integrated accounting service which users and system administrators are able to obtain cloud usage data for various cloud platforms such as Eucalyptus, OpenStack, and Nimbus and so on. The usage information will cover several aspects like billing, auditing, monitoring, and accounting systems. Parsing log files is a main process for collecting and storing information regarding the utilization of virtual machine (VM) instances and service nodes or clusters. The current development focuses on:
+
+\begin{itemize}
+ \item A measuring tool of resource used
+ \item A command-line interface to explore the cloud usage data
+ \item A visualization to help understand usage data
+ \item A RESTful API Service to support external services
+\end{itemize}
+
+
+\begin{comment}
+\begin{figure*}[htb] 
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{images/Picture1.pdf} 
+\end{center}
+  \caption{ NOT SHOWN Overview of CloudMetrics \hyungro{we need to redraw as
+      color scheme is not so good for reproduction. what is original
+      file? I hope this is pptx? Maybe this picture is not that
+      important as contained already in architecture drawing? bu we do
+    not see there auditing, monitoring, billing, as well as defining and
+  adding new metrics. customization is something we missed in introduction.}}\label{F:fig1} 
+\end{figure*} 
+\end{comment}
+
+%CloudMetrics consists of four components: 1) a measuring tool of resource allocation  and 2) a CLI tool to define metrics and collect usage data 3) a visualization tool to provide graphical representative of the data and 4) Web Service APIs to support other applications e.g. scheduling and dynamic provisioning. We have the log parser named by fg-log-parser which reads and examines log messages of IaaS platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores the metrics into a database using a global object i.e. JSON converted from a python dictionary data type. fg-metrics takes the role of analyzing usage data and generating results in a image file or a csv file. We assume every measured data is stored in the database from five different resources (Foxtrot, Hotel, India, Sierra, Alamo) to support more than 400 projects and 3200 members as of 2014. Our new development of federation management, CloudMesh, uses the REST APIs to deliver accounting features on its command-line interfaces and web services~\cite{cloudmesh14}.
