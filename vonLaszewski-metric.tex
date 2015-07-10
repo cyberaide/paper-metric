@@ -929,11 +929,6 @@ Code Number     \# of Errors
 500     399
 
 o       2nd level
-\end{verbatim}
-
-\hyungro{transfer tables here and eliminate the verbatim} 
-
-\begin{verbatim}
 Code Number     Message \# of Errors
 500     'NoneType' object has no attribute 'defineXML'  
 
@@ -951,23 +946,51 @@ o       3rd level (for debugging error messages)
 Code    Message Parsing Details - Python Module Parsing Details - Python Function       \# of Errors
 500     Instance type's disk is too small for requested image.  nova/compute/manager.py \_build\_instance()     133
 ...                             
-
 \end{verbatim}
 
-\begin{verbatim}
-o  Error rate
--       e.g. 1.5 % error rate on nova-api requests on 03/25/2014
-(based on nova-api.log-20140325: 17338 accepted requests and 266 errors)
-o  Audit information (nova-compute)
--       Resource tracking
--       e.g. available/free disks, memories or vcpus
-o  Error Tracing
--       e.g. nova.api.ec2 (/services/Cloud/) has “Unexpected TypeError raised” with a user from 128.9.136.58
-
-o  Possible other metrics (TBD)
-o  quota management
-o  alert notification
-\end{verbatim}
+\begin{table*}[htb]
+\caption{QoS Metrics}
+\begin{scriptsize}
+\label{T:metrics}
+\bigskip
+\begin{center}
+\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}}
+Metric & Group & Unit & Purpose & Sample \\
+\hline
+Error Rate &
+host, project, or term &
+Percentile &
+Measure Availability &
+2\% errors in i57 host, 4\% errors in April 2015 \\
+\hline
+Error Count &
+host, project, or term &
+Count & 
+Identify Issues &
+399 User Errors (5xx), 133 errors of Instance type\'s disk is too small for requested image (501) \\
+\hline
+Debug &
+host, project, or term &
+N/A &
+Troubleshooting &
+133 times failed of \_build\_instance() function in manager.py with error code 5xx \\
+\hline
+Usage Alert &
+VM, CPU, RAM or Disk &
+Count or Size &
+Notify Limit &
+168 of 180 VMs used (93\% used) \\
+\hline
+Trace Resource  &
+VM, CPU, RAM or Disk &
+Count or Size &
+Inform status &
+120/168 free/avail disks \\
+\hline
+\end{tabular}
+\end{center}
+\end{scriptsize}
+\end{table*}
 
 
 \subsection{Extra tables}
