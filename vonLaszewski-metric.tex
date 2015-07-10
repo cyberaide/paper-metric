@@ -1329,41 +1329,87 @@ Stackdriver provides monitoring service at Google Cloud
 
 \subsection{HPC}
 
-Monitoring in high-performance computing has a similarity to Cloud Computing. It provides fixed number of jobs that a user can create and each job runs on a same size of nodes in clusters. There are also common management tools to clusters, so accounting data can be collected from these tools.
+Monitoring in high-performance computing has similar factors as
+described earlier. A number of existing tools support monitoring and
+metrics for HPC computing. Some of them are directly build into the
+queuing system. We describe a selected number of tools and services
+next.
 
 \subsubsection{XDMoD}
 
 XDMoD (XSEDE Metrics on Demand)
 \cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is
-primarily developed as UBMoD (University Buffalo Metrics on Demand)
-and is an open source tools for collecting and mining statistical data
-from cluster resource managers such as Torque/Maui, OpenPBS, SGE and
-Slurm commonly found in high-performance computing environments. There
-are three fundamental components: a metrics repository (XDMoD Data
-Warehouse), a RESTful API, and a web-based application (XDMoD
-Portal). Its web graphical user interface, XDMoD Portal, provides rich
-set of statistics with different type of charts and tables with
-communicating its RESTful
-API.~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}\hyungro{identify
-  duplicated refeneces and remove them, remember to use vonLazewski
-  refs from the vonLaszewski-jabref.bib file}
+developed as a successor to UBMoD (University Buffalo Metrics on
+Demand) while trageting firstly the XSEDE resource providers. Most
+recently an open source version can however be deployed at non XSEDE
+based resource providers. It is a tools for collecting and mining
+statistical data from cluster resource managers such as
+Torque\cite{??}/Maui\cite{??}/Moab\cite{??}, OpenPBS \cite{??},
+Univa/SGE\cite{??} and Slurm \cite{??} commonly found in
+high-performance computing environments. XDMod has three fundamental
+components: a metrics repository (e.g. a Data Warehouse), a RESTful
+API, and a web-based application (Portal). Its web graphical user
+interface provides rich set of tools to expose various statistics with
+different type of charts and tables while communication through a
+RESTful API ~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}.
+\hyungro{identify duplicated refeneces and remove them, remember to
+  use vonLazewski refs from the vonLaszewski-jabref.bib file}
  
 
 \subsubsection{Nagios}
 
-Nagios is a web based Linux monitoring systems and it allows to monitor availability and response time of network services, usage of system resources like CPU load, RAM allocation etc., number of logged in users and so on. The main Nagios instance (server) collects information from Linux, BSD, Windows hosts or Cisco devices through Nagios clients (agents), and sees states of their services or processes in one place: Nagios web interface. Nagios generates a notification in case of any outage detected or any anomaly through wide range of alert methods such as e-mail, sms, chat messages and phone call notifications. And one more thing, Nagios monitors states but it doesn.t show any graphs like network interface usage etc.
+Nagios \cite{??} is a web based Linux monitoring systems allowing to monitor
+availability and response time of network services, usage of system
+resources like CPU load, RAM allocation etc., number of logged in
+users and so on. The main Nagios server collects information from
+Linux, BSD, Windows hosts or Cisco devices through Nagios clients
+(agents), and records their states. A web interface is provided to
+expose the information to authorized users.  Nagios generates a
+notification in case of any outage detected or any anomaly through
+wide range of alert methods. They can be forwarded via e-mail, sms,
+chat messages and phone call notifications. As Nagios monitors states
+but it typically does not expose graphs such as network interface
+usage.
 
 \subsubsection{Cacti}
-Cacti is a network monitoring tool using simple network management protocol (SNMP) and similar to other tools such as Nagios and Ganglia, it uses RRDtool as a DBMS and a visualization graphical tool. Since it supports polling monitoring data via shell scripts like php or c-based executable, it can be extended to measure other resources not only network traffic. It is also suitable for a hosting service with user-based management.
+
+Cacti is a network monitoring tool using the simple network management
+protocol (SNMP). It is similar to other tools such as Nagios \cite{??} and
+Ganglia. It uses RRDtool \cite{??}  as a DBMS to provide a round robin
+visualization of the monitored information. Since it supports polling,
+monitoring data via shell scripts, php, or c-based executable is
+possible. t can be extended to measure other resources besides network
+traffic.
 
 \subsubsection{Zabbix}
 
-Zabbix is an open source monitoring not only for networks but also for servers using SNMP, IPMI, and JMX. The centralized server of Zabbix collects monitoring data through several Zabbix agents installed on desirable hosts and store them on the database to display and generate web-based reports when they are needed. Zabbix Agent which is deployed on a monitoring target obtains utilization data using various monitoring protocols and tools like SNMP, TCP, and ICMP. For the cloud monitoring, Zabbix active agent auto-registration helps monitoring cloud instances such as Amazon cloud, and OpenStack without configuring manually.
+Zabbix is an open source monitoring service for networks and servers
+while accessing information via a number of standard protocols such as
+SNMP \cite{??}, IPMI \cite{??}, TCP, \cite{??} and JMX \cite{??}. The
+centralized server of Zabbix collects monitoring data through several
+Zabbix agents installed on desirable hosts and other servers. The
+information is store in a database and displayed through a web
+interface that can create reports on-demand. The agents To support
+cloud monitoring, Zabbix active agent auto-registration enables
+monitoring cloud instances on IaaS such as Amazon Web services, and
+OpenStack.
 
 \subsubsection{Zenoss}
 
-Zenoss (Zenoss Core) provides a unified resource management service which manages applications, networks, servers, and storage in terms of monitoring physical or virtual systems including the public, private and hybrid cloud. It is built on the Zope object-oriented web application server, and using RRDtool with MySQL as to store collected information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss provides additional features with other monitoring mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise version which is based on the open-source core version. The one of the key features of Zenoss is Model-Driven Monitoring which is about automatic and dynamic discovery, configuration and monitoring. As a communication tool, Zenoss utilizes Twisted Perspective Broker (PB) instead of AMQP typed messaging system like RabbitMQ. They claims Twisted provides an asynchronous, event-driven with co-operative multi-tasking which is a deferred object.
-
+Zenoss (Zenoss Core) provides a unified resource management service
+which manages applications, networks, servers, and storage. It allows
+to monitor physical or virtual systems including the public, private
+and hybrid clouds. It is built on top of the Zope object-oriented web
+application server, and using RRDtool with MySQ. It can collect
+information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss
+provides additional features with other monitoring mechanisms such as
+Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise
+version. A key feature of Zenoss is model-driven monitoring allowing
+to automatically discover, configure and monitor services. As a
+communication tool, Zenoss utilizes the Twisted Perspective Broker
+(PB) \cite{?} instead of AMQP typed messaging system such as
+RabbitMQ. PB is an an asynchronous, event-driven with co-operative
+multi-tasking which is a deferred object.
 
 \subsubsection{Inca}
 
