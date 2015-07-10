@@ -911,43 +911,6 @@ Cloudmesh Metrics reads system and application logs to generate error reports. I
 
 There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
 
-\begin{verbatim}
-o  Identify problematic hosts
-- e.g. 20% of errors occurred in i57
-o  Identify problematic term
-o       e.g. 46% of errors occurred in April 2014
-o  Identify errors with a hierarchical classifier
-o       1st level: code
-o       2nd level: message
-o       3rd level: Python exceptions
-o       e.g. 88% of errors occurred in 500 code and 33% of the errors were due to invalid instance types: “Instance type's disk is too small for requested image.”
-o       1st level
-Code Number     \# of Errors
-400     12
-404     4
-409     41
-500     399
-
-o       2nd level
-Code Number     Message \# of Errors
-500     'NoneType' object has no attribute 'defineXML'  
-
-        1
-        Instance type's disk is too small for requested image.          133
-        No valid host was found.        93
-        Unable to read from monitor: Connection reset by peer   126
-        Unexpected error while running command. 11
-        Requested operation is not valid: domain is already running     1
-        ...     
-
-o       3rd level (for debugging error messages)
-
-
-Code    Message Parsing Details - Python Module Parsing Details - Python Function       \# of Errors
-500     Instance type's disk is too small for requested image.  nova/compute/manager.py \_build\_instance()     133
-...                             
-\end{verbatim}
-
 \begin{table*}[htb]
 \caption{QoS Metrics}
 \begin{scriptsize}
