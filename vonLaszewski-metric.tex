@@ -911,43 +911,6 @@ Cloudmesh Metrics reads system and application logs to generate error reports. I
 
 There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
 
-\begin{verbatim}
-o  Identify problematic hosts
-- e.g. 20% of errors occurred in i57
-o  Identify problematic term
-o       e.g. 46% of errors occurred in April 2014
-o  Identify errors with a hierarchical classifier
-o       1st level: code
-o       2nd level: message
-o       3rd level: Python exceptions
-o       e.g. 88% of errors occurred in 500 code and 33% of the errors were due to invalid instance types: “Instance type's disk is too small for requested image.”
-o       1st level
-Code Number     \# of Errors
-400     12
-404     4
-409     41
-500     399
-
-o       2nd level
-Code Number     Message \# of Errors
-500     'NoneType' object has no attribute 'defineXML'  
-
-        1
-        Instance type's disk is too small for requested image.          133
-        No valid host was found.        93
-        Unable to read from monitor: Connection reset by peer   126
-        Unexpected error while running command. 11
-        Requested operation is not valid: domain is already running     1
-        ...     
-
-o       3rd level (for debugging error messages)
-
-
-Code    Message Parsing Details - Python Module Parsing Details - Python Function       \# of Errors
-500     Instance type's disk is too small for requested image.  nova/compute/manager.py \_build\_instance()     133
-...                             
-\end{verbatim}
-
 \begin{table*}[htb]
 \caption{QoS Metrics}
 \begin{scriptsize}
@@ -971,7 +934,7 @@ Identify Issues &
 \hline
 Debug &
 host, project, or term &
-N/A &
+Count &
 Troubleshooting &
 133 times failed of \_build\_instance() function in manager.py with error code 5xx \\
 \hline
@@ -1241,16 +1204,16 @@ Openstack provides usage statistics for OpenStack Compute (Nova), a main compone
 \begin{figure}[htb]
 \begin{scriptsize}
 \begin{verbatim}
-    $ nova host-describe sierra
+    $ nova host-describe i40
     +--------+------------+-----+-----------+---------+
     |  HOST  | PROJECT    | cpu | memory_mb | disk_gb |
     +--------+------------+-----+-----------+---------+
-    | sierra | (total)    | 8   | 32176     | 144     |
-    | sierra | (used_max) | 6   | 12288     | 120     |
-    | sierra | (used_now) | 6   | 12800     | 120     |
-    | sierra | project1   | 3   | 6144      | 60      |
-    | sierra | project2   | 2   | 4096      | 40      |
-    | sierra | project3   | 1   | 2048      | 20      |
+    | i40    | (total)    | 8   | 24100     | 2698    |
+    | i40    | (used_max) | 10  | 19456     | 180     |
+    | i40    | (used_now) | 10  | 18944     | 180     |
+    | i40    | project1   | 1   | 2048      | 20      |
+    | i40    | project2   | 8   | 16384     | 160     |
+    | i40    | project3   | 1   | 512       | 0       |
     +--------+------------+-----+-----------+---------+
 \end{verbatim}
 \vspace{-20pt}
