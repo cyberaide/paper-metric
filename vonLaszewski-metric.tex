@@ -386,14 +386,20 @@ including:
 
 \end{description}
 
-These and other aspects are addressed in the following paper. Our paper is
-structured as follows:
-
-\bigskip\gregor{include how paper is structured}
-
+These and other aspects are addressed in the following paper. Our
+paper is structured as follows. In Section~\ref{S:factors} we
+introduce some major factors that need to be considered when providing
+a cloud monitoring and metric framework. We introduce some concrete
+metrics in Section~\ref{S:metrics}.  A brief summary of Monitoring
+tools and services is provided in Section~\ref{S:tools}.
+Section~\ref{S:cloudmesh} showcases our hybrid cloud monitoring and
+metrics services that have been used in FutureGrid and are currently
+used in FutureSystems. Related activities are briefly summarized in
+Section~\ref{S:related}.  We conclude our paper while summarizing our
+findings in Section~\ref{S:conclusion}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{CLOUD METRIC FACTORS}
+\section{CLOUD METRIC FACTORS} \label {S:factors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 When we look at a particular cloud metric, it may be shaped by a
@@ -444,46 +450,31 @@ the following factors:
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item[\it  Monitoring.] Monitoring is an important aspect for
+\item[\it Monitoring.] Monitoring is an important aspect for
   administrators but also for users. The purpose of metrics associated
   to monitoring allows us to observe the current system and make
-  decisions based upon it. Naturally, this could also be services
-  that act in behalf of the user or administrator. A center director
-  may be interested in the high level aspects of monitoring as to be
-  informed about specific catastrophic service events, while an
-  administrator is interested in more detailed monitoring aspects that
-  alert even on conditions that could lead to issues.
-  
-  {\it Monitoring is about measuring resource utilization. In a
-  typical way, real-time monitoring is performed in a system/hardware
-  layer to show activities. It is supposed to provide performance
-  analysis by measuring CPU utilization, load average, memory usage
-  (free/used), network bandwidth in/out and disk I/O. Given that
-  metrics, monitoring system shows that how many resources are being
-  used at any given time.}
+  decisions based upon it. Naturally, this could also be services that
+  act in behalf of the user or administrator. A center director may be
+  interested in the high level aspects of monitoring as to be informed
+  about specific catastrophic service events, while an administrator
+  is interested in more detailed monitoring aspects that alert even on
+  conditions that could lead to issues. Examples for monitoring
+  includes measuring resource utilization in real time or over a
+  period of time.  Monitoring is potentially important on all layers of
+  the Cloud infrastructure from bare metal, to IaaS, PaaS, and SaaS.
 
-
-\item[\it  Planning.] To assist in setting goals and developing strategies
-  several metrics can be beneficial. This includes metrics about
-  utilization of the resources, satisfaction by the users and other
-  more general aspects. As academic resources are often funded by
-  government organizations such as NSF, specific metrics that answer
-  to broader impacts need to be addressed.
-
-\improve{Purpose of performance monitoring on the cloud.
- To provide efficient
-  resource utilization from a small instance to a large virtual
-  cluster on the cloud, performance management and monitoring are
-  necessary for performance analysis. Apache Mesos or MongoDB Sharded
-  cluster , for example, are responsible to support large dataset and
-  heavy compute requests with proper resource allocation and the
-  performance analysis is a key component to increase the efficiency
-  of cloud platforms. There are certain benefits of using the
-  performance monitoring on the cloud: (a) cost-effective use of cloud
-  resources (b) power saving options by increasing energy efficiency
-  (c) further development opportunities by using measured usage data
-  e.g. cost prediction, load balance, scaling up or down, capacity
-  planning }
+\item[\it Planning.] Planing is needed to assist in setting goals and
+  developing strategies several metrics can be beneficial. This
+  includes metrics about utilization of the resources, satisfaction by
+  the users and other more general aspects. As academic resources are
+  often funded by government organizations such as NSF, specific
+  metrics that answer to broader impacts need to be addressed. An
+  essential ingredient of planing is the ability to include
+  performance monitoring on the cloud while exposing sophisticated
+  metrics.  This will enable the planing of efficient resource
+  utilization from a small instance to a large virtual cluster on the
+  cloud, performance management and monitoring are necessary for
+  performance analysis.
 
 \item[\it  Billing.] As academic clouds are provided free to the academic
   user community upon peer reviewed projects, it is also important to
@@ -496,8 +487,6 @@ the following factors:
   resources. However, at the same time it must be assured that large
   enough experiments can be conducted to further some of the more
   challenging scientific problems.
-
-\improve{Billing is about issuing a bill to a user for what they used. Billing system usually sees transactions on an accounting system to include the duration of the used time, type of the used items, and the quantity of the rented resources. It is more like paying a utility bill for a user.}
 
 \item[\it  Testing.] As cloud environments and they usage in applications
   may be complex (at times more complex that their HPC counter parts)
@@ -515,30 +504,26 @@ the following factors:
   benchmarks that through their metrics can inform users about which
   cloud setup is particularly beneficial.
 
-\item[\it Auditing.] Metrics for auditing support the process to evaluate
-  the clouds design and effectiveness. This includes security,
-  deployment processes, development processes and governance and
-  oversight  processes. Some of these metrics are out of scope for
-  this paper and should be addressed in future in a separate document.
-  Important is that they be answered by independent and unbiased
-  observer.
-
-\improve{Auditing is about finding a proof and a trait of an action a user made while resources are being used. Observing a user's every behavior should be performed by logging events and detailed information is necessary to track back any issues on a system.}
-
-\item[\it Accounting.] Accounting is about measuring resource allocation. Unlike monitoring, accounting system doesn't care how much idle exists for allocated resources but rather focuses on collecting and storing usage information in a user level. The size of allocation and the amount of time for the allocation are most important factors to measure resource usage. 
+\item[\it Auditing.] Metrics for auditing support the process to
+  evaluate the clouds design and effectiveness. This includes
+  security, deployment processes, development processes and governance
+  and oversight processes.  It includes finding a proof and a trait of
+  actions a user made while resources are being used. Observing a
+  user's, or service's behavior should be performed by logging events
+  and detailed information is necessary to track back any issues on a
+  system.  An important aspect or a comprehensive auditing process is
+  that that it is conducted by an independent and unbiased
+  observer. Auditing should not be confused with monitoring the system
+  in real time.
 
 \end{description}
-
-
-
-
 
 
 \subsection{Security}
 
 Due to targiteng different user communities it is obvious that smoe
 metrics may not be exosed to all its users and are potentially unde
-access control. Furthermore, users that consume cloudresources may
+access control. Furthermore, users that consume cloud resources may
 have the desire that their information is private and may not be
 shared with other users. However, although it is possible to provide
 acess and privacy controls we have seen in government agency sponsord
@@ -722,7 +707,7 @@ be employed to evaluate the effectiveness of such infrastructures
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{CLOUD METRICS}
+\section{CLOUD METRICS} \label{S:metrics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -1157,7 +1142,7 @@ Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \end{table*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MONITORING TOOLS AND SERVICES}
+\section{MONITORING TOOLS AND SERVICES}\label{S:tools}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{IaaS}
@@ -1417,7 +1402,7 @@ http://www.researchgate.net/publication/264737715_XRAS_Allocations_software_as_a
 \end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}
+\section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}\label{S:cloudmesh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Cloudmesh Metrics is a plugin of Cloudmesh, Cloud management software for handling multiple cloud platforms, to provide measurement of usage data about cloud resources. It collects usage data directly from multiple cloud management nodes and provides a single usage report. 3 cloud platforms and 5 regional hosts were included in the FutureGrid project, for instance, Eucalyptus, OpenStack, and Nimbus were supported and India, Foxtrot, Hotel, Sierra, and Alamo were included. Use of Cloud Computing is leasing resources. A user requests computing resources and a cloud provider allocates requested resources from virtualized environments. At the same time, the cloud resources allocated to users e.g. virtual machine instances are recorded in database or application logs in most cloud platforms and Cloudmesh Metrics generates cloud usage reports based on the recorded data on a cloud provider. The native usage data from different clouds are integrated into the Metrics database (MongoDB is used) and the analyzed usage data are accessible in different formats such as Rest API, CLI, PDF or HTML. The web interface displays the usage data in highcharts, the javascript charting framework, with various chart types such as bar, line or pie to represent numerical data with symbols. The PDF report contains several graphical charts with tables for the detail numbers in several timelines e.g. weekly, monthly, quarterly or yearly. 
@@ -1663,7 +1648,7 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 \end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\section{RELATED WORK}
+\section{RELATED WORK}\label{S:related}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
@@ -1742,19 +1727,13 @@ rightscale
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{SUMMARY}
+\section{CONCLUSION}\label{S:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on XSEDE cloud resources. With the various requests of resource allocation on the cloud, XSEDE project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, CloudMetricsxs offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
 
 We hope this activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{FUTURE WORK}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.
+\task{We can think about rerouting VM instances to ensure scalable services by avoiding crowded zone. This cloud shifting may support relaxed management regarding load balancing of the cloud systems. The other potential work is probably that we can provide an indicator of cost-efficient leasing on the cloud based on the correlation data measured by this activity. Cost of using cloud can be reduced in many ways, including finding inexpensive cloud service providers, and using parallel processing technique such as MapReduce. Measuring correlation between physical and virtual resources could mean that we can find a spot in which reliable performance is guaranteed and it would be one of the main techniques to provide cost-efficient cloud renting across all the resources.}
 
 % scheduling
 
