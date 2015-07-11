@@ -29,6 +29,8 @@
 \usepackage{listings}
 \usepackage{enumitem}
 \usepackage{fancyvrb}
+\usepackage{colortbl}
+\usepackage{longtable}
 %\usepackage{titling}
 
 
@@ -813,7 +815,6 @@ o audit/assurance
 \end{Verbatim}
 
 
-
 \begin{verbatim}
 o  VM
 o  Usage
@@ -839,25 +840,23 @@ Counts the active users in the cloud
 \begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
 ID & Name & Stackeholder & Description & Motivation & Sample \\
 \hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf User related metrics} \\
+\hline
 UC.1&
 User Count & 
 ~&
 This metric counts the active users for the cloud &
 User count is important for measuring the popularity of the cloud & 
 Reports (Fig~1,~2) \\
+ & & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Virtual Machine related metrics} \\
 \hline
 VC.1&
 VM Count & 
 ~&
 This metric counts the launched VM instances on the cloud &
 VM Count is important for measuring the volume of requested instances &
-Reports (Fig~1,~2) \\
-\hline
-RS&
-Runtime Sum&
-~&
-This metric shows the total amount of runtime for launched instances &
-runtime by hour is important for measuring actual runtime of instances &
 Reports (Fig~1,~2) \\
 \hline
 VC.2&
@@ -872,6 +871,46 @@ Current running VMs or accessed users &
 ~&
 This metric shows instant usage data to see current status &
 real time usage is important for checking peak or detecting unusual usage &
+Reports (Fig~1,~2) \\
+ & & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Image related metrics} \\
+\hline
+ & & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Flavor related metrics} \\
+\hline
+ & & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Storage related metrics} \\
+\hline
+ & object & & & & \\
+ & file & & & & \\
+ & blockstorage & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Region related metrics} \\
+\hline
+ & & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Server related metrics} \\
+\hline
+ & & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Network related metrics} \\
+\hline
+ & public ip & & & & \\
+ & private ip & & & & \\
+ & traffic & & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{6}{l}{\bf Unordered metrics} \\
+\hline
+ & & & & & \\
+\hline
+RS&
+Runtime Sum&
+~&
+This metric shows the total amount of runtime for launched instances &
+runtime by hour is important for measuring actual runtime of instances &
 Reports (Fig~1,~2) \\
 \hline
 XX.X &
