@@ -659,13 +659,7 @@ academic users will have a potential impact on the definition of Metrics:
   manpower consumed to develop applications on more complex
   environments. Supporting performance APIs and libraries may aide in
   the development of metrics and their associated services such as the
-  use of PAPI \cite{papi2014}.
-
-http://icl.cs.utk.edu/papi/~\cite{papi-web}
-
-
-Nelson, John "Analyzing PAPI Performance on Virtual Machines," ICL
-Technical Report, ICL-UT-13-02, August, 2013.~\cite{JohnNelsonAnalyzingPAPI}
+  use of PAPI \cite{papi2014,papi-web,JohnNelsonAnalyzingPAPI}
 
 \item[\it Services.] In addition to applications we also are in the
   need of metrics provided by services offered to the community. 
@@ -693,75 +687,99 @@ projects such as chameleon cloud and other NSF sponsored projects.  In
 fact there may be an advantage that such activities be continued by an
 external party such as FutureSystems and be adopted by other in order
 to be true to the independence of the auditing principle which need to
-be employed to evaluate the effectiveness of such infrastructures
+be employed to evaluate the effectiveness of such infrastructures.
 
-
+\begin{comment}
 \begin{figure*}[htb] 
   \centering 
     \includegraphics[width=0.6\textwidth]{images/cloudmetric-2.pdf} 
   \caption{Overview of CloudMetrics}\label{F:taxonomy-2} 
 \end{figure*} 
-
+\end{comment}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRICS} \label{S:metrics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+In this section we will introduce several important examples for
+cloud metrics that will be important for academic cloud providers. We
+also will introduce several parameters that determine the sample size
+and population over which such metrics are invoked. The metrics that
+we define here are in part derived from our experience within
+FutureGrid and FutureSystems. 
 
-\subsection{Summary Report (All)}
+We will introduce a number of definitions that we will use throughout
+this section. 
 
-                                                                                       
-format, table, piechart, barchart, stacked barchart, period month quarter, week day, hour current                                       
+\begin{description}
+\setlength\itemsep{-2pt}
 
-\begin{verbatim}
-o       1.1  WallHoursbyClusters(Total,monthly)
-o       .2  VMCountbyClusters(Total,monthly)
-o       1.3  UsersCountbyClusters(Total,monthly)
-o       
-o       VMs count, Users count, Wall hours, Distribution by Wall Hours, Project, Project Leader, and Institu- tion, and Systems 
+\item [Period.] Many metrics need to be applied on a flexible period,
+  thus it is important to be able to define the start and end time of
+  a metric to be applied, as well as its periodicity throughout the
+  interval.
 
-\end{verbatim}
+\item[Realtime.] Some metrics need to be applied at realtime in order
+  to obtain immideate feedback about the system status
 
-\subsection{Summary (Monthly) }
+\item[Time to Live.] As some of the metrics may provide a lot of data
+  it is useful to introduce a Time To Live (TTL) that allows metric
+  data to expire if they are no longer needed.
+ 
+\end{description}
 
-\begin{verbatim}
-o       put multiple metrics in same chart
-o       period y, m, d, h                                                                                                
-o       Metrics: VMs count, Users count, Wall time (hours), Distribution by wall time, project, project leader, and institution, and systems 
-        system information on which hosts do we run, count vms, runtime
-\end{verbatim}
+Additionally we find several kinds of metrics that agglomerate
+data. We will need the typical statistical measurements such as count,
+sum, mean, median, standard deviation, frequency, distribution, and
+others. Together these metric properties can be used to provide (a)
+effective summary reports, (b) periodicity reports (c) real time
+information. Trough the introduction of stakeholders (see Section ??)
+some information may be restricted.
 
-\subsection{Keywords}
+Examples of summary reports include walltime of servers used in a
+cluster as total over a particular time, the VM count, or the user
+count. Additional factors such as to which project the information is
+associated is important for project members or for those judging if
+the resources allocated for a project are justified. Center directors
+may need to report to their organization which scientific discipline
+have used the resource. These are just a very small but quite useful
+set of metrics that have had practical impact in existing academic
+cloud environments such as FutureGrid and FutureSystems.  For summary
+reports we also found it useful to overlap multiple metrics into the
+same chart over a given period. This way we can showcase, contrast or
+verify trends between different metrics.  To present the information
+the metrics may need to be able to be conveniently be displayed as
+charts, as time series data, in tables or json format or through
+RESTful service.  Properties that are important to consider as part of
+metrics include scalability, overhead, availability, accuracy,
+security, agility, and the integration of some of the metrics into
+autoscaling services.
+
+We provide a comprehensive list of useful metrics in Table ??.
+
+\subsection{Metric Keywords}
+
+To provide a starting point for discussions with other resource
+providers, we list a number of keywords that are associated with
+exemplary metrics that we are interested in deriving in more details
+while providing a subset of concrete metrics in Table ??.
 
 \begin{Verbatim}[fontfamily=times]
-o usage
-   -   VM image
-   -   instance
-o runtime
-o size (flavor)
-o image
-o regions
-   -   network
-o public/private ip address
-o traffics
-   -   storage
-o block storage
-o objects
-o files
-o space
-o audit/assurance
-  -   user behavior
-o server utilization
-o errors
-  - detect incidents
-  - trace issues/ bugs
-  - prevent long downtime
-o billing/charging/accounting
-o commercial monitoring services
-  - openstack ceilometer / telemetry
-  - aws cloud watch
-  - google cloud monitoring beta
+o usage - runtime
+   - VM 
+   - image
+   - instance
+   - regions
+   - servers
+   o network
+     - public/private ip address
+     - traffic
+   o storage
+     - block storage
+     - objects
+     - files
+     - space
 o performance
   - cpu usage (utilization) 
   - network in/out bytes
@@ -769,13 +787,7 @@ o performance
   - power consumption
   - memory usage
   - latency (e.g. network response or vm start)
-o monitoring service
-  - alert/notification (e.g. text, email)
-  - diagnostics
-  - security
-  - capacity planning/prediction
-  - trend changes
-o Physical hardware monitoring
+o physical hardware monitoring
   - host contention
   - degraded hardware
   - outages
@@ -785,30 +797,22 @@ o automation
   - autoscaling
   - policy/threshold to take actions
   - live migration
-o monitoring frequency
-  - real-time
-  - interval
-  - lifespan of measured data
-o Consideration of Cloud Metrics
-  - architecture
-  - overhead
-  - security/privacy
-  - interface
-o rest api
-o dashboard
-o management console
-  - visualization
-o charts
-o time series data
-o consideration of implementing metrics system
-  - scalability
-  - overhead
-  - availability
-  - accuracy
+o billing/charging/accounting
+o monitoring service
+  o errors
+    - detect incidents
+    - trace issues/ bugs
+    - prevent long downtime
+  - alert/notification (e.g. text, email)
+  - diagnostics
   - security
-  - agility
-  - autoscaling
+  - capacity planning/prediction
+  - trend changes
+o audit/assurance
+  - user behavior
 \end{Verbatim}
+
+
 
 \begin{verbatim}
 o  VM
@@ -880,34 +884,47 @@ realtime
 stakeholder = user, administrator, management, funder
 type = count, sum, distribution, ....
 
-Fig 1. Active user count by host                  
+\hyungro{provide simple sceenshots of report figures related to the
+  information listed in Fig 1a - 8a or are thes already displayed in
+  the last section}
 
-Fig 2. Active user count monthly
+\hyungro{provide a screenshot of the dashboard}
 
-Fig 3. VM Count daily
+\hyungro{provide a screenshot of a single page of the metric report
+  with nice headlines and graphs}
+
+Fig 1a. Active user count by host                  
+
+Fig 2a. Active user count monthly
+
+Fig 3a. VM Count daily
  
-Fig 4. VM Count by runtime distribution
+Fig 4a. VM Count by runtime distribution
 
-Fig 5. Usage by Institution
+Fig 5a. Usage by Institution
  
-Fig 6. runtime by Hour by Project Leader
+Fig 6a. runtime by Hour by Project Leader
 
-Fig 7. Real-Time Usage of VM instances
+Fig 7a. Real-Time Usage of VM instances
  
-Fig 8. Real-time userlist of running VM instances
+Fig 8a. Real-time userlist of running VM instances
 
 \subsection{Sample Reports}
 
-FutureGrid html \cite{LeeFGresourceWeb}
- FutureGrid pdf \cite{LeeFGresource}
+\gregor{complete this section}
 
-\subsection{Report for Errors (TBD)}
+Sample report information from FutureGrid is available as html
+\cite{LeeFGresourceWeb} or as PDF \cite{LeeFGresource}
 
-Cloudmesh Metrics reads system and application logs to generate error reports. If there are error messages stored in the database, Cloudmesh Metrics can lookup the database to collect the messages. Error information collected are stored in the Metrics database.
+\subsection{Report for Errors}
 
-\subsection{Possible Analysis (TBD)}
+\hyungro{provide here the information for the error analysis including
+  the tables}
 
-There are possible metrics to measure based on the observation of error messages on cloud platforms, especially OpenStack.
+Cloudmesh Metrics reads system and application logs to generate error
+reports. If there are error messages stored in the database, Cloudmesh
+Metrics can lookup the database to collect the messages. Error
+information collected are stored in the Metrics database.
 
 \begin{table*}[htb]
 \caption{QoS Metrics}
@@ -953,10 +970,6 @@ Inform status &
 \end{scriptsize}
 \end{table*}
 
-
-\subsection{Extra tables}
-
-\hyungro{introduce begin center and center in all tables}
 
 \begin{table*}[htb]
 \caption{Basic Concept of Metric}
@@ -1256,8 +1269,8 @@ can be configured to emit events either through nova's logging
 facility, or send them to a series of AMQP queues (one per
 notification priority). System usages are emitted as notification
 events with the INFO priority. Different types of usage events are
-distinguished via the notifications \verb{event_type}, which is a
-hierarchical dotted string such as \verb{compute.instance.create},
+distinguished via the notifications \verb|event_type|, which is a
+hierarchical dotted string such as \verb|compute.instance.create|,
 which allows usages to be easily grouped for aggregation. Usage
 notifications can be immediate (created when a specific increment of
 usage occurs, such as creation of an instance) or periodic (generated
