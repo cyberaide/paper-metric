@@ -4,152 +4,159 @@
 \label{T:metrics}
 \bigskip
 \begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
-ID & Name & Stackeholder & Description & Motivation & Sample \\
+\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.6\textwidth}p{0.1\textwidth}}
+ID & Name & Stackeholder & Description & Sample \\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf User related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf User related metrics} \\
 \hline
 UC.1&
 User Count & 
 ~&
-This metric counts the active users for the cloud &
-User count is important for measuring the popularity of the cloud & 
+This metric counts the active users for the cloud 
+{\it Motivation: User count is important for measuring the popularity of the cloud} & 
 ~ \\
 \hline
 UC.2&
 Major Users &
 ~&
-This metric shows heavy users in terms of consuming resources e.g. top 10 users &
-Top 10 Users is important to see who has the most impact on the shared resources & 
+This metric shows heavy users in terms of consuming resources e.g. top 10 users 
+{\it Motivation: Top 10 Users is important to see who has the most impact on the shared resources} & 
 ~ \\
 \hline
 UC.3 &
 User Type &
 ~&
 This metric shows a user type defined in an account system with a percentage of
-the total numbers. e.g. a project leader, an instructor, or a students. & 
-User Type is important to see a proportion of users. &
+the total numbers. e.g. a project leader, an instructor, or a students. 
+{\it Motivation: User Type is important to see a proportion of users.} &
 ~ \\
 \hline
 UC.4 &
 Repeat User&
 ~&
-This metric shows the number of users who actively using services for a certain period.  e.g. last 3/6/9 month: 16/32/24 &
-Repeat User is important for measuring user activity for a certain period &
+This metric shows the number of users who actively using services for a certain period.  e.g. last 3/6/9 month: 16/32/24 
+{\it Motivation: Repeat User is important for measuring user activity for a certain period} &
 ~ \\
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Virtual Machine related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Virtual Machine related metrics} \\
 \hline
 VC.1&
 VM Count & 
 ~&
-This metric counts the launched VM instances on the cloud &
-VM Count is important for measuring the volume of requested instances &
+This metric counts the launched VM instances on the cloud 
+{\it Motivation: VM Count is important for measuring the volume of requested instances} &
 ~ \\
 \hline
 VC.2&
 VM Count by Project, Leader, or Institution &
 ~&
-This metric shows share of resource by group metrics such as project, leader or institution &
-Group usage is important for measuring group usage &
+This metric shows share of resource by group metrics such as project, leader or institution 
+{\it Motivation: Group usage is important for measuring group usage} &
 ~ \\
 \hline
 VC.3 &
 Current running VMs or accessed users &
 ~&
-This metric shows instant usage data to see current status &
-real time usage is important for checking peak or detecting unusual usage &
+This metric shows instant usage data to see current status 
+{\it Motivation: real time usage is important for checking peak or detecting unusual usage} &
 ~ \\
- & & & & & \\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Image related metrics} \\
+VCT.1 &
+VM Creation Time &
+~&
+This metric shows the latency of creating a new instance to ensure fast creation 
+{\it Motivation: VM Create Time is important for measuring the latency} &
+~ \\
+& & & & \\
+\hline
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Image related metrics} \\
 \hline
 IC.1 &
 Image Type &
 ~ &
 This metric shows an image type registered in the cloud platforms with a
-percentage of the total number. e.g. ubuntu14.04, centOS 7, or Fedora 22 & 
-Image Type is important to see a proportion of images. & 
+percentage of the total number. e.g. ubuntu14.04, centOS 7, or Fedora 22 
+{\it Motivation: Image Type is important to see a proportion of images.} & 
 ~\\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Flavor related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Flavor related metrics} \\
 \hline
 FC.1 &
 Flavor Type &
 ~ &
 This metric shows an flavor (instance) type registered in the cloud platforms with a
-percentage of the total number. e.g. m1.small, m1.medium, or m1.xlarge & 
-Flavor Type is important to see a proportion of instance types. & 
+percentage of the total number. e.g. m1.small, m1.medium, or m1.xlarge 
+{\it Motivation: Flavor Type is important to see a proportion of instance types.} & 
 ~\\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Storage related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Storage related metrics} \\
 \hline
 SU.1 &
 Disk Usage &
 ~&
-This metric shows the size of Disks allocated to instances &
-Disk Usage is important for measuring system resource used &
+This metric shows the size of Disks allocated to instances 
+{\it Motivation: Disk Usage is important for measuring system resource used} &
 ~ \\
 \hline
 SU.2 &
 Object Usage &
 ~&
-This metric shows the size of Object Storage allocated to instances &
-Object Usage is important for measuring system resource used &
+This metric shows the size of Object Storage allocated to instances 
+{\it Motivation: Object Usage is important for measuring system resource used} &
 ~ \\
 \hline
 SU.3 &
 Block Usage &
 ~&
-This metric shows the size of storage blocks mounted to instances &
-Block Usage is important for measuring system resource used &
+This metric shows the size of storage blocks mounted to instances 
+{\it Motivation: Block Usage is important for measuring system resource used} &
 ~ \\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Region related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Region related metrics} \\
 \hline
 RC.1 & 
 Location & 
 ~& 
-This metric shows a geographical location of a user. & 
-Location is important for resource availability to different regions. & 
+This metric shows a geographical location of a user. 
+{\it Motivation: Location is important for resource availability to different regions.} & 
 ~\\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Server related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Server related metrics} \\
 \hline
 SC.1 & 
 Node Distribution & 
 ~ &
-This metric shows a physical node distribution. & 
-Node Distribution is important for load banacing. & 
+This metric shows a physical node distribution. 
+{\it Motivation: Node Distribution is important for load banacing.} & 
 ~ \\
 \hline
-\rowcolor{blue!20} \multicolumn{6}{l}{\bf Network related metrics} \\
+\rowcolor{blue!20} \multicolumn{5}{l}{\bf Network related metrics} \\
 \hline
 NL.1 &
 Latency &
 ~&
-This metric shows a network and application performance &
-Latency is important with acceptable and strict latency expectation &
+This metric shows a network and application performance 
+{\it Motivation: Latency is important with acceptable and strict latency expectation} &
 ~ \\
 \hline
 NT.2 &
 Network Throughput&
 ~&
-This metric shows the actual amount of data delivered successfully &
-Network thoughput is important for measuring network performance &
+This metric shows the actual amount of data delivered successfully 
+{\it Motivation: Network thoughput is important for measuring network performance} &
 ~ \\
 \hline
 NP.3 &
 PublicIP Count &
 ~&
-This metric shows availability of public IP addresses. &
-PublicIP Count is important for the number of available and free IP addresses. &
+This metric shows availability of public IP addresses. 
+{\it Motivation: PublicIP Count is important for the number of available and free IP addresses.} &
 ~ \\
 \hline
 NP.3 &
 PriveIP Count &
 ~& 
-This metric shows availability of private IP addresses. &
-PrivateIP Count is important for the number of available and free IP addresses. &
+This metric shows availability of private IP addresses. 
+{\it Motivation: PrivateIP Count is important for the number of available and free IP addresses.} &
 ~ \\
 \hline
 \end{tabular}
@@ -163,102 +170,95 @@ PrivateIP Count is important for the number of available and free IP addresses. 
 \label{T:metrics}
 \bigskip
 \begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.1\textwidth}}
-ID & Name & Stackeholder & Description & Motivation & Sample \\
+\begin{tabular}{lp{0.1\textwidth}p{0.1\textwidth}p{0.6\textwidth}p{0.1\textwidth}}
+ID & Name & Stackeholder & Description  & Sample \\
 \hline
- \rowcolor{blue!20} \multicolumn{6}{l}{\bf Unordered metrics} \\
+ \rowcolor{blue!20} \multicolumn{5}{l}{\bf Unordered metrics} \\
 \hline
- & & & & & \\
+ & & & & \\
 \hline
 RS&
 Runtime Sum&
 ~&
-This metric shows the total amount of runtime for launched instances &
-runtime by hour is important for measuring actual runtime of instances &
+This metric shows the total amount of runtime for launched instances 
+{\it Motivation: runtime by hour is important for measuring actual runtime of instances} &
 ~ \\
 \hline
 XX.X &
 vCPU Usage &
 ~&
-This metric shows the number of vCPU cores allocated to instances &
-vCPU Usage is important for measuring system resource used &
+This metric shows the number of vCPU cores allocated to instances 
+{\it Motivation: vCPU Usage is important for measuring system resource used} &
 ~ \\
 \hline
 XX.X &
 Memory Usage &
 ~&
-This metric shows the size of Memories allocated to instances &
-Memory Usage is important for measuring system resource used &
-~ \\
-\hline
-XX.X &
-VM instantiation(Creation Time)&
-~&
-This metric shows the latency of creating a new instance to ensure fast creation &
-VM Create Time is important for measuring the latency &
+This metric shows the size of Memories allocated to instances 
+{\it Motivation: Memory Usage is important for measuring system resource used} &
 ~ \\
 \hline
 XX.X &
 Node Distribution&
 ~&
-This metric shows a proper balancing of physical compute nodes &
-Node Distribution is import for system load balance &
+This metric shows a proper balancing of physical compute nodes 
+{\it Motivation: Node Distribution is import for system load balance} &
 ~ \\
 \hline
 XX.X &
 Tenant Distribution (Std deviation)&
 ~&
-This metric shows a proper balancing of resources per tenant. Useful to identify heavy tenants &
-Tenant Distribution is important to see users spread evenly across the nodes &
+This metric shows a proper balancing of resources per tenant. Useful to identify heavy tenants 
+{\it Motivation: Tenant Distribution is important to see users spread evenly across the nodes} &
 ~ \\
 \hline
 XX.X &
 Availability&
 ~&
-This metric shows a percentage rate of available resources to accept a new request &
-Availability is important to provide cloud resources continuously
+This metric shows a percentage rate of available resources to accept a new request 
+{\it Motivation: Availability is important to provide cloud resources continuously} &
 ~ \\
 \hline
 XX.X &
 Scalability \& Capacity&
 ~&
-This metric shows an actual limit of a service or physical system in the cloud &
-Scalability and Capacity are important to measure IaaS performance &
+This metric shows an actual limit of a service or physical system in the cloud 
+{\it Motivation: Scalability and Capacity are important to measure IaaS performance} &
 ~ \\
 \hline
 XX.X &
 Power Consumption&
 ~&
-This metric shows the amount of energy used in the cloud platform  &
-Electricity is important for measuring actual cost by Kilo Watt per hour (KWh) &
+This metric shows the amount of energy used in the cloud platform  
+{\it Motivation: Electricity is important for measuring actual cost by Kilo Watt per hour (KWh)} &
 ~ \\
 \hline
 XX.X &
 Throughput &
 ~&
-This metric shows the performance of cloud services by measuring completed tasks, i.e. PaaS &
-Throughput is important for measuring service performance e.g. PaaS &
+This metric shows the performance of cloud services by measuring completed tasks, i.e. PaaS 
+{\it Motivation: Throughput is important for measuring service performance e.g. PaaS} &
 ~ \\
 \hline
 XX.X &
 CPU Speed (system performance)&
 ~&
-This metric shows the performance of cloud resources by clock speed of a processor &
-CPU Clock speed is important to understand an actual speed of CPUs over different cloud platforms &
+This metric shows the performance of cloud resources by clock speed of a processor 
+{\it Motivation: CPU Clock speed is important to understand an actual speed of CPUs over different cloud platforms} &
 ~ \\
 \hline
 XX.X &
 Memory Speed (system performance)&
 ~&
-This metric shows the performance of cloud resources by clock speed of a memory &
-Memory Clock speed is important to understand an actual speed of memories over different cloud platforms &
+This metric shows the performance of cloud resources by clock speed of a memory 
+{\it Motivation: Memory Clock speed is important to understand an actual speed of memories over different cloud platforms} &
 ~ \\
 \hline
 XX.X &
 Disk Speed (system performance)&
 ~&
-This metric shows the performance of cloud resources by read/write speed of a disk including SSD &
-Disk speed is important to understand an actual speed of disks over different disk types&
+This metric shows the performance of cloud resources by read/write speed of a disk including SSD 
+{\it Motivation: Disk speed is important to understand an actual speed of disks over different disk type}s&
 ~ \\
 \hline
 \end{tabular}
