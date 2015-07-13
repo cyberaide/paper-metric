@@ -1535,9 +1535,15 @@ enabled charts or tables.
 
 The design of the cloudmesh metrics framework allows the mashup of
 information from various data sources including cloud management
-databases, but also log files. This mashup provides us with a rich
+databases and log files. This mashup provides us with a rich
 data set supporting sophisticated analysis that may spawn multiple
-information sources. Figure~\ref{F:fig7} shows a layered architectural
+information sources.
+The system has been used in FutureGrid to support metric
+information from multiple IaaS service providers from various 
+FutureGrid partner sites, for more than 400 projects and over 
+2800 members as of end of 2014 ~\cite{las14cloudmeshmultiple}.
+
+Figure~\ref{F:fig7} shows a layered architectural
 view of the Cloudmesh Metrics service and how it interfaces with
 various IaaS frameworks.
 
@@ -1547,15 +1553,6 @@ define metrics and collect usage data, (3) Cloudmesh Metric Portal and Report
 providing a visualization tool to provide graphical representative of
 the data, and (4) a Web Service APIs to support other applications
 e.g. scheduling and dynamic provisioning.
-
-A log parser named allows reading and examining log messages of IaaS
-platforms (e.g. Eucalyptus, OpenStack) to collect metrics and stores
-the metrics into a database that allows exposing its information as
-JSON objects. The system has been used in FutureGrid to support metric
-information for more than 400 projects and 3200 members as of and of 2014
-~\cite{las14cloudmeshmultiple}.
-
-\hyungro{work with Fugang to update and verify the numbers}
 
 \begin{figure*}[htb] 
 \begin{center}
@@ -1567,7 +1564,12 @@ information for more than 400 projects and 3200 members as of and of 2014
 
 The Metric Collector enables collecting usage data allocated from IaaS
 cloud platforms such as Eucalyptus, Nimbus, and OpenStack including
-HPC from TORQUE. The collecor enables also real-time monitoring and
+HPC from TORQUE. 
+A log parser extracts data from log messages of IaaS
+platforms and transforms them into metrics.
+The metrics are then stored into a database that allows exposing the data as
+JSON objects via API calls. 
+The collecor enables also real-time monitoring and
 statistics. Data can be integrated from OpenStack MySQL databases or
 Nimbus sqlite3 to the unified database. Fro Eucalyptus we obtained
 most of the information through its log files as at the time
