@@ -13,6 +13,8 @@
 
 \newcommand{\AUTHOR}{ Gregor von Laszewski, Hyungro Lee, Fugang Wang} 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % LATEX DEFINITIONS 
@@ -97,6 +99,18 @@ breaklines=true,
 breakatwhitespace=true
 tabsize=3
 }
+
+
+\newcommand{\iCHART}{\includegraphics[scale=0.3]{icons/glyphicons-43-pie-chart.png}}
+\newcommand{\iDISPLAY}{\includegraphics[scale=0.3]{icons/glyphicons-87-display.png}}
+\newcommand{\iTABLE}{\includegraphics[scale=0.3]{icons/glyphicons-120-table.png}}
+\newcommand{\iSTAT}{\includegraphics[scale=0.3]{icons/glyphicons-41-stats.png}}
+\newcommand{\iCHARTS}{\includegraphics[scale=0.3]{icons/glyphicons-42-charts.png}}
+\newcommand{\iFILE}{\includegraphics[scale=0.3]{icons/glyphicons-37-file.png}}
+\newcommand{\iFILES}{\includegraphics[scale=0.3]{icons/glyphicons-319-more-items.png}}
+\newcommand{\iCLUSTER}{\includegraphics[scale=0.3]{icons/glyphicons-508-cluster.png}}
+\newcommand{\HS}{\hspace{1pt}}
+
 \begin{document} 
 % 
 % --- Author Metadata here --- 
@@ -136,6 +150,15 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \toappear{} 
 \maketitle 
 \begin{abstract} 
+\iCHART \HS
+\iCHARTS \HS
+\iDISPLAY \HS
+\iTABLE \HS
+\iSTAT \HS
+\iCHARTS \HS
+\iFILE \HS
+\iFILES \HS
+\iCLUSTER \HS
 
   Cloud computing has established itself as one of the key components
   in modern datacenters. This includes academic, government, and for
@@ -1505,61 +1528,35 @@ Inca for monitoring GRAM usage, CA and CRL validity and resource registration
 in MDS according to the project description page~\cite{inca-xsede}.  FutureGrid
 project used Inca for measuring performance of FutureGrid software and hardware
 with 196 Inca reporters for testing FutureGrid services and
-clusters~cite{inca-futuregrid}.
+clusters~cite{inca-futuregrid}. Inca is used on the XSEDE resources
+Keenland \cite{keeneland}\cite{keeneland-xsede} and Darter \cite{darter-nics}.
 
 
-\subsubsection{Keeneland}
-Keeneland project is a high performance computing system to support GPU
-development with commodity linux clusters led by the Georgia Institue of
-Technology in collaboration with the University of Tennessee at Knoxville and
-Oak Ridge National Laboratory. Two phases were available in the project.
-Keeneland Initial Delivery System (KIDS) consisted of Intel Xeon X5660 240 CPUs
-and Nvidia Tesla M2090 360 GPUs to support scientific and engineering
-applications with the total peak performance of 255 TFLOPS. The Keeneleland
-Full Scale System (KFS) provided bigger computing resources with 264 HP nodes
-by two 8-core Intel Xeon E5 CPUs, for a total of 528 CPUs and 792 Nvidia M2090
-GPUs. KFS was used in XSEDE with the peak performance of 615
-TFLOPS~\cite{keeneland}\cite{keeneland-xsede}.
+\subsubsection{Ipm} 
 
-\subsubsection{Darter}
-Darter is a supercomputer supported by the University of Tennessee, Knoxville
-and the National Institute for Computational Sciences (NICS) with 724 compute
-nodes on a Cray XC30 (Cascade) system and Lustre file system for a total of the
-peak performance of 240.9 Tflops~\cite{darter-nics}.
+Ipm \cite{Shan:2010:ProgModels,Fuerlinger:2010:PetascaleIPMP,ipm-github}
+... \hyungro{Describe what ipm is}
 
-\hyungro{add information}
-
-\subsubsection{Ipm} Stampede
-\subsubsection{Stampede}
-Stampede is a supercomputer supported by the Texas Advanced Computing Center (TACC)
-for open sicence research. Stampede provides the total peak performance of 9.6
-Petaflops with 6400 nodes and 14 Petabytes disk sizes~\cite{stampede-tacc}.
-
-\hyungro{add refs}
-\cite{Shan:2010:ProgModels}
-\cite{Fuerlinger:2010:PetascaleIPMP}
-\cite{ipm-github}
-
+Ipm is used on the XSEDE resource Stampede \cite{stampede-tacc}.
 \cite{ipm10}
 
 \subsubsection{PAPI}
 
-\hyungro{add refs}
-\task{add information} Stampede
+\hyungro{describe what papi is}
+PAPI is used obn the XSEDE resource Stampede \cite{stampede-tacc}.
 
 \subsubsection{Gold}
 
 There is a small number of accounting software to provide metered
 resource utilization in open source cloud platforms. Those tools such
-as Gold accounting Manager~\cite{jacksongold} are very simple and are
-supposed to support system administrators not cloud users. 
+as Gold accounting Manager~\cite{jacksongold,gold-allocation} are very
+simple and are supposed to support system administrators not cloud
+users. However, Gold is no longer supported by the developers.
 
-\improve{Gold is no longer supported}
-
-\cite{gold-allocation}
 
 \subsubsection{XRAS}
 
+\hyungro{describe what xras is}
 \cite{hart2014xras}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2136,3 +2133,28 @@ $^3$Linux, charged by minute but free is <5 minutes\\
 This activity provides a way of understanding performance and resource utilization across system and application layers, especially on cloud resources. With the various requests of resource allocation on the cloud, project leaders and members encounter challenges with finding availability of virtual resources and handling this information. Cloud users in a pool of shared resources can suffer performance degradation by other users. Monitoring physical resources is not enough to mitigate this degradation in cyberinfrastructure. In this paper, Cloud Metrics offer several means to get information of resource utilization and performance. In addition, the classification of performance managements and case studies provide an inside visibility to help identify the issues easily and finding solutions regarding resource allocation on the cloud. To enhance performance of systems and get powerful machines, understanding resource allocation of virtual resources is needed to avoid under performing systems and applications.
 
 
+\begin{comment}
+\subsubsection{Keeneland}
+Keeneland project is a high performance computing system to support GPU
+development with commodity linux clusters led by the Georgia Institue of
+Technology in collaboration with the University of Tennessee at Knoxville and
+Oak Ridge National Laboratory. Two phases were available in the project.
+Keeneland Initial Delivery System (KIDS) consisted of Intel Xeon X5660 240 CPUs
+and Nvidia Tesla M2090 360 GPUs to support scientific and engineering
+applications with the total peak performance of 255 TFLOPS. The Keeneleland
+Full Scale System (KFS) provided bigger computing resources with 264 HP nodes
+by two 8-core Intel Xeon E5 CPUs, for a total of 528 CPUs and 792 Nvidia M2090
+GPUs. KFS was used in XSEDE with the peak performance of 615
+TFLOPS~\cite{keeneland}\cite{keeneland-xsede}.
+
+\subsubsection{Darter}
+Darter is a supercomputer supported by the University of Tennessee, Knoxville
+and the National Institute for Computational Sciences (NICS) with 724 compute
+nodes on a Cray XC30 (Cascade) system and Lustre file system for a total of the
+peak performance of 240.9 Tflops~\cite{darter-nics}.
+\end{comment}
+
+\subsubsection{Stampede}
+Stampede is a supercomputer supported by the Texas Advanced Computing Center (TACC)
+for open sicence research. Stampede provides the total peak performance of 9.6
+Petaflops with 6400 nodes and 14 Petabytes disk sizes~\cite{stampede-tacc}.
