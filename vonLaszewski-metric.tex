@@ -277,18 +277,17 @@ institutions are in the need to provide infrastructures, services, and
 platforms to the academic research and education community. We will
 focus in this paper on the latter communities.
 
-Within the offerings to the academic community we observe the usage of
-the following clouds (a) commercial public clouds, Academic public
-clouds, and Academic private clouds. Furthermore, traditional high
-performance computing )HPC) is offered as a platform in many
-organizations and allows to support the paradigm of {\it HPC in the
-  cloud} as showcased for example by the XSEDE project (see
-Section~\ref {S:resources} for more details). The validity of HPC as a
-service in the cloud is reflected not only by academic offerings, but
-also by commercial offerings commercial offerings as demonstrated by
-Amazon High Performance Computing~\cite{awshpc}, IBM Platform
-Computing~\cite{ibmhpc}, and with additional examples provided
-in~\cite{DouglasEadline}.
+Within the offerings to the academic community we observe the usage of the
+following clouds (a) commercial public clouds, Academic public clouds, and
+Academic private clouds. Furthermore, traditional high performance computing
+)HPC) is offered as a platform in many organizations and allows to support the
+paradigm of {\it HPC in the cloud} as showcased for example by the Extreme
+Science and Engineering Discovery Environment (XSEDE) project (see Section~\ref
+{S:resources} for more details).  The validity of HPC as a service in the cloud
+is reflected not only by academic offerings, but also by commercial offerings
+commercial offerings as demonstrated by Amazon High Performance
+Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with
+additional examples provided in~\cite{DouglasEadline}.
 
 % How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
 
@@ -1498,7 +1497,35 @@ multi-tasking which is a deferred object.
 
 \subsubsection{Inca}
 
-Keeneland, Darter, FutureGrid
+Inca is monitoring software for watching user-level activities and measuring
+performance on a Grid including detecting errors~\cite{inca}. The executable
+program, Inca reporter, collects performance data from a system and Inca web
+interface provides detailed information about the measured data. XSEDE uses
+Inca for monitoring GRAM usage, CA and CRL validity and resource registration
+in MDS according to the project description page~\cite{inca-xsede}.  FutureGrid
+project used Inca for measuring performance of FutureGrid software and hardware
+with 196 Inca reporters for testing FutureGrid services and
+clusters~cite{inca-futuregrid}.
+
+
+\subsubsection{Keeneland}
+Keeneland project is a high performance computing system to support GPU
+development with commodity linux clusters led by the Georgia Institue of
+Technology in collaboration with the University of Tennessee at Knoxville and
+Oak Ridge National Laboratory. Two phases were available in the project.
+Keeneland Initial Delivery System (KIDS) consisted of Intel Xeon X5660 240 CPUs
+and Nvidia Tesla M2090 360 GPUs to support scientific and engineering
+applications with the total peak performance of 255 TFLOPS. The Keeneleland
+Full Scale System (KFS) provided bigger computing resources with 264 HP nodes
+by two 8-core Intel Xeon E5 CPUs, for a total of 528 CPUs and 792 Nvidia M2090
+GPUs. KFS was used in XSEDE with the peak performance of 615
+TFLOPS~\cite{keeneland}\cite{keeneland-xsede}.
+
+\subsubsection{Darter}
+Darter is a supercomputer supported by the University of Tennessee, Knoxville
+and the National Institute for Computational Sciences (NICS) with 724 compute
+nodes on a Cray XC30 (Cascade) system and Lustre file system for a total of the
+peak performance of 240.9 Tflops~\cite{darter-nics}.
 
 \hyungro{add information}
 
