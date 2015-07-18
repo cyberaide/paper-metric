@@ -48,6 +48,7 @@
 %\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
 
 
+\newcommand{\fugang}[1]{\todo[inline, color=orange!20]{Fugang:~#1}} 
 \newcommand{\hyungro}[1]{\todo[inline, color=green!20]{Hyungro:~#1}} 
 \newcommand{\gregor}[1]{\todo[inline, color=blue!20]{Gregor:~#1}} 
 \newcommand{\task}[1]{\smallskip\todo[inline, color=gray!20]{#1}} 
@@ -727,8 +728,26 @@ evaluate the effectiveness of such infrastructures.
 
 \subsection{Impact}
 
-\gregor{add section about impact}
-\cite{las14Impact,las15xsede,las15cluster}
+Many science and engineering innovations and discoveries are
+increasingly dependent on access to high performance computing
+resources \cite{las14Impact,las15xsede,las15cluster}. For many
+researchers, this demand is met by clouds and other large-scale
+compute resources that cannot typically be supported by any single
+research group. Accordingly, dedicated large-scale computing
+facilities play an important role in scientific research, in which
+resources are shared among groups of researchers, while the facilities
+themselves are managed by dedicated staff.  Thus, justification for
+their use is warranted and questions regarding the scientific impact
+of these resources naturally arise. Thus it is important to not only
+introduce metrics measuring the actual usage, but also the impact
+based on for example the scientific publications that are produced by
+such resources. We have developed a sophisticated metric framework
+that delivers such impact metrics for XSEDE, NCAR, and Blue Waters. It
+is most natural that this be extended to any cloud resource. In fact
+the framework is general enough that it could apply to any resource
+framework \cite{las14Impact,las15xsede,las15cluster}. Metrics include:
+
+\fugang{please include some of the metrics'}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRICS} \label{S:metrics}
