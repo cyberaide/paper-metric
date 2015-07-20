@@ -728,7 +728,6 @@ evaluate the effectiveness of such infrastructures.
 
 \subsection{Scientific Impact}
 
-<<<<<<< HEAD
 Many science and engineering innovations and discoveries are
 increasingly dependent on access to high performance computing
 resources \cite{las14Impact,las15xsede,las15cluster}. For many
@@ -739,46 +738,58 @@ facilities play an important role in scientific research, in which
 resources are shared among groups of researchers, while the facilities
 themselves are managed by dedicated staff.  Thus, justification for
 their use is warranted and questions regarding the scientific impact
-of these resources naturally arise. Thus it is important to not only
+of these resources naturally arise. Hence, it is important to not only
 introduce metrics measuring the actual usage, but also the impact
 based on for example the scientific publications that are produced by
 such resources. We have developed a sophisticated metric framework
-that delivers such impact metrics for XSEDE, NCAR, and Blue Waters. It
-is most natural that this be extended to any cloud resource. In fact
-the framework is general enough that it could apply to any resource
-framework \cite{las14Impact,las15xsede,las15cluster}. Metrics include:
-
-\fugang{please include some of the metrics'}
-=======
-Another set of metrics are concerning the scientific impact of using a cloud resource. We 
-have been working on processes and methods to evaluate a scientific computing facility 
-while using XSEDE as the original study object and extending to other similar facilities 
-such as NCAR and bluewater \cite{las14Impact,las15xsede,las15cluster}. Table 
-\ref{T:SIMmetrics} lists the general metrics related to the impact of scientific works.
+that delivers such impact metrics for XSEDE, NCAR, and Blue Waters
+\cite{las14Impact,las15xsede,las15cluster}. It is most natural that
+this be extended to any cloud resource. However, the framework is
+general enough that it could apply to any resource framework and
+interested resource providers can contact the corresponding athor for
+more information. Table \ref{T:SIMmetrics} lists the general metrics
+related to the impact of scientific works.
 
 \begin{table*}[htb]
-\caption{Metrics related to scientific impact evaluation}
+\caption{Selected Scientific impact metrics}
 \begin{scriptsize}
 \label{T:SIMmetrics}
 \bigskip
 \begin{center}
-\begin{tabular}{p{0.2\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
+\begin{tabular}{p{0.15\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
 Name & Description & Motivation \\
+\hline
+\rowcolor{blue!20} \multicolumn{3}{l}{\bf Scientific impact metrics} \\
 \hline
 Publication Count &
 Measuring how many publications are attributed as output while using the cloud 
 resource &
-This measures the general productivity \\
+measures the general productivity \\
 \hline 
 Citation Count &
 Measuring how many citations has been received as of the measuring time point &
-This shows how the output really impacts the scientific community while the 
+shows how the output really impacts the scientific community while the 
 publications are being cited \\
 \hline
-H-index, G-index &
-While treating the evaluated entity as if it were a person, using the h-index and 
+H-index (person) \cite{??} &
+A person has index $h$ if $h$ of his/her $N_p$ papers have at least h
+                   citations each, and the other $(N_p − h)$ papers have
+                   no more than $h$ citations each. &
+ measures both productivity and the generated impact \\
+\hline
+G-index (person) \cite{??} &
+Given a set of articles ranked in decreasing order of the number of citations that they received, the $g$-index is the (unique) largest number such that the top $g$ articles received (together) at least $g^2$ citations.
+ measures both productivity and the generated impact \\
+\hline
+H-index (entity) &
+While treating the evaluated entity as if it were a person, using the
+h-index that were originally defined for a person &
+measures both productivity and the generated impact \\
+\hline
+G-index (entity)&
+While treating the evaluated entity as if it were a person, using 
 g-index that were originally defined for a person &
-This measures both productivity and the generated impact \\
+measures both productivity and the generated impact \\
 \hline
 \end{tabular}
 \end{center}
@@ -797,7 +808,7 @@ and the same metrics could be compared among different cloud resource provider. 
 other related data, e.g. the resource had been consumed, we could derive and compare
 the same metrics but in a normalized fashion - Publication count and/or citation count
 per M(K) CpuHours as an example.
->>>>>>> 0b8995e2279170c84f56ff5597493fc1c988041e
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRICS} \label{S:metrics}
