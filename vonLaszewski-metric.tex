@@ -1,5 +1,7 @@
 \documentclass{sig-alternate-05-2015}
 
+\pagenumbering{arabic} % Remove for camera-ready
+
 \makeatletter
 \setcounter{tocdepth}{3}
 \def\contentsname{Contents}
@@ -778,8 +780,8 @@ A person has index $h$ if $h$ of his/her $N_p$ papers have at least h
  measures both productivity and the generated impact \\
 \hline
 G-index (person) \cite{??} &
-Given a set of articles ranked in decreasing order of the number of citations that they received, the $g$-index is the (unique) largest number such that the top $g$ articles received (together) at least $g^2$ citations.
- measures both productivity and the generated impact \\
+Given a set of articles ranked in decreasing order of the number of citations that they received, the $g$-index is the (unique) largest number such that the top $g$ articles received (together) at least $g^2$ citations.&
+depends on the full citation count of very highly cited papers\\
 \hline
 H-index (entity) &
 While treating the evaluated entity as if it were a person, using the
@@ -1004,7 +1006,7 @@ type = count, sum, distribution, ....
 Sample report information from FutureGrid is available as html
 \cite{LeeFGresourceWeb} or as PDF \cite{LeeFGresource}
 
-\subsection{Report for Errors}
+\subsection{Error and Alert Reporting}
 
 \begin{table*}[htb]
 \caption{Error Metrics}
