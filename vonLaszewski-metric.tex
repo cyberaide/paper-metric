@@ -1514,7 +1514,13 @@ and ports.
 Google launched Cloud Monitoring in 2014 after the acquisition of Stackdriver,
 a software company that developed monitoring services in the cloud. Google
 Cloud Monitoring (GCM) provides performance data of cloud resources and sends
-notifications if issues occur based on a user defined alerting policy. Monitoring is available in Google App Engine, Compute Engine, Pub Sub, Cloud SQL and Cloud Storage with health check, log tracing on the web-based Cloud Monitoring Console according to the Cloud Monitoring website~\cite{GCM}. Additional metrics such as memory or disk usage can be collected by the Monitoring Agent which requires to be installed in a VM instance. Google offers Monitoring for free during its Beta release.
+notifications if issues occur based on a user defined alerting policy.
+Monitoring is available in Google App Engine, Compute Engine, Pub Sub, Cloud
+SQL and Cloud Storage with health check, log tracing on the web-based Cloud
+Monitoring Console according to the Cloud Monitoring website~\cite{GCM}.
+Additional metrics such as memory or disk usage can be collected by the
+Monitoring Agent which requires to be installed in a VM instance. Google offers
+Monitoring for free during its Beta release.
 
 \subsection{HPC}
 
@@ -1527,28 +1533,25 @@ next.
 \subsubsection{XDMoD}
 
 XDMoD (XSEDE Metrics on Demand)
-\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is
-developed as a successor to UBMoD (University Buffalo Metrics on
-Demand) while trageting firstly the XSEDE resource providers. Most
-recently an open source version can however be deployed at non XSEDE
-based resource providers. It is a tools for collecting and mining
-statistical data from cluster resource managers such as
-Torque\cite{??}/Maui\cite{??}/Moab\cite{??}, OpenPBS \cite{??},
-Univa/SGE\cite{??} and Slurm \cite{??} commonly found in
+\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is developed as a
+successor to UBMoD (University Buffalo Metrics on Demand) while trageting
+firstly the XSEDE resource providers. Most recently an open source version can
+however be deployed at non XSEDE based resource providers. It is a tools for
+collecting and mining statistical data from cluster resource managers such as
+Torque\cite{staples2006torque}, Maui\cite{jackson2001core},
+Moab\cite{computing2012moab}, OpenPBS \cite{teambatching},
+SGE\cite{gentzsch2001sun} and Slurm \cite{jette2010slurm} commonly found in
 high-performance computing environments. XDMod has three fundamental
-components: a metrics repository (e.g. a Data Warehouse), a RESTful
-API, and a web-based application (Portal). Its web graphical user
-interface provides rich set of tools to expose various statistics with
-different type of charts and tables while communication through a
-RESTful API ~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}.
-\hyungro{identify duplicated refeneces and remove them, remember to
-  use vonLazewski refs from the vonLaszewski-jabref.bib file}
- 
+components: a metrics repository (e.g. a Data Warehouse), a RESTful API, and a
+web-based application (Portal).  Its web graphical user interface provides rich
+set of tools to expose various statistics with different type of charts and
+tables while communication through a RESTful API
+~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}.
 
 \subsubsection{Nagios}
 
-Nagios \cite{??} is a web based Linux monitoring systems allowing to monitor
-availability and response time of network services, usage of system
+Nagios \cite{barth2008nagios} is a web based Linux monitoring systems allowing
+to monitor availability and response time of network services, usage of system
 resources like CPU load, RAM allocation etc., number of logged in
 users and so on. The main Nagios server collects information from
 Linux, BSD, Windows hosts or Cisco devices through Nagios clients
@@ -1562,19 +1565,18 @@ usage.
 
 \subsubsection{Cacti}
 
-Cacti is a network monitoring tool using the simple network management
-protocol (SNMP). It is similar to other tools such as Nagios \cite{??} and
-Ganglia. It uses RRDtool \cite{??}  as a DBMS to provide a round robin
-visualization of the monitored information. Since it supports polling,
-monitoring data via shell scripts, php, or c-based executable is
-possible. t can be extended to measure other resources besides network
-traffic.
+Cacti is a network monitoring tool using the simple network management protocol
+(SNMP). It is similar to other tools such as Nagios \cite{barth2008nagios} and
+Ganglia. It uses RRDtool \cite{oetiker2005rrdtool}  as a DBMS to provide a
+round robin visualization of the monitored information. Since it supports
+polling, monitoring data via shell scripts, php, or c-based executable is
+possible. t can be extended to measure other resources besides network traffic.
 
 \subsubsection{Zabbix}
 
 Zabbix is an open source monitoring service for networks and servers
 while accessing information via a number of standard protocols such as
-SNMP \cite{??}, IPMI \cite{??}, TCP, \cite{??} and JMX \cite{??}. The
+SNMP \cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{??} and JMX \cite{??}. The
 centralized server of Zabbix collects monitoring data through several
 Zabbix agents installed on desirable hosts and other servers. The
 information is store in a database and displayed through a web
