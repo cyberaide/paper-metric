@@ -725,10 +725,55 @@ evaluate the effectiveness of such infrastructures.
 \end{figure*} 
 \end{comment}
 
-\subsection{Impact}
+\subsection{Scientific Impact}
 
-\gregor{add section about impact}
-\cite{las14Impact,las15xsede,las15cluster}
+Another set of metrics are concerning the scientific impact of using a cloud resource. We 
+have been working on processes and methods to evaluate a scientific computing facility 
+while using XSEDE as the original study object and extending to other similar facilities 
+such as NCAR and bluewater \cite{las14Impact,las15xsede,las15cluster}. Table 
+\ref{T:SIMmetrics} lists the general metrics related to the impact of scientific works.
+
+\begin{table*}[htb]
+\caption{Metrics related to scientific impact evaluation}
+\begin{scriptsize}
+\label{T:SIMmetrics}
+\bigskip
+\begin{center}
+\begin{tabular}{p{0.2\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
+Name & Description & Motivation \\
+\hline
+Publication Count &
+Measuring how many publications are attributed as output while using the cloud 
+resource &
+This measures the general productivity \\
+\hline 
+Citation Count &
+Measuring how many citations has been received as of the measuring time point &
+This shows how the output really impacts the scientific community while the 
+publications are being cited \\
+\hline
+H-index, G-index &
+While treating the evaluated entity as if it were a person, using the h-index and 
+g-index that were originally defined for a person &
+This measures both productivity and the generated impact \\
+\hline
+\end{tabular}
+\end{center}
+\end{scriptsize}
+\end{table*}
+
+While evaluating a research computing facility, in this context, a cloud resource 
+provider, based on how the accounting and auditing framework had been setup, as well as
+the mechanism of gathering publications as output of using the cloud, different metrics
+could be derived based on the general ones listed above in table \ref{T:SIMmetrics}.
+E.g., if we have user and group/project units in the accounting system, and the 
+publications are gathered and vetted also with user/group/project information, we could
+derive the same metrics for each user, group/project, and compare their performance.
+These metrics could be calculated for a cloud resource provider as a whole entity, 
+and the same metrics could be compared among different cloud resource provider. Based on
+other related data, e.g. the resource had been consumed, we could derive and compare
+the same metrics but in a normalized fashion - Publication count and/or citation count
+per M(K) CpuHours as an example.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRICS} \label{S:metrics}
