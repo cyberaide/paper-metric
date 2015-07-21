@@ -325,40 +325,18 @@ commercial offerings as demonstrated by Amazon High Performance
 Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with
 additional examples provided in~\cite{DouglasEadline}.
 
-% How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
-\begin{small}
-\begin{tikzpicture}[grow'=right,level distance=1.25in,sibling distance=.25in]
-\tikzset{edge from parent/.style= 
-            {thick, draw, edge from parent fork right},
-         every tree node/.style=
-            {draw,minimum width=1in,text width=1in,align=center}}
-\Tree 
-    [. parent 
-        [.{nice child0}
-                [.{grandchild0-0 } ]
-            [.{grandchild0-1 } ]
-            [.{grandchild0-2 } ]
-            [.{grandchild0-3 } ]
-        ]
-        [.child1
-                [.{grandchild1-0 } ]
-            [.{grandchild1-1 } ]
-            [.{grandchild1-2 } ]
-        ] 
-        [.child2 ]
-        [.child3 ]
-    ]
-\end{tikzpicture}
-\end{small}
-
-%\digraph[scale=0.5]{abc}{rankdir=LR; a->b->c;}
-
-\begin{dot2tex}[neato,mathmode]
+\begin{dot2tex}
 digraph G {
-node [shape="circle"];
-a_1 -> a_2 -> a_3 -> a_4 -> a_1;
+  splines=ortho
+  rankdir="LR";
+  ranksep=0.01;
+  nodesep=0.01;  
+node [shape="none"];
+user -> "IT Personal" -> a
+user -> Funder
 }
 \end{dot2tex}
+
 \subsection{Cloud Metrics}
 
 One of the important aspects to a successfully operational cloud is
