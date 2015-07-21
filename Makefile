@@ -1,7 +1,7 @@
 FILE=vonLaszewski-metric
 
 all:
-	pdflatex ${FILE}
+	pdflatex --shell-escape ${FILE}
 	bibtex ${FILE}
 	pdflatex ${FILE}
 	pdflatex ${FILE}
@@ -19,7 +19,7 @@ fast:
 	latexmk -pdf ${FILE}
 
 watch:
-	latexmk -pvc -view=pdf ${FILE}
+	latexmk -shell-escape -pvc -view=pdf ${FILE}
 
 .PHONY: all clean view fast watch
 

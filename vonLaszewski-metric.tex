@@ -47,7 +47,9 @@
 
 \usepackage{tikz}
 \usepackage{tikz-qtree}
-\usetikzlibrary{trees} 
+\usetikzlibrary{trees,shapes,arrows}
+\usepackage{dot2texi}
+\usepackage{graphviz}
 
 \newcommand*\rot{\rotatebox{90}} 
  
@@ -349,7 +351,14 @@ additional examples provided in~\cite{DouglasEadline}.
 \end{tikzpicture}
 \end{small}
 
+%\digraph[scale=0.5]{abc}{rankdir=LR; a->b->c;}
 
+\begin{dot2tex}[neato,mathmode]
+digraph G {
+node [shape="circle"];
+a_1 -> a_2 -> a_3 -> a_4 -> a_1;
+}
+\end{dot2tex}
 \subsection{Cloud Metrics}
 
 One of the important aspects to a successfully operational cloud is
