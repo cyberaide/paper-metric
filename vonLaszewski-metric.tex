@@ -15,6 +15,16 @@
 
 \newcommand{\AUTHOR}{ Gregor von Laszewski, Hyungro Lee, Fugang Wang} 
 
+%\iCHART \HS
+%\iCHARTS \HS
+%\iDISPLAY \HS
+%\iTABLE \HS
+%\iSTAT \HS
+%\iCHARTS \HS
+%\iFILE \HS
+%\iFILES \HS
+%\iCLUSTER \HS
+
 
 
 %\begin{forest} 
@@ -200,16 +210,6 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \toappear{} 
 \maketitle 
 \begin{abstract} 
-\iCHART \HS
-\iCHARTS \HS
-\iDISPLAY \HS
-\iTABLE \HS
-\iSTAT \HS
-\iCHARTS \HS
-\iFILE \HS
-\iFILES \HS
-\iCLUSTER \HS
-
 Cloud computing has established itself as one of the key components in
 modern datacenters. This includes academic, government, and for profit
 institutions and organizations. One of the important aspects to a
@@ -517,37 +517,13 @@ ethnicity and classification into scientific disciplines are of great
 value for center directors and Funders, while they play no importance
 to the operational metrics to keep the system running.
  
-
-  \begin{forest}
-%for tree={
-%    edge path={\noexpand\path[\forestoption{edge}] (\forestOve{\forestove{@parent}}{name}.parent anchor) -- +(0,-12pt)-| %(\forestove{name}.child anchor)\forestoption{edge label};}
-%}
-    for tree={grow'=east, child anchor=west, anchor=base
-     west, tier/.pgfmath=level()}
-    [Root,
-    [C1
-    [GC1Long [GGC1][GGC2]]
-    [GC2 [GGC1][GGC2Long]]
-    ]
-    [C2Long,
-    [GC1 [GGC1][GGC2]]
-    [GC2]
-    ]
-    [C3VeryLong
-    [GC1][GC2]
-    ]
-    ]
-  \end{forest}
-
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-
-
- \begin{forest}
-    for tree={grow'=east, child anchor=west, anchor=base
-     west, tier/.pgfmath=level()}
-%\bTREE
+% \begin{forest}
+%    for tree={grow'=east, child anchor=west, anchor=base
+%     west, tier/.pgfmath=level()}
+\bTREE
      [. Stakeholder
         [. Funder [.User ]
 	   	  [.Project ]
@@ -573,8 +549,8 @@ to the operational metrics to keep the system running.
         ]
 	[.{Sponsored User} ]
    ]
-%\eTREE
-\end{forest}
+\eTREE
+%\end{forest}
 \end{tiny}
 \end{center}
 \vspace{-24pt}
@@ -592,18 +568,42 @@ to the operational metrics to keep the system running.
      [. Access
         [. API ]
 	[. REST ]
-	[. command 
+	[. Command 
             [. line ]
             [. shell ]
         ]
-	[. portal ]
+	[. Portal ]
    ]
 \eTREE
 \end{tiny}
 \end{center}
 \vspace{-12pt}
-\caption{Cloud metric stakeholders}
+\caption{Cloud metric Access}
  \end{figure}
+
+
+\subsection{Security}
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\bTREE
+     [. Security
+        [. {Access control} ]
+	[. Privacy ]
+	[. Encryption ] 
+	[. Obfuscation ]
+	[. {Intrusion detection} ]
+	[. {Identity management} ]
+	[. {Application security} ]
+   ]
+\eTREE
+\end{tiny}
+\end{center}
+\vspace{-12pt}
+\caption{Cloud metric Access}
+ \end{figure}
+
 
 \subsection{Type}
 
@@ -613,20 +613,23 @@ to the operational metrics to keep the system running.
 \bTREE
      [. Type
         [. {\iFILES ~ Report} ]
+        [. {\iDISPLAY ~ Interactive} ]
+        [. {\iCLUSTER ~ Mashup} ]
+   ]
+\eTREE
+...
+\bTREE
 	[. {Chart} 
             [. {\iCHART ~ Pie} ]
             [. {\iTABLE ~ Table} ]
             [. {\iSTAT ~ Line} ]
             [. {\iCHARTS ~ Histogram} ]
         ]
-        [. {\iDISPLAY ~ Interactive} ]
-        [. {\iCLUSTER ~ Mashup} ]
-   ]
 \eTREE
 \end{tiny}
 \end{center}
 \vspace{-12pt}
-\caption{Cloud metric stakeholders}
+\caption{Cloud metric presentation types}
  \end{figure}
 
 \subsection{Motivation}
@@ -2660,3 +2663,28 @@ digraph Orthogonal {
    ]
 \end{tikzpicture}
 \end{small}
+
+
+\begin{comment}
+  \begin{forest}
+%for tree={
+%    edge path={\noexpand\path[\forestoption{edge}] (\forestOve{\forestove{@parent}}{name}.parent anchor) -- +(0,-12pt)-| %(\forestove{name}.child anchor)\forestoption{edge label};}
+%}
+    for tree={grow'=east, child anchor=west, anchor=base
+     west, tier/.pgfmath=level()}
+    [Root,
+    [C1
+    [GC1Long [GGC1][GGC2]]
+    [GC2 [GGC1][GGC2Long]]
+    ]
+    [C2Long,
+    [GC1 [GGC1][GGC2]]
+    [GC2]
+    ]
+    [C3VeryLong
+    [GC1][GC2]
+    ]
+    ]
+  \end{forest}
+
+\end{comment}
