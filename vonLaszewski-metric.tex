@@ -1496,17 +1496,16 @@ do not have the SCOM console.
 
 \paragraph{Amazon CloudWatch}
 
-Amazon CloudWatch (ACW) \cite{??} monitors Amazon Web Services (AWS)
-resources and the applications users run on AWS in real-time. ACW is a
-metrics repository. The AWS products ingest metrics into the
-repository, and users retrieve statistics based on those metrics. 
-Metrics are
-time-ordered sets of data points, are isolated from one another in
-different namespaces so that metrics from different applications are
-not mistakenly aggregated into the same statistics. Users retrieve
-statistics about those data points as an ordered set of time-series
-data. Over the time value is important for metrics since it contains
-historical changes in it. An API is provided to interface programmatically.
+Amazon CloudWatch (ACW) \cite{cloudwatch2013monitoring} monitors Amazon Web
+Services (AWS) resources and the applications users run on AWS in real-time.
+ACW is a metrics repository. The AWS products ingest metrics into the
+repository, and users retrieve statistics based on those metrics.  Metrics are
+time-ordered sets of data points, are isolated from one another in different
+namespaces so that metrics from different applications are not mistakenly
+aggregated into the same statistics. Users retrieve statistics about those data
+points as an ordered set of time-series data. Over the time value is important
+for metrics since it contains historical changes in it. An API is provided to
+interface programmatically.
 
 CloudWatch allows notification to alert users and auto scaling
 (automatically make changes) to the resources you are monitoring based
@@ -1592,31 +1591,29 @@ possible. t can be extended to measure other resources besides network traffic.
 
 \subsubsection{Zabbix}
 
-Zabbix is an open source monitoring service for networks and servers
-while accessing information via a number of standard protocols such as
-SNMP \cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{??} and JMX \cite{perry2002java}. The
-centralized server of Zabbix collects monitoring data through several
-Zabbix agents installed on desirable hosts and other servers. The
-information is store in a database and displayed through a web
-interface that can create reports on-demand. The agents To support
-cloud monitoring, Zabbix active agent auto-registration enables
-monitoring cloud instances on IaaS such as Amazon Web services, and
-OpenStack.
+Zabbix is an open source monitoring service for networks and servers while
+accessing information via a number of standard protocols such as SNMP
+\cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{cerf2005protocol}
+and JMX \cite{perry2002java}. The centralized server of Zabbix collects
+monitoring data through several Zabbix agents installed on desirable hosts and
+other servers. The information is store in a database and displayed through a
+web interface that can create reports on-demand. The agents To support cloud
+monitoring, Zabbix active agent auto-registration enables monitoring cloud
+instances on IaaS such as Amazon Web services, and OpenStack.
 
 \subsubsection{Zenoss}
 
-Zenoss (Zenoss Core) provides a unified resource management service
-which manages applications, networks, servers, and storage. It allows
-to monitor physical or virtual systems including the public, private
-and hybrid clouds. It is built on top of the Zope object-oriented web
-application server, and using RRDtool with MySQ. It can collect
-information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss
-provides additional features with other monitoring mechanisms such as
-Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise
-version. A key feature of Zenoss is model-driven monitoring allowing
-to automatically discover, configure and monitor services. As a
-communication tool, Zenoss utilizes the Twisted Perspective Broker
-(PB) \cite{?} instead of AMQP typed messaging system such as
+Zenoss (Zenoss Core) provides a unified resource management service which
+manages applications, networks, servers, and storage. It allows to monitor
+physical or virtual systems including the public, private and hybrid clouds. It
+is built on top of the Zope object-oriented web application server, and using
+RRDtool with MySQ. It can collect information using SNMP, SSH, WMI and log
+files e.g. syslog. Zenoss provides additional features with other monitoring
+mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise
+version. A key feature of Zenoss is model-driven monitoring allowing to
+automatically discover, configure and monitor services. As a communication
+tool, Zenoss utilizes the Twisted Perspective Broker (PB)
+\cite{PerspectiveBroker} instead of AMQP typed messaging system such as
 RabbitMQ. PB is an an asynchronous, event-driven with co-operative
 multi-tasking which is a deferred object.
 
@@ -1665,25 +1662,23 @@ users. However, Gold is no longer supported by the developers.
 \section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}\label{S:cloudmesh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Cloudmesh Metrics extends our cloudmesh framework \cite{??} by
-integrating a metrics framework for monitoring essential IaaS
-metrics. It can handle handling multiple heterogeneous cloud
-platforms, to provide measurement of usage data about cloud resources.
-It collects usage data directly from various cloud management services
-and integrates them into a single report. This framework was
-extensively used in FutureGrid~\cite{las2010gce,las12fg-bookchapter} and its use
-is continued in FutureSystaems \cite{??}. It has served as integrator
-to three different IaaS frameworks, namely, Eucalyptus, OpenStack, and
-Nimbus. It has served to provide integrated information of at least
-eight different cloud deployments on various hosts in FutureGrid and
-FutureSystems.  The native usage data from different clouds are
-integrated into the Metrics database. Analysis of this data can be
-integrated into different report formats including PDF, and HTML. An
-API and a command line interface is available to customize reports
-while exposing them also through a REST interface. A Web interface
-provides a number of predesigned reports. Interactivity to min the
-graphs~\cite{highsoft2012highcharts} is provided through java script
-enabled charts or tables.
+Cloudmesh Metrics extends our cloudmesh framework \cite{las14cloudmeshmultiple}
+by integrating a metrics framework for monitoring essential IaaS metrics. It
+can handle handling multiple heterogeneous cloud platforms, to provide
+measurement of usage data about cloud resources.  It collects usage data
+directly from various cloud management services and integrates them into a
+single report. This framework was extensively used in
+FutureGrid~\cite{las2010gce,las12fg-bookchapter} and its use is continued in
+FutureSystems \cite{??}. It has served as integrator to three different IaaS
+frameworks, namely, Eucalyptus, OpenStack, and Nimbus. It has served to provide
+integrated information of at least eight different cloud deployments on various
+hosts in FutureGrid and FutureSystems.  The native usage data from different
+clouds are integrated into the Metrics database. Analysis of this data can be
+integrated into different report formats including PDF, and HTML. An API and a
+command line interface is available to customize reports while exposing them
+also through a REST interface. A Web interface provides a number of predesigned
+reports. Interactivity to min the graphs~\cite{highsoft2012highcharts} is
+provided through java script enabled charts or tables.
 
 \subsection{Design}
 
@@ -1918,7 +1913,7 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{KevinFogarty}
 \cite{SharonWagner}
 \cite{MarcusSarmento}
-\cite{awscloudwatch}
+\cite{cloudwatch2013monitoring}
 \cite{RobBoucher}
 \cite{GregorBeslic}
 \cite{aceto2013cloud}
