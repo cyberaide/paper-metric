@@ -45,6 +45,10 @@
 %\usepackage{pdflscape}
 \usepackage{xtab}
 
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usetikzlibrary{trees} 
+
 \newcommand*\rot{\rotatebox{90}} 
  
 %\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
@@ -163,27 +167,31 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \iFILES \HS
 \iCLUSTER \HS
 
-  Cloud computing has established itself as one of the key components
-  in modern datacenters. This includes academic, government, and for
-  profit institutions and organizations. One of the important aspects
-  to a successfully operational cloud is the availability of
-  sophisticated metric information and frameworks to assure a number
-  of key operational factors. We provide an overview of the different
-  aspects that are shaping the need for cloud metrics.  We especially
-  identify the needs for cloud metrics and monitoring solutions for
-  various user communities that are an important aspect for cloud
-  providers. The motivation for cloud metrics are shaped by
-  application users, administrators, service providers and funders.
-  Metrics include usage, failure and auditing data to identify user
-  and system behavior. Many of the metrics presented here have been
-  used as part of the FutureGrid and FutureSystems clouds. This
-  includes also the unified metrics service framework allowing
-  integration of metrics from heterogeneous clouds such as OpenStack,
-  Eucalyptus and Nimbus. Additionally, we see the importance of
-  metrics also in higher level platform as a services delivered
-  through the various user communities. Thus it is important to
-  identify common features of existing and future services that
-  benefit from metrics and their exposure to its users.
+Cloud computing has established itself as one of the key components in
+modern datacenters. This includes academic, government, and for profit
+institutions and organizations. One of the important aspects to a
+successfully operate and utilize clouds is the availability of
+sophisticated metric information and frameworks to assure a number of
+key operational factors are met. We provide an overview of the
+different aspects that are shaping the need for cloud metrics.  We
+especially identify the needs for cloud metrics and monitoring
+solutions for various user communities that are an important aspect
+for academic cloud providers. The motivation for academic cloud
+metrics are shaped by application users, administrators, academic and
+commercial service providers and funders.  Metrics include usage,
+failure and auditing data to identify user and system behavior. The
+information needs to be gathered as a mashup and exposed conveniently
+to the users as API, command tools, and a portal with charting
+capability, as well as periodically generated customizable
+reports. Many of the metrics presented here have been used as part of
+the FutureGrid and FutureSystems clouds. This includes also the
+unified metrics service framework allowing integration of metrics from
+heterogeneous clouds such as OpenStack, Eucalyptus and
+Nimbus. Additionally, we see the importance of metrics also in higher
+level platform as a services delivered through the various user
+communities. Thus it is important to identify common features of
+existing and future services that benefit from metrics and their
+exposure to its users.
 
 
 
@@ -316,9 +324,30 @@ Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with
 additional examples provided in~\cite{DouglasEadline}.
 
 % How Cost Efficient is HPC in the Cloud?~\cite{WolfgangGentzsch}
-
-
-
+\begin{small}
+\begin{tikzpicture}[grow'=right,level distance=1.25in,sibling distance=.25in]
+\tikzset{edge from parent/.style= 
+            {thick, draw, edge from parent fork right},
+         every tree node/.style=
+            {draw,minimum width=1in,text width=1in,align=center}}
+\Tree 
+    [. parent 
+        [.{nice child0}
+                [.{grandchild0-0 } ]
+            [.{grandchild0-1 } ]
+            [.{grandchild0-2 } ]
+            [.{grandchild0-3 } ]
+        ]
+        [.child1
+                [.{grandchild1-0 } ]
+            [.{grandchild1-1 } ]
+            [.{grandchild1-2 } ]
+        ] 
+        [.child2 ]
+        [.child3 ]
+    ]
+\end{tikzpicture}
+\end{small}
 
 
 \subsection{Cloud Metrics}
@@ -449,7 +478,7 @@ considered. We are summarizing these influential aspects in Figure
 \begin{figure}[h!] 
   \centering 
     \includegraphics[width=1.0\columnwidth]{images/cloudmetric.pdf} 
-  \caption{Overview of CloudMetrics}\label{F:taxonomy-1} 
+  \caption{Overview of cloud metric factors}\label{F:taxonomy-1} 
 \end{figure} 
 
 \subsection{Stakeholder}
@@ -636,11 +665,11 @@ academic users will have a potential impact on the definition of Metrics:
 
 \item[\it MRIs.] According to the NSF web pages, the `Major Research
   Instrumentation Program (MRI) ~\cite{nsf-mri}  catalyzes new knowledge and
-  discoveries by empowering the Nation?s scientists and engineers with
+  discoveries by empowering the Nation's scientists and engineers with
   state-of-the-art research instrumentation. The MRI Program enables
   research-intensive learning environments that promote the
   development of a diverse workforce and next generation
-  instrumentation, as well as facilitates academic/private sector
+  instrumentation, as well as facilitates academic and private sector
   partnerships.'' Some of the MRI funding supports significant
   computational resources offered to a particular user community. In
   such cases it would be beneficial if the metrics and services
