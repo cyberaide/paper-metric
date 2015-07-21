@@ -830,13 +830,13 @@ Measuring how many citations has been received as of the measuring time point &
 shows how the output really impacts the scientific community while the 
 publications are being cited \\
 \hline
-H-index (person) \cite{??} &
+H-index (person) \cite{hirsch2005index} &
 A person has index $h$ if $h$ of his/her $N_p$ papers have at least h
                    citations each, and the other $(N_p − h)$ papers have
                    no more than $h$ citations each. &
  measures both productivity and the generated impact \\
 \hline
-G-index (person) \cite{??} &
+G-index (person) \cite{egghe2006theory} &
 Given a set of articles ranked in decreasing order of the number of citations that they received, the $g$-index is the (unique) largest number such that the top $g$ articles received (together) at least $g^2$ citations.&
 depends on the full citation count of very highly cited papers\\
 \hline
@@ -849,6 +849,14 @@ G-index (entity)&
 While treating the evaluated entity as if it were a person, using 
 g-index that were originally defined for a person &
 measures both productivity and the generated impact \\
+\hline
+i10-index \cite{www-i10index} &
+Number of publications cited as least 10 times &
+How many publications have achieved a certain level of impact (based on citation count) \\
+\hline
+ptrank-citation &
+Percentile rank of citation count among peers &
+To compare the studied entity's relative impact with the peers. The peers are identifie as publicatons that were published in same issue of the same journal for a publication that belongs to the studied entity (e.g., a journal, a Field of Science, the whole system, etc.) \\
 \hline
 \end{tabular}
 \end{center}
@@ -1537,17 +1545,16 @@ do not have the SCOM console.
 
 \paragraph{Amazon CloudWatch}
 
-Amazon CloudWatch (ACW) \cite{??} monitors Amazon Web Services (AWS)
-resources and the applications users run on AWS in real-time. ACW is a
-metrics repository. The AWS products ingest metrics into the
-repository, and users retrieve statistics based on those metrics. 
-Metrics are
-time-ordered sets of data points, are isolated from one another in
-different namespaces so that metrics from different applications are
-not mistakenly aggregated into the same statistics. Users retrieve
-statistics about those data points as an ordered set of time-series
-data. Over the time value is important for metrics since it contains
-historical changes in it. An API is provided to interface programmatically.
+Amazon CloudWatch (ACW) \cite{cloudwatch2013monitoring} monitors Amazon Web
+Services (AWS) resources and the applications users run on AWS in real-time.
+ACW is a metrics repository. The AWS products ingest metrics into the
+repository, and users retrieve statistics based on those metrics.  Metrics are
+time-ordered sets of data points, are isolated from one another in different
+namespaces so that metrics from different applications are not mistakenly
+aggregated into the same statistics. Users retrieve statistics about those data
+points as an ordered set of time-series data. Over the time value is important
+for metrics since it contains historical changes in it. An API is provided to
+interface programmatically.
 
 CloudWatch allows notification to alert users and auto scaling
 (automatically make changes) to the resources you are monitoring based
@@ -1633,31 +1640,29 @@ possible. t can be extended to measure other resources besides network traffic.
 
 \subsubsection{Zabbix}
 
-Zabbix is an open source monitoring service for networks and servers
-while accessing information via a number of standard protocols such as
-SNMP \cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{??} and JMX \cite{perry2002java}. The
-centralized server of Zabbix collects monitoring data through several
-Zabbix agents installed on desirable hosts and other servers. The
-information is store in a database and displayed through a web
-interface that can create reports on-demand. The agents To support
-cloud monitoring, Zabbix active agent auto-registration enables
-monitoring cloud instances on IaaS such as Amazon Web services, and
-OpenStack.
+Zabbix is an open source monitoring service for networks and servers while
+accessing information via a number of standard protocols such as SNMP
+\cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{cerf2005protocol}
+and JMX \cite{perry2002java}. The centralized server of Zabbix collects
+monitoring data through several Zabbix agents installed on desirable hosts and
+other servers. The information is store in a database and displayed through a
+web interface that can create reports on-demand. The agents To support cloud
+monitoring, Zabbix active agent auto-registration enables monitoring cloud
+instances on IaaS such as Amazon Web services, and OpenStack.
 
 \subsubsection{Zenoss}
 
-Zenoss (Zenoss Core) provides a unified resource management service
-which manages applications, networks, servers, and storage. It allows
-to monitor physical or virtual systems including the public, private
-and hybrid clouds. It is built on top of the Zope object-oriented web
-application server, and using RRDtool with MySQ. It can collect
-information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss
-provides additional features with other monitoring mechanisms such as
-Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise
-version. A key feature of Zenoss is model-driven monitoring allowing
-to automatically discover, configure and monitor services. As a
-communication tool, Zenoss utilizes the Twisted Perspective Broker
-(PB) \cite{?} instead of AMQP typed messaging system such as
+Zenoss (Zenoss Core) provides a unified resource management service which
+manages applications, networks, servers, and storage. It allows to monitor
+physical or virtual systems including the public, private and hybrid clouds. It
+is built on top of the Zope object-oriented web application server, and using
+RRDtool with MySQ. It can collect information using SNMP, SSH, WMI and log
+files e.g. syslog. Zenoss provides additional features with other monitoring
+mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise
+version. A key feature of Zenoss is model-driven monitoring allowing to
+automatically discover, configure and monitor services. As a communication
+tool, Zenoss utilizes the Twisted Perspective Broker (PB)
+\cite{PerspectiveBroker} instead of AMQP typed messaging system such as
 RabbitMQ. PB is an an asynchronous, event-driven with co-operative
 multi-tasking which is a deferred object.
 
@@ -1706,25 +1711,23 @@ users. However, Gold is no longer supported by the developers.
 \section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}\label{S:cloudmesh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Cloudmesh Metrics extends our cloudmesh framework \cite{??} by
-integrating a metrics framework for monitoring essential IaaS
-metrics. It can handle handling multiple heterogeneous cloud
-platforms, to provide measurement of usage data about cloud resources.
-It collects usage data directly from various cloud management services
-and integrates them into a single report. This framework was
-extensively used in FutureGrid~\cite{las2010gce,las12fg-bookchapter} and its use
-is continued in FutureSystaems \cite{??}. It has served as integrator
-to three different IaaS frameworks, namely, Eucalyptus, OpenStack, and
-Nimbus. It has served to provide integrated information of at least
-eight different cloud deployments on various hosts in FutureGrid and
-FutureSystems.  The native usage data from different clouds are
-integrated into the Metrics database. Analysis of this data can be
-integrated into different report formats including PDF, and HTML. An
-API and a command line interface is available to customize reports
-while exposing them also through a REST interface. A Web interface
-provides a number of predesigned reports. Interactivity to min the
-graphs~\cite{highsoft2012highcharts} is provided through java script
-enabled charts or tables.
+Cloudmesh Metrics extends our cloudmesh framework \cite{las14cloudmeshmultiple}
+by integrating a metrics framework for monitoring essential IaaS metrics. It
+can handle handling multiple heterogeneous cloud platforms, to provide
+measurement of usage data about cloud resources.  It collects usage data
+directly from various cloud management services and integrates them into a
+single report. This framework was extensively used in
+FutureGrid~\cite{las2010gce,las12fg-bookchapter} and its use is continued in
+FutureSystems \cite{??}. It has served as integrator to three different IaaS
+frameworks, namely, Eucalyptus, OpenStack, and Nimbus. It has served to provide
+integrated information of at least eight different cloud deployments on various
+hosts in FutureGrid and FutureSystems.  The native usage data from different
+clouds are integrated into the Metrics database. Analysis of this data can be
+integrated into different report formats including PDF, and HTML. An API and a
+command line interface is available to customize reports while exposing them
+also through a REST interface. A Web interface provides a number of predesigned
+reports. Interactivity to min the graphs~\cite{highsoft2012highcharts} is
+provided through java script enabled charts or tables.
 
 \subsection{Design}
 
@@ -1959,7 +1962,7 @@ Design of a Dynamic Provisioning System for a Federated Cloud and Bare-metal Env
 \cite{KevinFogarty}
 \cite{SharonWagner}
 \cite{MarcusSarmento}
-\cite{awscloudwatch}
+\cite{cloudwatch2013monitoring}
 \cite{RobBoucher}
 \cite{GregorBeslic}
 \cite{aceto2013cloud}
@@ -2015,7 +2018,8 @@ This material based upon work is partially supported in part by the National Sci
 \begin{scriptsize} 
 \bibliographystyle{IEEEtranS} 
 %\bibliographystyle{abbrv} 
-\bibliography{% 
+\bibliography{%
+bib/tas-dedup,%
 bib/vonLaszewski-jabref,% 
 bib/cyberaide-metric,%
 bib/cyberaide-cloud,%
@@ -2026,6 +2030,213 @@ metric-new}
 %bib/python,% 
 %tas.bib%
  
+\begin{table}[htb]
+  \caption{1st Category in XDMoD}
+\begin{scriptsize}
+\label{T:xdmod}
+ \begin{tabular}{l|l|l} 
+HPC Category & Compatibility with IaaS & Description\\
+\hline
+Job & VM & TBD \\
+Allocations & Project(Tenant) & A funded project that is allowed to run jobs on resources \\
+Accounts & Accounts & TBD \\
+Requests & Requests & The number of service registration \\
+Performance & Performance & TBD \\
+SUPREMM & - & TBD \\
+\hline
+\end{tabular}\\
+\end{scriptsize}
+\end{table}
+
+
+
+\begin{table}[htb]
+  \caption{2nd Category in XDMoD}
+\begin{scriptsize}
+\label{T:xdmod2}
+ \begin{tabular}{l|l|l} 
+Metric & Compatibility with IaaS & Description \\
+\hline
+Allocation Usage Rate & TBD & The rate of XSEDE allocation usage in XD SUs per hour \\
+CPU Hours: Per Job  & vCPU Hours: Per VM & TBD \\
+CPU Hours: Total  & TBD & TBD \\
+Job Size: Max  & VM Size: xlarge & TBD \\
+Job Size: Min  & VM Size: micro & TBD \\
+Job Size: Normalized  & TBD & TBD \\
+Job Size: Per Job  & TBD & TBD \\
+Job Size: Weighted By XD SUs  & TBD & TBD \\
+NUs Charged: Per Job  & TBD & TBD \\
+NUs Charged: Total  & TBD & TBD \\
+Node Hours: Per Job  & TBD & TBD \\
+Node Hours: Total  & TBD & TBD \\
+Number of Allocations: Active  & TBD & TBD \\
+Number of Institutions: Active  & TBD & TBD \\
+Number of Jobs Ended  & Number of VMs Terminated & TBD \\
+Number of Jobs Running  & TBD & TBD \\
+Number of Jobs Started  & TBD & TBD \\
+Number of Jobs Submitted  & TBD & TBD \\
+Number of Jobs via Gateway  & TBD & TBD \\
+Number of PIs: Active  & TBD & TBD \\
+Number of Resources: Active  & TBD & TBD \\
+Number of Users: Active  & TBD & TBD \\
+User Expansion Factor  & TBD & TBD \\
+Wait Hours: Per Job  & no wait & TBD \\
+Wait Hours: Total  & TBD & TBD \\
+Wall Hours: Per Job  & Running Hours: Per VM & TBD \\
+Wall Hours: Total  & TBD & TBD \\
+XD SUs Charged: Per Job  & TBD & TBD \\
+XD SUs Charged: Total  & TBD & TBD \\
+XSEDE Utilization  & TBD & TBD \\
+\hline
+\end{tabular}\\
+\end{scriptsize}
+\end{table}
+
+
+\begin{table}[htb]
+  \caption{2nd Category II in XDMoD}
+\begin{scriptsize}
+\label{T:xdmod22}
+ \begin{tabular}{l|l} 
+Metric & Description \\
+\hline
+Number of User Accounts: Closed & TBD \\
+Number of User Accounts: Created & TBD \\
+Number of User Accounts: Open & TBD \\
+\hline
+\end{tabular}\\
+\end{scriptsize}
+\end{table}
+
+\clearpage
+
+
+
+\begin{table}[htb]
+  \caption{2nd Category III in XDMoD}
+\begin{scriptsize}
+\label{T:xdmod23}
+ \begin{tabular}{l|l} 
+Metric & Description \\
+\hline
+Avg IO Performance & TBD \\
+Avg Memory Performance & TBD \\
+Avg Network Performance & TBD \\
+Avg System Performance & TBD \\
+CPU:Graph500 - Performance & TBD \\
+CPU:OSJitter - Inv Mean Noise & TBD \\
+CPUIO:NWCHEM - Performance & TBD \\
+CPUNET:HPCC - DGEMM & TBD \\
+CPUNET:HPCC - FFTW & TBD \\
+CPUNET:HPCC - LINPACK & TBD \\
+CPUNET:NPB - BT & TBD \\
+CPUNET:NPB - CG & TBD \\
+CPUNET:NPB - FT & TBD \\
+CPUNET:NPB - LU & TBD \\
+CPUNET:NPB - MG & TBD \\
+CPUNET:NPB - SP & TBD \\
+IO:IOR - MPIIO Col Read & TBD \\
+IO:IOR - MPIIO Col Write & TBD \\
+IO:IOR - MPIIO Ind Read & TBD \\
+IO:IOR - MPIIO Ind Write & TBD \\
+IONET:MPI-Tile-IO - 3D Col Read & TBD \\
+IONET:MPI-Tile-IO - 3D Col Write & TBD \\
+Mem:HPCC - Bandwidth & TBD \\
+Net:Graph500 - TEPS & TBD \\
+Net:HPCC - MPI Random Access & TBD \\
+Net:HPCC - PTRANS & TBD \\
+\hline
+\end{tabular}\\
+\end{scriptsize}
+\end{table}
+
+\begin{table}[htb]
+  \caption{2nd Category IV in XDMoD}
+\begin{scriptsize}
+\label{T:xdmod24}
+ \begin{tabular}{l|l} 
+Metric & Description \\
+\hline
+Avg CPU \%: Idle: weighted by core-hour &  TBD \\
+Avg CPU \%: System: weighted by core-hour &  TBD \\
+Avg CPU \%: User: weighted by core-hour &  TBD \\
+Avg: /home write rate: Per Node weighted by node-hour &  TBD \\
+Avg: /scratch write rate: Per Node weighted by node-hour &  TBD \\
+Avg: /work write rate: Per Node weighted by node-hour &  TBD \\
+Avg: CPI: Per Core weighted by core-hour &  TBD \\
+Avg: CPLD: Per Core weighted by core-hour &  TBD \\
+Avg: CPU User CV: weighted by core-hour &  TBD \\
+Avg: CPU User Imbalance: weighted by core-hour &  TBD \\
+Avg: FLOPS: Per Core weighted by core-hour &  TBD \\
+Avg: InfiniBand rate: Per Node weighted by node-hour &  TBD \\
+Avg: Memory Bandwidth: Per Core weighted by core-hour &  TBD \\
+Avg: Memory: Per Core weighted by core-hour &  TBD \\
+Avg: Total Memory: Per Core weighted by core-hour &  TBD \\
+Avg: block sda read ops rate: Per Node weighted by node-hour &  TBD \\
+Avg: block sda read rate: Per Node weighted by node-hour &  TBD \\
+Avg: block sda write ops rate: Per Node weighted by node-hour &  TBD \\
+Avg: block sda write rate: Per Node weighted by node-hour &  TBD \\
+Avg: eth0 receive rate: Per Node weighted by node-hour &  TBD \\
+Avg: eth0 transmit rate: Per Node weighted by node-hour &  TBD \\
+Avg: ib0 receive rate: Per Node weighted by node-hour &  TBD \\
+Avg: ib0 transmit rate: Per Node weighted by node-hour &  TBD \\
+Avg: lustre receive rate: Per Node weighted by node-hour &  TBD \\
+Avg: lustre transmit rate: Per Node weighted by node-hour &  TBD \\
+Avg: mic0 receive rate: Per Node weighted by node-hour &  TBD \\
+Avg: mic0 transmit rate: Per Node weighted by node-hour &  TBD \\
+Avg: mic1 receive rate: Per Node weighted by node-hour &  TBD \\
+Avg: mic1 transmit rate: Per Node weighted by node-hour &  TBD \\
+CPU Hours: Idle: Total &  TBD \\
+CPU Hours: System: Total &  TBD \\
+CPU Hours: Total &  TBD \\
+CPU Hours: User: Total &  TBD \\
+Number of Jobs Ended &  TBD \\
+Number of Jobs Running &  TBD \\
+Number of Jobs Started &  TBD \\
+Number of Jobs Submitted &  TBD \\
+Wait Hours: Per Job &  TBD \\
+Wait Hours: Total &  TBD \\
+Wall Hours: Per Job &  TBD \\
+Wall Hours: Requested: Per Job &  TBD \\
+Wall Hours: Requested: Total &  TBD \\
+\hline 
+\end{tabular}\\
+\end{scriptsize}
+\end{table}
+
+
+\begin{table}[htb]
+  \caption{Group By in XDMoD}
+\begin{scriptsize}
+\label{T:xdmod3}
+ \begin{tabular}{l|l} 
+Group & Description \\
+\hline
+Summary & TBD \\
+Allocation & TBD \\
+Field of Science & The field of science indicated on the allocation request pertaining to the running job \\
+Gateway & TBD \\
+Grant Type & TBD \\
+Job Size & TBD \\
+Job Wall Time & TBD \\
+Node Count & TBD \\
+NSF Directorate & TBD \\
+Parent Science & TBD \\
+PI & TBD \\
+PI Institution & TBD \\
+Resource & TBD \\
+Resource Type & TBD \\
+Service Provider & TBD \\
+System Username & TBD \\
+User & TBD \\
+User Institution & TBD \\
+User NSF Status & TBD \\
+\hline
+\end{tabular}\\
+\end{scriptsize}
+\end{table}
+
+
 \end{document} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -2099,6 +2310,7 @@ CloudMetrics pursues to provide an integrated accounting service which users and
    $^*$ New users shown in parenthesis
 \end{scriptsize}
  \end{table}
+
 
  In average, FutureGrid accepted more than 100 projects every year, and around 60 to 90 members participated in each project. In table~\ref{T:tab000}, we noticed that more user were getting used both Cloud and HPC over the years instead of only using either Cloud or HPC. It implies that Cloud and HPC together can be beneficial to users.
 
