@@ -17,9 +17,23 @@
 
 
 
+%\begin{forest} 
+% for tree={grow'=east, child anchor=west, anchor=base
+%      west, tier/.pgfmath=level()}
+%[VP
+%[DP] [V’
+%[V]
+%[DP] ]
+%] \end{forest}
+
+
+
+
+
 \newcommand{\bTREE}{
 \begin{tiny}
-\begin{tikzpicture}[grow'=right,level distance=.9in,sibling distance=.0in]
+\begin{tikzpicture}[grow'=right,level distance=.9in,sibling distance=.0in, anchor=west,child anchor=west,
+          ]
 \tikzset{edge from parent/.style= 
            {draw, edge from parent fork right}}
 \Tree
@@ -28,6 +42,7 @@
 \end{tikzpicture}
 \end{tiny}
 }
+
 
 %
 % EXAMPLE
@@ -74,6 +89,8 @@
 \usetikzlibrary{trees,shapes,arrows}
 \usepackage{dot2texi}
 \usepackage{graphviz}
+
+\usepackage{forest}
 
 \newcommand*\rot{\rotatebox{90}} 
  
@@ -218,8 +235,6 @@ level platform as a services delivered through the various user
 communities. Thus it is important to identify common features of
 existing and future services that benefit from metrics and their
 exposure to its users.
-
-
 
   \begin{comment} 
 
@@ -501,11 +516,38 @@ metrics for a center director. On the other hand metrics to identify
 ethnicity and classification into scientific disciplines are of great
 value for center directors and Funders, while they play no importance
 to the operational metrics to keep the system running.
+ 
+
+  \begin{forest}
+%for tree={
+%    edge path={\noexpand\path[\forestoption{edge}] (\forestOve{\forestove{@parent}}{name}.parent anchor) -- +(0,-12pt)-| %(\forestove{name}.child anchor)\forestoption{edge label};}
+%}
+    for tree={grow'=east, child anchor=west, anchor=base
+     west, tier/.pgfmath=level()}
+    [Root,
+    [C1
+    [GC1Long [GGC1][GGC2]]
+    [GC2 [GGC1][GGC2Long]]
+    ]
+    [C2Long,
+    [GC1 [GGC1][GGC2]]
+    [GC2]
+    ]
+    [C3VeryLong
+    [GC1][GC2]
+    ]
+    ]
+  \end{forest}
 
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-\bTREE
+
+
+ \begin{forest}
+    for tree={grow'=east, child anchor=west, anchor=base
+     west, tier/.pgfmath=level()}
+%\bTREE
      [. Stakeholder
         [. Funder [.User ]
 	   	  [.Project ]
@@ -514,21 +556,78 @@ to the operational metrics to keep the system running.
 			[. {Research IT} ]
 		  	[. {Research Institution} ]
 		  ]
-		  [.Agency ]
+		  [.Agency 
+			[. {NSF - Directorate} ]
+			[. {DOE} ]
+			[. {NIH} ]
+                  ]
         ] 		
         [.{Resource Provider}
 	   	  [.Management ]
 		  [.Administrators ]
 	]
-        [.{Sponsored Project} {Project Members} ]
+        [.{Sponsored Project} 
+                [. {Principal Investigator} ]
+                [. {Project Manager} ]
+                [. {Project Members} ]
+        ]
 	[.{Sponsored User} ]
+   ]
+%\eTREE
+\end{forest}
+\end{tiny}
+\end{center}
+\vspace{-24pt}
+\caption{Cloud metric stakeholders}
+ \end{figure}
+
+
+\subsection{Access}
+
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\bTREE
+     [. Access
+        [. API ]
+	[. REST ]
+	[. command 
+            [. line ]
+            [. shell ]
+        ]
+	[. portal ]
    ]
 \eTREE
 \end{tiny}
 \end{center}
+\vspace{-12pt}
 \caption{Cloud metric stakeholders}
  \end{figure}
 
+\subsection{Type}
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\bTREE
+     [. Type
+        [. {\iFILES ~ Report} ]
+	[. {Chart} 
+            [. {\iCHART ~ Pie} ]
+            [. {\iTABLE ~ Table} ]
+            [. {\iSTAT ~ Line} ]
+            [. {\iCHARTS ~ Histogram} ]
+        ]
+        [. {\iDISPLAY ~ Interactive} ]
+        [. {\iCLUSTER ~ Mashup} ]
+   ]
+\eTREE
+\end{tiny}
+\end{center}
+\vspace{-12pt}
+\caption{Cloud metric stakeholders}
+ \end{figure}
 
 \subsection{Motivation}
 
