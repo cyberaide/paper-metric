@@ -17,6 +17,30 @@
 
 
 
+\newcommand{\bTREE}{
+\begin{tiny}
+\begin{tikzpicture}[grow'=right,level distance=.9in,sibling distance=.0in]
+\tikzset{edge from parent/.style= 
+           {draw, edge from parent fork right}}
+\Tree
+}
+\newcommand{\eTREE}{
+\end{tikzpicture}
+\end{tiny}
+}
+
+%
+% EXAMPLE
+%
+% \bTREE
+%    [. user1 
+%        [.{IT personal} ]
+%       [.{Funder} ] 
+%   ]
+% \eTREE
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % LATEX DEFINITIONS 
@@ -325,17 +349,6 @@ commercial offerings as demonstrated by Amazon High Performance
 Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with
 additional examples provided in~\cite{DouglasEadline}.
 
-\begin{dot2tex}
-digraph G {
-  splines=ortho
-  rankdir="LR";
-  ranksep=0.01;
-  nodesep=0.01;  
-node [shape="none"];
-user -> "IT Personal" -> a
-user -> Funder
-}
-\end{dot2tex}
 
 \subsection{Cloud Metrics}
 
@@ -488,6 +501,34 @@ metrics for a center director. On the other hand metrics to identify
 ethnicity and classification into scientific disciplines are of great
 value for center directors and Funders, while they play no importance
 to the operational metrics to keep the system running.
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\bTREE
+     [. Stakeholder
+        [. Funder [.User ]
+	   	  [.Project ]
+		  [.{University} 
+			[. {Production IT} ]
+			[. {Research IT} ]
+		  	[. {Research Institution} ]
+		  ]
+		  [.Agency ]
+        ] 		
+        [.{Resource Provider}
+	   	  [.Management ]
+		  [.Administrators ]
+	]
+        [.{Sponsored Project} {Project Members} ]
+	[.{Sponsored User} ]
+   ]
+\eTREE
+\end{tiny}
+\end{center}
+\caption{Cloud metric stakeholders}
+ \end{figure}
+
 
 \subsection{Motivation}
 
@@ -2260,3 +2301,51 @@ peak performance of 240.9 Tflops~\cite{darter-nics}.
 Stampede is a supercomputer supported by the Texas Advanced Computing Center (TACC)
 for open sicence research. Stampede provides the total peak performance of 9.6
 Petaflops with 6400 nodes and 14 Petabytes disk sizes~\cite{stampede-tacc}.
+
+
+
+
+\begin{tikzpicture}[grow'=right,level distance=1.25in,sibling distance=.25in]
+\tikzset{edge from parent/.style= 
+           {draw, edge from parent fork right}}
+
+    \begin{dot2tex}[dot,tikz,codeonly,styleonly]
+        digraph G  {
+	     user -> "IT Personal"
+	     user -> "Funder"
+        }
+    \end{dot2tex}
+\end{tikzpicture}
+
+\begin{dot2tex}[tikz]
+digraph G {
+  rankdir="LR";
+  ranksep=0.01;
+  nodesep=0.01;  
+node [shape="none"];
+user -> "IT Personal" -> a
+user -> Funder
+}
+\end{dot2tex}
+
+\begin{dot2tex}[tikz]
+digraph Orthogonal {
+ rankdir="LR";
+ graph [label="Orthogonal edges", splines=ortho, nodesep=0]
+ node [shape=box]
+ user -> {IT Personal Funder}
+}
+\end{dot2tex} 
+
+
+\begin{small}
+\begin{tikzpicture}[grow'=right,level distance=1.25in,sibling distance=.25in]
+\tikzset{edge from parent/.style= 
+           {draw, edge from parent fork right}}
+\Tree 
+   [. user 
+       [.{IT personal} ]
+       [.{Funder} ] 
+   ]
+\end{tikzpicture}
+\end{small}
