@@ -789,13 +789,13 @@ Measuring how many citations has been received as of the measuring time point &
 shows how the output really impacts the scientific community while the 
 publications are being cited \\
 \hline
-H-index (person) \cite{??} &
+H-index (person) \cite{hirsch2005index} &
 A person has index $h$ if $h$ of his/her $N_p$ papers have at least h
                    citations each, and the other $(N_p − h)$ papers have
                    no more than $h$ citations each. &
  measures both productivity and the generated impact \\
 \hline
-G-index (person) \cite{??} &
+G-index (person) \cite{egghe2006theory} &
 Given a set of articles ranked in decreasing order of the number of citations that they received, the $g$-index is the (unique) largest number such that the top $g$ articles received (together) at least $g^2$ citations.&
 depends on the full citation count of very highly cited papers\\
 \hline
@@ -808,6 +808,14 @@ G-index (entity)&
 While treating the evaluated entity as if it were a person, using 
 g-index that were originally defined for a person &
 measures both productivity and the generated impact \\
+\hline
+i10-index &
+Number of publications cited as least 10 times &
+How many publications have achieved a certain level of impact (based on citation count) \\
+\hline
+ptrank-citation &
+Percentile rank of citation count among peers &
+To compare the studied entity's relative impact with the peers. The peers are identifie as publicatons that were published in same issue of the same journal for a publication that belongs to the studied entity (e.g., a journal, a Field of Science, the whole system, etc.) \\
 \hline
 \end{tabular}
 \end{center}
@@ -1969,7 +1977,8 @@ This material based upon work is partially supported in part by the National Sci
 \begin{scriptsize} 
 \bibliographystyle{IEEEtranS} 
 %\bibliographystyle{abbrv} 
-\bibliography{% 
+\bibliography{%
+bib/tas-dedup,%
 bib/vonLaszewski-jabref,% 
 bib/cyberaide-metric,%
 bib/cyberaide-cloud,%
