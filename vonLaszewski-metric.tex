@@ -210,31 +210,33 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \toappear{} 
 \maketitle 
 \begin{abstract} 
-Cloud computing has established itself as one of the key components in
-modern datacenters. This includes academic, government, and for profit
-institutions and organizations. One of the important aspects to a
-successfully operate and utilize clouds is the availability of
-sophisticated metric information and frameworks to assure a number of
-key operational factors are met. We provide an overview of the
-different aspects that are shaping the need for cloud metrics.  We
-especially identify the needs for cloud metrics and monitoring
-solutions for various user communities that are an important aspect
-for academic cloud providers. The motivation for academic cloud
-metrics are shaped by application users, administrators, academic and
-commercial service providers and funders.  Metrics include usage,
-failure and auditing data to identify user and system behavior. The
-information needs to be gathered as a mashup and exposed conveniently
-to the users as API, command tools, and a portal with charting
-capability, as well as periodically generated customizable
-reports. Many of the metrics presented here have been used as part of
-the FutureGrid and FutureSystems clouds. This includes also the
-unified metrics service framework allowing integration of metrics from
-heterogeneous clouds such as OpenStack, Eucalyptus and
-Nimbus. Additionally, we see the importance of metrics also in higher
-level platform as a services delivered through the various user
-communities. Thus it is important to identify common features of
-existing and future services that benefit from metrics and their
-exposure to its users.
+  Cloud computing has established itself as one of the key components
+  in modern datacenters. This includes not only government, and for
+  profit organizations but also academic institutions. One of the
+  important aspects to a successfully operate and utilize clouds in
+  any organization is the availability of sophisticated metric
+  information and frameworks to assure a number of key operational
+  factors are met that are measured by such metrics. In this paper we
+  provide an overview of the different aspects that are shaping the
+  need for cloud metrics.  We especially identify the needs for cloud
+  metrics and monitoring solutions for various user communities that
+  are an important factor for academic cloud providers. The motivation
+  for academic cloud metrics are shaped by application users,
+  administrators, academic and funders.  Metrics of interest support
+  usage monitoring, failure and auditing data to identify user and
+  system behavior. The information needs to be gathered as a mashup
+  and exposed conveniently to the users as API, command tools, and a
+  portal with charting capability, as well as periodically generated
+  customizable reports. Many of the metrics presented, have been
+  successfully used as part of the FutureGrid and FutureSystems
+  clouds. This includes also the unified metrics service framework
+  allowing integration of metrics from heterogeneous clouds such as
+  OpenStack, Eucalyptus and Nimbus. Additionally, we see the
+  importance of metrics also to be used as part of higher level
+  platform as a services that utilize IaaS or are offered as PaaS and
+  SaaS. Thus it is important to identify common features of existing
+  and future services that benefit from metrics and their exposure to
+  its users.
 
   \begin{comment} 
 
@@ -326,7 +328,7 @@ project leaders to identify utilization and performance.
 
 Cloud computing has established itself as one of the key components in
 modern datacenters. This includes academic, government, and for profit
-institutions and organizations.  According the NIST definition ``Cloud
+institutions and organizations.  According to the NIST definition ``Cloud
 computing is a model for enabling ubiquitous, convenient, on-demand
 network access to a shared pool of configurable computing resources
 (e.g., networks, servers, storage, applications, and services) that
@@ -343,14 +345,42 @@ private clouds, community clouds, public clouds, and hybrid clouds.
 Academic cloud computing offers clouds to the academic community. In
 contrast to commercial offerings they may have some very specific
 properties that need to be considered. First we distinguish two
-different target communities. On the one hand includes the operational
-IT organization that may provide e-mail, calendars, and document
-sharing environments to the staff members of the university. The
-demands for them are typically not different from any other
-organization running operational production services. On the other
-institutions are in the need to provide infrastructures, services, and
-platforms to the academic research and education community. We will
-focus in this paper on the latter communities.
+different target communities. On the one hand it includes the
+operational IT organization that may provide e-mail, calendars, and
+document sharing environments to the staff members of the
+university. These are production oriented services that may be offered
+by private or public clouds.  The demands for them are typically not
+different from any other organization running operational production
+services. On the other institutions are in the need to provide
+infrastructures, services, and platforms to the academic {\it
+  research} and {\it education} community (see
+Figure~\ref{TAX:academic}). We will focus in this paper on the latter
+communities.
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\bTREE
+     [. Academic Cloud
+        [. Production
+            [. e-mail ]
+            [. {Web presence} ]
+            [. {Operational Services} ]
+        ]
+	[. Research ]
+	[. Education 
+            [. {Course management} ]        
+            [. {Course resources} ]        
+        ]
+   ]
+\eTREE
+\end{tiny}
+\end{center}
+\vspace{-12pt}
+\caption{Academic Cloud Computing}
+\label{TAX:academic}
+ \end{figure}
+
 
 Within the offerings to the academic community we observe the usage of the
 following clouds (a) commercial public clouds, Academic public clouds, and
