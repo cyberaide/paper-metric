@@ -32,7 +32,7 @@ up:
 
 publish:
 	cp ${FILE}.pdf ${FILE}-draft.pdf
-	git commit -m "new draft"
+	git commit -m "new draft" ${FILE}-draft.pdf
 	git push
 
 #	@echo "==============================================================="
