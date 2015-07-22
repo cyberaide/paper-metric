@@ -37,9 +37,6 @@
 %] \end{forest}
 
 
-
-
-
 \newcommand{\bTREE}{
 \begin{tiny}
 \begin{tikzpicture}[grow'=right,level distance=.9in,sibling distance=.0in, anchor=west,child anchor=west,
@@ -236,30 +233,7 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
   platform as a services that utilize IaaS or are offered as PaaS and
   SaaS. Thus it is important to identify common features of existing
   and future services that benefit from metrics and their exposure to
-  its users.
-
-  \begin{comment} 
-
-    In shared resource environments, usage data is necessary to
-    identify utilization of the infrastructure by users. Many cloud
-    platforms recently started to collect measurements for use of
-    resources that can be applied to billing and
-    monitoring. Understanding utilization and performance through
-    these measurements is crucial in the infrastructure in order to
-    provide better cloud provisioning, system management and capacity
-    planning. In this paper, we present an integrated cloud accounting
-    solution applicable to federated cloud environments. We have
-    tested this framework on FutureGrid.  Our system is integrated as
-    a CloudMetric component into a larger framework called cloudmesh
-    that targets explicit user or administor controlled federation of
-    clouds.  Our cloudmesh CloudMetrics component is ablehich is an
-    XSEDE resources. Based on the observation on FutureGrid, we found
-    that different patterns between scientific research projects and
-    educational projects regarding the type of virtual machines (VMs)
-    and the patterns of using virtual resources.  CloudMetrics enables
-    users and project leaders to identify utilization and performance.
-
-\end{comment}
+  its users. 
 
 \end{abstract} 
 
@@ -291,34 +265,6 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % SECTIONS 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\begin{comment}
-\section{OLD ABSTRACT} 
-
-
-In shared resource environments, usage data is necessary to identify
-utilization of the infrastructure by users. Many cloud platforms recently
-started to collect measurements for use of resources that can be applied to
-billing and monitoring. Understanding utilization and performance through these
-measurements is crucial in the infrastructure in order to provide better cloud
-provisioning, system management and capacity planning. In this paper, we
-present an integrated cloud accounting solution, Cloud Metrics, to measure
-cloud resource usage across several cloud platforms such as OpenStack, Nimbus,
-and Eucalyptus. The usage data allows a user to see as how all resources are
-efficiently supplied to their applications and discover patterns from
-cumulative data. With Cloud Metrics, virtual resources such as compute, storage
-and network are measured to evaluate time and cost of user applications and the
-statistics for these resources offer visibility to utilization of cloud
-resources. This article shows statistical analysis of several case studies by
-tracing resource allocation on FutureGrid. Based on the observation on
-FutureGrid, we found that different patterns between scientific research
-projects and educational projects regarding the type of virtual machines (VMs)
-and the patterns of using virtual resources. Cloud Metrics enables users and
-project leaders to identify utilization and performance.
-
-\todo[inline]{remove old abstract, but read if there is info we need
-  to maintain.}
-\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
@@ -394,9 +340,7 @@ communities.
  demonstrated by Amazon High Performance Computing~\cite{awshpc}, IBM
  Platform Computing~\cite{ibmhpc}, and with additional examples
  provided in~\cite{DouglasEadline}. Metrics in regards to HPC have
- been described in sufficient detail in \cite{??}.
-
-\hyungro{put in the TAS papers on XDMOD}
+ been described in sufficient detail in \cite{las13xdmod}.
 
 
 \subsection{Cloud Metrics}
@@ -1820,15 +1764,21 @@ Keenland \cite{keeneland}\cite{keeneland-xsede} and Darter \cite{darter-nics}.
 
 \subsubsection{Ipm} 
 
-Ipm \cite{Shan:2010:ProgModels,Fuerlinger:2010:PetascaleIPMP,ipm-github}
-... \hyungro{Describe what ipm is}
-
+``Integrated Performance Monitoring (IPM) is a portable profiling
+infrastructure for parallel codes. It provides a low-overhead
+performance summary of the computation and communication in a parallel
+program.'' \cite{Shan:2010:ProgModels,Fuerlinger:2010:PetascaleIPMP,ipm-github,ipm10}
 Ipm is used on the XSEDE resource Stampede \cite{stampede-tacc}.
-\cite{ipm10}
 
 \subsubsection{PAPI}
 
-\hyungro{describe what papi is}
+``PAPI provides the tool designer and application engineer with a
+consistent interface and methodology for use of the performance
+counter hardware found in most major microprocessors. PAPI enables
+software engineers to see, in near real time, the relation between
+software performance and processor events. In addition Component PAPI
+provides access to a collection of components that expose performance
+measurement opportunites across the hardware and software stack.''
 PAPI is used obn the XSEDE resource Stampede \cite{stampede-tacc}.
 
 \subsubsection{Gold}
@@ -1842,8 +1792,16 @@ users. However, Gold is no longer supported by the developers.
 
 \subsubsection{XRAS}
 
-\hyungro{describe what xras is}
-\cite{hart2014xras}
+The XSEDE Resource Allocation Service (XRAS) is an allocations
+environment for managing the submission, review, and awarding of
+resource allocations. It is targeted to better serve the XSEDE
+infrastructure than its predecessors. It streamlines the allocations
+processes across a broad set of cyber infrastructure investments. XRAS
+is designed as a software-as-a-service through a set of common tools
+and interfaces enhanced by flexible mechanisms that allow clients to
+tailor the environment to meet the needs of their process
+\cite{hart2014xras}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}\label{S:cloudmesh}
@@ -2077,6 +2035,39 @@ have access to standard reports makes reporting and oversight
 easier. Furthermore data we collected could be used to convince those
 that are used to exclusive use of resources in favor of shared cloud
 resources.
+
+\begin{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{PaaS Metrics}\label{S:paas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+http://blog.cobia.net/cobiacomm/2013/01/29/paas-performance-metrics/
+
+Foundational PaaS performance metrics focus on time to market.  Key metrics include:
+
+Time and effort to create new application environment
+Time to redeploy application
+Time to promote application into a new lifecycle phase
+
+Optimization PaaS performance metrics focus on portfolio efficiency.  Key metrics include
+
+Ability to dynamically right-size infrastructure and elastic scalability
+Ability to re-use existing platform services and business services from resource pool instead of re-building solution stack
+
+Transformational PaaS performance metrics focus on productivity.   Key metrics include:
+
+Time and effort required integrating business process, event processor – creating a complex app.
+Time and effort required to apply policy across tenant(s)
+Cost to operate application per user or transaction measured against the value provided by the application or transaction.
+
+
+----
+
+http://thenewstack.io/heroku-rolls-out-metrics-to-help-users-optimize-performance/
+
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{RELATED WORK}\label{S:related}
@@ -2720,3 +2711,58 @@ digraph Orthogonal {
   \end{forest}
 
 \end{comment}
+
+
+\begin{comment}
+
+  \begin{comment} 
+
+    Abstract
+
+    In shared resource environments, usage data is necessary to
+    identify utilization of the infrastructure by users. Many cloud
+    platforms recently started to collect measurements for use of
+    resources that can be applied to billing and
+    monitoring. Understanding utilization and performance through
+    these measurements is crucial in the infrastructure in order to
+    provide better cloud provisioning, system management and capacity
+    planning. In this paper, we present an integrated cloud accounting
+    solution applicable to federated cloud environments. We have
+    tested this framework on FutureGrid.  Our system is integrated as
+    a CloudMetric component into a larger framework called cloudmesh
+    that targets explicit user or administor controlled federation of
+    clouds.  Our cloudmesh CloudMetrics component is ablehich is an
+    XSEDE resources. Based on the observation on FutureGrid, we found
+    that different patterns between scientific research projects and
+    educational projects regarding the type of virtual machines (VMs)
+    and the patterns of using virtual resources.  CloudMetrics enables
+    users and project leaders to identify utilization and performance.
+
+\end{comment}
+
+\section{OLD ABSTRACT} 
+
+In shared resource environments, usage data is necessary to identify
+utilization of the infrastructure by users. Many cloud platforms recently
+started to collect measurements for use of resources that can be applied to
+billing and monitoring. Understanding utilization and performance through these
+measurements is crucial in the infrastructure in order to provide better cloud
+provisioning, system management and capacity planning. In this paper, we
+present an integrated cloud accounting solution, Cloud Metrics, to measure
+cloud resource usage across several cloud platforms such as OpenStack, Nimbus,
+and Eucalyptus. The usage data allows a user to see as how all resources are
+efficiently supplied to their applications and discover patterns from
+cumulative data. With Cloud Metrics, virtual resources such as compute, storage
+and network are measured to evaluate time and cost of user applications and the
+statistics for these resources offer visibility to utilization of cloud
+resources. This article shows statistical analysis of several case studies by
+tracing resource allocation on FutureGrid. Based on the observation on
+FutureGrid, we found that different patterns between scientific research
+projects and educational projects regarding the type of virtual machines (VMs)
+and the patterns of using virtual resources. Cloud Metrics enables users and
+project leaders to identify utilization and performance.
+
+\todo[inline]{remove old abstract, but read if there is info we need
+  to maintain.}
+\end{comment}
+
