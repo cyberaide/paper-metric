@@ -361,7 +361,7 @@ communities.
 \begin{center}
 \begin{tiny}
 \bTREE
-     [. Academic Cloud
+     [. {Academic Cloud}
         [. Production
             [. e-mail ]
             [. {Web presence} ]
@@ -377,22 +377,26 @@ communities.
 \end{tiny}
 \end{center}
 \vspace{-12pt}
-\caption{Academic Cloud Computing}
+\caption{Academic cloud computing applications.}
 \label{TAX:academic}
  \end{figure}
 
 
-Within the offerings to the academic community we observe the usage of the
-following clouds (a) commercial public clouds, Academic public clouds, and
-Academic private clouds. Furthermore, traditional high performance computing
-)HPC) is offered as a platform in many organizations and allows to support the
-paradigm of {\it HPC in the cloud} as showcased for example by the Extreme
-Science and Engineering Discovery Environment (XSEDE) project (see Section~\ref
-{S:resources} for more details).  The validity of HPC as a service in the cloud
-is reflected not only by academic offerings, but also by commercial offerings
-commercial offerings as demonstrated by Amazon High Performance
-Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with
-additional examples provided in~\cite{DouglasEadline}.
+ Within the offerings to the academic community we observe not only
+ the usage of private clouds but also the usage of public
+ clouds. Furthermore, traditional high performance computing (HPC) is
+ offered as a platform in many organizations and allows to support the
+ paradigm of {\it HPC in the cloud} as showcased for example by the
+ Extreme Science and Engineering Discovery Environment (XSEDE) project
+ (see Section~\ref {S:resources} for more details).  The validates
+ that  HPC as a service is established not only as part of the academic
+ offerings, but also by commercial offerings commercial offerings as
+ demonstrated by Amazon High Performance Computing~\cite{awshpc}, IBM
+ Platform Computing~\cite{ibmhpc}, and with additional examples
+ provided in~\cite{DouglasEadline}. Metrics in regards to HPC have
+ been described in sufficient detail in \cite{??}.
+
+\hyungro{put in the TAS papers on XDMOD}
 
 
 \subsection{Cloud Metrics}
@@ -612,28 +616,6 @@ to the operational metrics to keep the system running.
  \end{figure}
 
 
-\subsection{Security}
-
-\begin{figure}[htb]
-\begin{center}
-\begin{tiny}
-\bTREE
-     [. Security
-        [. {Access control} ]
-	[. Privacy ]
-	[. Encryption ] 
-	[. Obfuscation ]
-	[. {Intrusion detection} ]
-	[. {Identity management} ]
-	[. {Application security} ]
-   ]
-\eTREE
-\end{tiny}
-\end{center}
-\vspace{-12pt}
-\caption{Cloud metric Access}
- \end{figure}
-
 
 \subsection{Type}
 
@@ -756,6 +738,30 @@ metic framework for clouds we need to consider the posibility to
 restrict eccess through access control policies that regulate privacy
 concerns. Such policies need to include role based restrictions of
 stakeholders and metrics to be accessed by them.
+
+\subsection{Security}
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\bTREE
+     [. Security
+        [. {Access control} ]
+	[. Privacy ]
+	[. Encryption ] 
+	[. Obfuscation ]
+	[. {Intrusion detection} ]
+	[. {Identity management} ]
+	[. {Application security} ]
+   ]
+\eTREE
+\end{tiny}
+\end{center}
+\vspace{-12pt}
+\caption{Cloud metric security factors.}
+ \end{figure}
+
+
 
 \subsection{Frameworks}
 
@@ -2162,8 +2168,8 @@ metric-new}
 %bib/python,% 
 %tas.bib%
  
-\begin{table}[htb]
-  \caption{1st Category in XDMoD}
+\begin{table*}[htb]
+  \caption{HPC Metric Categories in XDMoD}
 \begin{scriptsize}
 \label{T:xdmod}
  \begin{tabular}{l|l|l} 
@@ -2178,12 +2184,12 @@ SUPREMM & - & TBD \\
 \hline
 \end{tabular}\\
 \end{scriptsize}
-\end{table}
+\end{table*}
 
 
 
-\begin{table}[htb]
-  \caption{2nd Category in XDMoD}
+\begin{table*}[htb]
+  \caption{HPC job related metrics in XDMoD}
 \begin{scriptsize}
 \label{T:xdmod2}
  \begin{tabular}{l|l|l} 
@@ -2222,11 +2228,11 @@ XSEDE Utilization  & TBD & TBD \\
 \hline
 \end{tabular}\\
 \end{scriptsize}
-\end{table}
+\end{table*}
 
 
-\begin{table}[htb]
-  \caption{2nd Category II in XDMoD}
+\begin{table*}[htb]
+  \caption{Account related metrics in XDMoD}
 \begin{scriptsize}
 \label{T:xdmod22}
  \begin{tabular}{l|l} 
@@ -2238,14 +2244,10 @@ Number of User Accounts: Open & TBD \\
 \hline
 \end{tabular}\\
 \end{scriptsize}
-\end{table}
+\end{table*}
 
-\clearpage
-
-
-
-\begin{table}[htb]
-  \caption{2nd Category III in XDMoD}
+\begin{table*}[htb]
+  \caption{HPC Performance related metrics in XDMoD}
 \begin{scriptsize}
 \label{T:xdmod23}
  \begin{tabular}{l|l} 
@@ -2280,9 +2282,9 @@ Net:HPCC - PTRANS & TBD \\
 \hline
 \end{tabular}\\
 \end{scriptsize}
-\end{table}
+\end{table*}
 
-\begin{table}[htb]
+\begin{table*}[htb]
   \caption{2nd Category IV in XDMoD}
 \begin{scriptsize}
 \label{T:xdmod24}
@@ -2334,10 +2336,10 @@ Wall Hours: Requested: Total &  TBD \\
 \hline 
 \end{tabular}\\
 \end{scriptsize}
-\end{table}
+\end{table*}
 
 
-\begin{table}[htb]
+\begin{table*}[htb]
   \caption{Group By in XDMoD}
 \begin{scriptsize}
 \label{T:xdmod3}
@@ -2366,7 +2368,7 @@ User NSF Status & TBD \\
 \hline
 \end{tabular}\\
 \end{scriptsize}
-\end{table}
+\end{table*}
 
 
 \end{document} 
