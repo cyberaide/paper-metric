@@ -2189,42 +2189,41 @@ Requests & Requests & The number of registered projects or accounts\\
 
 
 \begin{table*}[htb]
-  \caption{HPC job related metrics in XDMoD}
+  \caption{Metrics Comparison between HPC and Cloud}
 \begin{scriptsize}
 \label{T:xdmod2}
  \begin{tabular}{l|l|l} 
-Metric & Compatibility with IaaS & Description \\
+HPC Metric & IaaS Metric & Description \\
 \hline
-Allocation Usage Rate & TBD & The rate of XSEDE allocation usage in XD SUs per hour \\
-CPU Hours: Per Job  & vCPU Hours: Per VM & TBD \\
-CPU Hours: Total  & TBD & TBD \\
-Job Size: Max  & VM Size: xlarge & TBD \\
-Job Size: Min  & VM Size: micro & TBD \\
-Job Size: Normalized  & TBD & TBD \\
-Job Size: Per Job  & TBD & TBD \\
-Job Size: Weighted By XD SUs  & TBD & TBD \\
-NUs Charged: Per Job  & TBD & TBD \\
-NUs Charged: Total  & TBD & TBD \\
-Node Hours: Per Job  & TBD & TBD \\
-Node Hours: Total  & TBD & TBD \\
-Number of Allocations: Active  & TBD & TBD \\
-Number of Institutions: Active  & TBD & TBD \\
-Number of Jobs Ended  & Number of VMs Terminated & TBD \\
-Number of Jobs Running  & TBD & TBD \\
-Number of Jobs Started  & TBD & TBD \\
-Number of Jobs Submitted  & TBD & TBD \\
-Number of Jobs via Gateway  & TBD & TBD \\
-Number of PIs: Active  & TBD & TBD \\
-Number of Resources: Active  & TBD & TBD \\
-Number of Users: Active  & TBD & TBD \\
-User Expansion Factor  & TBD & TBD \\
-Wait Hours: Per Job  & no wait & TBD \\
-Wait Hours: Total  & TBD & TBD \\
-Wall Hours: Per Job  & Running Hours: Per VM & TBD \\
-Wall Hours: Total  & TBD & TBD \\
-XD SUs Charged: Per Job  & TBD & TBD \\
-XD SUs Charged: Total  & TBD & TBD \\
-XSEDE Utilization  & TBD & TBD \\
+CPU Hours: Per Job  & vCPU Hours: Per VM & The average CPU hours per job or VM to measure CPU utilization \\
+CPU Hours: Total  & vCPU Hours: Total & The total CPU hours for all jobs or VMs \\
+Job Size: Max/Min  & vCPU Count: Total & The total number of processor cores ubsed by a job or a VM \\
+Job Size: Normalized  & vCPU Count: Normalized & The percentage total number of processor cores used over the entire cores\\
+Job Size: Per Job  & vCPU Count: Per VM & The number of processor cores per HPC job or VM instance\\
+Node Hours: Per Job  & Node Hours: Per VM & The average compute node hours per HPC job or VM instance \\
+Node Hours: Total  & Node Hours: Per VM & The total compute node hours used by HPC jobs or VM instances \\
+Number of Jobs & Number of VMs & The total number of jobs or VMs with its status: Started/Running/Terminated\\
+Number of Users & Number of Users & The total number of active users \\
+Power (Electricity) & Power (Electricity) & The amount of energy used in HPC or the cloud by Kilo Watt per hour (KWh) \\
+User Expansion Factor  & N/A & (HPC Only) job-turnaround time, 
+((wait time + wall time) / wall time)\\
+Wait Hours: Per Job  & N/A & (HPC Only) The average hours of waiting to run a job on the designated resource\\
+Wait Hours: Total  & N/A & (HPC Only) The total hours of waiting to run jobs on the designated resource \\
+Wall Hours: Per Job  & Running Hours: Per VM &  The average hours of running a job or a VM\\
+Wall Hours: Total  & Running Hours: Per VM & The total hours of running jobs or VMs \\
+N/A & IP Count: Public or Private & (Cloud Only) The total number of allocated public IP addresses \\
+N/A & Storage Sizes: Block or Object & (Cloud Only) The total size of allocated storage sizes \\
+% Allocation Usage Rate & TBD & The rate of XSEDE allocation usage in XD SUs per hour \\
+% Job Size: Weighted By XD SUs  & TBD & TBD \\
+% NUs Charged: Per Job  & TBD & TBD \\
+% NUs Charged: Total  & TBD & TBD \\
+% Number of Allocations: Active  & TBD & TBD \\
+% Number of Institutions: Active  & TBD & TBD \\
+% Number of PIs: Active  & TBD & TBD \\
+% Number of Resources: Active  & TBD & TBD \\
+% XD SUs Charged: Per Job  & TBD & TBD \\
+% XD SUs Charged: Total  & TBD & TBD \\
+% XSEDE Utilization  & TBD & TBD \\
 \hline
 \end{tabular}\\
 \end{scriptsize}
