@@ -207,33 +207,8 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \toappear{} 
 \maketitle 
 \begin{abstract} 
-  Cloud computing has established itself as one of the key components
-  in modern datacenters. This includes not only government, and for
-  profit organizations but also academic institutions. One of the
-  important aspects to a successfully operate and utilize clouds in
-  any organization is the availability of sophisticated metric
-  information and frameworks to assure a number of key operational
-  factors are met that are measured by such metrics. In this paper we
-  provide an overview of the different aspects that are shaping the
-  need for cloud metrics.  We especially identify the needs for cloud
-  metrics and monitoring solutions for various user communities that
-  are an important factor for academic cloud providers. The motivation
-  for academic cloud metrics are shaped by application users,
-  administrators, academic and funders.  Metrics of interest support
-  usage monitoring, failure and auditing data to identify user and
-  system behavior. The information needs to be gathered as a mashup
-  and exposed conveniently to the users as API, command tools, and a
-  portal with charting capability, as well as periodically generated
-  customizable reports. Many of the metrics presented, have been
-  successfully used as part of the FutureGrid and FutureSystems
-  clouds. This includes also the unified metrics service framework
-  allowing integration of metrics from heterogeneous clouds such as
-  OpenStack, Eucalyptus and Nimbus. Additionally, we see the
-  importance of metrics also to be used as part of higher level
-  platform as a services that utilize IaaS or are offered as PaaS and
-  SaaS. Thus it is important to identify common features of existing
-  and future services that benefit from metrics and their exposure to
-  its users. 
+
+Cloud computing has established itself as one of the key components in modern datacenters. Such datacenter include not only government and for profit organizations but also academic institutions. One of the important aspects to a successfully operate and utilize clouds in any organization is the availability of sophisticated metric information and frameworks to assure a number of key operational factors are met that are measured by such metrics. In this paper we provide an overview of the different aspects that are shaping the need for cloud metrics. We especially identify the needs for cloud metrics and monitoring solutions for various user communities that are an important factor for academic cloud providers. The motivation for academic cloud metrics are shaped by application users, administrators, academic and funders.  Metrics of interest support usage monitoring, failure and auditing data to identify user and system behavior. The information needs to be gathered as a mashup and exposed conveniently to the users as API, command tools, and a portal with charting capability, as well as periodically generated customizable reports. Many of the metrics presented, have been successfully used as part of the FutureGrid and FutureSystems clouds. This includes also the unified metrics service framework allowing integration of metrics from heterogeneous clouds such as OpenStack, Eucalyptus and Nimbus. Additionally, we see the importance of metrics also to be used as part of higher level platform as a services that utilize IaaS or are offered as PaaS and SaaS. Thus it is important to identify common features of existing and future services that benefit from metrics and their exposure to its users.
 
 \end{abstract} 
 
@@ -272,33 +247,11 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 
 \subsection{Cloud Computing}
 
-Cloud computing has established itself as one of the key components in
-modern datacenters. This includes academic, government, and for profit
-institutions and organizations.  According to the NIST definition ``Cloud
-computing is a model for enabling ubiquitous, convenient, on-demand
-network access to a shared pool of configurable computing resources
-(e.g., networks, servers, storage, applications, and services) that
-can be rapidly provisioned and released with minimal management effort
-or service provider interaction''~\cite{mell2011nist}. Essential
-characteristics include on-demand self-service, broad network access,
-rapid elasticity, measured service. Important service models are
-Software as a Service (SaaS), Software as a Service (SaaS), and
-Infrastructure as a Service (IaaS). Deployments include typically
-private clouds, community clouds, public clouds, and hybrid clouds.
+Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations.  According to the NIST definition ``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction''~\cite{mell2011nist}. Essential characteristics include on-demand self-service, broad network access, rapid elasticity, measured service. Important service models are Software as a Service (SaaS), Software as a Service (SaaS), and Infrastructure as a Service (IaaS). Deployments include typically private clouds, community clouds, public clouds, and hybrid clouds.
 
 \subsection{Academic Cloud Computing}
 
-Academic cloud computing offers clouds to the academic community. In
-contrast to commercial offerings they may have some very specific
-properties that need to be considered. First we distinguish two
-different target communities. On the one hand it includes the
-operational IT organization that may provide e-mail, calendars, and
-document sharing environments to the staff members of the
-university. These are production oriented services that may be offered
-by private or public clouds.  The demands for them are typically not
-different from any other organization running operational production
-services. On the other institutions are in the need to provide
-infrastructures, services, and platforms to the academic {\it
+Academic cloud computing offers clouds to the academic community. In contrast to commercial offerings they may have some very specific properties that need to be considered. First we distinguish two different target communities. On the one hand it includes the operational IT organization that may provide e-mail, calendars, and document sharing environments to the staff members of the university. These are production oriented services that may be offered by private or public clouds.  The demands for them are typically not different from any other organization running operational production services. On the other institutions are in the need to provide infrastructures, services, and platforms to the academic {\it
   research} and {\it education} community (see
 Figure~\ref{TAX:academic}). We will focus in this paper on the latter
 communities.
@@ -327,48 +280,12 @@ communities.
 \label{TAX:academic}
  \end{figure}
 
-
- Within the offerings to the academic community we observe not only
- the usage of private clouds but also the usage of public
- clouds. Furthermore, traditional high performance computing (HPC) is
- offered as a platform in many organizations and allows to support the
- paradigm of {\it HPC in the cloud} as showcased for example by the
- Extreme Science and Engineering Discovery Environment (XSEDE) project
- (see Section~\ref {S:resources} for more details).  The validates
- that  HPC as a service is established not only as part of the academic
- offerings, but also by commercial offerings commercial offerings as
- demonstrated by Amazon High Performance Computing~\cite{awshpc}, IBM
- Platform Computing~\cite{ibmhpc}, and with additional examples
- provided in~\cite{DouglasEadline}. Metrics in regards to HPC have
- been described in sufficient detail in \cite{las13xdmod}.
+Within the offerings to the academic community we observe not only the usage of private clouds but also the usage of public louds. Furthermore, traditional high performance computing (HPC) is offered as a platform in many organizations and allows to support the paradigm of {\it HPC in the cloud} as showcased for example by the Extreme Science and Engineering Discovery Environment (XSEDE) project (see Section~\ref {S:resources} for more details).  The validates that HPC as a service is established not only as part of the academic offerings, but also by commercial offerings commercial offerings as demonstrated by Amazon High Performance Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with additional examples provided in~\cite{DouglasEadline}. Metrics in regards to HPC have been described in sufficient detail in \cite{las13xdmod}.
 
 
 \subsection{Cloud Metrics}
 
-One of the important aspects to a successfully operational cloud is
-the availability of sophisticated metric information and frameworks to
-assure a number of key operational factors. As cloud computing is
-typically part of a large scale data center it touches and also must
-integrate common data center metrics. Furthermore, it is essential to
-cloud specific application metrics while benchmarking a cloud at
-regular intervals to detect potential issues. Cloud metrics are
-important to a number of users interested in the various aspects
-dealing with a operation, use, and management of a cloud. Hence, the
-motivation for cloud metrics are shaped by application users,
-administrators, service providers and funders. Metrics include usage,
-failure and auditing data to identify user and system behavior. Many
-of the metrics presented here have been used as part of the FutureGrid
-and FutureSystems clouds. These general aspects are not only common to
-a particular IaaS framework but are common across heterogeneous cloud
-IaaS such as OpenStack, Eucalyptus and Nimbus including unified
-metrics across such deployments.  Additionally, we see the importance
-of metrics also in higher level platform as a services delivered as
-part of high level cloud services designed to support various user
-communities and virtual organizations. Thus it is important to
-identify common features of existing and future services that benefit
-from metrics and their exposure to its users. Based on our short
-introduction it is clear that a more formal approach is needed to
-identify
+One of the important aspects to a successfully operational cloud is the availability of sophisticated metric information and frameworks to assure a number of key operational factors. As cloud computing is typically part of a large scale data center it touches and also must integrate common data center metrics. Furthermore, it is essential to cloud specific application metrics while benchmarking a cloud at regular intervals to detect potential issues. Cloud metrics are important to a number of users interested in the various aspects dealing with a operation, use, and management of a cloud. Hence, the motivation for cloud metrics are shaped by application users, administrators, service providers and funders. Metrics include usage, failure and auditing data to identify user and system behavior. Many of the metrics presented here have been used as part of the FutureGrid and FutureSystems clouds. These general aspects are not only common to a particular IaaS framework but are common across heterogeneous cloud IaaS such as OpenStack, Eucalyptus and Nimbus including unified metrics across such deployments.  Additionally, we see the importance of metrics also in higher level platform as a services delivered as part of high level cloud services designed to support various user communities and virtual organizations. Thus it is important to identify common features of existing and future services that benefit from metrics and their exposure to its users. Based on our short introduction it is clear that a more formal approach is needed to identify
 
 \begin{enumerate}
 \setlength\itemsep{-2pt}
@@ -380,93 +297,32 @@ identify
 \item What privacy aspects exist? 
 \end{enumerate}
 
-We observe that in may cases there is no distinction between academic,
-or non academic resource providers. Areas where there exists
-distinction are metrics based on charging models, and the utilization
-of hybrid clouds. Furthermore, we find that higher level metrics and
-metrics integrating into other frameworks provided as PaaS and HPC
-frameworks. The reason for this is that some projects may require a
-combination of technologies that motivate project wide metrics to not
-only display usage and utilization of the various frameworks and
-services for these projects. The pooling of resources in a
-heterogeneous environment provides a {\it computational mesh} going
-potentially beyond just the utilization of cloud, HPC, and Grid
-computing all of which may need to be integrated into a comprehensive
-metrics framework. Due to the limited resources in academic
-organizations we also often do not have (when private clouds) are
-utilized an unlimited resource pool. For example the XSEDE resources
-receive resource requests that are four times higher than the
-available resources. Hence, it is important to identify performance
-metrics and benchmarks that lead to an improvement of the applications
-using such resources. For academic cloud resources availability and
-scalability also need to be ensured to manage rapid changes (which we
-see for example in educational usage patterns as part of classes) in the
-demands for cloud resources. These characteristics of cloud computing
-can be satisfied with the support of performance analysis and
-monitoring. There are some considerations when performance analysis
-and monitoring are applied to cloud computing: (a) performance
-isolation against interference (b) availability and Scalability (c)
-cost effectiveness to fully utilize available resources.
+We observe that in may cases there is no distinction between academic, or non academic resource providers. Areas where there exists distinction are metrics based on charging models, and the utilization of hybrid clouds. Furthermore, we find that higher level metrics and metrics integrating into other frameworks provided as PaaS and HPC frameworks. The reason for this is that some projects may require a combination of technologies that motivate project wide metrics to not only display usage and utilization of the various frameworks and services for these projects. The pooling of resources in a heterogeneous environment provides a {\it computational mesh} going potentially beyond just the utilization of cloud, HPC, and Grid computing all of which may need to be integrated into a comprehensive metrics framework. Due to the limited resources in academic organizations we also often do not have (when private clouds) are utilized an unlimited resource pool. For example the XSEDE resources receive resource requests that are four times higher than the available resources. Hence, it is important to identify performance metrics and benchmarks that lead to an improvement of the applications using such resources. For academic cloud resources availability and scalability also need to be ensured to manage rapid changes (which we see for example in educational usage patterns as part of classes) in the demands for cloud resources. These characteristics of cloud computing can be satisfied with the support of performance analysis and monitoring. There are some considerations when performance analysis and monitoring are applied to cloud computing: (a) performance isolation against interference (b) availability and Scalability (c) cost effectiveness to fully utilize available resources.
 
 
-As other clouds academic clouds rely on sharing of the offered
-services. However, just as in public clouds many users may not
-understand the implication and cost that is prevalent when using a
-particular service. Hence detailed metrics informing the user not only
-at time of an experiment, but access to information that helps planing
-such experiments are needed. Thus metrics will address and provide an
-essential input to several concrete challenges for academic clouds
-including:
+As other clouds academic clouds rely on sharing of the offered services. However, just as in public clouds many users may not understand the implication and cost that is prevalent when using a particular service. Hence detailed metrics informing the user not only at time of an experiment, but access to information that helps planing such experiments are needed. Thus metrics will address and provide an essential input to several concrete challenges for academic clouds including:
 
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item[\it Understanding] - how reliable the system is and to prevent
-  system failures. It also gives an opportunity to manage the system
-  efficiently by knowing the performance of the system.
+\item[\it Understanding] - how reliable the system is and to prevent system failures. It also gives an opportunity to manage the system efficiently by knowing the performance of the system.
 
-\item[\it Getting informed] - of the current status and the impact of
-  previous activities allowing the various user communities to act
-  appropriately and invoke defensive measures as well as being an
-  input to btter understanding the system over time.
+\item[\it Getting informed] - of the current status and the impact of previous activities allowing the various user communities to act
+  appropriately and invoke defensive measures as well as being an  input to btter understanding the system over time.
 
-\item[\it Estimating future requests] - it discovers usage patterns
-  and trends of system resources which allows to projection the
-  increasing of system capacity and performance.
+\item[\it Estimating future requests] - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance.
 
-\item[\it Reporting] - Measured statistics can be viewed in different
-  ways with various visualization tools. Several graphical tools and
-  charts APIs can help identify which resources are consumed the most
-  by whom, what, where, why and when.
+\item[\it Reporting] - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when.
 
 \end{description}
 
-These and other aspects are addressed in the following paper. Our
-paper is structured as follows. In Section~\ref{S:factors} we
-introduce some major factors that need to be considered when providing
-a cloud monitoring and metric framework. We introduce some concrete
-metrics in Section~\ref{S:metrics}.  A brief summary of Monitoring
-tools and services is provided in Section~\ref{S:tools}.
-Section~\ref{S:cloudmesh} showcases our hybrid cloud monitoring and
-metrics services that have been used in FutureGrid and are currently
-used in FutureSystems. Related activities are briefly summarized in
-Section~\ref{S:related}.  We conclude our paper while summarizing our
-findings in Section~\ref{S:conclusion}.
+These and other aspects are addressed in the following paper. Our paper is structured as follows. In Section~\ref{S:factors} we introduce some major factors that need to be considered when providing a cloud monitoring and metric framework. We introduce some concrete metrics in Section~\ref{S:metrics}.  A brief summary of Monitoring tools and services is provided in Section~\ref{S:tools}.  Section~\ref{S:cloudmesh} showcases our hybrid cloud monitoring and metrics services that have been used in FutureGrid and are currently used in FutureSystems. Related activities are briefly summarized in Section~\ref{S:related}.  We conclude our paper while summarizing our findings in Section~\ref{S:conclusion}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRIC FACTORS} \label {S:factors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-When we look at a particular cloud metric, it may be shaped by a
-number of factors that determines the applicability and usability of
-the metric in general. To provide an overview of a selected number of
-factors fro cloud metrics we have identified the following factors of
-significant importance: (a) stakeholders and roles to address, (b) the
-frameworks to address, (c) the purpose the metrics are designed for,
-(d) concrete resources are targeted by the metric, (e) which sources
-are used for the metric, and (f) which security aspects are
-considered. We are summarizing these influential aspects in Figure
-\ref{F:taxonomy-1} and explaining them in more detail.
+When we look at a particular cloud metric, it may be shaped by a number of factors that determines the applicability and usability of the metric in general. To provide an overview of a selected number of factors fro cloud metrics we have identified the following factors of significant importance: (a) stakeholders and roles to address, (b) the frameworks to address, (c) the purpose the metrics are designed for, (d) concrete resources are targeted by the metric, (e) which sources are used for the metric, and (f) which security aspects are considered. We are summarizing these influential aspects in Figure \ref{F:taxonomy-1} and explaining them in more detail.
 
 \begin{figure}[h!] 
   \centering 
@@ -476,24 +332,7 @@ considered. We are summarizing these influential aspects in Figure
 
 \subsection{Stakeholder}
 
-A cloud will have a wide variety of stakeholders with their
-potentially specific needs in metrics. These stakeholders include (a)
-the users which could be application developers and application users,
-(b) a project in which multiple users contribute (c) the resource
-provider including administrators and management including the
-director. Furthermore, we identify the funder of the Cloud as an
-important stakeholder as he may have needs for specific metrics that
-are typically not relevant to users or administrators of the cloud but
-have profound impact on the goal of funding the resource. To give an
-example of the wide variety of metrics needed we like to make use
-aware that although management is interested in operational 24/7
-operation of the system and statistics associated with it, concrete
-metrics and monitoring infrastructure as needed by the administrators
-to detect operational failures are typically not part of the needed
-metrics for a center director. On the other hand metrics to identify
-ethnicity and classification into scientific disciplines are of great
-value for center directors and Funders, while they play no importance
-to the operational metrics to keep the system running.
+A cloud will have a wide variety of stakeholders with their potentially specific needs in metrics. These stakeholders include (a) the users which could be application developers and application users, (b) a project in which multiple users contribute (c) the resource provider including administrators and management including the director. Furthermore, we identify the funder of the Cloud as an important stakeholder as he may have needs for specific metrics that are typically not relevant to users or administrators of the cloud but have profound impact on the goal of funding the resource. To give an example of the wide variety of metrics needed we like to make use aware that although management is interested in operational 24/7 operation of the system and statistics associated with it, concrete metrics and monitoring infrastructure as needed by the administrators to detect operational failures are typically not part of the needed metrics for a center director. On the other hand metrics to identify ethnicity and classification into scientific disciplines are of great value for center directors and Funders, while they play no importance to the operational metrics to keep the system running.
  
 \begin{figure}[htb]
 \begin{center}
@@ -590,98 +429,30 @@ to the operational metrics to keep the system running.
 
 \subsection{Motivation}
 
-Another important factor for a cloud metric is the motivation and
-purpose for it. We distinguish
-the following factors:
+Another important factor for a cloud metric is the motivation and purpose for it. We distinguish the following factors:
 
 
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item[\it Monitoring.] Monitoring is an important aspect for
-  administrators but also for users. The purpose of metrics associated
-  to monitoring allows us to observe the current system and make
-  decisions based upon it. Naturally, this could also be services that
-  act in behalf of the user or administrator. A center director may be
-  interested in the high level aspects of monitoring as to be informed
-  about specific catastrophic service events, while an administrator
-  is interested in more detailed monitoring aspects that alert even on
-  conditions that could lead to issues. Examples for monitoring
-  includes measuring resource utilization in real time or over a
-  period of time.  Monitoring is potentially important on all layers of
-  the Cloud infrastructure from bare metal, to IaaS, PaaS, and SaaS.
+\item[\it Monitoring.] Monitoring is an important aspect for administrators but also for users. The purpose of metrics associated to monitoring allows us to observe the current system and make decisions based upon it. Naturally, this could also be services that act in behalf of the user or administrator. A center director may be interested in the high level aspects of monitoring as to be informed about specific catastrophic service events, while an administrator is interested in more detailed monitoring aspects that alert even on conditions that could lead to issues. Examples for monitoring includes measuring resource utilization in real time or over a period of time.  Monitoring is potentially important on all layers of the Cloud infrastructure from bare metal, to IaaS, PaaS, and SaaS.
 
-\item[\it Planning.] Planing is needed to assist in setting goals and
-  developing strategies several metrics can be beneficial. This
-  includes metrics about utilization of the resources, satisfaction by
-  the users and other more general aspects. As academic resources are
-  often funded by government organizations such as NSF, specific
-  metrics that answer to broader impacts need to be addressed. An
-  essential ingredient of planing is the ability to include
-  performance monitoring on the cloud while exposing sophisticated
-  metrics.  This will enable the planing of efficient resource
-  utilization from a small instance to a large virtual cluster on the
-  cloud, performance management and monitoring are necessary for
-  performance analysis.
+\item[\it Planning.] Planing is needed to assist in setting goals and developing strategies several metrics can be beneficial. This includes metrics about utilization of the resources, satisfaction by the users and other more general aspects. As academic resources are often funded by government organizations such as NSF, specific metrics that answer to broader impacts need to be addressed. An essential ingredient of planing is the ability to include performance monitoring on the cloud while exposing sophisticated metrics.  This will enable the planing of efficient resource utilization from a small instance to a large virtual cluster on the cloud, performance management and monitoring are necessary for performance analysis.
 
-\item[\it  Billing.] As academic clouds are provided free to the academic
-  user community upon peer reviewed projects, it is also important to
-  avoid situations that either over-stress or adversely lead to
-  underutilization. For example in absence of billing against real
-  monetary values, we observed that many users ignore the cost that is
-  involved by running an actual VM. Furthermore, it is important to
-  communicate to the users the potential estimated cost to them in
-  order to educate them towards deleting or suspending unused
-  resources. However, at the same time it must be assured that large
-  enough experiments can be conducted to further some of the more
-  challenging scientific problems.
+\item[\it Billing.] As academic clouds are provided free to the academic user community upon peer reviewed projects, it is also important to avoid situations that either over-stress or adversely lead to underutilization. For example in absence of billing against real monetary values, we observed that many users ignore the cost that is involved by running an actual VM. Furthermore, it is important to communicate to the users the potential estimated cost to them in order to educate them towards deleting or suspending unused resources. However, at the same time it must be assured that large enough experiments can be conducted to further some of the more challenging scientific problems.
 
-\item[\it  Testing.] As cloud environments and they usage in applications
-  may be complex (at times more complex that their HPC counter parts)
-  it is important that metrics be provided that support the testing of
-  the functionality, the performance, and the scalability. Ideally
-  these metrics should be available as part of automatic testing
-  services that however may be customized for a particular application.
+\item[\it Testing.] As cloud environments and they usage in applications may be complex (at times more complex that their HPC counter parts) it is important that metrics be provided that support the testing of the functionality, the performance, and the scalability. Ideally these metrics should be available as part of automatic testing services that however may be customized for a particular application.
 
-\item[\it  Consuming.] Many metrics will assist the users and services to
-  consume the cloud services efficiently. They will provide
-  information in optimizing resource use and distribution amongst
-  them. They will also alert towards limitations of the underlaying
-  systems and provide insight on where application limitations my
-  hinder adoption. A specific case is the creation of user motivated
-  benchmarks that through their metrics can inform users about which
-  cloud setup is particularly beneficial.
+\item[\it Consuming.] Many metrics will assist the users and services to consume the cloud services efficiently. They will provide information in optimizing resource use and distribution amongst them. They will also alert towards limitations of the underlaying systems and provide insight on where application limitations my hinder adoption. A specific case is the creation of user motivated benchmarks that through their metrics can inform users about which cloud setup is particularly beneficial.
 
-\item[\it Auditing.] Metrics for auditing support the process to
-  evaluate the clouds design and effectiveness. This includes
-  security, deployment processes, development processes and governance
-  and oversight processes.  It includes finding a proof and a trait of
-  actions a user made while resources are being used. Observing a
-  user's, or service's behavior should be performed by logging events
-  and detailed information is necessary to track back any issues on a
-  system.  An important aspect or a comprehensive auditing process is
-  that that it is conducted by an independent and unbiased
-  observer. Auditing should not be confused with monitoring the system
-  in real time.
+\item[\it Auditing.] Metrics for auditing support the process to evaluate the clouds design and effectiveness. This includes security, deployment processes, development processes and governance and oversight processes.  It includes finding a proof and a trait of actions a user made while resources are being used. Observing a user's, or service's behavior should be performed by logging events and detailed information is necessary to track back any issues on a system.  An important aspect or a comprehensive auditing process is that that it is conducted by an independent and unbiased observer. Auditing should not be confused with monitoring the system in real time.
 
 \end{description}
 
 
 \subsection{Security}
 
-Due to targiteng different user communities it is obvious that smoe
-metrics may not be exosed to all its users and are potentially unde
-access control. Furthermore, users that consume cloud resources may
-have the desire that their information is private and may not be
-shared with other users. However, although it is possible to provide
-acess and privacy controls we have seen in government agency sponsord
-reserach environments a general consensus of transparency mandated by
-the funding agency such as NSF. A good example here is XSEDE that
-provides a great deal of information to its users. When looking at a
-metic framework for clouds we need to consider the posibility to
-restrict eccess through access control policies that regulate privacy
-concerns. Such policies need to include role based restrictions of
-stakeholders and metrics to be accessed by them.
+Due to targiteng different user communities it is obvious that smoe metrics may not be exosed to all its users and are potentially unde access control. Furthermore, users that consume cloud resources may have the desire that their information is private and may not be shared with other users. However, although it is possible to provide acess and privacy controls we have seen in government agency sponsord reserach environments a general consensus of transparency mandated by the funding agency such as NSF. A good example here is XSEDE that provides a great deal of information to its users. When looking at a metic framework for clouds we need to consider the posibility to restrict eccess through access control policies that regulate privacy concerns. Such policies need to include role based restrictions of stakeholders and metrics to be accessed by them.
 
 \subsection{Security}
 
@@ -709,155 +480,47 @@ stakeholders and metrics to be accessed by them.
 
 \subsection{Frameworks}
 
-As already pointed out in the introduction, it is important to not
-isolate the cloud metrics. Although they can be developed
-independently in many cases we need a larger picture for projects that
-require a heterogeneous set of services and frameworks for their
-scientific mission to succeed.  This includes the integration of high
-performance computing resources and services (HPC), storage resources
-and services, infrastructure as a service based resources build from
-either OpenStack, VM Ware, or Nimbus, as well as various platform as a
-service environments that enable academic users to focus on the
-platform regardless of which underlaying resource framework is chosen.
-Furthermore it may be important to consider extending the cloud
-metrics framework to public clouds such as using AWS as this may be an
-integral part of the strategy to offer services to academic users and
-groups. Restrictions posed by some of these frameworks such as the
-lack of groups in the Nimbus framework make it problematic to meet the
-demands fro example of an academic (e.g. XSEDE) based metric
-framework. Thus Nimbus must provide group support in order to become
-meaningful in academic project based deployments while providing
-comprehensive metrics.
+As already pointed out in the introduction, it is important to not isolate the cloud metrics. Although they can be developed independently in many cases we need a larger picture for projects that require a heterogeneous set of services and frameworks for their scientific mission to succeed.  This includes the integration of high performance computing resources and services (HPC), storage resources and services, infrastructure as a service based resources build from either OpenStack, VM Ware, or Nimbus, as well as various platform as a service environments that enable academic users to focus on the platform regardless of which underlaying resource framework is chosen.  Furthermore it may be important to consider extending the cloud metrics framework to public clouds such as using AWS as this may be an integral part of the strategy to offer services to academic users and groups. Restrictions posed by some of these frameworks such as the lack of groups in the Nimbus framework make it problematic to meet the demands fro example of an academic (e.g. XSEDE) based metric framework. Thus Nimbus must provide group support in order to become meaningful in academic project based deployments while providing comprehensive metrics.
 
 \subsection{Resources}\label {S:resources}
 
-Metrics that are implicitly provided by various cloud providers are
-important for gaining a complete picture of a particular project. This
-may include the following
+Metrics that are implicitly provided by various cloud providers are important for gaining a complete picture of a particular project. This may include the following
 
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item[\it Commercial public clouds.] These are clouds that are offered
-  commercially or for free to academic users. While an individual se
-  of time limited user based usage may not be of importance it becomes
-  essential if actual money is paid to provide this service to
-  academic users. Important may not only the amount of money paid, but
-  to justify the academic and scientific impact
-  \cite{las2015cluster,las2015xsede} that is derived by such efforts.
+\item[\it Commercial public clouds.] These are clouds that are offered commercially or for free to academic users. While an individual se of time limited user based usage may not be of importance it becomes essential if actual money is paid to provide this service to academic users. Important may not only the amount of money paid, but to justify the academic and scientific impact \cite{las2015cluster,las2015xsede} that is derived by such efforts.
 
-\item[\it Academic public clouds.] Recently NSF has provided a significant
-  amount of funding to cloud offerings for the academic community. In
-  order to justify its funding and to contrast it to commercial public
-  cloud offerings metrics and evaluation criteria need to be
-  developed that justify their existence. 
+\item[\it Academic public clouds.] Recently NSF has provided a significant amount of funding to cloud offerings for the academic community. In order to justify its funding and to contrast it to commercial public cloud offerings metrics and evaluation criteria need to be developed that justify their existence.
 
-\item[\it Academic private clouds.] Many universities have started to
-  offer private clouds to their user community, This includes not only
-  the use of academic efforts, but also of production clouds to support
-  the internal IT infrastructure as part of a universities management
-  IT infrastructure. While in the IT department operational cost and
-  privacy are potentially dominating the metrics, in academic clouds
-  the se in projects and their outcome metrics need to be
-  integrated. This reflects similar metrics that we find while using
-  commercial and academic public clouds.
+\item[\it Academic private clouds.] Many universities have started to offer private clouds to their user community, This includes not only the use of academic efforts, but also of production clouds to support the internal IT infrastructure as part of a universities management IT infrastructure. While in the IT department operational cost and privacy are potentially dominating the metrics, in academic clouds the se in projects and their outcome metrics need to be integrated. This reflects similar metrics that we find while using commercial and academic public clouds.
 
 \end{description}
 
-Examples for publicly funded clouds include XSEDE while offering HPC
-services to its users, Chameleon Cloud, CloudLab, as IaaS based clouds
-and network experiment infrastructure, and Jetstream as Iaas and PaaS
-supporting cloud. Additionally the following Resources offered to
-academic users will have a potential impact on the definition of Metrics:
+Examples for publicly funded clouds include XSEDE while offering HPC services to its users, Chameleon Cloud, CloudLab, as IaaS based clouds and network experiment infrastructure, and Jetstream as Iaas and PaaS supporting cloud. Additionally the following Resources offered to academic users will have a potential impact on the definition of Metrics:
 
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item[\it MRIs.] According to the NSF web pages, the `Major Research
-  Instrumentation Program (MRI) ~\cite{nsf-mri}  catalyzes new knowledge and
-  discoveries by empowering the Nation's scientists and engineers with
-  state-of-the-art research instrumentation. The MRI Program enables
-  research-intensive learning environments that promote the
-  development of a diverse workforce and next generation
-  instrumentation, as well as facilitates academic and private sector
-  partnerships.'' Some of the MRI funding supports significant
-  computational resources offered to a particular user community. In
-  such cases it would be beneficial if the metrics and services
-  introduced here can be reused by such efforts and adapted
-  accordingly. 
+\item[\it MRIs.] According to the NSF web pages, the `Major Research Instrumentation Program (MRI) ~\cite{nsf-mri} catalyzes new knowledge and discoveries by empowering the Nation's scientists and engineers with state-of-the-art research instrumentation. The MRI Program enables research-intensive learning environments that promote the development of a diverse workforce and next generation instrumentation, as well as facilitates academic and private sector partnerships.'' Some of the MRI funding supports significant computational resources offered to a particular user community. In such cases it would be beneficial if the metrics and services introduced here can be reused by such efforts and adapted accordingly.
 
-\item[\it Networks.] With the advent of 100GBEthernet research
-  environments as provided in Chameleon cloud and XSEDE it is
-  essential that network related information be integrated into an
-  overarching metric framework. This includes not only details of the
-  overall use of the network, but the specific information which
-  projects, or even which applications are using it. Access control to
-  this information may has to be investigated in order not to expose
-  exploitable information to the community.
+\item[\it Networks.] With the advent of 100GBEthernet research environments as provided in Chameleon cloud and XSEDE it is essential that network related information be integrated into an overarching metric framework. This includes not only details of the overall use of the network, but the specific information which projects, or even which applications are using it. Access control to this information may has to be investigated in order not to expose exploitable information to the community.
 
-\item[\it Storage.] Obviously many cloud applications in the bid data
-  area require large amount of storage either as files, databases, or
-  object stores. Metrics must be available to the users and the
-  providers in order to assess needs and availability. Storage has
-  traditionally been an issue in academic environments.
+\item[\it Storage.] Obviously many cloud applications in the bid data area require large amount of storage either as files, databases, or object stores. Metrics must be available to the users and the providers in order to assess needs and availability. Storage has traditionally been an issue in academic environments.
 
-\item[\it Power.] A significant cost in operating an academic cloud is
-  power consumption. It is important that the IT departments of the
-  academic cloud providers put efforts in place that power usage is
-  transparently exposed so that associations between power and
-  services offered can be achieved. This goes beyond the measurement
-  of poer consumption within servers, but muct inclde a more
-  generalized approach while integrating PDU information and other
-  available metrics that may already be available. However, typically
-  such information is often isolated and potentially not available to
-  the academic user community without a significant effort. Future
-  designs of academic datacenter should keep in mind that such
-  information ought to be transparently provided to the researchers or
-  retrofitted accordingly.
+\item[\it Power.] A significant cost in operating an academic cloud is power consumption. It is important that the IT departments of the academic cloud providers put efforts in place that power usage is transparently exposed so that associations between power and services offered can be achieved. This goes beyond the measurement of poer consumption within servers, but muct inclde a more generalized approach while integrating PDU information and other available metrics that may already be available. However, typically such information is often isolated and potentially not available to the academic user community without a significant effort. Future designs of academic datacenter should keep in mind that such information ought to be transparently provided to the researchers or retrofitted accordingly.
 
-\item[\it Operating Systems.] Traditionally a large amount of metric
-  information is available as part of the operating system either in
-  virtualized or in bare metal mode. The included services can present a
-  great deal of information to users and to the provider. Tools such
-  as Nagios and Ganglia provide  the ability to collect and integrate
-  the information sources.
+\item[\it Operating Systems.] Traditionally a large amount of metric information is available as part of the operating system either in virtualized or in bare metal mode. The included services can present a great deal of information to users and to the provider. Tools such as Nagios and Ganglia provide the ability to collect and integrate the information sources.
 
-\item[\it Applications.] Many academic users will develop a number of
-  applications on available resources. Metrics that compare efficiency
-  and effective use of such applications will be important as to
-  evaluate prudent use of the resources. For example in some cases it
-  may be essential to measure the performance impact of using cloud vs
-  HPC resources. In other cases it may be more important to focus on
-  manpower consumed to develop applications on more complex
-  environments. Supporting performance APIs and libraries may aide in
-  the development of metrics and their associated services such as the
-  use of PAPI \cite{papi2014,papi-web,JohnNelsonAnalyzingPAPI}
+\item[\it Applications.] Many academic users will develop a number of applications on available resources. Metrics that compare efficiency and effective use of such applications will be important as to evaluate prudent use of the resources. For example in some cases it may be essential to measure the performance impact of using cloud vs HPC resources. In other cases it may be more important to focus on manpower consumed to develop applications on more complex environments. Supporting performance APIs and libraries may aide in the development of metrics and their associated services such as the use of PAPI \cite{papi2014,papi-web,JohnNelsonAnalyzingPAPI}
 
-\item[\it Services.] In addition to applications we also are in the
-  need of metrics provided by services offered to the community. 
+\item[\it Services.] In addition to applications we also are in the need of metrics provided by services offered to the community.
 
 \end{description}
 
 \subsection{Sources}
 
-A comprehensive metrics framework consists of a data mashup of various
-sources of information. It will not be sufficient to just present a
-heterogeneous set of metrics to the users, but it will be desirable to
-integrate several into an easy to use framework. This has been
-effectively demonstrated by XDMod for HPC
-\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel}. This was
-possible due to a sustained effort within the project to provide such
-integrated metrics. In the cloud IaaS area the FutureGrid project has
-pioneered such an integrated framework that combined multiple sources
-into an easy to use report generation framework
-\cite{LeeFGresource}. It was operational for a number of years and is
-still actively used by the FutureSystems project. At this time it is
-unknown which strategies are pursued by projects such as chameleon
-cloud and other NSF sponsored projects.  In fact there may be an
-advantage that such activities be continued by an external party such
-as FutureSystems and be adopted by other in order to be true to the
-independence of the auditing principle which need to be employed to
-evaluate the effectiveness of such infrastructures.
+A comprehensive metrics framework consists of a data mashup of various sources of information. It will not be sufficient to just present a heterogeneous set of metrics to the users, but it will be desirable to integrate several into an easy to use framework. This has been effectively demonstrated by XDMod for HPC \cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel}. This was possible due to a sustained effort within the project to provide such integrated metrics. In the cloud IaaS area the FutureGrid project has pioneered such an integrated framework that combined multiple sources into an easy to use report generation framework \cite{LeeFGresource}. It was operational for a number of years and is still actively used by the FutureSystems project. At this time it is unknown which strategies are pursued by projects such as chameleon cloud and other NSF sponsored projects.  In fact there may be an advantage that such activities be continued by an external party such as FutureSystems and be adopted by other in order to be true to the independence of the auditing principle which need to be employed to evaluate the effectiveness of such infrastructures.
 
 \begin{comment}
 \begin{figure*}[htb] 
@@ -869,27 +532,7 @@ evaluate the effectiveness of such infrastructures.
 
 \subsection{Scientific Impact}
 
-Many science and engineering innovations and discoveries are
-increasingly dependent on access to high performance computing
-resources \cite{las14Impact,las15xsede,las15cluster}. For many
-researchers, this demand is met by clouds and other large-scale
-compute resources that cannot typically be supported by any single
-research group. Accordingly, dedicated large-scale computing
-facilities play an important role in scientific research, in which
-resources are shared among groups of researchers, while the facilities
-themselves are managed by dedicated staff.  Thus, justification for
-their use is warranted and questions regarding the scientific impact
-of these resources naturally arise. Hence, it is important to not only
-introduce metrics measuring the actual usage, but also the impact
-based on for example the scientific publications that are produced by
-such resources. We have developed a sophisticated metric framework
-that delivers such impact metrics for XSEDE, NCAR, and Blue Waters
-\cite{las14Impact,las15xsede,las15cluster}. It is most natural that
-this be extended to any cloud resource. However, the framework is
-general enough that it could apply to any resource framework and
-interested resource providers can contact the corresponding athor for
-more information. Table \ref{T:SIMmetrics} lists the general metrics
-related to the impact of scientific works.
+Many science and engineering innovations and discoveries are increasingly dependent on access to high performance computing resources \cite{las14Impact,las15xsede,las15cluster}. For many researchers, this demand is met by clouds and other large-scale compute resources that cannot typically be supported by any single research group. Accordingly, dedicated large-scale computing facilities play an important role in scientific research, in which resources are shared among groups of researchers, while the facilities themselves are managed by dedicated staff.  Thus, justification for their use is warranted and questions regarding the scientific impact of these resources naturally arise. Hence, it is important to not only introduce metrics measuring the actual usage, but also the impact based on for example the scientific publications that are produced by such resources. We have developed a sophisticated metric framework that delivers such impact metrics for XSEDE, NCAR, and Blue Waters \cite{las14Impact,las15xsede,las15cluster}. It is most natural that this be extended to any cloud resource. However, the framework is general enough that it could apply to any resource framework and interested resource providers can contact the corresponding athor for more information. Table \ref{T:SIMmetrics} lists the general metrics related to the impact of scientific works.
 
 \begin{table*}[htb]
 \caption{Selected Scientific impact metrics}
@@ -945,86 +588,37 @@ To compare the studied entity's relative impact with the peers. The peers are id
 \end{scriptsize}
 \end{table*}
 
-While evaluating a research computing facility, in this context, a cloud resource 
-provider, based on how the accounting and auditing framework had been setup, as well as
-the mechanism of gathering publications as output of using the cloud, different metrics
-could be derived based on the general ones listed above in table \ref{T:SIMmetrics}.
-E.g., if we have user and group/project units in the accounting system, and the 
-publications are gathered and vetted also with user/group/project information, we could
-derive the same metrics for each user, group/project, and compare their performance.
-These metrics could be calculated for a cloud resource provider as a whole entity, 
-and the same metrics could be compared among different cloud resource provider. Based on
-other related data, e.g. the resource had been consumed, we could derive and compare
-the same metrics but in a normalized fashion - Publication count and/or citation count
-per M(K) CpuHours as an example.
+While evaluating a research computing facility, in this context, a cloud resource provider, based on how the accounting and auditing framework had been setup, as well as the mechanism of gathering publications as output of using the cloud, different metrics could be derived based on the general ones listed above in table \ref{T:SIMmetrics}.  E.g., if we have user and group/project units in the accounting system, and the publications are gathered and vetted also with user/group/project information, we could derive the same metrics for each user, group/project, and compare their performance.  These metrics could be calculated for a cloud resource provider as a whole entity, and the same metrics could be compared among different cloud resource provider. Based on other related data, e.g. the resource had been consumed, we could derive and compare the same metrics but in a normalized fashion - Publication count and/or citation count per M(K) CpuHours as an example.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRICS} \label{S:metrics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section we will introduce several important examples for
-cloud metrics that will be important for academic cloud providers. We
-also will introduce several parameters that determine the sample size
-and population over which such metrics are invoked. The metrics that
-we define here are in part derived from our experience within
-FutureGrid and FutureSystems. 
+In this section we will introduce several important examples for cloud metrics that will be important for academic cloud providers. We also will introduce several parameters that determine the sample size and population over which such metrics are invoked. The metrics that we define here are in part derived from our experience within FutureGrid and FutureSystems.
 
-We will introduce a number of definitions that we will use throughout
-this section. 
+We will introduce a number of definitions that we will use throughout this section.
 
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item [Period.] Many metrics need to be applied on a flexible period,
-  thus it is important to be able to define the start and end time of
-  a metric to be applied, as well as its periodicity throughout the
-  interval.
+\item [Period.] Many metrics need to be applied on a flexible period, thus it is important to be able to define the start and end time of a metric to be applied, as well as its periodicity throughout the interval.
 
-\item[Realtime.] Some metrics need to be applied at realtime in order
-  to obtain immideate feedback about the system status
+\item[Realtime.] Some metrics need to be applied at realtime in order to obtain immideate feedback about the system status
 
-\item[Time to Live.] As some of the metrics may provide a lot of data
-  it is useful to introduce a Time To Live (TTL) that allows metric
-  data to expire if they are no longer needed.
+\item[Time to Live.] As some of the metrics may provide a lot of data it is useful to introduce a Time To Live (TTL) that allows metric data to expire if they are no longer needed.
  
 \end{description}
 
-Additionally we find several kinds of metrics that agglomerate
-data. We will need the typical statistical measurements such as count,
-sum, mean, median, standard deviation, frequency, distribution, and
-others. Together these metric properties can be used to provide (a)
-effective summary reports, (b) periodicity reports (c) real time
-information. Trough the introduction of stakeholders (see Section ??)
-some information may be restricted.
+Additionally we find several kinds of metrics that agglomerate data. We will need the typical statistical measurements such as count, sum, mean, median, standard deviation, frequency, distribution, and others. Together these metric properties can be used to provide (a) effective summary reports, (b) periodicity reports (c) real time information. Trough the introduction of stakeholders (see Section ??)  some information may be restricted.
 
-Examples of summary reports include walltime of servers used in a
-cluster as total over a particular time, the VM count, or the user
-count. Additional factors such as to which project the information is
-associated is important for project members or for those judging if
-the resources allocated for a project are justified. Center directors
-may need to report to their organization which scientific discipline
-have used the resource. These are just a very small but quite useful
-set of metrics that have had practical impact in existing academic
-cloud environments such as FutureGrid and FutureSystems.  For summary
-reports we also found it useful to overlap multiple metrics into the
-same chart over a given period. This way we can showcase, contrast or
-verify trends between different metrics.  To present the information
-the metrics may need to be able to be conveniently be displayed as
-charts, as time series data, in tables or json format or through
-RESTful service.  Properties that are important to consider as part of
-metrics include scalability, overhead, availability, accuracy,
-security, agility, and the integration of some of the metrics into
-autoscaling services.
+Examples of summary reports include walltime of servers used in a cluster as total over a particular time, the VM count, or the user count. Additional factors such as to which project the information is associated is important for project members or for those judging if the resources allocated for a project are justified. Center directors may need to report to their organization which scientific discipline have used the resource. These are just a very small but quite useful set of metrics that have had practical impact in existing academic cloud environments such as FutureGrid and FutureSystems.  For summary reports we also found it useful to overlap multiple metrics into the same chart over a given period. This way we can showcase, contrast or verify trends between different metrics.  To present the information the metrics may need to be able to be conveniently be displayed as charts, as time series data, in tables or json format or through RESTful service.  Properties that are important to consider as part of metrics include scalability, overhead, availability, accuracy, security, agility, and the integration of some of the metrics into autoscaling services.
 
 We provide a comprehensive list of useful metrics in Table \ref{T:metrics-bigtable}.
 
 \subsection{Metric Keywords}
 
-To provide a starting point for discussions with other resource
-providers, we list a number of keywords that are associated with
-exemplary metrics that we are interested in deriving in more details
-while providing a subset of concrete metrics in Table ??.
+To provide a starting point for discussions with other resource providers, we list a number of keywords that are associated with exemplary metrics that we are interested in deriving in more details while providing a subset of concrete metrics in Table ??.
 
 \begin{Verbatim}[fontfamily=times]
 o usage - runtime
@@ -1400,56 +994,28 @@ Network In & Yes & TBD & TBD & TBD & TBD & TBD \\
 \subsubsection{OpenStack}
 
 
-Openstacks Ceilometer provides a service for measuring usage data from
-openstack components to achieve monitoring and metering
-purposes. Ceilometer acquires measurements across current OpenStack
-components such as Nova (compute), Network, and Storage (swift). Next
-to an API it also provides a command line tools to retrieve usage
-statistics. However in deployments such commands are typically limited
-by policy to system administrators. By default it provides hourly
-information for compute utilization; instance type; availability zone;
-cpu core; memory size; nova volume block device type and availability
-zone; Network; data transfer (in / out), availability zone; external
-floating ip; Storage (Swift); disk size used; and data in/out.
+Openstacks Ceilometer provides a service for measuring usage data from openstack components to achieve monitoring and metering purposes. Ceilometer acquires measurements across current OpenStack components such as Nova (compute), Network, and Storage (swift). Next to an API it also provides a command line tools to retrieve usage statistics. However in deployments such commands are typically limited by policy to system administrators. By default it provides hourly information for compute utilization; instance type; availability zone; cpu core; memory size; nova volume block device type and availability zone; Network; data transfer (in / out), availability zone; external floating ip; Storage (Swift); disk size used; and data in/out.
 
 There are four basic components to Ceilometer:
 
 \begin{description}
 \setlength\itemsep{-2pt} 
 
-\item[\it Agents.] Agents run on each compute node and polls for
-  resources utilization statistics.
+\item[\it Agents.] Agents run on each compute node and polls resources utilization statistics.
 
-\item[\it Collector:] A collector runs on management servers to manage
-  the message queues for data coming from the agent. Metering data are
-  stored to the openstack data store and a notification message are
-  delivered to the Openstack messaging bus once they are processed.
+\item[\it Collector:] A collector runs on management servers to manage the message queues for data coming from the agent. Metering data are stored to the openstack data store and a notification message are delivered to the Openstack messaging bus once they are processed.
 
-\item[\it Data store:] is a place of collected data. It provides
-  interaction with the collector and a api server.
+\item[\it Data store:] is a place of collected data. It provides interaction with the collector and a api server.
 
-\item[\it API server:] runs on management servers to provide
-  statistics about the measured data.
+\item[\it API server:] runs on management servers to provide statistics about the measured data.
 
 \end{description}
 
 Production scale metering is estimated to have 386 writes per second and 33,360,480 events a day, which would require 239 Gb of volume for storing statistics per month~\cite{Barcet12}.
 
-The OpenStack Orchestration program, Heat, provides an autoscaling
-service while leveraging Ceilometer. It is similar to Amazons
-CloudFormation.  This integration of Heat and Ceilometer allows users
-to develop services that provide better resource utilization. This is
-similar to the combination of the AWS Auto Scaling and AWS CloudWatch
-to provide the autoscaling service based on monitoring
-values~\cite{Abaakouk13}.
+The OpenStack Orchestration program, Heat, provides an autoscaling service while leveraging Ceilometer. It is similar to Amazons CloudFormation.  This integration of Heat and Ceilometer allows users to develop services that provide better resource utilization. This is similar to the combination of the AWS Auto Scaling and AWS CloudWatch to provide the autoscaling service based on monitoring values~\cite{Abaakouk13}.
 
-In addiction to ceilometer the command line tools provided by
-OpenStack Compute (Nova) offer elementary usage statistics, but also
-inform users about quota and API call limitations.  For more detailed
-information about resource usage users will need to use the
-information exposed with ceilometer.  Examples of the information
-includes host information as depicted in Figure~\ref{F:host-describe}
-and usage data as depicted in Figure~\ref{F:host-describe}.
+In addiction to ceilometer the command line tools provided by OpenStack Compute (Nova) offer elementary usage statistics, but also inform users about quota and API call limitations.  For more detailed information about resource usage users will need to use the information exposed with ceilometer.  Examples of the information includes host information as depicted in Figure~\ref{F:host-describe} and usage data as depicted in Figure~\ref{F:host-describe}.
 
 
 \begin{figure}[htb]
@@ -1497,93 +1063,28 @@ and usage data as depicted in Figure~\ref{F:host-describe}.
 \end{figure}
 
 
-Internally usage data for Ceilometer and the nova command line tools
-is provided by OpenStack Notification System. The notification system
-can be configured to emit events either through nova's logging
-facility, or send them to a series of AMQP queues (one per
-notification priority). System usages are emitted as notification
-events with the INFO priority. Different types of usage events are
-distinguished via the notifications \verb|event_type|, which is a
-hierarchical dotted string such as \verb|compute.instance.create|,
-which allows usages to be easily grouped for aggregation. Usage
-notifications can be immediate (created when a specific increment of
-usage occurs, such as creation of an instance) or periodic (generated
-by a periodic task, like a cron job) and cover usage for a certain
-time period. A notification includes attributes such as id, priority,
-event type, and timestamp associated with a notification data payload
-as a json-formatted key-value pair ~\cite{SystemUsageData}.  Through
-this set of information custom parsers and information queries can be
-generated. However it does require policies to be set up to gain
-access to this information.
+Internally usage data for Ceilometer and the nova command line tools is provided by OpenStack Notification System. The notification system can be configured to emit events either through nova's logging facility, or send them to a series of AMQP queues (one per notification priority). System usages are emitted as notification events with the INFO priority. Different types of usage events are distinguished via the notifications \verb|event_type|, which is a hierarchical dotted string such as \verb|compute.instance.create|, which allows usages to be easily grouped for aggregation. Usage notifications can be immediate (created when a specific increment of usage occurs, such as creation of an instance) or periodic (generated by a periodic task, like a cron job) and cover usage for a certain time period. A notification includes attributes such as id, priority, event type, and timestamp associated with a notification data payload as a json-formatted key-value pair ~\cite{SystemUsageData}.  Through this set of information custom parsers and information queries can be generated. However it does require policies to be set up to gain access to this information.
 
 \subsubsection{Eucalyptus}
 
-Eucalyptus provides a to several Amazon services compatible private
-cloud.  It offers resource usage information through external
-monitoring tools such as Nagios and Ganglia.  To enhance system
-management, Eucalyptus provides nowadays summary reports about
-resource allocation and status. There are commands line tools for
-generating reports for eucalyptus cloud that start with eureport- in
-the Cloud Controller (CLC) and eucadw- in the data warehouse. The
-reports provide usage data for understanding how cloud resources are
-utilized and being used via simple command line
-tools. eureport-generate-report is a main command to get access usage
-data. Various type of resources can be measured such as elastic-ip,
-instance, s3, snapshot, and volume when eureport-generate-report is
-ran with a report type option. The Eucalyptus data warehouse is a
-place to keep all usage data coming from CLC. External programs can
-get access to the usage data from the data warehouse instead of CLC
-directly. It may reduce impact of pulling usage information from cloud
-when it performs its cloud duties~\cite{Euca2ools14}.
-Previously Eucalyptus did not have a strong monitoring framework and
-as part of FutureGrid we developed a system that parses log file
-events on the management node to provide them. In future we need to
-evaluate if the existing Eucaluptus monitoring features could replace
-this framework. However, as the usage demand of Eucalyptus has almost
-diminished, we have in FutureSystem discontinued the use of
-Eucalyptus. University of Buffalo is in the process of deploying a
-Eucalyptus cloud and we hope the integration of Eucalyptus data into a
-heterogeneous metrics framework can be continued at that time. At this
-time we are not aware of any other new Eucalyptus cloud deployments.
+Eucalyptus provides a to several Amazon services compatible private cloud.  It offers resource usage information through external monitoring tools such as Nagios and Ganglia.  To enhance system management, Eucalyptus provides nowadays summary reports about resource allocation and status. There are commands line tools for generating reports for eucalyptus cloud that start with eureport- in the Cloud Controller (CLC) and eucadw- in the data warehouse. The reports provide usage data for understanding how cloud resources are utilized and being used via simple command line tools. eureport-generate-report is a main command to get access usage data. Various type of resources can be measured such as elastic-ip, instance, s3, snapshot, and volume when eureport-generate-report is ran with a report type option. The Eucalyptus data warehouse is a place to keep all usage data coming from CLC. External programs can get access to the usage data from the data warehouse instead of CLC directly. It may reduce impact of pulling usage information from cloud when it performs its cloud duties~\cite{Euca2ools14}.  Previously Eucalyptus did not have a strong monitoring framework and as part of FutureGrid we developed a system that parses log file events on the management node to provide them. In future we need to evaluate if the existing Eucaluptus monitoring features could replace this framework. However, as the usage demand of Eucalyptus has almost diminished, we have in FutureSystem discontinued the use of Eucalyptus. University of Buffalo is in the process of deploying a Eucalyptus cloud and we hope the integration of Eucalyptus data into a heterogeneous metrics framework can be continued at that time. At this time we are not aware of any other new Eucalyptus cloud deployments.
 
 \subsubsection{Azure}
 
-Microsoft Windows Azure is a cloud computing platform used to build,
-host and scale web applications through Microsoft data
-centers~\cite{azure11}. The platform contains various on-demand
-services hosted in Microsoft data centers. These services are provided
-through three products.
+Microsoft Windows Azure is a cloud computing platform used to build, host and scale web applications through Microsoft data centers~\cite{azure11}. The platform contains various on-demand services hosted in Microsoft data centers. These services are provided through three products.
 
 \begin{description}
 \setlength\itemsep{-2pt} 
 
-\item[\it Windows Azure:] an operating system that provides scalable
-  compute and storage facilities.
+\item[\it Windows Azure:] an operating system that provides scalable compute and storage facilities.
 
  \item[\it SQL Azure:] a cloud based, scale out version of SQL server.
 
- \item[\it Windows Azure AppFabric:] a collection of services
-   supporting applications both in the cloud and on premise.
+ \item[\it Windows Azure AppFabric:] a collection of services supporting applications both in the cloud and on premise.
 
 \end{description}
 
-The System Center Monitoring Pack for Windows Azure application is
-according to Microsoft the most cost effective and flexible platform
-for managing traditional data centers, private and public clouds, and
-client computers and devices~\cite{MonitoringPackAzure11}. It provides
-monitoring of availability and performance for Windows Azure
-applications. It provides a unified management platform where multiple
-hypervisors, physical resources, and applications can be managed in a
-single offering. From a single console view, the IT assets like
-network, storage and compute can be organized into a hybrid cloud
-model spanning the private cloud and public cloud services. The
-monitoring pack runs on a specified agent and uses Windows API.s to
-remotely discover and collect information about a specified Windows
-Azure application. By default, the monitoring is not
-enabled. Therefore, the discovery must be configured by using the
-Windows Azure Application monitoring template for each Windows Azure
-Application to be monitored. The following functionalities are
-provided by the Monitoring Pack for Windows Azure Applications:
+The System Center Monitoring Pack for Windows Azure application is according to Microsoft the most cost effective and flexible platform for managing traditional data centers, private and public clouds, and client computers and devices~\cite{MonitoringPackAzure11}. It provides monitoring of availability and performance for Windows Azure applications. It provides a unified management platform where multiple hypervisors, physical resources, and applications can be managed in a single offering. From a single console view, the IT assets like network, storage and compute can be organized into a hybrid cloud model spanning the private cloud and public cloud services. The monitoring pack runs on a specified agent and uses Windows API.s to remotely discover and collect information about a specified Windows Azure application. By default, the monitoring is not enabled. Therefore, the discovery must be configured by using the Windows Azure Application monitoring template for each Windows Azure Application to be monitored. The following functionalities are provided by the Monitoring Pack for Windows Azure Applications:
 
 \begin{itemize}
 \setlength\itemsep{-2pt} 
@@ -1597,256 +1098,86 @@ provided by the Monitoring Pack for Windows Azure Applications:
  \item Changes the number of role instances.
 \end{itemize}
 
-Implementing monitoring means, launching the diagnostic instance and
-this instance will collect the data and at the interval user
-wants. The collected data will be copied to an Azure Table to record
-information for performance counters and windows event logs.  The
-performance monitoring can be enabled by direct implementation or
-using tools such as powershell cmdlets for Windows
-Azure~\cite{cmdlets} or the Azure Diagnostics Manager 2 from
-Cerebrata~\cite{cerebrata}.
+Implementing monitoring means, launching the diagnostic instance and this instance will collect the data and at the interval user wants. The collected data will be copied to an Azure Table to record information for performance counters and windows event logs.  The performance monitoring can be enabled by direct implementation or using tools such as powershell cmdlets for Windows Azure~\cite{cmdlets} or the Azure Diagnostics Manager 2 from Cerebrata~\cite{cerebrata}.
 
-By using these tools one instance of Windows Azure is configured to
-collect some performance counters without modifying the application
-code. The performance data will be collected by the Azure Diagnostic
-Monitor and moved at the interval user specified. Hence the user can
-use this diagnostic data for debugging and troubleshooting, measuring
-performance, monitoring resource usage, traffic analysis and capacity
-planning, and auditing. Diagnostic data is not permanently stored
-unless user transfers the data to the Windows Azure storage emulator
-or to Windows Azure storage. After the data is transferred to storage
-it can be viewed with one of several available tools. To collect
-Windows Event logs in a Windows Azure application, the Event logs data
-source must be configured. Access is controlled by authentication
-access control.  The monitoring data can be visualized using System
-Center Operation Manager Console. From Operation Manager, user can
-create custom dashboard or publish graphs on SharePoint to people who
-do not have the SCOM console.
+By using these tools one instance of Windows Azure is configured to collect some performance counters without modifying the application code. The performance data will be collected by the Azure Diagnostic Monitor and moved at the interval user specified. Hence the user can use this diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing. Diagnostic data is not permanently stored unless user transfers the data to the Windows Azure storage emulator or to Windows Azure storage. After the data is transferred to storage it can be viewed with one of several available tools. To collect Windows Event logs in a Windows Azure application, the Event logs data source must be configured. Access is controlled by authentication access control.  The monitoring data can be visualized using System Center Operation Manager Console. From Operation Manager, user can create custom dashboard or publish graphs on SharePoint to people who do not have the SCOM console.
 
 \subsubsection{Amazon}
 
 \paragraph{Amazon CloudWatch}
 
-Amazon CloudWatch (ACW) \cite{cloudwatch2013monitoring} monitors Amazon Web
-Services (AWS) resources and the applications users run on AWS in real-time.
-ACW is a metrics repository. The AWS products ingest metrics into the
-repository, and users retrieve statistics based on those metrics.  Metrics are
-time-ordered sets of data points, are isolated from one another in different
-namespaces so that metrics from different applications are not mistakenly
-aggregated into the same statistics. Users retrieve statistics about those data
-points as an ordered set of time-series data. Over the time value is important
-for metrics since it contains historical changes in it. An API is provided to
-interface programmatically.
+Amazon CloudWatch (ACW) \cite{cloudwatch2013monitoring} monitors Amazon Web Services (AWS) resources and the applications users run on AWS in real-time.  ACW is a metrics repository. The AWS products ingest metrics into the repository, and users retrieve statistics based on those metrics.  Metrics are time-ordered sets of data points, are isolated from one another in different namespaces so that metrics from different applications are not mistakenly aggregated into the same statistics. Users retrieve statistics about those data points as an ordered set of time-series data. Over the time value is important for metrics since it contains historical changes in it. An API is provided to interface programmatically.
 
-CloudWatch allows notification to alert users and auto scaling
-(automatically make changes) to the resources you are monitoring based
-on rules that you define. Hence, CloudWatch can manage thresholds
-to send a notification to users via email or text messages, and even
-more, apply changes with a pre-defined settings such as increasing
-virtual instances or diminishing. System-wide visibility into
-resource utilization, application performance, and operational health
-can be provided on a users services. However insight into the
-underlaying IaaS framework is not sufficiently provided as is tha case
-in academic private clouds.
+CloudWatch allows notification to alert users and auto scaling (automatically make changes) to the resources you are monitoring based on rules that you define. Hence, CloudWatch can manage thresholds to send a notification to users via email or text messages, and even more, apply changes with a pre-defined settings such as increasing virtual instances or diminishing. System-wide visibility into resource utilization, application performance, and operational health can be provided on a users services. However insight into the underlaying IaaS framework is not sufficiently provided as is tha case in academic private clouds.
 
 \subsubsection{Rackspace Cloud Monitoring}
 
-Rackspace Cloud Monitoring is an API driven monitoring system which
-allows administrators to use or create APIs depending on their needs
-which can send notifications to any device including mobile
-devices. This allows administrators to be on top of their
-Rackspace-hosted infrastructure which includes websites, protocols,
-and ports.
+Rackspace Cloud Monitoring is an API driven monitoring system which allows administrators to use or create APIs depending on their needs which can send notifications to any device including mobile devices. This allows administrators to be on top of their Rackspace-hosted infrastructure which includes websites, protocols, and ports.
 
 \subsubsection{Google Cloud}
-Google launched Cloud Monitoring in 2014 after the acquisition of Stackdriver,
-a software company that developed monitoring services in the cloud. Google
-Cloud Monitoring (GCM) provides performance data of cloud resources and sends
-notifications if issues occur based on a user defined alerting policy.
-Monitoring is available in Google App Engine, Compute Engine, Pub Sub, Cloud
-SQL and Cloud Storage with health check, log tracing on the web-based Cloud
-Monitoring Console according to the Cloud Monitoring website~\cite{GCM}.
-Additional metrics such as memory or disk usage can be collected by the
-Monitoring Agent which requires to be installed in a VM instance. Google offers
-Monitoring for free during its Beta release.
+
+Google launched Cloud Monitoring in 2014 after the acquisition of Stackdriver, a software company that developed monitoring services in the cloud. Google Cloud Monitoring (GCM) provides performance data of cloud resources and sends notifications if issues occur based on a user defined alerting policy.  Monitoring is available in Google App Engine, Compute Engine, Pub Sub, Cloud SQL and Cloud Storage with health check, log tracing on the web-based Cloud Monitoring Console according to the Cloud Monitoring website~\cite{GCM}.  Additional metrics such as memory or disk usage can be collected by the Monitoring Agent which requires to be installed in a VM instance. Google offers Monitoring for free during its Beta release.
 
 \subsection{HPC}
 
-Monitoring in high-performance computing has similar factors as
-described earlier. A number of existing tools support monitoring and
-metrics for HPC computing. Some of them are directly build into the
-queuing system. We describe a selected number of tools and services
-next.
+Monitoring in high-performance computing has similar factors as described earlier. A number of existing tools support monitoring and metrics for HPC computing. Some of them are directly build into the queuing system. We describe a selected number of tools and services next.
 
 \subsubsection{XDMoD}
 
-XDMoD (XSEDE Metrics on Demand)
-\cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is developed as a
-successor to UBMoD (University Buffalo Metrics on Demand) while trageting
-firstly the XSEDE resource providers. Most recently an open source version can
-however be deployed at non XSEDE based resource providers. It is a tools for
-collecting and mining statistical data from cluster resource managers such as
-Torque\cite{staples2006torque}, Maui\cite{jackson2001core},
-Moab\cite{computing2012moab}, OpenPBS \cite{teambatching},
-SGE\cite{gentzsch2001sun} and Slurm \cite{jette2010slurm} commonly found in
-high-performance computing environments. XDMod has three fundamental
-components: a metrics repository (e.g. a Data Warehouse), a RESTful API, and a
-web-based application (Portal).  Its web graphical user interface provides rich
-set of tools to expose various statistics with different type of charts and
-tables while communication through a RESTful API
-~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}.
+XDMoD (XSEDE Metrics on Demand) \cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel} is developed as a successor to UBMoD (University Buffalo Metrics on Demand) while trageting firstly the XSEDE resource providers. Most recently an open source version can however be deployed at non XSEDE based resource providers. It is a tools for collecting and mining statistical data from cluster resource managers such as Torque\cite{staples2006torque}, Maui\cite{jackson2001core}, Moab\cite{computing2012moab}, OpenPBS \cite{teambatching}, SGE\cite{gentzsch2001sun} and Slurm \cite{jette2010slurm} commonly found in high-performance computing environments. XDMod has three fundamental components: a metrics repository (e.g. a Data Warehouse), a RESTful API, and a web-based application (Portal).  Its web graphical user interface provides rich set of tools to expose various statistics with different type of charts and tables while communication through a RESTful API ~\cite{CPE:CPE2871,Furlani:2013:UXF:2484762.2484763}.
 
 \subsubsection{Nagios}
 
-Nagios \cite{barth2008nagios} is a web based Linux monitoring systems allowing
-to monitor availability and response time of network services, usage of system
-resources like CPU load, RAM allocation etc., number of logged in
-users and so on. The main Nagios server collects information from
-Linux, BSD, Windows hosts or Cisco devices through Nagios clients
-(agents), and records their states. A web interface is provided to
-expose the information to authorized users.  Nagios generates a
-notification in case of any outage detected or any anomaly through
-wide range of alert methods. They can be forwarded via e-mail, sms,
-chat messages and phone call notifications. As Nagios monitors states
-but it typically does not expose graphs such as network interface
-usage.
+Nagios \cite{barth2008nagios} is a web based Linux monitoring systems allowing to monitor availability and response time of network services, usage of system resources like CPU load, RAM allocation etc., number of logged in users and so on. The main Nagios server collects information from Linux, BSD, Windows hosts or Cisco devices through Nagios clients (agents), and records their states. A web interface is provided to expose the information to authorized users.  Nagios generates a notification in case of any outage detected or any anomaly through wide range of alert methods. They can be forwarded via e-mail, sms, chat messages and phone call notifications. As Nagios monitors states but it typically does not expose graphs such as network interface usage.
 
 \subsubsection{Cacti}
 
-Cacti is a network monitoring tool using the simple network management protocol
-(SNMP). It is similar to other tools such as Nagios \cite{barth2008nagios} and
-Ganglia. It uses RRDtool \cite{oetiker2005rrdtool}  as a DBMS to provide a
-round robin visualization of the monitored information. Since it supports
-polling, monitoring data via shell scripts, php, or c-based executable is
-possible. t can be extended to measure other resources besides network traffic.
+Cacti is a network monitoring tool using the simple network management protocol (SNMP). It is similar to other tools such as Nagios \cite{barth2008nagios} and Ganglia. It uses RRDtool \cite{oetiker2005rrdtool} as a DBMS to provide a round robin visualization of the monitored information. Since it supports polling, monitoring data via shell scripts, php, or c-based executable is possible. t can be extended to measure other resources besides network traffic.
 
 \subsubsection{Zabbix}
 
-Zabbix is an open source monitoring service for networks and servers while
-accessing information via a number of standard protocols such as SNMP
-\cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{cerf2005protocol}
-and JMX \cite{perry2002java}. The centralized server of Zabbix collects
-monitoring data through several Zabbix agents installed on desirable hosts and
-other servers. The information is store in a database and displayed through a
-web interface that can create reports on-demand. The agents To support cloud
-monitoring, Zabbix active agent auto-registration enables monitoring cloud
-instances on IaaS such as Amazon Web services, and OpenStack.
+Zabbix is an open source monitoring service for networks and servers while accessing information via a number of standard protocols such as SNMP \cite{case1990simple}, IPMI \cite{dell2009ipmi}, TCP, \cite{cerf2005protocol} and JMX \cite{perry2002java}. The centralized server of Zabbix collects monitoring data through several Zabbix agents installed on desirable hosts and other servers. The information is store in a database and displayed through a web interface that can create reports on-demand. The agents To support cloud monitoring, Zabbix active agent auto-registration enables monitoring cloud instances on IaaS such as Amazon Web services, and OpenStack.
 
 \subsubsection{Zenoss}
 
-Zenoss (Zenoss Core) provides a unified resource management service which
-manages applications, networks, servers, and storage. It allows to monitor
-physical or virtual systems including the public, private and hybrid clouds. It
-is built on top of the Zope object-oriented web application server, and using
-RRDtool with MySQ. It can collect information using SNMP, SSH, WMI and log
-files e.g. syslog. Zenoss provides additional features with other monitoring
-mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise
-version. A key feature of Zenoss is model-driven monitoring allowing to
-automatically discover, configure and monitor services. As a communication
-tool, Zenoss utilizes the Twisted Perspective Broker (PB)
-\cite{PerspectiveBroker} instead of AMQP typed messaging system such as
-RabbitMQ. PB is an an asynchronous, event-driven with co-operative
-multi-tasking which is a deferred object.
+Zenoss (Zenoss Core) provides a unified resource management service which manages applications, networks, servers, and storage. It allows to monitor physical or virtual systems including the public, private and hybrid clouds. It is built on top of the Zope object-oriented web application server, and using RRDtool with MySQ. It can collect information using SNMP, SSH, WMI and log files e.g. syslog. Zenoss provides additional features with other monitoring mechanisms such as Perfmon, JMX, and VM API (e.g. VMware API) in the enterprise version. A key feature of Zenoss is model-driven monitoring allowing to automatically discover, configure and monitor services. As a communication tool, Zenoss utilizes the Twisted Perspective Broker (PB) \cite{PerspectiveBroker} instead of AMQP typed messaging system such as RabbitMQ. PB is an an asynchronous, event-driven with co-operative multi-tasking which is a deferred object.
 
 \subsubsection{Inca}
 
-Inca is monitoring software for watching user-level activities and measuring
-performance on a Grid including detecting errors~\cite{inca}. The executable
-program, Inca reporter, collects performance data from a system and Inca web
-interface provides detailed information about the measured data. XSEDE uses
-Inca for monitoring GRAM usage, CA and CRL validity and resource registration
-in MDS according to the project description page~\cite{inca-xsede}.  FutureGrid
-project used Inca for measuring performance of FutureGrid software and hardware
-with 196 Inca reporters for testing FutureGrid services and
-clusters~cite{inca-futuregrid}. Inca is used on the XSEDE resources
-Keenland \cite{keeneland}\cite{keeneland-xsede} and Darter \cite{darter-nics}.
+Inca is monitoring software for watching user-level activities and measuring performance on a Grid including detecting errors~\cite{inca}. The executable program, Inca reporter, collects performance data from a system and Inca web interface provides detailed information about the measured data. XSEDE uses Inca for monitoring GRAM usage, CA and CRL validity and resource registration in MDS according to the project description page~\cite{inca-xsede}.  FutureGrid project used Inca for measuring performance of FutureGrid software and hardware with 196 Inca reporters for testing FutureGrid services and clusters~cite{inca-futuregrid}. Inca is used on the XSEDE resources Keenland \cite{keeneland}\cite{keeneland-xsede} and Darter \cite{darter-nics}.
 
 
 \subsubsection{Ipm} 
 
-``Integrated Performance Monitoring (IPM) is a portable profiling
-infrastructure for parallel codes. It provides a low-overhead
-performance summary of the computation and communication in a parallel
-program.'' \cite{Shan:2010:ProgModels,Fuerlinger:2010:PetascaleIPMP,ipm-github,ipm10}
-Ipm is used on the XSEDE resource Stampede \cite{stampede-tacc}.
+``Integrated Performance Monitoring (IPM) is a portable profiling infrastructure for parallel codes. It provides a low-overhead performance summary of the computation and communication in a parallel program.'' \cite{Shan:2010:ProgModels,Fuerlinger:2010:PetascaleIPMP,ipm-github,ipm10} Ipm is used on the XSEDE resource Stampede \cite{stampede-tacc}.
 
 \subsubsection{PAPI}
 
-``PAPI provides the tool designer and application engineer with a
-consistent interface and methodology for use of the performance
-counter hardware found in most major microprocessors. PAPI enables
-software engineers to see, in near real time, the relation between
-software performance and processor events. In addition Component PAPI
-provides access to a collection of components that expose performance
-measurement opportunites across the hardware and software stack.''
-PAPI is used obn the XSEDE resource Stampede \cite{stampede-tacc}.
+``PAPI provides the tool designer and application engineer with a consistent interface and methodology for use of the performance counter hardware found in most major microprocessors. PAPI enables software engineers to see, in near real time, the relation between software performance and processor events. In addition Component PAPI provides access to a collection of components that expose performance measurement opportunites across the hardware and software stack.''  PAPI is used obn the XSEDE resource Stampede \cite{stampede-tacc}.
 
 \subsubsection{Gold}
 
-There is a small number of accounting software to provide metered
-resource utilization in open source cloud platforms. Those tools such
-as Gold accounting Manager~\cite{jacksongold,gold-allocation} are very
-simple and are supposed to support system administrators not cloud
-users. However, Gold is no longer supported by the developers.
+There is a small number of accounting software to provide metered resource utilization in open source cloud platforms. Those tools such as Gold accounting Manager~\cite{jacksongold,gold-allocation} are very simple and are supposed to support system administrators not cloud users. However, Gold is no longer supported by the developers.
 
 
 \subsubsection{XRAS}
 
-The XSEDE Resource Allocation Service (XRAS) is an allocations
-environment for managing the submission, review, and awarding of
-resource allocations. It is targeted to better serve the XSEDE
-infrastructure than its predecessors. It streamlines the allocations
-processes across a broad set of cyber infrastructure investments. XRAS
-is designed as a software-as-a-service through a set of common tools
-and interfaces enhanced by flexible mechanisms that allow clients to
-tailor the environment to meet the needs of their process
-\cite{hart2014xras}.
+The XSEDE Resource Allocation Service (XRAS) is an allocations environment for managing the submission, review, and awarding of resource allocations. It is targeted to better serve the XSEDE infrastructure than its predecessors. It streamlines the allocations processes across a broad set of cyber infrastructure investments. XRAS is designed as a software-as-a-service through a set of common tools and interfaces enhanced by flexible mechanisms that allow clients to tailor the environment to meet the needs of their process \cite{hart2014xras}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUDMESH METRICS SERVICES AND FRAMEWORK}\label{S:cloudmesh}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Cloudmesh Metrics extends our cloudmesh framework \cite{las14cloudmeshmultiple}
-by integrating a metrics framework for monitoring essential IaaS metrics. It
-can handle handling multiple heterogeneous cloud platforms, to provide
-measurement of usage data about cloud resources.  It collects usage data
-directly from various cloud management services and integrates them into a
-single report. This framework was extensively used in
-FutureGrid~\cite{las2010gce,las12fg-bookchapter} and its use is continued in
-FutureSystems \cite{??}. It has served as integrator to three different IaaS
-frameworks, namely, Eucalyptus, OpenStack, and Nimbus. It has served to provide
-integrated information of at least eight different cloud deployments on various
-hosts in FutureGrid and FutureSystems.  The native usage data from different
-clouds are integrated into the Metrics database. Analysis of this data can be
-integrated into different report formats including PDF, and HTML. An API and a
-command line interface is available to customize reports while exposing them
-also through a REST interface. A Web interface provides a number of predesigned
-reports. Interactivity to min the graphs~\cite{highsoft2012highcharts} is
-provided through java script enabled charts or tables.
+Cloudmesh Metrics extends our cloudmesh framework \cite{las14cloudmeshmultiple} by integrating a metrics framework for monitoring essential IaaS metrics. It can handle handling multiple heterogeneous cloud platforms, to provide measurement of usage data about cloud resources.  It collects usage data directly from various cloud management services and integrates them into a single report. This framework was extensively used in FutureGrid~\cite{las2010gce,las12fg-bookchapter} and its use is continued in FutureSystems \cite{??}. It has served as integrator to three different IaaS frameworks, namely, Eucalyptus, OpenStack, and Nimbus. It has served to provide integrated information of at least eight different cloud deployments on various hosts in FutureGrid and FutureSystems.  The native usage data from different clouds are integrated into the Metrics database. Analysis of this data can be integrated into different report formats including PDF, and HTML. An API and a command line interface is available to customize reports while exposing them also through a REST interface. A Web interface provides a number of predesigned reports. Interactivity to min the graphs~\cite{highsoft2012highcharts} is provided through java script enabled charts or tables.
 
 \subsection{Design}
 
-The design of the cloudmesh metrics framework allows the mashup of
-information from various data sources including cloud management
-databases and log files. This mashup provides us with a rich
-data set supporting sophisticated analysis that may spawn multiple
-information sources.
-The system has been used in FutureGrid to support metric
-information from multiple IaaS service providers from various 
-FutureGrid partner sites, for more than 400 projects and over 
-2800 members as of end of 2014 ~\cite{las14cloudmeshmultiple}.
+The design of the cloudmesh metrics framework allows the mashup of information from various data sources including cloud management databases and log files. This mashup provides us with a rich data set supporting sophisticated analysis that may spawn multiple information sources.  The system has been used in FutureGrid to support metric information from multiple IaaS service providers from various FutureGrid partner sites, for more than 400 projects and over 2800 members as of end of 2014 ~\cite{las14cloudmeshmultiple}.
 
-Figure~\ref{F:fig7} shows a layered architectural
-view of the Cloudmesh Metrics service and how it interfaces with
-various IaaS frameworks.
+Figure~\ref{F:fig7} shows a layered architectural view of the Cloudmesh Metrics service and how it interfaces with various IaaS frameworks.
 
-Cloudmesh Metrics consists of four components: (1) Metric Collector: a
-measuring tool of resource allocation, (2) Cloudmesh Metric Shell providing a CLI tool to
-define metrics and collect usage data, (3) Cloudmesh Metric Portal and Report
-providing a visualization tool to provide graphical representative of
-the data, and (4) a Web Service APIs to support other applications
-e.g. scheduling and dynamic provisioning.
+Cloudmesh Metrics consists of four components: (1) Metric Collector: a measuring tool of resource allocation, (2) Cloudmesh Metric Shell providing a CLI tool to define metrics and collect usage data, (3) Cloudmesh Metric Portal and Report providing a visualization tool to provide graphical representative of the data, and (4) a Web Service APIs to support other applications e.g. scheduling and dynamic provisioning.
 
 \begin{figure*}[htb] 
 \begin{center}
@@ -1856,37 +1187,13 @@ e.g. scheduling and dynamic provisioning.
       this be dne in ppt or omni graffel}}\label{F:fig7} 
 \end{figure*} 
 
-The Metric Collector enables collecting usage data allocated from IaaS
-cloud platforms such as Eucalyptus, Nimbus, and OpenStack including
-HPC from TORQUE. 
-A log parser extracts data from log messages of IaaS
-platforms and transforms them into metrics.
-The metrics are then stored into a database that allows exposing the data as
-JSON objects via API calls. 
-The collecor enables also real-time monitoring and
-statistics. Data can be integrated from OpenStack MySQL databases or
-Nimbus sqlite3 to the unified database. Fro Eucalyptus we obtained
-most of the information through its log files as at the time
-Eucalyptus did not provide a sophisticated monitoring or metrics
-framework beyond the available logging facility. Account information
-such as a user name and a project associated with are also imported to
-the main database so the overall usage data can be viewed for vm
-instances and jobs launched on FutureGrid resources via LDAP.
+The Metric Collector enables collecting usage data allocated from IaaS cloud platforms such as Eucalyptus, Nimbus, and OpenStack including HPC from TORQUE.  A log parser extracts data from log messages of IaaS platforms and transforms them into metrics.  The metrics are then stored into a database that allows exposing the data as JSON objects via API calls.  The collecor enables also real-time monitoring and statistics. Data can be integrated from OpenStack MySQL databases or Nimbus sqlite3 to the unified database. Fro Eucalyptus we obtained most of the information through its log files as at the time Eucalyptus did not provide a sophisticated monitoring or metrics framework beyond the available logging facility. Account information such as a user name and a project associated with are also imported to the main database so the overall usage data can be viewed for vm instances and jobs launched on FutureGrid resources via LDAP.
 
-To keep the load on the original services minimal, we pull data on
-regular intervals from these production systems. Other mechanisms
-such as access to replicated databases could easily be supported. 
+To keep the load on the original services minimal, we pull data on regular intervals from these production systems. Other mechanisms such as access to replicated databases could easily be supported.
 
 \subsection{Selected Analysis with Cloudmesh Metrics}
 
-To showcase the usefulness of the system we present some simple
-examples from our operation of FutureGrid and FutureSystems spawning
-multiple years of production deployment. We early found that a simple
-summary view provides valuable input to management and funders.
-Furthermore the automatically generated reports at predefined intervals
-serve the required quarterly reporting. An examples of such summaries are
-provided in Figure \ref{F:fig8}. Real time information about virtual
-machine usage is depicted in \ref{fig:9}.
+To showcase the usefulness of the system we present some simple examples from our operation of FutureGrid and FutureSystems spawning multiple years of production deployment. We early found that a simple summary view provides valuable input to management and funders.  Furthermore the automatically generated reports at predefined intervals serve the required quarterly reporting. An examples of such summaries are provided in Figure \ref{F:fig8}. Real time information about virtual machine usage is depicted in \ref{fig:9}.
 
 \begin{figure}[htb] 
   \centering 
@@ -1900,38 +1207,9 @@ machine usage is depicted in \ref{fig:9}.
   \caption{Real-time usage report on Cloud Metrics Portal: In every 5 seconds, the line chart is updated with the number of working virtual machine instances.}\label{F:fig9} 
 \end{figure} 
 
-Based on the observation on FutureGrid, there is a different pattern
-between a research project and class work when they acquire cloud
-resources. Resource allocation of academic coursework shows time
-dependent request patterns. It shows a surge when there is a class, a
-lab session, and a project. For example, the undergraduate course for
-Distributed Systems at Indiana University introduced IaaS in the class
-and used the IaaS platform for a class project. Figure~\ref{F:fig2}
-shows a spike in the class and variability until the project due. 
-Additionally, we have been able to expose to the class lead that
-despite students attending this class not all students have actually
-logged into the systems or created VMs. Such information may provide
-valuable input to the teacher in order to verify group work or avoid
-academic dishonesty. It also contradicted the demand for the faculty
-member to ``reserve'' for the entire semester a substantial number of
-compute resources so they can be exclusively used by the
-class. Although we observe a spike, the available resources in the
-overall cloud would have been sufficient to satisfy the user demand.
+Based on the observation on FutureGrid, there is a different pattern between a research project and class work when they acquire cloud resources. Resource allocation of academic coursework shows time dependent request patterns. It shows a surge when there is a class, a lab session, and a project. For example, the undergraduate course for Distributed Systems at Indiana University introduced IaaS in the class and used the IaaS platform for a class project. Figure~\ref{F:fig2} shows a spike in the class and variability until the project due.  Additionally, we have been able to expose to the class lead that despite students attending this class not all students have actually logged into the systems or created VMs. Such information may provide valuable input to the teacher in order to verify group work or avoid academic dishonesty. It also contradicted the demand for the faculty member to ``reserve'' for the entire semester a substantial number of compute resources so they can be exclusively used by the class. Although we observe a spike, the available resources in the overall cloud would have been sufficient to satisfy the user demand.
 
-While we see time dependent use in classes, many research project show
-in contrast VM instances requests on a more regular basis. An example
-is found in the Next Generation Sequencing (NGS) in the cloud project
-on FutureGrid shows relatively consistent resource allocation
-requested in Figure~\ref{F:fig3}. With a certain period of time, vm
-instances of this project have been launched without unplanned spike
-requests. These two examples show different patterns for deploying
-resources but both cases have a factor to predict loads. The class
-schedule and the monitoring data for applications can be used to
-measure the amount of resources and identify incoming requests.  While
-having this information available through our project registration
-makes it possible to predict in future similar behavior.  Hence
-understanding these patterns is important to bring cost effectiveness
-over on-demand allocation.
+While we see time dependent use in classes, many research project show in contrast VM instances requests on a more regular basis. An example is found in the Next Generation Sequencing (NGS) in the cloud project on FutureGrid shows relatively consistent resource allocation requested in Figure~\ref{F:fig3}. With a certain period of time, vm instances of this project have been launched without unplanned spike requests. These two examples show different patterns for deploying resources but both cases have a factor to predict loads. The class schedule and the monitoring data for applications can be used to measure the amount of resources and identify incoming requests.  While having this information available through our project registration makes it possible to predict in future similar behavior.  Hence understanding these patterns is important to bring cost effectiveness over on-demand allocation.
 
 \begin{figure}[htb] 
   \centering 
@@ -1949,17 +1227,7 @@ over on-demand allocation.
   \caption{VM count for Next Generation Sequencing (NGS) in the cloud project}\label{F:fig3} 
 \end{figure} 
 
-We can furthermore analyse the data for the class usage as shown in
-the Gantt chart Figure~\ref{F:fig4}. Here we display the duration of
-the VMs as used in the class. At the beginning of the class, the gaps
-between the start and completed dates of the vm instances are small
-but a large number of instances are initiated. Once the class is
-became operative, the runtime of vm instances is getting longer and a
-less number of instances are requested compared to the beginning. This
-observation tells us that academic projects require training sessions
-using short running VMs at the beginning of a project to get familiar
-with using infrastructure and to prepare environments by installing
-software and datasets.
+We can furthermore analyse the data for the class usage as shown in the Gantt chart Figure~\ref{F:fig4}. Here we display the duration of the VMs as used in the class. At the beginning of the class, the gaps between the start and completed dates of the vm instances are small but a large number of instances are initiated. Once the class is became operative, the runtime of vm instances is getting longer and a less number of instances are requested compared to the beginning. This observation tells us that academic projects require training sessions using short running VMs at the beginning of a project to get familiar with using infrastructure and to prepare environments by installing software and datasets.
 
 \begin{figure}[htb] 
   \centering 
@@ -1967,13 +1235,7 @@ software and datasets.
   \caption{Timeline for VM walltime}\label{F:fig4} 
 \end{figure} 
 
-Another observation is that this particular class had a quite high
-usage of VMs for administrative purposes by the
-instructor. Figure~\ref{F:fig5} describes that instructors consumed a
-large number of vCPU cores before class starts and small tests just
-before class projects. It indicates that the preparation of courses
-require extensive load testing on cloud resources to estimate compute
-capacity needed for applications.
+Another observation is that this particular class had a quite high usage of VMs for administrative purposes by the instructor. Figure~\ref{F:fig5} describes that instructors consumed a large number of vCPU cores before class starts and small tests just before class projects. It indicates that the preparation of courses require extensive load testing on cloud resources to estimate compute capacity needed for applications.
 
 \begin{figure}[htb] 
   \centering 
@@ -1981,15 +1243,7 @@ capacity needed for applications.
   \caption{Usage between instructors and students for vCPU cores}\label{F:fig5} 
 \end{figure} 
 
-For this class 25 hosts, with 216 vCPUs and 600GB memories were
-reserved as to satisfy the request of accessing large virtual
-instances. In Figure~\ref{F:fig6} we demonstrate that the dedicated
-resources were being underutilized most time although the high volume
-requests had been made including a 273\% overutilization on
-October 21th for testing and preparing. However, if the resources
-would have not been separated as part of its own cloud it would have
-been possible to allow resource aggregation and policy definitions
-that allow autoscaling in support of this class.
+For this class 25 hosts, with 216 vCPUs and 600GB memories were reserved as to satisfy the request of accessing large virtual instances. In Figure~\ref{F:fig6} we demonstrate that the dedicated resources were being underutilized most time although the high volume requests had been made including a 273\% overutilization on October 21th for testing and preparing. However, if the resources would have not been separated as part of its own cloud it would have been possible to allow resource aggregation and policy definitions that allow autoscaling in support of this class.
   
 \begin{figure}[htb] 
   \centering 
@@ -1997,13 +1251,7 @@ that allow autoscaling in support of this class.
   \caption{vCPU Utilization (approximation per hour)}\label{F:fig6} 
 \end{figure} 
 
-High Performance Computing (HPC) has been used to support parallel
-data processing of big data. In Figure~\ref{F:bigdata} we see that in
-addition to IaaS big data projects have also requested HPC and other
-services. Additionally we can see that the initial dominant usage of
-Eucalyptus and Nimbus as IaaS has been replaced with OpenStack.
-Toghether this data shows it is desirable to provide a hybrid cloud
-that integrates HPC and IaaS service to scientists and researchers.
+High Performance Computing (HPC) has been used to support parallel data processing of big data. In Figure~\ref{F:bigdata} we see that in addition to IaaS big data projects have also requested HPC and other services. Additionally we can see that the initial dominant usage of Eucalyptus and Nimbus as IaaS has been replaced with OpenStack.  Toghether this data shows it is desirable to provide a hybrid cloud that integrates HPC and IaaS service to scientists and researchers.
 
 \begin{figure}[htb]
   \centering
@@ -2011,17 +1259,7 @@ that integrates HPC and IaaS service to scientists and researchers.
   \caption{Service changes for along with Big Data between 2010 and 2013}\label{F:bigdata} 
 \end{figure} 
 
-Another important result was that the number of servers per job
-requested as part of HPC usage increased. We found that for HPC, 64
-and 128 CPU cores per job are most popular job sizes in FutureGrid HPC
-in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and 14\% of total wall
-time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU
-cores) has been intensively used in the last year. Compared to the
-previous year 2012, the request has been increased about 350\%. In
-early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have
-been requested many times but in 2013, two thirds jobs are using more
-than 64 CPU cores. This shows the user community in FuturGrid
-matured using more servers at a time than before.
+Another important result was that the number of servers per job requested as part of HPC usage increased. We found that for HPC, 64 and 128 CPU cores per job are most popular job sizes in FutureGrid HPC in 2013 (See Figure~\ref{F:bigdatainhpc}). 24\% and 14\% of total wall time are for 64 and 128 cpu jobs. An extra large jobs (i.e. 512 CPU cores) has been intensively used in the last year. Compared to the previous year 2012, the request has been increased about 350\%. In early stage of FutureGrid between 2010 and 2011, tiny CPU jobs have been requested many times but in 2013, two thirds jobs are using more than 64 CPU cores. This shows the user community in FuturGrid matured using more servers at a time than before.
 
 \begin{figure}[htb]
   \centering
@@ -2029,12 +1267,7 @@ matured using more servers at a time than before.
   \caption{Annual Wall Time Changes for Job Size in HPC between 2010 and 2013}\label{F:bigdatainhpc} 
 \end{figure} 
 
-CLearly we see from our examples that valuable information can be
-derived already with the cloudmesh metrics framework. The ability to
-have access to standard reports makes reporting and oversight
-easier. Furthermore data we collected could be used to convince those
-that are used to exclusive use of resources in favor of shared cloud
-resources.
+Clearly we see from our examples that valuable information can be derived already with the cloudmesh metrics framework. The ability to have access to standard reports makes reporting and oversight easier. Furthermore data we collected could be used to convince those that are used to exclusive use of resources in favor of shared cloud resources.
 
 \begin{comment}
 
@@ -2614,29 +1847,16 @@ This activity provides a way of understanding performance and resource utilizati
 
 \begin{comment}
 \subsubsection{Keeneland}
-Keeneland project is a high performance computing system to support GPU
-development with commodity linux clusters led by the Georgia Institue of
-Technology in collaboration with the University of Tennessee at Knoxville and
-Oak Ridge National Laboratory. Two phases were available in the project.
-Keeneland Initial Delivery System (KIDS) consisted of Intel Xeon X5660 240 CPUs
-and Nvidia Tesla M2090 360 GPUs to support scientific and engineering
-applications with the total peak performance of 255 TFLOPS. The Keeneleland
-Full Scale System (KFS) provided bigger computing resources with 264 HP nodes
-by two 8-core Intel Xeon E5 CPUs, for a total of 528 CPUs and 792 Nvidia M2090
-GPUs. KFS was used in XSEDE with the peak performance of 615
-TFLOPS~\cite{keeneland}\cite{keeneland-xsede}.
+
+Keeneland project is a high performance computing system to support GPU development with commodity linux clusters led by the Georgia Institue of Technology in collaboration with the University of Tennessee at Knoxville and Oak Ridge National Laboratory. Two phases were available in the project.  Keeneland Initial Delivery System (KIDS) consisted of Intel Xeon X5660 240 CPUs and Nvidia Tesla M2090 360 GPUs to support scientific and engineering applications with the total peak performance of 255 TFLOPS. The Keeneleland Full Scale System (KFS) provided bigger computing resources with 264 HP nodes by two 8-core Intel Xeon E5 CPUs, for a total of 528 CPUs and 792 Nvidia M2090 GPUs. KFS was used in XSEDE with the peak performance of 615 TFLOPS~\cite{keeneland}\cite{keeneland-xsede}.
 
 \subsubsection{Darter}
-Darter is a supercomputer supported by the University of Tennessee, Knoxville
-and the National Institute for Computational Sciences (NICS) with 724 compute
-nodes on a Cray XC30 (Cascade) system and Lustre file system for a total of the
-peak performance of 240.9 Tflops~\cite{darter-nics}.
-\end{comment}
+
+Darter is a supercomputer supported by the University of Tennessee, Knoxville and the National Institute for Computational Sciences (NICS) with 724 compute nodes on a Cray XC30 (Cascade) system and Lustre file system for a total of the peak performance of 240.9 Tflops~\cite{darter-nics}.  \end{comment}
 
 \subsubsection{Stampede}
-Stampede is a supercomputer supported by the Texas Advanced Computing Center (TACC)
-for open sicence research. Stampede provides the total peak performance of 9.6
-Petaflops with 6400 nodes and 14 Petabytes disk sizes~\cite{stampede-tacc}.
+
+Stampede is a supercomputer supported by the Texas Advanced Computing Center (TACC) for open sicence research. Stampede provides the total peak performance of 9.6 Petaflops with 6400 nodes and 14 Petabytes disk sizes~\cite{stampede-tacc}.
 
 
 
@@ -2718,50 +1938,16 @@ digraph Orthogonal {
 
     Abstract
 
-    In shared resource environments, usage data is necessary to
-    identify utilization of the infrastructure by users. Many cloud
-    platforms recently started to collect measurements for use of
-    resources that can be applied to billing and
-    monitoring. Understanding utilization and performance through
-    these measurements is crucial in the infrastructure in order to
-    provide better cloud provisioning, system management and capacity
-    planning. In this paper, we present an integrated cloud accounting
-    solution applicable to federated cloud environments. We have
-    tested this framework on FutureGrid.  Our system is integrated as
-    a CloudMetric component into a larger framework called cloudmesh
-    that targets explicit user or administor controlled federation of
-    clouds.  Our cloudmesh CloudMetrics component is ablehich is an
-    XSEDE resources. Based on the observation on FutureGrid, we found
-    that different patterns between scientific research projects and
-    educational projects regarding the type of virtual machines (VMs)
-    and the patterns of using virtual resources.  CloudMetrics enables
-    users and project leaders to identify utilization and performance.
+In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution applicable to federated cloud environments. We have tested this framework on FutureGrid.  Our system is integrated as a CloudMetric component into a larger framework called cloudmesh that targets explicit user or administor controlled federation of clouds.  Our cloudmesh CloudMetrics component is ablehich is an XSEDE resources. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources.  CloudMetrics enables users and project leaders to identify utilization and performance.
 
 \end{comment}
 
 \section{OLD ABSTRACT} 
 
-In shared resource environments, usage data is necessary to identify
-utilization of the infrastructure by users. Many cloud platforms recently
-started to collect measurements for use of resources that can be applied to
-billing and monitoring. Understanding utilization and performance through these
-measurements is crucial in the infrastructure in order to provide better cloud
-provisioning, system management and capacity planning. In this paper, we
-present an integrated cloud accounting solution, Cloud Metrics, to measure
-cloud resource usage across several cloud platforms such as OpenStack, Nimbus,
-and Eucalyptus. The usage data allows a user to see as how all resources are
-efficiently supplied to their applications and discover patterns from
-cumulative data. With Cloud Metrics, virtual resources such as compute, storage
-and network are measured to evaluate time and cost of user applications and the
-statistics for these resources offer visibility to utilization of cloud
-resources. This article shows statistical analysis of several case studies by
-tracing resource allocation on FutureGrid. Based on the observation on
-FutureGrid, we found that different patterns between scientific research
-projects and educational projects regarding the type of virtual machines (VMs)
-and the patterns of using virtual resources. Cloud Metrics enables users and
-project leaders to identify utilization and performance.
+In shared resource environments, usage data is necessary to identify utilization of the infrastructure by users. Many cloud platforms recently started to collect measurements for use of resources that can be applied to billing and monitoring. Understanding utilization and performance through these measurements is crucial in the infrastructure in order to provide better cloud provisioning, system management and capacity planning. In this paper, we present an integrated cloud accounting solution, Cloud Metrics, to measure cloud resource usage across several cloud platforms such as OpenStack, Nimbus, and Eucalyptus. The usage data allows a user to see as how all resources are efficiently supplied to their applications and discover patterns from cumulative data. With Cloud Metrics, virtual resources such as compute, storage and network are measured to evaluate time and cost of user applications and the statistics for these resources offer visibility to utilization of cloud resources. This article shows statistical analysis of several case studies by tracing resource allocation on FutureGrid. Based on the observation on FutureGrid, we found that different patterns between scientific research projects and educational projects regarding the type of virtual machines (VMs) and the patterns of using virtual resources. Cloud Metrics enables users and project leaders to identify utilization and performance.
 
 \todo[inline]{remove old abstract, but read if there is info we need
   to maintain.}
 \end{comment}
+
 
