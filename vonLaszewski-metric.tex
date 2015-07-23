@@ -228,7 +228,7 @@ Cloud computing has established itself as one of the key components in modern da
 \subsection{Academic Cloud Computing}
 \label{S:academiccc}
 
-Academic cloud computing offers to the academic community a variety of clouds to the diverse user community. In contrast to commercial offerings some of them have some very specific properties that explicitly target the academic user communities. On the one hand it includes clouds offered by the universities or institutions IT organization in support of production level services. This may include e-mail, calendars, and document sharing environments, accounting and the organizations Web presence. Recently, such services are increasingly offered through out sourcing by private or public clouds. The demand for such service offerings are typically not different from any other large organization running operational production services of large organizations. On the other hand institutions and universities are in the need to provide a wide variety of sophisticated infrastructure, services, and platforms to the academic {\it research} and {\it education} community. It is also not sufficient to just provide the services but to provide a {\em testbed as a service (TaaS)} allowing the services to become part of the research conducted within the organization. Hence, infrastructure, platform, and software as a service frameworks become itself a target of research as demonstrated by the FutureGrid project.In addition we find typical development resources needed in support of disciplines utilizing computer and computational science. Figure~\ref{TAX:academic} depicts the various groups. In this paper we will ignore the IT production enviornments as they are similar to commercial clouds and focus on the clouds needed to support the research agenda of the academic community.
+Academic cloud computing offers to the academic community a variety of clouds to the diverse user community. In contrast to commercial offerings some of them have some very specific properties that explicitly target the academic user communities. On the one hand it includes clouds offered by the universities or institutions IT organization in support of production level services. This may include e-mail, calendars, and document sharing environments, accounting and the organizations Web presence. Recently, such services are increasingly offered through out sourcing by private or public clouds. The demand for such service offerings are typically not different from any other large organization running operational production services of large organizations. On the other hand institutions and universities are in the need to provide a wide variety of sophisticated infrastructure, services, and platforms to the academic {\it research} and {\it education} community. It is also not sufficient to just provide the services but to provide a {\em testbed as a service (TaaS)} allowing the services to become part of the research conducted within the organization. Hence, infrastructure, platform, and software as a service frameworks become itself a target of research as demonstrated by the FutureGrid project. In addition we find typical development resources needed in support of disciplines utilizing computer and computational science. Figure~\ref{TAX:academic} depicts the various groups. In this paper we will ignore the IT production environments as they are similar to commercial clouds and focus on the clouds needed to support the research agenda of the academic community.
 
 \begin{figure}[htb]
 \begin{fTREE}{1.1in}  \Tree
@@ -236,9 +236,9 @@ Academic cloud computing offers to the academic community a variety of clouds to
         [. Production
             [. e-mail ]
             [. {Web presence} ]
-            [. {Operational Services} ]
+            [. {Operational Services} ]	
             [. {Course management} ]
-        ]
+        ]	
 	[. {Education \& Research}
 		[. {Development} ]      
            	[. {Testbed} ]               
@@ -269,53 +269,20 @@ One of the important aspects to successfully operate and offer cloud services is
 \item Which metric efforts exists? (Section~\ref{S:related})
 \end{enumerate}
 
-Academic cloud metrics are important to a number of academic users interested in the various aspects dealing with  operation, use, and management of a cloud. Hence, the motivation for cloud metrics are shaped by application users, administrators, service providers and funders. Basic metrics include usage, failure and auditing data to identify user and system behavior. Many of the metrics presented here have been used as part of the FutureGrid and FutureSystems clouds. These general aspects are not only common to a particular IaaS framework but are common across heterogeneous cloud IaaS such as OpenStack, Eucalyptus and Nimbus including unified metrics across such deployments.  
+Academic cloud metrics are important to a number of academic users interested in the various aspects dealing with development, operation, use, and management of a cloud. Hence, the motivation for cloud metrics are shaped by application users, administrators, service providers and funders. Basic metrics include usage, failure and auditing data to identify user and system behavior. Many of the metrics presented here have been used as part of the FutureGrid and FutureSystems clouds. These general aspects are not only common to a particular IaaS framework but are common across heterogeneous cloud IaaS such as OpenStack, Eucalyptus and Nimbus including unified metrics across such deployments. Even within a single IaaS framework we see multiple versioned deployments and customized versions as part of test beds and development environments. 
 
-
------
-
-Additionally, we see the importance of metrics also in the use of higher level platform as a services delivered as part of high level cloud services designed to support  advanced user communities. Thus it is important to identify common features of existing and future services that benefit from metrics and their exposure to its users. 
+Additionally, we metrics play an important role as part of offering higher-level platforms and software to support user communities benefitting from them. Thus it is important to identify common features of existing and future services that benefit from metrics and their exposure to its users. 
 
 \subsection{Unique Academic Requirements}
 
-In some areas there is no fundamental distinction for metrics between academic, or non academic resource providers. However, fundamental differences exist as follows:
+In some areas there is no fundamental distinction for metrics between academic and non-academic resource providers. Areas where there exists distinction are metrics based on charging models, and the utilization of hybrid clouds. Furthermore, we find that higher level metrics and metrics integrating into other frameworks provided as PaaS and HPC frameworks. An isolated inspection of the data associated with basic metrics may not 
 
-\begin{description}
-
-\item 
-
-\item
-
-\item
-
-\end{description}
+The reason for this is that some projects may require a combination of technologies that motivate project wide metrics to not only display usage and utilization of the various frameworks but also the associated high-level services. Examples include pooling of heterogeneous resources and services providing a {\it computational mesh} while at the same time going potentially beyond the concepts of utilization of cloud, HPC, and Grid computing. Due to the limited resources in academic organizations we also often do not have (in contrast to public clouds) an ``unlimited’’ resource pool. For example the XSEDE resources receive resource requests that are four times higher than the available resources. Hence, it is important to identify performance metrics and benchmarks that lead to an improvement of the applications using such resources. For academic cloud resources availability and scalability also need to be ensured to manage rapid changes (which we see for example in educational usage patterns as part of classes) in the demands for cloud resources. However, performance metrics my be including ease of use and time to deployment rather than just hardware resource characteristics. Typical factors when considering performance analysis and monitoring applied to cloud computing include (a) performance isolation against interference (b) availability and scalability (c) cost effectiveness to fully utilize available resources.
 
 
-Areas where there exists distinction are metrics based on charging models, and the utilization of hybrid clouds. Furthermore, we find that higher level metrics and metrics integrating into other frameworks provided as PaaS and HPC frameworks. The reason for this is that some projects may require a combination of technologies that motivate project wide metrics to not only display usage and utilization of the various frameworks and services for these projects. The pooling of resources in a heterogeneous environment provides a {\it computational mesh} going potentially beyond just the utilization of cloud, HPC, and Grid computing all of which may need to be integrated into a comprehensive metrics framework. Due to the limited resources in academic organizations we also often do not have (when private clouds) are utilized an unlimited resource pool. For example the XSEDE resources receive resource requests that are four times higher than the available resources. Hence, it is important to identify performance metrics and benchmarks that lead to an improvement of the applications using such resources. For academic cloud resources availability and scalability also need to be ensured to manage rapid changes (which we see for example in educational usage patterns as part of classes) in the demands for cloud resources. These characteristics of cloud computing can be satisfied with the support of performance analysis and monitoring. There are some considerations when performance analysis and monitoring are applied to cloud computing: (a) performance isolation against interference (b) availability and Scalability (c) cost effectiveness to fully utilize available resources.
+As other clouds academic clouds rely on sharing of the offered services. However, just as in public clouds many users may not understand the implication and cost that is prevalent when using a particular service. Hence detailed metrics informing the user not only at time of an experiment, but access to information that helps planning such experiments are needed. Thus metrics will address and provide an essential input to several concrete challenges for academic clouds to understand the reliability, status, and  behavior of underlying resources and services which are typically not provided in sufficient detail by public clouds. 
 
-
-As other clouds academic clouds rely on sharing of the offered services. However, just as in public clouds many users may not understand the implication and cost that is prevalent when using a particular service. Hence detailed metrics informing the user not only at time of an experiment, but access to information that helps planing such experiments are needed. Thus metrics will address and provide an essential input to several concrete challenges for academic clouds including:
-
-
-
-It is essential to cloud specific application metrics while benchmarking a cloud at regular intervals to detect potential issues. 
-
-
-\begin{description}
-\setlength\itemsep{-2pt}
-
-\item[\it Understanding] - how reliable the system is and to prevent system failures. It also gives an opportunity to manage the system efficiently by knowing the performance of the system.
-
-\item[\it Getting informed] - of the current status and the impact of previous activities allowing the various user communities to act
-  appropriately and invoke defensive measures as well as being an  input to btter understanding the system over time.
-
-\item[\it Estimating future requests] - it discovers usage patterns and trends of system resources which allows to projection the increasing of system capacity and performance.
-
-\item[\it Reporting] - Measured statistics can be viewed in different ways with various visualization tools. Several graphical tools and charts APIs can help identify which resources are consumed the most by whom, what, where, why and when.
-
-\end{description}
-
-These and other aspects are addressed in the following paper. Our paper is structured as follows. In Section~\ref{S:factors} we introduce some major factors that need to be considered when providing a cloud monitoring and metric framework. We introduce some concrete metrics in Section~\ref{S:metrics}.  A brief summary of Monitoring tools and services is provided in Section~\ref{S:tools}.  Section~\ref{S:cloudmesh} showcases our hybrid cloud monitoring and metrics services that have been used in FutureGrid and are currently used in FutureSystems. Related activities are briefly summarized in Section~\ref{S:related}.  We conclude our paper while summarizing our findings in Section~\ref{S:conclusion}.
+Our paper is structured as follows. In Section~\ref{S:factors} we introduce some major factors that need to be considered when providing a cloud monitoring and metric framework. We introduce some concrete metrics in Section~\ref{S:metrics}.  A brief summary of monitoring tools and services is provided in Section~\ref{S:tools}.  Section~\ref{S:cloudmesh} showcases our hybrid cloud monitoring and metrics services that have been used in FutureGrid and are currently used in FutureSystems. Related activities are briefly summarized in Section~\ref{S:related}.  We conclude our paper while summarizing our findings in Section~\ref{S:conclusion}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRIC FACTORS} \label {S:factors}
