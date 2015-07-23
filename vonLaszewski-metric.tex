@@ -1,5 +1,5 @@
 \documentclass{sig-alternate-05-2015}
-
+ 
 \pagenumbering{arabic} % Remove for camera-ready
 
 \makeatletter
@@ -181,8 +181,8 @@ tabsize=3
  
 \title{\TITLE} 
 %\subtitle{[Extended Abstract] 
-%\titlenote{A full version of this paper is available as 
-%\texttt{www.acm.org/eaddress.htm}}} 
+\titlenote{A current draft version of this paper is available at \\
+{\tiny\texttt{https://github.com/cyberaide/paper-metric/blob/master/vonLaszewski-metric-draft.pdf}}}
  
 \numberofauthors{1}
 
@@ -208,7 +208,7 @@ Thomas Furlani$^2$, Robert DeLeon$^2$, Qiao Chunming$^2$\\
 \maketitle 
 \begin{abstract} 
 
-Cloud computing has established itself as one of the key components in modern datacenters. Such datacenter include not only government and for profit organizations but also academic institutions. One of the important aspects to a successfully operate and utilize clouds in any organization is the availability of sophisticated metric information and frameworks to assure a number of key operational factors are met that are measured by such metrics. In this paper we provide an overview of the different aspects that are shaping the need for cloud metrics. We especially identify the needs for cloud metrics and monitoring solutions for various user communities that are an important factor for academic cloud providers. The motivation for academic cloud metrics are shaped by application users, administrators, academic and funders.  Metrics of interest support usage monitoring, failure and auditing data to identify user and system behavior. The information needs to be gathered as a mashup and exposed conveniently to the users as API, command tools, and a portal with charting capability, as well as periodically generated customizable reports. Many of the metrics presented, have been successfully used as part of the FutureGrid and FutureSystems clouds. This includes also the unified metrics service framework allowing integration of metrics from heterogeneous clouds such as OpenStack, Eucalyptus and Nimbus. Additionally, we see the importance of metrics also to be used as part of higher level platform as a services that utilize IaaS or are offered as PaaS and SaaS. Thus it is important to identify common features of existing and future services that benefit from metrics and their exposure to its users.
+Cloud computing has established itself as one of the key components in modern datacenters. Such datacenter include not only government and for profit organizations but also academic institutions. One of the important aspects to a successfully operate and utilize clouds in any organization is the availability of sophisticated metric information and frameworks to assure a number of key operational factors are met that are measured by such metrics. In this paper we provide an overview of the different aspects that are shaping the need for cloud metrics. We especially identify the needs for cloud metrics and monitoring solutions for various user communities that are an important factor for academic cloud providers. Application users, administrators, academic and funders shape the motivation for academic cloud metrics.  Metrics of interest support usage monitoring, failure and auditing data to identify user and system behavior. The information needs to be gathered as a mashup and exposed conveniently to the users as API, command tools, and a portal with charting capability, as well as periodically generated customizable reports. Many of the metrics presented, have been successfully used as part of the FutureGrid and FutureSystems clouds. This includes also the unified metrics service framework allowing integration of metrics from heterogeneous clouds such as OpenStack, Eucalyptus and Nimbus. Additionally, we see the importance of metrics also to be used as part of higher-level platform as a service and SaaS that utilize underlying IaaS. Thus it is important to identify additional features of existing and future services that benefit from metrics and their exposure to its users within the cloud context.
 
 \end{abstract} 
 
@@ -247,7 +247,7 @@ Cloud computing has established itself as one of the key components in modern da
 
 \subsection{Cloud Computing}
 
-Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations.  According to the NIST definition ``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction''~\cite{mell2011nist}. Essential characteristics include on-demand self-service, broad network access, rapid elasticity, measured service. Important service models are Software as a Service (SaaS), Software as a Service (SaaS), and Infrastructure as a Service (IaaS). Deployments include typically private clouds, community clouds, public clouds, and hybrid clouds.
+Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations.  According to the NIST definition ``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction''~\cite{mell2011nist}. Essential characteristics include on-demand self-service, broad network access, rapid elasticity, and measured service. Important service models are Software as a Service (SaaS), Software as a Service (SaaS), and Infrastructure as a Service (IaaS). Deployments include typically private clouds, community clouds, public clouds, and hybrid clouds.
 
 \subsection{Academic Cloud Computing}
 
