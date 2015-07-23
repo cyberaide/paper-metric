@@ -11,7 +11,7 @@
     }
 \makeatother
 
-\newcommand{\TITLE}{Cloud Metrics for Academic Resource Providers}
+\newcommand{\TITLE}{Cloud Metrics for Academic Resource Providers for Research and Education}
 
 \newcommand{\AUTHOR}{ Gregor von Laszewski, Hyungro Lee, Fugang Wang} 
 
@@ -26,42 +26,18 @@
 %\iCLUSTER \HS
 
 
-
-%\begin{forest} 
-% for tree={grow'=east, child anchor=west, anchor=base
-%      west, tier/.pgfmath=level()}
-%[VP
-%[DP] [V’
-%[V]
-%[DP] ]
-%] \end{forest}
-
-
-\newcommand{\bTREE}{
-\begin{tiny}
-\begin{tikzpicture}[grow'=right,level distance=.9in,sibling distance=.0in, anchor=west,child anchor=west,
-          ]
-\tikzset{edge from parent/.style= 
-           {draw, edge from parent fork right}}
-\Tree
+\newenvironment{fTREE}[1]
+    {   \begin{center}
+        \begin{tiny}
+        \begin{tikzpicture}[grow'=right,level distance=#1,
+                                      sibling distance=.0in,anchor=west,child anchor=west, ]
+                  \tikzset{edge from parent/.style= 
+                    {draw, edge from parent fork right}}
 }
-\newcommand{\eTREE}{
-\end{tikzpicture}
-\end{tiny}
+    {\end{tikzpicture}
+     \end{tiny}
+     \end{center}
 }
-
-
-%
-% EXAMPLE
-%
-% \bTREE
-%    [. user1 
-%        [.{IT personal} ]
-%       [.{Funder} ] 
-%   ]
-% \eTREE
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -247,40 +223,35 @@ Cloud computing has established itself as one of the key components in modern da
 
 \subsection{Cloud Computing}
 
-Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations.  According to the NIST definition ``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction''~\cite{mell2011nist}. Essential characteristics include on-demand self-service, broad network access, rapid elasticity, and measured service. Important service models are Software as a Service (SaaS), Software as a Service (SaaS), and Infrastructure as a Service (IaaS). Deployments include typically private clouds, community clouds, public clouds, and hybrid clouds.
+Cloud computing has established itself as one of the key components in modern datacenters. This includes academic, government, and for profit institutions and organizations.  According to the NIST definition ``Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction''~\cite{mell2011nist}. Essential characteristics include on-demand self-service, broad network access, rapid elasticity, and measured service. Important service models are Software as a Service (SaaS), Platform as a Service (PaaS), and Infrastructure as a Service (IaaS). Deployments include private clouds, community clouds, public clouds, and hybrid clouds.
 
 \subsection{Academic Cloud Computing}
 
-Academic cloud computing offers clouds to the academic community. In contrast to commercial offerings they may have some very specific properties that need to be considered. First we distinguish two different target communities. On the one hand it includes the operational IT organization that may provide e-mail, calendars, and document sharing environments to the staff members of the university. These are production oriented services that may be offered by private or public clouds.  The demands for them are typically not different from any other organization running operational production services. On the other institutions are in the need to provide infrastructures, services, and platforms to the academic {\it
-  research} and {\it education} community (see
-Figure~\ref{TAX:academic}). We will focus in this paper on the latter
-communities.
+Academic cloud computing offers to the academic community a variety of clouds to the diverse user community. In contrast to commercial offerings some of them have some very specific properties that explicitly target the academic user communities. On the one hand it includes clouds offered by the universities or institutions IT organization in support of production level services. This may include e-mail, calendars, and document sharing environments, accounting and the organizations Web presence. Recently, such services are increasingly offered through out sourcing by private or public clouds. The demand for such service offerings are typically not different from any other large organization running operational production services of large organizations. On the other hand institutions and universities are in the need to provide a wide variety of sophisticated infrastructure, services, and platforms to the academic {\it research} and {\it education} community. It is also not sufficient to just provide the services but to provide a {\em testbed as a service (TaaS)} allowing the services to become part of the research conducted within the organization. Hence, infrastructure, platform, and software as a service frameworks become itself a target of research as demonstrated by the FutureGrid project.In addition we find typical development resources needed in support of disciplines utilizing computer and computational science. Figure~\ref{TAX:academic} depicts the various groups. In this paper we will ignore the IT production enviornments as they are similar to commercial clouds and focus on the clouds needed to support the research agenda of the academic community.
 
 \begin{figure}[htb]
-\begin{center}
-\begin{tiny}
-\bTREE
+\begin{fTREE}{1.1in}  \Tree
      [. {Academic Cloud}
         [. Production
             [. e-mail ]
             [. {Web presence} ]
             [. {Operational Services} ]
+            [. {Course management} ]
         ]
-	[. Research ]
-	[. Education 
-            [. {Course management} ]        
-            [. {Course resources} ]        
+	[. {Education \& Research}
+		[. {Development} ]      
+           	[. {Testbed} ]               
+		 [. {Computational Services} ]        
         ]
    ]
-\eTREE
-\end{tiny}
-\end{center}
+\end{fTREE}
 \vspace{-12pt}
 \caption{Academic cloud computing applications.}
 \label{TAX:academic}
  \end{figure}
-
-Within the offerings to the academic community we observe not only the usage of private clouds but also the usage of public louds. Furthermore, traditional high performance computing (HPC) is offered as a platform in many organizations and allows to support the paradigm of {\it HPC in the cloud} as showcased for example by the Extreme Science and Engineering Discovery Environment (XSEDE) project (see Section~\ref {S:resources} for more details).  The validates that HPC as a service is established not only as part of the academic offerings, but also by commercial offerings commercial offerings as demonstrated by Amazon High Performance Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with additional examples provided in~\cite{DouglasEadline}. Metrics in regards to HPC have been described in sufficient detail in \cite{las13xdmod}.
+ 
+Within the offerings to the academic community we observe not only the usage of private clouds but also the usage of public clouds. Furthermore, traditional high performance computing (HPC) is offered as a platform in many organizations and allows to support the paradigm of {\it HPC in the cloud} as showcased for example by the Extreme Science and Engineering Discovery Environment (XSEDE) project (see Section~\ref {S:resources} for more details).  It validates that HPC as a service is established not only as part of the academic offerings, but also by commercial offerings as demonstrated by Amazon High Performance Computing~\cite{awshpc}, IBM Platform Computing~\cite{ibmhpc}, and with additional examples provided in~\cite{DouglasEadline}. 
+Through this interplay we find a convergence of Clouds, Grids, HPC, and Utility Computing into a computational service mesh that we have explored as part of our cloudmesh activities \cite{las14cloudmeshmultiple, las12fg-bookchapter}. Metrics in regards to HPC have been described in sufficient detail in \cite{las13xdmod} and are listed in the appendix of this paper (see \ref{??}).
 
 
 \subsection{Cloud Metrics}
@@ -340,7 +311,7 @@ A cloud will have a wide variety of stakeholders with their potentially specific
 % \begin{forest}
 %    for tree={grow'=east, child anchor=west, anchor=base
 %     west, tier/.pgfmath=level()}
-\bTREE
+\begin{fTREE}{0.9in}  \Tree
      [. Stakeholder
         [. Funder [.User ]
 	   	  [.Project ]
@@ -366,7 +337,7 @@ A cloud will have a wide variety of stakeholders with their potentially specific
         ]
 	[.{Sponsored User} ]
    ]
-\eTREE
+\end{fTREE}
 %\end{forest}
 \end{tiny}
 \end{center}
@@ -381,7 +352,7 @@ A cloud will have a wide variety of stakeholders with their potentially specific
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-\bTREE
+\begin{fTREE}{.9in}  \Tree
      [. Access
         [. API ]
 	[. REST ]
@@ -391,7 +362,7 @@ A cloud will have a wide variety of stakeholders with their potentially specific
         ]
 	[. Portal ]
    ]
-\eTREE
+\end{fTREE}
 \end{tiny}
 \end{center}
 \vspace{-12pt}
@@ -405,22 +376,22 @@ A cloud will have a wide variety of stakeholders with their potentially specific
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-\bTREE
+\begin{fTREE}{.9in}  \Tree
      [. Type
         [. {\iFILES ~ Report} ]
         [. {\iDISPLAY ~ Interactive} ]
         [. {\iCLUSTER ~ Mashup} ]
    ]
-\eTREE
+\end{fTREE}
 ...
-\bTREE
+\begin{fTREE}{.9in}  \Tree
 	[. {Chart} 
             [. {\iCHART ~ Pie} ]
             [. {\iTABLE ~ Table} ]
             [. {\iSTAT ~ Line} ]
             [. {\iCHARTS ~ Histogram} ]
         ]
-\eTREE
+\end{fTREE}
 \end{tiny}
 \end{center}
 \vspace{-12pt}
@@ -459,7 +430,7 @@ Due to targiteng different user communities it is obvious that smoe metrics may 
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-\bTREE
+\begin{fTREE}{.9in}  \Tree
      [. Security
         [. {Access control} ]
 	[. Privacy ]
@@ -469,7 +440,7 @@ Due to targiteng different user communities it is obvious that smoe metrics may 
 	[. {Identity management} ]
 	[. {Application security} ]
    ]
-\eTREE
+\end{fTREE}
 \end{tiny}
 \end{center}
 \vspace{-12pt}
@@ -1949,5 +1920,15 @@ In shared resource environments, usage data is necessary to identify utilization
 \todo[inline]{remove old abstract, but read if there is info we need
   to maintain.}
 \end{comment}
+
+
+%\begin{forest} 
+% for tree={grow'=east, child anchor=west, anchor=base
+%      west, tier/.pgfmath=level()}
+%[VP
+%[DP] [V’
+%[V]
+%[DP] ]
+%] \end{forest}
 
 
