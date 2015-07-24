@@ -418,13 +418,13 @@ Obviously one very important factor for a cloud metric is the motivation and pur
 
 \item[\it Monitoring.] Monitoring is an important aspect for administrators but also for users. The purpose of metrics associated to monitoring allows us to observe the current system and make decisions based upon it. Naturally, this could also be services that act in behalf of the user or administrator. A center director may be interested in the high level aspects of monitoring as to be informed about specific catastrophic service events, while an administrator is interested in more detailed monitoring aspects that alert even on conditions that could lead to issues. Examples for monitoring includes measuring resource utilization in real time or over a period of time.  Monitoring is potentially important on all layers of the Cloud infrastructure from bare metal, to IaaS, PaaS, and SaaS.
 
-\item[\it Planning.] Planing is needed to assist in setting goals and developing strategies several metrics can be beneficial. This includes metrics about utilization of the resources, satisfaction by the users and other more general aspects. As academic resources are often funded by government organizations such as NSF, specific metrics that answer to broader impacts need to be addressed. An essential ingredient of planing is the ability to include performance monitoring on the cloud while exposing sophisticated metrics.  This will enable the planing of efficient resource utilization from a small instance to a large virtual cluster on the cloud, performance management and monitoring are necessary for performance analysis.
+\item[\it Planning.] Planning is needed to assist in setting goals and developing strategies. This includes metrics about utilization of the resources, satisfaction by the users and other more general aspects. As academic resources are often funded by government organizations such as NSF, specific metrics that answer to broader impacts need to be addressed. An essential ingredient of planning is the ability to include performance monitoring on the cloud while exposing sophisticated metrics.  This will enable the planning of efficient resource utilization from a small instance to a large virtual cluster on the cloud, performance management and monitoring are necessary for performance analysis.
 
-\item[\it Billing.] As academic clouds are provided free to the academic user community upon peer reviewed projects, it is also important to avoid situations that either over-stress or adversely lead to underutilization. For example in absence of billing against real monetary values, we observed that many users ignore the cost that is involved by running an actual VM. Furthermore, it is important to communicate to the users the potential estimated cost to them in order to educate them towards deleting or suspending unused resources. However, at the same time it must be assured that large enough experiments can be conducted to further some of the more challenging scientific problems.
+\item[\it Billing.] As academic clouds are provided free to the academic user community upon peer reviewed projects, it is also important to avoid situations that either over utilize the resource or adversely lead to underutilization. For example in absence of billing against real monetary values, we observed that many users ignore the cost that is involved by running an actual VM. They keep on running it despite the fact that they may not need it anymore and no panelity is provided for keeping instances running. Hence, it is important to communicate to the users the potential estimated cost to them in order to educate them towards deleting or suspending unused resources. However, at the same time it must be assured that large enough experiments can be conducted to further some of the more challenging scientific problems and strike a compromise as part of {\it billing} a project.
 
 \item[\it Testing.] As cloud environments and they usage in applications may be complex (at times more complex that their HPC counter parts) it is important that metrics be provided that support the testing of the functionality, the performance, and the scalability. Ideally these metrics should be available as part of automatic testing services that however may be customized for a particular application.
 
-\item[\it Consuming.] Many metrics will assist the users and services to consume the cloud services efficiently. They will provide information in optimizing resource use and distribution amongst them. They will also alert towards limitations of the underlaying systems and provide insight on where application limitations my hinder adoption. A specific case is the creation of user motivated benchmarks that through their metrics can inform users about which cloud setup is particularly beneficial.
+\item[\it Consuming.] Many metrics will assist the users and services to consume the cloud services efficiently. They will provide information in optimizing resource use and distribution amongst them. They will also alert towards limitations of the underlying systems and provide insight on where application limitations my hinder adoption. A specific case is the creation of user motivated benchmarks that through their metrics can inform users about which cloud setup is particularly beneficial.
 
 \item[\it Auditing.] Metrics for auditing support the process to evaluate the clouds design and effectiveness. This includes security, deployment processes, development processes and governance and oversight processes.  It includes finding a proof and a trait of actions a user made while resources are being used. Observing a user's, or service's behavior should be performed by logging events and detailed information is necessary to track back any issues on a system.  An important aspect or a comprehensive auditing process is that that it is conducted by an independent and unbiased observer. Auditing should not be confused with monitoring the system in real time.
 
@@ -433,35 +433,68 @@ Obviously one very important factor for a cloud metric is the motivation and pur
 
 \subsection{Security}
 
-Due to targiteng different user communities it is obvious that smoe metrics may not be exosed to all its users and are potentially unde access control. Furthermore, users that consume cloud resources may have the desire that their information is private and may not be shared with other users. However, although it is possible to provide acess and privacy controls we have seen in government agency sponsord reserach environments a general consensus of transparency mandated by the funding agency such as NSF. A good example here is XSEDE that provides a great deal of information to its users. When looking at a metic framework for clouds we need to consider the posibility to restrict eccess through access control policies that regulate privacy concerns. Such policies need to include role based restrictions of stakeholders and metrics to be accessed by them.
+Due to targeting different user communities it is obvious that some metrics may not be exposed to all of its academic users and need to be placed under access control. Furthermore, users that consume cloud resources may have the desire that their information is private and may not be shared with other users. However, although it is possible to provide access and privacy controls we have see in government agency sponsored research environments (such as NSF) a general consensus of transparency mandated by the funding agency. A good example here is XSEDE that provides a great deal of information to its users in a transparent fashion. When looking at a metric framework for clouds we need to consider the possibility to restrict certain information through access control policies that regulate privacy concerns. Such policies need to include role-based restrictions of stakeholders and metrics to be accessed by them. It is clear that many metrics that are actually collected may assist in making the underlying services and resources more secure. Hence metrics in regards to intrusion detection, system flaws, identity management and application security are of special importance. Collecting this information over a longer period of time can provide a great deal of information if specific areas in regards to security need to be addressed or improved. Part of this information may need to be protected. We summarize the different factors in Figure \ref{F:security}.
 
-\subsection{Security}
+
 
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
 \begin{fTREE}{.9in}  \Tree
      [. Security
-        [. {Access control} ]
-	[. Privacy ]
-	[. Encryption ] 
-	[. Obfuscation ]
-	[. {Intrusion detection} ]
-	[. {Identity management} ]
-	[. {Application security} ]
+        [. {Access}
+           [. {Access control} ]
+	     [. Privacy ]
+	     [. Encryption ] 
+	     [. Obfuscation ]
+        ]
+        [. {Service Support}
+		[. {Intrusion detection} ]
+		[. {System flaws} ]
+		[. {Identity management} ]
+		[. {Application security} ]
+	]
    ]
 \end{fTREE}
 \end{tiny}
 \end{center}
 \vspace{-12pt}
 \caption{Cloud metric security factors.}
+\label{F:security}
  \end{figure}
 
 
 
-\subsection{Frameworks}
+\subsection{Service Frameworks}
 
-As already pointed out in the introduction, it is important to not isolate the cloud metrics. Although they can be developed independently in many cases we need a larger picture for projects that require a heterogeneous set of services and frameworks for their scientific mission to succeed.  This includes the integration of high performance computing resources and services (HPC), storage resources and services, infrastructure as a service based resources build from either OpenStack, VM Ware, or Nimbus, as well as various platform as a service environments that enable academic users to focus on the platform regardless of which underlaying resource framework is chosen.  Furthermore it may be important to consider extending the cloud metrics framework to public clouds such as using AWS as this may be an integral part of the strategy to offer services to academic users and groups. Restrictions posed by some of these frameworks such as the lack of groups in the Nimbus framework make it problematic to meet the demands fro example of an academic (e.g. XSEDE) based metric framework. Thus Nimbus must provide group support in order to become meaningful in academic project based deployments while providing comprehensive metrics.
+As already pointed out in the introduction, it is important to not isolate the cloud metrics and limit the metrics to IaaS frameworks. This includes the integration of high performance computing resources and services (HPC), storage resources and services, infrastructure as a service based resources build from either OpenStack, VM Ware, or Nimbus, as well as various platform as a service environments that enable academic users to focus on the platform regardless of which underlying resource framework is chosen.  Furthermore it may be important to consider extending the cloud metrics framework to public clouds such as AWS, Azure, Google and others as this may be an integral part of the strategy to offer cloud services to academic user communities. Restrictions posed by some of these frameworks such as the lack of groups in the Nimbus framework make it problematic to meet the demands from well established accounting metrics as provided by for example XSEDE. Thus if an IaaS framework such as Nimbus is to be deployed meaningful in academic project based resource framework appropriate changes may need to be conducted that are readily offered by for example OpenStack and Eucalyptus. Hence we can see that a lack of features (despite offering others such as auto-scaling) may contradict established policies and mechanism introduced by previous efforts. In such cases it needs to be evaluated if such services should be offered. In case of Nimbus the FutureGrid team at IU developed a process to associate user projects based on assignment to project groups to fulfill our internal policies.  We summarize the different factors regarding service frameworks in Figure \ref{F:frameworks}.
+
+
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\begin{fTREE}{.9in}  \Tree
+     [. Frameworks
+        [. {IaaS}
+           [. {Nimbus } ]
+	      [. OpenStack ]
+	      [. Eucalyptus ] 
+	      [. Azure ]
+		[. Google ]
+        ]
+        [. {PaaS} ]
+        [. {HPC} ]
+	  [. {Storage} ]
+]
+\end{fTREE}
+\end{tiny}
+\end{center}
+\vspace{-12pt}
+\caption{Cloud metric applied to service frameworks.}
+\label{F:frameworks}
+ \end{figure}
+
 
 \subsection{Resources}\label {S:resources}
 
@@ -470,58 +503,92 @@ Metrics that are implicitly provided by various cloud providers are important fo
 \begin{description}
 \setlength\itemsep{-2pt}
 
-\item[\it Commercial public clouds.] These are clouds that are offered commercially or for free to academic users. While an individual se of time limited user based usage may not be of importance it becomes essential if actual money is paid to provide this service to academic users. Important may not only the amount of money paid, but to justify the academic and scientific impact \cite{las2015cluster,las2015xsede} that is derived by such efforts.
+\item[\it Commercial public clouds.] These are clouds that are offered commercially or for free for a limited time to academic research and education users. While metrics for individuals that use such services for free may initially not be of importance, it becomes essential if at one point actual money is paid to provide this service to the academic user, project, or institute. Important may not only the amount of money paid, but to justify the expense through academic and scientific impact \cite{las2015cluster,las2015xsede} that is derived by such efforts.
 
-\item[\it Academic public clouds.] Recently NSF has provided a significant amount of funding to cloud offerings for the academic community. In order to justify its funding and to contrast it to commercial public cloud offerings metrics and evaluation criteria need to be developed that justify their existence.
+\item[\it Academic public clouds.] Recently NSF has provided a significant amount of funding to cloud offerings for the academic community \cite{??chameleon,??cloudlab,??jetstreem}. In order to justify their funding and to contrast it to commercial public cloud offerings metrics and evaluation criteria need to be developed that allow meaningful comparisions.
 
-\item[\it Academic private clouds.] Many universities have started to offer private clouds to their user community, This includes not only the use of academic efforts, but also of production clouds to support the internal IT infrastructure as part of a universities management IT infrastructure. While in the IT department operational cost and privacy are potentially dominating the metrics, in academic clouds the se in projects and their outcome metrics need to be integrated. This reflects similar metrics that we find while using commercial and academic public clouds.
+\item[\it Academic private clouds.] Many universities have started to offer private clouds to their research community. This includes not only the use of academic efforts, but as previously stated also of production clouds to support the internal IT infrastructure as part of a universities management IT infrastructure. While in the IT department operational cost and privacy are potentially dominating the metrics, in academic clouds the use in projects and their outcome metrics need to be integrated. This reflects similar metrics that we find while using commercial and academic public clouds.
 
 \end{description}
 
-Examples for publicly funded clouds include XSEDE while offering HPC services to its users, Chameleon Cloud, CloudLab, as IaaS based clouds and network experiment infrastructure, and Jetstream as Iaas and PaaS supporting cloud. Additionally the following Resources offered to academic users will have a potential impact on the definition of Metrics:
+We summarize the different factors regarding resource types in Figure \ref{F:frameworks}.
+
+
+
+\begin{figure}[htb]
+\begin{center}
+\begin{tiny}
+\begin{fTREE}{1.2in}  \Tree
+     [. Resource
+        [. {Commercial Public Clouds} 
+		[. {AWS \cite{??}} ]
+		[. {Azure \cite{??}} ]
+        ]
+        [. {Academic Public Clouds} 
+	      [. {FutureSystems \cite{??}} ] 
+            [. {Jetstream \cite{??}} ]
+	      [. {Chameleon Cloud \cite{??}} ]
+	      [. {CloudLab \cite{??}} ] 
+	  ]
+        [. {Academic Private Clouds} 
+    		[. {UB Eucalyptus \cite{??} } ]
+	  ]
+]
+\end{fTREE}
+\end{tiny}
+\end{center}
+\vspace{-12pt}
+\caption{Cloud metric applied to service frameworks.}
+\label{F:frameworks}
+ \end{figure}
+
+
+Examples for publicly funded clouds include XSEDE\cite{??} while offering HPC services to its users\footnote{We argue that XSEDE in general can be viewed as a resource that offers HPC as a service to its user community.}, Chameleon Cloud \cite{??}, CloudLab \cite{??}, as IaaS based clouds and network experiment infrastructure, and Jetstream \cite{??} as Iaas and PaaS supporting cloud. These organization provide resources and services to many users. Other efforts such as FutureSystems \cite{??} offer large resources to a selected small set of users thus increasing the availability of a scalable environment.
+
+Additionally the following cloud related resources offered to academic users will have a potential impact on the definition of Metrics:
 
 \begin{description}
 \setlength\itemsep{-2pt}
 
 \item[\it MRIs.] According to the NSF web pages, the `Major Research Instrumentation Program (MRI) ~\cite{nsf-mri} catalyzes new knowledge and discoveries by empowering the Nation's scientists and engineers with state-of-the-art research instrumentation. The MRI Program enables research-intensive learning environments that promote the development of a diverse workforce and next generation instrumentation, as well as facilitates academic and private sector partnerships.'' Some of the MRI funding supports significant computational resources offered to a particular user community. In such cases it would be beneficial if the metrics and services introduced here can be reused by such efforts and adapted accordingly.
 
-\item[\it Networks.] With the advent of 100GBEthernet research environments as provided in Chameleon cloud and XSEDE it is essential that network related information be integrated into an overarching metric framework. This includes not only details of the overall use of the network, but the specific information which projects, or even which applications are using it. Access control to this information may has to be investigated in order not to expose exploitable information to the community.
+\hyungro{we need the cloud related activities here and mine them from NSF.}
 
-\item[\it Storage.] Obviously many cloud applications in the bid data area require large amount of storage either as files, databases, or object stores. Metrics must be available to the users and the providers in order to assess needs and availability. Storage has traditionally been an issue in academic environments.
+\item[\it Networks.] With the advent of 100GBEthernet research environments as provided in Jetstream, Chameleon cloud and XSEDE it is essential that network related information be integrated into an overarching metric framework. This includes not only details of the overall use of the network, but the specific information which projects, or even which applications are using it. Access control to this information may has to be investigated in order not to expose exploitable information to the community. Typically we find that this information is not yet sufficiently communicated in a transparent way to the diverse research and education community.
 
-\item[\it Power.] A significant cost in operating an academic cloud is power consumption. It is important that the IT departments of the academic cloud providers put efforts in place that power usage is transparently exposed so that associations between power and services offered can be achieved. This goes beyond the measurement of poer consumption within servers, but muct inclde a more generalized approach while integrating PDU information and other available metrics that may already be available. However, typically such information is often isolated and potentially not available to the academic user community without a significant effort. Future designs of academic datacenter should keep in mind that such information ought to be transparently provided to the researchers or retrofitted accordingly.
+\item[\it Storage.] Obviously many cloud applications in the big data area require large amount of storage either as files, databases, or object stores. Metrics must be available to the users and the providers in order to assess needs and availability. Storage has traditionally been an issue in academic environments.
 
-\item[\it Operating Systems.] Traditionally a large amount of metric information is available as part of the operating system either in virtualized or in bare metal mode. The included services can present a great deal of information to users and to the provider. Tools such as Nagios and Ganglia provide the ability to collect and integrate the information sources.
+\item[\it Power.] A significant cost in operating an academic cloud is power consumption. It is important that the IT departments of the academic cloud providers put efforts in place that power usage is transparently exposed so that associations between power and services offered can be achieved. This goes beyond the measurement of power consumption within servers, but must include a more generalized approach while integrating PDU information, air conditioning and other energy driving factors while integrating and correlate them with other available metrics. However, typically such information is often isolated and potentially not available to the academic user community without a significant effort. Future designs of academic datacenter should keep in mind that such information ought to be transparently provided to the researchers or retrofitted accordingly. Production academic IT departments must project a way forward that such information is exposed transparently to the researchers. Purchase of such equipment may need to provide appropriate safegurads and the ability to share the data with the researchers in a programmatic fashion.
 
-\item[\it Applications.] Many academic users will develop a number of applications on available resources. Metrics that compare efficiency and effective use of such applications will be important as to evaluate prudent use of the resources. For example in some cases it may be essential to measure the performance impact of using cloud vs HPC resources. In other cases it may be more important to focus on manpower consumed to develop applications on more complex environments. Supporting performance APIs and libraries may aide in the development of metrics and their associated services such as the use of PAPI \cite{papi2014,papi-web,JohnNelsonAnalyzingPAPI}
+\item[\it Operating Systems.] Traditionally a large amount of metric information is available as part of the operating system either in virtualized or in bare metal mode. The included services can present a great deal of information to users and to the resource provider. Tools such as Nagios \cite{??} and Ganglia \cite{??} provide the ability to collect and integrate the information sources.
+
+\item[\it Applications.] Many academic users will develop a number of applications on available resources. Metrics that compare efficiency and effective use of such applications will be important as to evaluate prudent use of the resources. For example in some cases it may be essential to measure the performance impact of using cloud vs. HPC resources. In other cases it may be more important to focus on manpower consumed to develop applications on more complex environments. Supporting performance APIs and libraries may aide in the development of metrics and their associated services such as the use of PAPI \cite{papi2014,papi-web,JohnNelsonAnalyzingPAPI}
 
 \item[\it Services.] In addition to applications we also are in the need of metrics provided by services offered to the community.
 
 \end{description}
 
-\subsection{Sources}
+\subsection{Information Sources}
 
-A comprehensive metrics framework consists of a data mashup of various sources of information. It will not be sufficient to just present a heterogeneous set of metrics to the users, but it will be desirable to integrate several into an easy to use framework. This has been effectively demonstrated by XDMod for HPC \cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel}. This was possible due to a sustained effort within the project to provide such integrated metrics. In the cloud IaaS area the FutureGrid project has pioneered such an integrated framework that combined multiple sources into an easy to use report generation framework \cite{LeeFGresource}. It was operational for a number of years and is still actively used by the FutureSystems project. At this time it is unknown which strategies are pursued by projects such as chameleon cloud and other NSF sponsored projects.  In fact there may be an advantage that such activities be continued by an external party such as FutureSystems and be adopted by other in order to be true to the independence of the auditing principle which need to be employed to evaluate the effectiveness of such infrastructures.
+A comprehensive metrics framework consists of a data mashup of various sources of information. It will not be sufficient to just present a heterogeneous set of metrics to the users, but it will be desirable to integrate several into an easy to use framework. This has been effectively demonstrated by XDMod for HPC \cite{las14cloudmeshmultiple,las14Impact,las12xdmod-kernel}. This was possible due to a sustained effort within the project to provide such integrated metrics. In the cloud IaaS area the FutureGrid project has pioneered such an integrated framework that combined multiple sources into an easy to use report generation framework \cite{LeeFGresource}. It was operational for a number of years and is still actively used by the FutureSystems project. In fact there may be an implicit advantage that the same metrics that were collected by employed in activities such as CloudLab, Chameleon and Cloudmesh. We observe however that many metrics in regards to project information are not implementable due to a lack of information gathered at the time the project is proposed. This also includes information that is not yet collected as part of the XSEDE XRAC process. We found that a more sophisticated information gathering allowed us to greatly streamline our efforts in FutureGrid (for example the dominance of OpenStack as the IaaS framework of choice at the end of FutureGrids funding cycle)
 
 \begin{comment}
 \begin{figure*}[htb] 
   \centering 
     \includegraphics[width=0.6\textwidth]{images/cloudmetric-2.pdf} 
-  \caption{Overview of CloudMetrics}\label{F:taxonomy-2} 
+  \caption{Overview of CloudMetrics.}\label{F:taxonomy-2} 
 \end{figure*} 
 \end{comment}
 
-\subsection{Scientific Impact}
 
-Many science and engineering innovations and discoveries are increasingly dependent on access to high performance computing resources \cite{las14Impact,las15xsede,las15cluster}. For many researchers, this demand is met by clouds and other large-scale compute resources that cannot typically be supported by any single research group. Accordingly, dedicated large-scale computing facilities play an important role in scientific research, in which resources are shared among groups of researchers, while the facilities themselves are managed by dedicated staff.  Thus, justification for their use is warranted and questions regarding the scientific impact of these resources naturally arise. Hence, it is important to not only introduce metrics measuring the actual usage, but also the impact based on for example the scientific publications that are produced by such resources. We have developed a sophisticated metric framework that delivers such impact metrics for XSEDE, NCAR, and Blue Waters \cite{las14Impact,las15xsede,las15cluster}. It is most natural that this be extended to any cloud resource. However, the framework is general enough that it could apply to any resource framework and interested resource providers can contact the corresponding athor for more information. Table \ref{T:SIMmetrics} lists the general metrics related to the impact of scientific works.
 
 \begin{table*}[htb]
-\caption{Selected Scientific impact metrics}
+\caption{Selected scientific impact metrics.}
 \begin{scriptsize}
 \label{T:SIMmetrics}
 \bigskip
 \begin{center}
-\begin{tabular}{p{0.15\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
+\begin{tabular}{p{0.19\textwidth}p{0.38\textwidth}p{0.38\textwidth}}
 Name & Description & Motivation \\
 \hline
 \rowcolor{blue!20} \multicolumn{3}{l}{\bf Scientific impact metrics} \\
@@ -529,32 +596,32 @@ Name & Description & Motivation \\
 Publication Count &
 Measuring how many publications are attributed as output while using the cloud 
 resource &
-measures the general productivity \\
+Measures the general productivity \\
 \hline 
 Citation Count &
 Measuring how many citations has been received as of the measuring time point &
-shows how the output really impacts the scientific community while the 
+Shows how the output really impacts the scientific community while the 
 publications are being cited \\
 \hline
 H-index (person) \cite{hirsch2005index} &
 A person has index $h$ if $h$ of his/her $N_p$ papers have at least h
                    citations each, and the other $(N_p − h)$ papers have
                    no more than $h$ citations each. &
- measures both productivity and the generated impact \\
+Measures both productivity and the generated impact \\
 \hline
 G-index (person) \cite{egghe2006theory} &
 Given a set of articles ranked in decreasing order of the number of citations that they received, the $g$-index is the (unique) largest number such that the top $g$ articles received (together) at least $g^2$ citations.&
-depends on the full citation count of very highly cited papers\\
+Depends on the full citation count of very highly cited papers\\
 \hline
 H-index (entity) &
 While treating the evaluated entity as if it were a person, using the
 h-index that were originally defined for a person &
-measures both productivity and the generated impact \\
+Measures both productivity and the generated impact \\
 \hline
 G-index (entity)&
 While treating the evaluated entity as if it were a person, using 
 g-index that were originally defined for a person &
-measures both productivity and the generated impact \\
+Measures both productivity and the generated impact \\
 \hline
 i10-index \cite{www-i10index} &
 Number of publications cited as least 10 times &
@@ -569,7 +636,12 @@ To compare the studied entity's relative impact with the peers. The peers are id
 \end{scriptsize}
 \end{table*}
 
-While evaluating a research computing facility, in this context, a cloud resource provider, based on how the accounting and auditing framework had been setup, as well as the mechanism of gathering publications as output of using the cloud, different metrics could be derived based on the general ones listed above in table \ref{T:SIMmetrics}.  E.g., if we have user and group/project units in the accounting system, and the publications are gathered and vetted also with user/group/project information, we could derive the same metrics for each user, group/project, and compare their performance.  These metrics could be calculated for a cloud resource provider as a whole entity, and the same metrics could be compared among different cloud resource provider. Based on other related data, e.g. the resource had been consumed, we could derive and compare the same metrics but in a normalized fashion - Publication count and/or citation count per M(K) CpuHours as an example.
+
+\subsection{Scientific Impact}
+
+Many science and engineering innovations and discoveries are increasingly dependent on access to high performance computing resources \cite{las14Impact,las15xsede,las15cluster}. For many researchers, this demand is met by clouds and other large-scale compute resources that cannot typically be supported by any single research group. Accordingly, dedicated large-scale computing facilities play an important role in scientific research, in which resources are shared among groups of researchers, while the facilities themselves are managed by dedicated staff.  Thus, justification for their use is warranted and questions regarding the scientific impact of these resources naturally arise. Hence, it is important to not only introduce metrics measuring the actual usage, but also the impact based on for example the scientific publications that are produced by such resources. We have developed a sophisticated metric framework that delivers such impact metrics for XSEDE, NCAR, and Blue Waters \cite{las14Impact,las15xsede,las15cluster}. It is most natural that this be extended to any cloud resource. However, the framework is general enough that it could apply to any resource framework and interested resource providers can contact the corresponding author\footnote{send email to {\textit laszewski@gmail.com}} for more information. Table \ref{T:SIMmetrics} lists the general metrics related to the impact of scientific works.
+
+While evaluating a research computing facility (in this context, a cloud resource provider) based on how the accounting and auditing framework is setup, as well as the mechanism of gathering publications as output of using the cloud. A suite of different metrics has been useful and a subset of the most useful once are listed in Table \ref{T:SIMmetrics}.  Our scientific impact process can be  applied, if we have user and group/project units in the accounting system, and the publications are gathered and vetted also with user/group/project information, we could derive the same metrics for each user, group/project, and compare their performance.  Consequently, these metrics can be calculated for a cloud resource provider as a whole entity, and the same metrics could be compared among different cloud resource provider. Based on other related data, e.g. the resource had been consumed, we could derive and compare the same metrics but in a normalized fashion - Publication count and/or citation count per M(K) CpuHours as an example. An important distinction of our work includes a peer comparison metric that we term {\it ptrank-citation} and is explained in detail in \cite{las14Impact,las15xsede,las15cluster}. Such comparison is possible based on or data mashup with millions of references, while at the same time focusing on the comparison of publications related to our resource to be analyzed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
