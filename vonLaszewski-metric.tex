@@ -288,24 +288,17 @@ As other clouds academic clouds rely on sharing of the offered services. However
 \section{CLOUD METRIC FACTORS} \label {S:factors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-When we look at a particular cloud metric, it may be shaped by a number of factors that determines the applicability and usability of the metric in general. To provide an overview of a selected number of factors fro cloud metrics we have identified the following factors of significant importance: (a) stakeholders and roles to address, (b) the frameworks to address, (c) the purpose the metrics are designed for, (d) concrete resources are targeted by the metric, (e) which sources are used for the metric, and (f) which security aspects are considered. We are summarizing these influential aspects in Figure \ref{F:taxonomy-1}\footnote{We will update the Figure in the final version of the paper. For now it shows a subset of information as presented in the subsections according the important factors discussed within thispaper.} and explaining them in more detail in thw subsequent sections.
+When we look at a particular cloud metric, it may be shaped by a number of factors that determines the applicability and usability of the metric in general. To provide an overview of a selected number of factors fro cloud metrics we have identified the following factors of significant importance: (a) stakeholders and roles to address, (b) the frameworks to address, (c) the purpose the metrics are designed for, (d) concrete resources are targeted by the metric, (e) which sources are used for the metric, and (f) which security aspects are considered. We are summarizing these influential aspects in Figure \ref{F:taxonomy-1}\footnote{We will update the Figure \ref{F:taxonomy-1} in the final version of the paper. For now it shows a subset of information as presented in the subsections according the important factors discussed within this paper.} and explaining them in more detail in the subsequent sections.
 
-\begin{figure}[h!] 
-  \centering 
-    \includegraphics[width=1.0\columnwidth]{images/cloudmetric.pdf} 
-  \caption{Overview of cloud metric factors}\label{F:taxonomy-1} 
-\end{figure} 
+\begin{figure}[!h] 
+  {\centering 
+    \includegraphics[width=1.0\columnwidth]{images/cloudmetric.pdf}}
+   \caption{Overview of cloud metric factors}\label{F:taxonomy-1} 
+%\end{figure} 
 
-\subsection{Stakeholder}
-
-A cloud will have a wide variety of stakeholders with their potentially specific needs in metrics. These stakeholders include (a) the users which could be application developers and application users, (b) a project in which multiple users contribute (c) the resource provider including administrators and management including the director. Furthermore, we identify the funder of the Cloud as an important stakeholder as he may have needs for specific metrics that are typically not relevant to users or administrators of the cloud but have profound impact on the goal of funding the resource. To give an example of the wide variety of metrics needed we like to make use aware that although management is interested in operational 24/7 operation of the system and statistics associated with it, concrete metrics and monitoring infrastructure as needed by the administrators to detect operational failures are typically not part of the needed metrics for a center director. On the other hand metrics to identify ethnicity and classification into scientific disciplines are of great value for center directors and Funders, while they play no importance to the operational metrics to keep the system running.
- 
-\begin{figure}[htb]
+%\begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-% \begin{forest}
-%    for tree={grow'=east, child anchor=west, anchor=base
-%     west, tier/.pgfmath=level()}
 \begin{fTREE}{0.9in}  \Tree
      [. Stakeholder
         [. Funder [.User ]
@@ -331,19 +324,26 @@ A cloud will have a wide variety of stakeholders with their potentially specific
                 [. {Project Members} ]
         ]
 	[.{Sponsored User} ]
+    [.{Consuming Services } ]
    ]
 \end{fTREE}
-%\end{forest}
 \end{tiny}
 \end{center}
-\vspace{-24pt}
+\vspace{-12pt}
 \caption{Cloud metric stakeholders}
- \end{figure}
+\label{F:stakeholder}
+\end{figure}
 
 
-\subsection{Access}
 
-It 
+\subsection{Stakeholder}
+
+An academic cloud will have a wide variety of stakeholders with potentially very specific and complex needs in regards to metrics. These stakeholders include (a) application developers and users, (b) projects in which multiple users contribute (c) the resource provider including administrators and management including the director. Furthermore, we identify the funder of the cloud as an important stakeholder as he may have needs for specific metrics that are typically not relevant to users or administrators of the cloud but have profound impact on the goal of justifying and delivering funding of resources and projects. To give an example of the wide variety of metrics needed we like to raise awareness of that although management is interested in operational 24/7 operation of the system and statistics associated with it, concrete metrics and monitoring infrastructure as needed by the administrators to detect operational failures are typically not part of the needed metrics for a center director. On the other hand metrics to identify ethnicity and classification into scientific disciplines are of great value for center directors and funders, while they play no importance to the operational metrics to keep the system running. One of the stakeholders also includes consuming services that are authorized to use the metric information to improve via the service offered the underlying resource and service infrastructure. Such consuming services often act in behalf of the previous stakeholders. We list the main stakeholders in Figure \ref{F:stakeholder}.
+ 
+
+\subsection{Access and Presentation}
+
+Due to this wide range of users that are in the need of metrics it is important to support also the needs of accessing the metrics accordingly. This includes portal information for management and high level users, but also access as part of scripts, APIs and REST services (see Figure \ref{F:access}).
 
 \begin{figure}[htb]
 \begin{center}
@@ -362,41 +362,55 @@ It
 \end{tiny}
 \end{center}
 \vspace{-12pt}
-\caption{Cloud metric Access}
- \end{figure}
+\caption{Cloud metric access}
+\label{F:access}
+\end{figure}
+
+Related to the access is naturally how the final information is presented as indicated in in Figure \ref{F:type}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Information Presentation Type}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+It is clear that the data needs to be presented in a consumable fashion to the stakeholders. In particular we are interested in automatically generating periodic reports on a monthly or quarterly basis, but also support the creation of ad-hoc reports that show the actual current state (see Figure~\ref{F:type}). This is facilitated by interactive services that not only allow the exposure through human readable reports, but also through service consumable reports while using data formats such as XML, YAML, or JSON. In some cases it may also be important to expose the original data. 
 
 
-
-\subsection{Type}
 
 \begin{figure}[htb]
 \begin{center}
 \begin{tiny}
-\begin{fTREE}{.9in}  \Tree
-     [. Type
-        [. {\iFILES ~ Report} ]
-        [. {\iDISPLAY ~ Interactive} ]
-        [. {\iCLUSTER ~ Mashup} ]
-   ]
-\end{fTREE}
-...
-\begin{fTREE}{.9in}  \Tree
-	[. {Chart} 
-            [. {\iCHART ~ Pie} ]
-            [. {\iTABLE ~ Table} ]
-            [. {\iSTAT ~ Line} ]
-            [. {\iCHARTS ~ Histogram} ]
+\begin{fTREE}{.95in}  \Tree
+[. Type
+        [. {\iFILES ~ Report} 
+     		[. {Chart} 
+           		[. {\iCHART ~ Pie} ]
+            	[. {\iTABLE ~ Table} ]
+            	[. {\iSTAT ~ Line} ]
+            	[. {\iCHARTS ~ Histogram} ]
         ]
+	]
+      [. {\iCLUSTER ~ Mashup} 
+            [. Format
+       		[. {XML} ]
+        		[. {YAML} ]
+        		[. {JSON} ]
+			[. {original} ]
+		]
+         ]
+        [. {\iDISPLAY ~ Interactive} 
+		[. {see Report \& Mashup} ]
+	  ]
+     ] 
 \end{fTREE}
 \end{tiny}
 \end{center}
 \vspace{-12pt}
 \caption{Cloud metric presentation types}
+\label{F:type}
  \end{figure}
 
 \subsection{Motivation}
 
-Another important factor for a cloud metric is the motivation and purpose for it. We distinguish the following factors:
+Obviously one very important factor for a cloud metric is the motivation and purpose for it. This factor may significantly impact the purpose and design of the metrics framework we need in order to support the stakeholders. We distinguish the following motivational factors:
 
 
 \begin{description}
@@ -1591,4 +1605,5 @@ User NSF Status & TBD \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % END DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 
