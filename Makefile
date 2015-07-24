@@ -30,6 +30,9 @@ up:
 	git commit -a
 	git push
 
+e:
+	e ${FILE}.tex
+
 publish:
 	cp ${FILE}.pdf ${FILE}-draft.pdf
 	git commit -m "new draft" ${FILE}-draft.pdf
