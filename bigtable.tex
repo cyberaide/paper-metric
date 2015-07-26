@@ -1,315 +1,95 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \begin{METRICTABLE}{caption}{label}
+%  \end{METRICTABLE}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\eTABLE}{\end{tabular}
+\end{center}
+\end{scriptsize}
+\end{table*}}
+
+\newcommand{\bTABLE}[2]{
 \begin{table*}[P]
-\caption{User related metrics.}
-\label{T:metrics-bigtable}
+\caption{#1}
+\label{#2}
 \bigskip
 \begin{scriptsize}
 \begin{center}
 \begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
 \hline
 \rowcolor{blue!20} \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline
-UC.1&
-User Count & 
- counts the active users for the cloud &
-User count is important for measuring the popularity of the cloud \\
-\hline
-UC.2&
-Major Users &
-heavy users in terms of consuming resources e.g. top 10 users &
-Top 10 Users is important to see who has the most impact on the shared resources \\
-\hline
-UC.3 &
-User Type &
-a user type defined in an account system with a percentage of
-the total numbers. e.g. a project leader, an instructor, or a students. & 
-User Type is important to see a proportion of users.  \\
-\hline
-UC.4 &
-Repeat User&
-the number of users who actively using services for a certain period.  e.g. last 3/6/9 month: 16/32/24 &
-Repeat User is important for measuring user activity for a certain period \\
-\hline
-UD.1 &
-Tenant Distribution&
-a proper balancing of resources per tenant. &
-Tenant Distribution is important to see users spread evenly across compute nodes \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\hline}
+
+\newenvironment{METRICTABLE}[2] {\bTABLE{#1}{#2}}{\eTABLE}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{METRICTABLE}{User related metrics.}{T:metrics-bigtable}
+UC.1 & User Count &  counts the active users for the cloud                                           & User count is  important  for  measuring  the Popularity of the cloud \\ \hline
+UC.2 & Major Users & heavy users in terms of consuming resources e.g. top 10 users & Top 10 Users is important to see who has the most impact on the shared resources \\  \hline
+UC.3 & User Type   & a user type defined in an account system with a percentage of the total numbers. e.g. a project leader, an instructor, or a students. & User Type is important to see a proportion of users. \\ \hline
+UC.4 & Repeat User& the number of users who actively using services for a certain period. e.g. last 3/6/9 month: 16/32/24 & Repeat User is important for measuring user activity for a certain period \\ \hline
+UD.1 & Tenant Distribution& a proper balancing of resources per tenant. & Tenant Distribution is important to see users spread evenly across compute nodes \\ \hline
+\end{METRICTABLE}
 
 
-\begin{table*}[P]
-\caption{Virtual machine metrics.}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20} \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline 
-VC.1&
-VM Count & 
- counts the launched VM instances on the cloud &
-VM Count is important for measuring the volume of requested instances \\
-\hline
-VC.2&
-VM Count by Project, Leader, or Institution &
-share of resource by group metrics such as project, leader or institution &
-Group usage is important for measuring group usage \\
-\hline
-VC.3 &
-Current running VMs or accessed users &
-instant usage data to see current status &
-real time usage is important for checking peak or detecting unusual usage \\
-\hline
-VCT.1 &
-VM Creation Time &
-the latency of creating a new instance to ensure fast creation &
-VM Create Time is important for measuring the latency \\
-\hline
-VRS.1&
-VM Runtime Sum&
-the total amount of runtime for launched instances &
-runtime by hour is important for measuring actual runtime of instances \\
-\hline
-VCC.1 &
-vCPU Usage &
-the number of vCPU cores allocated to instances &
-vCPU Usage is important for measuring system resource used \\
-\hline
-VM.1 &
-Memory Usage &
-the size of memories allocated to instances &
-Memory Usage is important for measuring system resource used \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
 
-\begin{table*}[P]
-\caption{Image related metrics}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20} \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline 
-IC.1 &
-Image Type &
-an image type registered in the cloud platforms with a
-percentage of the total number. e.g. ubuntu14.04, centOS 7, or Fedora 22 & 
-Image Type is important to see a proportion of images. \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Virtual machine metrics.}{T:vm}
+VC.1 & VM Count &  counts the launched VM instances on the cloud & VM Count is important for measuring the volume of requested instances \\ \hline
+VC.2 & VM Count by Project, Leader, or Institution & share of resource by group metrics such as project, leader or institution & Group usage is important for measuring group usage \\ \hline
+VC.3 & Current running VMs or accessed users & instant usage data to see current status & real time usage is important for checking peak or detecting unusual usage \\ \hline
+VCT.1 & VM Creation Time & the latency of creating a new instance to ensure fast creation & VM Create Time is important for measuring the latency \\ \hline
+VRS.1& VM Runtime Sum& the total amount of runtime for launched instances & runtime by hour is important for measuring actual runtime of instances \\ \hline
+VCC.1 & vCPU Usage & the number of vCPU cores allocated to instances & vCPU Usage is important for measuring system resource used \\ \hline
+VM.1 & Memory Usage & the size of memories allocated to instances & Memory Usage is important for measuring system resource used \\ \hline
+\end{METRICTABLE}
 
-\begin{table*}[P]
-\caption{Flavor related metrics.}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20} \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline 
-FC.1 &
-Flavor Type &
-an flavor (instance) type registered in the cloud platforms with a
-percentage of the total number. e.g. m1.small, m1.medium, or m1.xlarge & 
-Flavor Type is important to see a proportion of instance types. \\
-~\\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Image related metrics}{T:image}
+IC.1 & Image Type & an image type registered in the cloud platforms with a percentage of the total number. e.g. ubuntu14.04, centOS 7, or Fedora 22 &  Image Type is important to see a proportion of images. \\
+\end{METRICTABLE}
 
-\begin{table*}[P]
-\caption{Storage related metrics}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20}   \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline  
-DU.1 &
-Disk Usage &
-the size of Disks allocated to instances &
-Disk Usage is important for measuring system resource used \\
-\hline
-DU.2 &
-Object Usage &
-the size of Object Storage allocated to instances &
-Object Usage is important for measuring system resource used \\
-\hline
-DU.3 &
-Block Usage &
-the size of storage blocks mounted to instances &
-Block Usage is important for measuring system resource used \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Flavor related metrics.}{T:flavor}
+FC.1 & Flavor Type & an flavor (instance) type registered in the cloud platforms with a percentage of the total number. e.g. m1.small, m1.medium, or m1.xlarge &  Flavor Type is important to see a proportion of instance types. \\
+\end{METRICTABLE}
 
-\begin{table*}[P]
-\caption{Server related metrics}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20}   \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline
-SC.1 & 
-Node Distribution & 
-a physical node distribution. & 
-Node Distribution is important for load balancing. \\
-\hline
-SP.1 &
-Power Consumption&
-the amount of energy used in the cloud platform  &
-Electricity is important for measuring actual cost by Kilo Watt per hour (KWh) \\
-\hline
-SA.1 &
-Availability&
-a percentage rate of available resources to accept a new request &
-Availability is important to provide cloud resources continuously \\
-\hline
-SSC.1 &
-Scalability \& Capacity&
-an actual limit of a service or physical system in the cloud &
-Scalability and Capacity are important to measure IaaS performance \\
-\hline
-ST.1 &
-Throughput &
-the performance of cloud services by measuring completed tasks, i.e. PaaS &
-Throughput is important for measuring service performance e.g. PaaS \\
-\hline
-SCS.1 &
-CPU Speed (system performance)&
-the performance of cloud resources by clock speed of a processor &
-CPU Clock speed is important to understand an actual speed of CPUs over different cloud platforms \\
-\hline
-SMS.1 &
-Memory Speed (system performance)&
-the performance of cloud resources by clock speed of a memory &
-Memory Clock speed is important to understand an actual speed of memories over different cloud platforms \\
-\hline
-SDS.1 &
-Disk Speed (system performance)&
-the performance of cloud resources by read/write speed of a disk including SSD &
-Disk speed is important to understand an actual speed of disks over
-                                                                                 different disk types \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Storage related metrics}{T:storage}
+DU.1 & Disk Usage & the size of Disks allocated to instances & Disk Usage is important for measuring system resource used \\ \hline
+DU.2 & Object Usage & the size of Object Storage allocated to instances & Object Usage is important for measuring system resource used \\ \hline
+DU.3 & Block Usage & the size of storage blocks mounted to instances & Block Usage is important for measuring system resource used \\ \hline
+\end{METRICTABLE}
 
-\begin{table*}[P]
-\caption{Network related metrics.}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20} \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline
-NL.1 &
-Latency &
-a network and application performance &
-Latency is important with acceptable and strict latency expectation \\
-\hline
-NT.2 &
-Network Throughput&
-the actual amount of data delivered successfully &
-Network thoughput is important for measuring network performance \\
-\hline
-NP.3 &
-PublicIP Count &
-availability of public IP addresses. &
-PublicIP Count is important for the number of available and free IP addresses. \\
-\hline
-NP.3 &
-PriveIP Count &
-availability of private IP addresses. &
-PrivateIP Count is important for the number of available and free IP addresses. \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Server related metrics}{T:server}
+SC.1 &  Node Distribution &  a physical node distribution. &  Node Distribution is important for load balancing. \\ \hline
+SP.1 & Power Consumption& the amount of energy used in the cloud platform & Electricity is important for measuring actual cost by Kilo Watt per hour (KWh) \\ \hline
+SA.1 & Availability& a percentage rate of available resources to accept a new request & Availability is important to provide cloud resources continuously \\ \hline
+SSC.1 & Scalability \& Capacity& an actual limit of a service or physical system in the cloud & Scalability and Capacity are important to measure IaaS performance \\ \hline
+ST.1 & Throughput & the performance of cloud services by measuring completed tasks, i.e. PaaS & Throughput is important for measuring service performance e.g. PaaS \\ \hline
+SCS.1 & CPU Speed (system performance)& the performance of cloud resources by clock speed of a processor & CPU Clock speed is important to understand an actual speed of CPUs over different cloud platforms \\ \hline
+SMS.1 & Memory Speed (system performance)& the performance of cloud resources by clock speed of a memory & Memory Clock speed is important to understand an actual speed of memories over different cloud platforms \\ \hline
+SDS.1 & Disk Speed (system performance)& the performance of cloud resources by read/write speed of a disk including SSD & Disk speed is important to understand an actual speed of disks over    different disk types \\
+\end{METRICTABLE}
 
-\begin{table*}[P]
-\caption{Project related metrics.}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-\rowcolor{blue!20} \bf ID & \bf Name & \bf Description & \bf Motivation \\
-\hline 
-PC.1 & Number of projects & 
-the cumulative number of projects & 
-Project Count is important for measuring growth of use, time periods:
-                                    daily, \\
-\hline
-PC.2 & Number of projects by discipline & 
-the cumulative number of projects by discipline &
-Project Count by discipline is important to understand the growth of use by
-field of knowledge.  Time periods: daily, monthly, quarterly, yearly \\
-\hline
-PC.3 & Number of projects by organization & 
-the cumulative number of projects by organization &
-Project Count by organization is important to understand the growth of use by
-institution. Time periods: daily, monthly, qaurterly, yearly \\
-\hline
-PC.4 & Technology in Use & 
-the percentage of technologies and software packages in use & 
-Technology in use is important to improve application-based services
-                                                              in the \\
-\hline
-PC.5 & Desired Technology &  
-the percentage of technologies and software packages preferred to use &
-Preferred Technology is important to understand the needs of software packages
-in the cloud \\
-\hline
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Network related metrics.}{T:network}
+NL.1 & Latency & a network and application performance & Latency is important with acceptable and strict latency expectation \\ \hline
+NT.2 & Network Throughput& the actual amount of data delivered successfully & Network thoughput is important for measuring network performance \\ \hline
+NP.3 & PublicIP Count & availability of public IP addresses. & PublicIP Count is important for the number of available and free IP addresses. \\ \hline
+NP.3 & PriveIP Count & availability of private IP addresses. & PrivateIP Count is important for the number of available and free IP addresses. \\ \hline
+\end{METRICTABLE}
 
-\begin{table*}[P]
-\caption{Region related metrics.}
-\begin{scriptsize}
-\label{T:metrics}
-\bigskip
-\begin{center}
-\begin{tabular}{lp{0.1\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
-\hline
-RC.1 & 
-Location & 
-a geographical location of a user. & 
-Location is important for resource availability to different regions. \\
-\end{tabular}
-\end{center}
-\end{scriptsize}
-\end{table*}
+\begin{METRICTABLE}{Project related metrics.}{T:project}
+PC.1 & Number of projects &  the cumulative number of projects &  Project Count is important for measuring growth of use, time periods:    daily, \\ \hline
+PC.2 & Number of projects by discipline &  the cumulative number of projects by discipline & Project Count by discipline is important to understand the growth of use by field of knowledge. Time periods: daily, monthly, quarterly, yearly \\ \hline
+PC.3 & Number of projects by organization &  the cumulative number of projects by organization & Project Count by organization is important to understand the growth of use by institution. Time periods: daily, monthly, qaurterly, yearly \\ \hline
+PC.4 & Technology in Use &  the percentage of technologies and software packages in use &  Technology in use is important to improve application-based services     in the \\ \hline
+PC.5 & Desired Technology &  the percentage of technologies and software packages preferred to use & Preferred Technology is important to understand the needs of software packages in the cloud \\ \hline
+\end{METRICTABLE}
+
+\begin{METRICTABLE}{Region related metrics.}{T:region}
+RC.1 &  Location &  a geographical location of a user. &  Location is important for resource availability to different regions. \\ \hline
+\end{METRICTABLE} 
+
+\begin{METRICTABLE}{Security related metrics.}{T:security}
+S.1 &  TBD &  TBD &  TBD. \\ \hline
+\end{METRICTABLE} 
 
 
 \clearpage
