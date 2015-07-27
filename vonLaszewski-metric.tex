@@ -1422,8 +1422,12 @@ This appendix includes a number of tables that summarize metrics that are expose
 
 \begin{description}
 
-\item[Table \ref{T:xdmod}] shows \hyungro{complete}.
-.
+\item[Table \ref{T:xdmod}] shows a main category of HPC Metrics from XDMoD and
+Compatible metrics for IaaS. The overall resource utilization and system
+popularity can be briefly described with these main metrics in HPC or in the
+cloud.  The metrics addressed in the table \ref{T:xdmod2} are grouped by these
+main metrics. 
+
 \item[Table \ref{T:xdmod2}] shows \hyungro{complete}.
 
 \item[Table \ref{T:xdmod22}] shows \hyungro{complete}.
@@ -1438,16 +1442,16 @@ This appendix includes a number of tables that summarize metrics that are expose
 \end{description}
 
 \begin{table*}[htb]
-  \caption{HPC Metric Categories in XDMoD}
+  \caption{Main Metrics in HPC and IaaS}
 \label{T:xdmod}
 \begin{scriptsize}
 \begin{tabular}{l|l|l} 
-HPC Category & Compatibility with IaaS & Description\\
+HPC from XDMoD & Description & Compatibility with IaaS \\
 \hline
-Job & VM & The number of requested jobs in HPC or VM instance in the cloud\\
-Allocations & Project(Tenant) & A funded project that is allowed to run jobs (VMs) on resources \\
-Accounts & Accounts & The number of user accounts registered or deleted \\
-Requests & Requests & The number of registered projects or accounts\\
+Jobs & The number of requested jobs & VMs\\
+Allocations & A funded project that is allowed to run jobs on resources & Projects(Tenants) \\
+Accounts & The number of user accounts registered or deleted & Accounts \\
+Requests & The number of registered projects or accounts & Requests \\
 % Performance & Performance & TBD \\
 % SUPREMM & - & TBD \\
 \hline
