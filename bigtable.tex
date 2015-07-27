@@ -23,31 +23,31 @@
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{METRICTABLE}{Project  management related metrics.}{T:project}
-P.1 & Number of projects &  the cumulative number of projects &   measuring growth of use, time periods:  daily \\ \hline
+\begin{METRICTABLE}{Project management related metrics}{T:project}
+P.1 & Number of projects &  the cumulative number of projects &  measure growth of use, time periods:  daily \\ \hline
 P.2 & Number of projects by discipline &  the cumulative number of projects by discipline & understand the growth of use by field of knowledge. Time periods: daily, monthly, quarterly, yearly \\ \hline
 PC3 & Number of projects by organization &  the cumulative number of projects by organization & understand the growth of use by institution. Time periods: daily, monthly, qaurterly, yearly \\ \hline
 P.4 & Technology in use   &  the percentage of technologies and software packages in use &  improve application-based services with desired technologies \\ \hline
-P.5 & Technology desired &  the percentage of technologies and software packages preferred to use & needs of software packages in the cloud \\ \hline
+P.5 & Technology desired &  the percentage of technologies and software packages preferred to use & measure statistical needs of software packages in the cloud \\ \hline
 \end{METRICTABLE}
 
-\begin{METRICTABLE}{User related metrics.}{T:metrics-bigtable}
-U.1 & User count                                     &  active users for the cloud                                           & gives an indication of how many users use the cloud \\ \hline
-U.6 & Users by organization                   & shows the the infrastructure used by organization      & identify balanced used  \\  \hline
-U.2 & Users by consumption (VM)           & users that use the resources heavily e.g. top 10 users & important to identify the users  \\  \hline
-U.3 & Users by consumption (Storage)    & users that use the resources heavily e.g. top 10 users & important to identify the users  \\  \hline
-U.4 & Users by consumption (Network)  & users that use the resources heavily e.g. top 10 users & important to identify the users  \\  \hline
+\begin{METRICTABLE}{User related metrics}{T:metrics-bigtable}
+U.1 & User count                                     &  active users for the cloud                                           & give an indication of how many users use the cloud \\ \hline
+U.6 & Users by organization                   & shows the the infrastructure used by organization      & identify the users by organization  \\  \hline
+U.2 & Users by consumption (VM)           & users that use the resources heavily e.g. top 10 users & identify the users by VM usage \\  \hline
+U.3 & Users by consumption (Storage)    & users that use the resources heavily e.g. top 10 users & identify the users by Storage usage\\  \hline
+U.4 & Users by consumption (Network)  & users that use the resources heavily e.g. top 10 users & identify the users by Network usage \\  \hline
 U.5 & Users by consumption (Image)      & shows the most used images    & identify popular images  \\  \hline
 U.6 & Users by consumption (Flavor)      & shows the most used flavor      & identify popular flavors  \\  \hline
 U.7 & Users by role                                 & indicates usage by role             &  a user role defined in an account system with a percentage of the total numbers. e.g. how many class users vs researchers \\ \hline
-U.8 & Users by project                            & distribution of user count by project                   & helps assessing quotas and limits that may be caused by user count \\ \hline
+U.8 & Users by project                            & distribution of user count by project                   & assess quotas and limit that may be caused by user count \\ \hline
 \end{METRICTABLE}
 
 
 \begin{METRICTABLE}{Virtual machine metrics.}{T:vm}
-V.1 & VM Count              &  counts the launched VM instances on the cloud & assesses utilization of the resources \\ \hline
-V.2 & VM Count by role & counts the VM by role & asseses utilization by role e.g. students vs. research use \\ \hline
-V.2 & VM Count by organization & counts the VM by organization & asseses utilization by organization \\ \hline
+V.1 & VM Count              &  counts the launched VM instances on the cloud & assess utilization of the resources \\ \hline
+V.2 & VM Count by role & counts the VM by role & asses utilization by role e.g. students vs. research use \\ \hline
+V.2 & VM Count by organization & counts the VM by organization & asses utilization by organization \\ \hline
 V.3 & VM Creation time & shows when vms have been created & Identification of long running VMs to check for security updates, reminders to terminate unused VMs \\ \hline
 V.4 & VM Runtime sum   & the total amount of runtime for launched instances & one measurement for utilization of the resource \\ \hline
 V.5 & vCPU usage          & the number of vCPU cores allocated to instances & vCPU Usage is important for measuring system resource used \\ \hline
@@ -56,69 +56,69 @@ V.7 & VM migration      &  the time it takes to migrate a VM & moving vms may be
 V.8 & VM snapshot      &  the time it takes to snapshot a VM & moving vms may be needed in case of over utilization of a server \\ \hline
 V.9 & VM deletion      &  the time it takes to delete a VM & users may be interested in how quickly they can delete the vm \\ \hline
 V.10 & VM boot      &  the time it takes to boot a VM & users may be interested in how quickly they can boot \\ \hline
-V.11 & VM admin time sum      & total time the cloud prepares a system so we can compare it to the actual runtime of the VMs & leads to ratio of preparation vs VM runtime \\ \hline
+V.11 & VM admin time sum      & total time the cloud prepares a system so we can compare it to the actual runtime of the VMs & lead to ratio of preparation vs VM runtime \\ \hline
 \end{METRICTABLE}
 
 \begin{METRICTABLE}{Image related metrics}{T:image}
-I.1  & Image OS & the distribution of the image OS  e.g. ubuntu14.04, centOS 7, or Fedora 22 & assists to provide support \\ \hline
-I.2  & Image creation date & the creation date of the image  & assists to provide security support \\ \hline
-I.3  & Image upload date & the time an image was uploaded to the image repository & assists to provide security support \\ \hline
-I.4  & Image modification date date & the time an image was last modified in the  image repository & assists to provide security support \\ \hline
-I.5  & Image usage count & the usage of the image by users  & assists in removing unpopular images \\ \hline
-I.6  & Image usage wall time & the usage of the image by users  & assists in removing unpopular images \\ \hline
-I.7  & Image size & the size of the image  & assists in sizing the image store and giving indication on how boot times based on download size \\ \hline
-I.8  & Image boot time & the boot time of the image  & assists in sizing the image store and giving indication on how boot time \\ \hline
-I.9  & Image clone count & number of times the image was cloned into a new image  & assists in identifying common security risks through image pedigree \\ \hline
-I.10 & Image by role & images by role  & shows favourite images by role (e.g. students) \\ \hline
-I.10 & Image by project & images by project  & shows favourite images by role (e.g. students) \\ \hline
+I.1  & Image OS & the distribution of the image OS  e.g. ubuntu14.04, centOS 7, or Fedora 22 & assist to provide support \\ \hline
+I.2  & Image creation date & the creation date of the image  & assist to provide security support \\ \hline
+I.3  & Image upload date & the time an image was uploaded to the image repository & assist to provide security support \\ \hline
+I.4  & Image modification date date & the time an image was last modified in the  image repository & assist to provide security support \\ \hline
+I.5  & Image usage count & the usage of the image by users  & assist in removing unpopular images \\ \hline
+I.6  & Image usage wall time & the usage of the image by users  & assist in removing unpopular images \\ \hline
+I.7  & Image size & the size of the image  & assist in sizing the image store and giving indication on how boot times based on download size \\ \hline
+I.8  & Image boot time & the boot time of the image  & assist in sizing the image store and giving indication on how boot time \\ \hline
+I.9  & Image clone count & number of times the image was cloned into a new image  & assist in identifying common security risks through image pedigree \\ \hline
+I.10 & Image by role & images by role  & show favourite images by role (e.g. students) \\ \hline
+I.10 & Image by project & images by project  & show favourite images by role (e.g. students) \\ \hline
 \end{METRICTABLE}
 
 \begin{METRICTABLE}{Flavor related metrics.}{T:flavor}
-F.1 & Flavor count& a counts the usage of a specific flavor & helps assessing popularity of the flavor \\ \hline
-F.2 & Flavor by user & counts the usage of a specific flavor for a user & helps assessing popularity of the flavor \\ \hline 
-F.3 & Flavor by project & counts the usage of a specific flavor for a project & helps assessing popularity of the flavor \\ \hline 
-F.4 & Flavor by image & counts the usage of a specific flavor for an Image  & helps assessing popularity of the flavor \\ \hline 
-F.5 & Flavor by wall time & counts the usage of a specific flavor for an Image  & helps assessing popularity of the flavor \\ \hline 
-F.6 & Flavor by core & counts the usage of a specific flavor for an Image  & helps assessing popularity of the flavor \\ \hline 
-F.7 & Flavor by role & counts the usage of a specific flavor for an Image  & helps assessing popularity of the flavor \\ \hline 
+F.1 & Flavor count& a counts the usage of a specific flavor & help assessing popularity of the flavor \\ \hline
+F.2 & Flavor by user & counts the usage of a specific flavor for a user & help assessing popularity of the flavor \\ \hline 
+F.3 & Flavor by project & counts the usage of a specific flavor for a project & help assessing popularity of the flavor \\ \hline 
+F.4 & Flavor by image & counts the usage of a specific flavor for an Image  & help assessing popularity of the flavor \\ \hline 
+F.5 & Flavor by wall time & counts the usage of a specific flavor for an Image  & help assessing popularity of the flavor \\ \hline 
+F.6 & Flavor by core & counts the usage of a specific flavor for an Image  & help assessing popularity of the flavor \\ \hline 
+F.7 & Flavor by role & counts the usage of a specific flavor for an Image  & help assessing popularity of the flavor \\ \hline 
 \end{METRICTABLE}
 
 \begin{METRICTABLE}{Storage related metrics}{T:storage}
-D.1 & Disk usage (total)        & size of Disks allocated  & measuring system resource usage \\ \hline
-D.2 & Disk usage by user      & size of Disks allocated  & measuring system resource usage \\ \hline
-D.3 & Disk usage by project  & size of Disks allocated  & measuring system resource usage \\ \hline
-D.4 & Object usage (total)   & size of Object Storage allocated  & measuring system resource usage \\ \hline
-D.5 & Object usage by user   & size of Object Storage allocated  & measuring system resource usage \\ \hline
-D.6 & Object usage by project   & size of Object Storage allocated  & measuring system resource usage \\ \hline
-D.7 & Block usage (total)    & size of Block Storage allocated  & measuring system resource usage \\ \hline
-D.8 & Block usage by user   & size of Block Storage allocated  & measuring system resource usage \\ \hline
-D.9 & Block usage by project   & size of Block Storage allocated  & measuring system resource usage \\ \hline 
-D.10 & File usage (total)    & size of File Storage allocated  & measuring system resource usage \\ \hline
-D.11 & File usage by user   & size of File Storage allocated  & measuring system resource usage \\ \hline
-D.12 & File usage by project   & size of File Storage allocated  & measuring system resource usage \\ \hline
+D.1 & Disk usage (total)        & size of Disks allocated  & measure total disk usage \\ \hline
+D.2 & Disk usage by user      & size of Disks allocated  & measure disk usage by user\\ \hline
+D.3 & Disk usage by project  & size of Disks allocated  & measure disk usage by project \\ \hline
+D.4 & Object usage (total)   & size of Object Storage allocated  & measure total object storage usage \\ \hline
+D.5 & Object usage by user   & size of Object Storage allocated  & measure object storage usage by user\\ \hline
+D.6 & Object usage by project   & size of Object Storage allocated  & measure object storage usage by project \\ \hline
+D.7 & Block usage (total)    & size of Block Storage allocated  & measure total block storage usage \\ \hline
+D.8 & Block usage by user   & size of Block Storage allocated  & measure block storage usage by user\\ \hline
+D.9 & Block usage by project   & size of Block Storage allocated  & measure block storage usage by project \\ \hline 
+D.10 & File usage (total)    & size of File Storage allocated  & measure total file usage \\ \hline
+D.11 & File usage by user   & size of File Storage allocated  & measure file usage by user \\ \hline
+D.12 & File usage by project   & size of File Storage allocated  & measure file usage by project \\ \hline
 \end{METRICTABLE}
 
 \begin{METRICTABLE}{Server related metrics}{T:server}
-S.1 &  Node Distribution       & a physical node distribution on the servers &  indication of load balancing. \\ \hline
-S.2 & Power Consumption     & the amount of energy used in the cloud platform & Electricity is important for measuring actual cost by Kilo Watt per hour (KWh) \\ \hline
-S.3 & Availability                   & a percentage rate of available resources to accept a new request & Availability is important to provide cloud resources continuously \\ \hline
+S.1 &  Node Distribution       & a physical node distribution on the servers &  indication of physical system balancing \\ \hline
+S.2 & Power Consumption     & the amount of energy used in the cloud platform & measure actual cost by Kilo Watt per hour (KWh) \\ \hline
+S.3 & Availability                   & a percentage rate of available resources to accept a new request & provide cloud resources continuously \\ \hline
 S.3.1 & Planned Outages                 & Some resources may be not avalable due to outages & accesses production level readiness of the system \\ \hline
 S.3.2 & Unplanned Outages                 & Some resources may be not avalable due to outages & accesses reliability of the system \\ \hline
 S.3.3 & Broken HW                      & Hardware unavailable due to hardware failure & accesses reliability of the system \\ \hline
 S.3.4 & Broken SW                      & Hardware unavailable due to Software failure & accesses reliability of the system \\ \hline
 % S.4 & Scalability                  & an actual limit of a service or physical system in the cloud & Scalability and Capacity are important to measure IaaS performance \\ \hline
-S.4 & Capacity                       & an actual limit of a service or physical system in the cloud & Capacity lets users know if they can still request resources \\ \hline
-S.5 & Throughput                 & the performance of cloud services by measuring completed tasks, i.e. PaaS & Throughput is important for measuring service performance e.g. PaaS \\ \hline
-S.6 & CPU Speed                   & Indication of cpu speed in a heterongeneous cloud & CPU clock speed is important to understand an actual speed of CPUs over different cloud platforms \\ \hline
-S.6 & CPU Type                   & Indication of cpu type in a heterongeneous cloud & CPU clock speed is important to understand an actual speed of CPUs over different cloud platforms \\ \hline
-S.7 & Memory Speed & the performance of cloud resources by clock speed of a memory & Memory clock speed is important to understand an actual speed of memories over different cloud platforms \\ \hline
+S.4 & Capacity                       & an actual limit of a service or physical system in the cloud & let users know if they can still request resources \\ \hline
+S.5 & Throughput                 & the performance of cloud services by measuring completed tasks, i.e. PaaS & measure service performance e.g. PaaS \\ \hline
+S.6 & CPU Speed                   & Indication of cpu speed in a heterongeneous cloud & understand an actual speed of CPUs over different cloud platforms \\ \hline
+S.6 & CPU Type                   & Indication of cpu type in a heterongeneous cloud & understand an actual speed of CPUs over different cloud platforms \\ \hline
+S.7 & Memory Speed & the performance of cloud resources by clock speed of a memory & understand an actual speed of memories over different cloud platforms \\ \hline
 S.8 & Disk type    & the type of disk accessible on the server (SSD, ...)  & specific disk type may be needed for certain experiments \\ \hline 
-S.8 & Disk Speed & the performance of cloud resources by read/write speed of a disk including SSD & Disk speed is important to understand an actual speed of disks over different disk types \\
+S.8 & Disk Speed & the performance of cloud resources by read/write speed of a disk including SSD & understand an actual speed of disks over different disk types \\
 \end{METRICTABLE}
 
 \begin{METRICTABLE}{Network related metrics.}{T:network}
-N.1 & Latency & a network and application performance & Latency is important with acceptable and strict latency expectation \\ \hline
-N.2 & Network Throughput& the actual amount of data delivered successfully & Network thoughput is important for measuring network performance \\ \hline
+N.1 & Latency & a network and application performance & Measure acceptability and strict latency expectation \\ \hline
+N.2 & Network Throughput& the actual amount of data delivered successfully & measure network performance \\ \hline
 N.3 & public ips used (total) &  number of public IPs used &  May indicate resource abuse \\ \hline
 N.4 & public ips used (by user) &  number of public IPs used &  May indicate resource abuse \\ \hline
 N.5 & public ips used (by project) &  number of public IPs used &  May indicate resource abuse \\ \hline
