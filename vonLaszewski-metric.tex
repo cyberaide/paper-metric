@@ -63,7 +63,7 @@
 %\usepackage{supertabular}
 %\usepackage{multicol}
 %\usepackage{tabu}
-%\usepackage{afterpage}
+\usepackage{afterpage}
 %\usepackage{pdflscape}
 \usepackage{xtab}
 
@@ -73,16 +73,17 @@
 \usepackage{dot2texi}
 \usepackage{graphviz}
 
-\usepackage{forest}
+%\usepackage{forest}
+%\usepackage{float}
+%\usepackage{afterpage}
 
 \newcommand*\rot{\rotatebox{90}} 
  
 %\newcommand{\FILE}[1]{\todo[color=green!40]{#1}} 
 
-
-\newcommand{\fugang}[1]{\todo[inline, color=orange!20]{Fugang:~#1}} 
-\newcommand{\hyungro}[1]{\todo[inline, color=green!20]{Hyungro:~#1}} 
-\newcommand{\gregor}[1]{\todo[inline, color=blue!20]{Gregor:~#1}} 
+\newcommand{\fugang}[1]{\todo[inline, color=orange!20]{~#1}} 
+\newcommand{\hyungro}[1]{\todo[inline, color=green!20]{~#1}} 
+\newcommand{\gregor}[1]{\todo[inline, color=blue!20]{~#1}} 
 \newcommand{\task}[1]{\smallskip\todo[inline, color=gray!20]{#1}} 
 \newcommand{\improve}[1]{\smallskip\todo[inline, color=gray!20]{old: #1}} 
 
@@ -133,7 +134,6 @@ breakatwhitespace=true
 tabsize=3
 }
 
-
 \newcommand{\iCHART}{\includegraphics[scale=0.3]{icons/glyphicons-43-pie-chart.png}}
 \newcommand{\iDISPLAY}{\includegraphics[scale=0.3]{icons/glyphicons-87-display.png}}
 \newcommand{\iTABLE}{\includegraphics[scale=0.3]{icons/glyphicons-120-table.png}}
@@ -143,6 +143,15 @@ tabsize=3
 \newcommand{\iFILES}{\includegraphics[scale=0.3]{icons/glyphicons-319-more-items.png}}
 \newcommand{\iCLUSTER}{\includegraphics[scale=0.3]{icons/glyphicons-508-cluster.png}}
 \newcommand{\HS}{\hspace{1pt}}
+
+
+%\renewcommand\floatpagefraction{.9}
+%\renewcommand\topfraction{.9}
+%\renewcommand\bottomfraction{.9}
+%\renewcommand\textfraction{.1}   
+%\setcounter{totalnumber}{50}
+%\setcounter{topnumber}{50}
+%\setcounter{bottomnumber}{50}
 
 \begin{document} 
 % 
@@ -505,7 +514,7 @@ Metrics that are implicitly provided by various cloud providers are important fo
 
 \item[\it Commercial public clouds.] These are clouds that are offered commercially or for free for a limited time to academic research and education users. While metrics for individuals that use such services for free may initially not be of importance, it becomes essential if at one point actual money is paid to provide this service to the academic user, project, or institute. Important may not only the amount of money paid, but to justify the expense through academic and scientific impact \cite{las2015cluster,las2015xsede} that is derived by such efforts.
 
-\item[\it Academic public clouds.] Recently NSF has provided a significant amount of funding to cloud offerings for the academic community \cite{??chameleon,??cloudlab,??jetstreem}. In order to justify their funding and to contrast it to commercial public cloud offerings metrics and evaluation criteria need to be developed that allow meaningful comparisions.
+\item[\it Academic public clouds.] Recently NSF has provided a significant amount of funding to cloud offerings for the academic community \cite{??chameleon,www-cloudlab,??jetstreem}. In order to justify their funding and to contrast it to commercial public cloud offerings metrics and evaluation criteria need to be developed that allow meaningful comparisions.
 
 \item[\it Academic private clouds.] Many universities have started to offer private clouds to their research community. This includes not only the use of academic efforts, but as previously stated also of production clouds to support the internal IT infrastructure as part of a universities management IT infrastructure. While in the IT department operational cost and privacy are potentially dominating the metrics, in academic clouds the use in projects and their outcome metrics need to be integrated. This reflects similar metrics that we find while using commercial and academic public clouds.
 
@@ -521,17 +530,17 @@ We summarize the different factors regarding resource types in Figure \ref{F:fra
 \begin{fTREE}{1.2in}  \Tree
      [. Resource
         [. {Commercial Public Clouds} 
-		[. {AWS \cite{??}} ]
+		[. {AWS \cite{www-aws}} ]
 		[. {Azure \cite{??}} ]
         ]
         [. {Academic Public Clouds} 
 	      [. {FutureSystems \cite{??}} ] 
             [. {Jetstream \cite{??}} ]
 	      [. {Chameleon Cloud \cite{??}} ]
-	      [. {CloudLab \cite{??}} ] 
+	      [. {CloudLab \cite{www-cloudlab}} ] 
 	  ]
         [. {Academic Private Clouds} 
-    		[. {UB Eucalyptus \cite{??} } ]
+    		[. {UB Eucalyptus \cite{www-eucalyptus} } ]
 	  ]
 ]
 \end{fTREE}
@@ -552,7 +561,7 @@ Additionally the following cloud related resources offered to academic users wil
 
 \item[\it MRIs.] According to the NSF web pages, the `Major Research Instrumentation Program (MRI) ~\cite{nsf-mri} catalyzes new knowledge and discoveries by empowering the Nation's scientists and engineers with state-of-the-art research instrumentation. The MRI Program enables research-intensive learning environments that promote the development of a diverse workforce and next generation instrumentation, as well as facilitates academic and private sector partnerships.'' Some of the MRI funding supports significant computational resources offered to a particular user community. In such cases it would be beneficial if the metrics and services introduced here can be reused by such efforts and adapted accordingly.
 
-\hyungro{we need the cloud related activities here and mine them from NSF.}
+\hyungro{mine cloud related activities from NSF. \url{http://www.nsf.gov/awardsearch/advancedSearchResult?ProgEleCode=1189&BooleanElement=ANY&BooleanRef=ANY&ActiveAwards=true&}}
 
 \item[\it Networks.] With the advent of 100GBEthernet research environments as provided in Jetstream, Chameleon cloud and XSEDE it is essential that network related information be integrated into an overarching metric framework. This includes not only details of the overall use of the network, but the specific information which projects, or even which applications are using it. Access control to this information may has to be investigated in order not to expose exploitable information to the community. Typically we find that this information is not yet sufficiently communicated in a transparent way to the diverse research and education community.
 
@@ -582,16 +591,15 @@ A comprehensive metrics framework consists of a data mashup of various sources o
 
 
 
-\begin{table*}[htb]
+\begin{table*}[P]
 \caption{Selected scientific impact metrics.}
 \begin{scriptsize}
 \label{T:SIMmetrics}
 \bigskip
 \begin{center}
 \begin{tabular}{p{0.19\textwidth}p{0.38\textwidth}p{0.38\textwidth}}
-Name & Description & Motivation \\
 \hline
-\rowcolor{blue!20} \multicolumn{3}{l}{\bf Scientific impact metrics} \\
+\rowcolor{blue!20}  \bf  Name & \bf Description & \bf Motivation \\
 \hline
 Publication Count &
 Measuring how many publications are attributed as output while using the cloud 
@@ -641,16 +649,30 @@ To compare the studied entity's relative impact with the peers. The peers are id
 
 Many science and engineering innovations and discoveries are increasingly dependent on access to high performance computing resources \cite{las14Impact,las15xsede,las15cluster}. For many researchers, this demand is met by clouds and other large-scale compute resources that cannot typically be supported by any single research group. Accordingly, dedicated large-scale computing facilities play an important role in scientific research, in which resources are shared among groups of researchers, while the facilities themselves are managed by dedicated staff.  Thus, justification for their use is warranted and questions regarding the scientific impact of these resources naturally arise. Hence, it is important to not only introduce metrics measuring the actual usage, but also the impact based on for example the scientific publications that are produced by such resources. We have developed a sophisticated metric framework that delivers such impact metrics for XSEDE, NCAR, and Blue Waters \cite{las14Impact,las15xsede,las15cluster}. It is most natural that this be extended to any cloud resource. However, the framework is general enough that it could apply to any resource framework and interested resource providers can contact the corresponding author\footnote{send email to {\textit laszewski@gmail.com}} for more information. Table \ref{T:SIMmetrics} lists the general metrics related to the impact of scientific works.
 
-While evaluating a research computing facility (in this context, a cloud resource provider) based on how the accounting and auditing framework is setup, as well as the mechanism of gathering publications as output of using the cloud. A suite of different metrics has been useful and a subset of the most useful once are listed in Table \ref{T:SIMmetrics}.  Our scientific impact process can be  applied, if we have user and group/project units in the accounting system, and the publications are gathered and vetted also with user/group/project information, we could derive the same metrics for each user, group/project, and compare their performance.  Consequently, these metrics can be calculated for a cloud resource provider as a whole entity, and the same metrics could be compared among different cloud resource provider. Based on other related data, e.g. the resource had been consumed, we could derive and compare the same metrics but in a normalized fashion - Publication count and/or citation count per M(K) CpuHours as an example. An important distinction of our work includes a peer comparison metric that we term {\it ptrank-citation} and is explained in detail in \cite{las14Impact,las15xsede,las15cluster}. Such comparison is possible based on or data mashup with millions of references, while at the same time focusing on the comparison of publications related to our resource to be analyzed.
+While evaluating a research computing facility (in this context, a cloud resource provider) based on how the accounting and auditing framework is setup, as well as the mechanism of gathering publications as output of using the cloud. A suite of different metrics has been useful and a subset of the most useful once are listed in Table \ref{T:SIMmetrics}.  Our scientific impact process can be  applied, if we have user and group/project units in the accounting system, and the publications are gathered and vetted also with user/group/project information, we could derive the same metrics for each user, group/project, and compare their performance.  Consequently, these metrics can be calculated for a cloud resource provider as a whole entity, and the same metrics could be compared among different cloud resource provider. Based on other related data, e.g. the resource had been consumed, we could derive and compare the same metrics but in a normalized fashion - Publication count and/or citation count per CpuHours as an example. An important distinction of our work includes a peer comparison metric that we term {\it ptrank-citation} and is explained in detail in \cite{las14Impact,las15xsede,las15cluster}. Such comparison is possible based on or data mashup with millions of references, while at the same time focusing on the comparison of publications related to our resource to be analyzed.
 
+
+\afterpage{\input{bigtable}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CLOUD METRICS} \label{S:metrics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section we will introduce several important examples for cloud metrics that will be important for academic cloud providers. We also will introduce several parameters that determine the sample size and population over which such metrics are invoked. The metrics that we define here are in part derived from our experience within FutureGrid and FutureSystems.
 
-We will introduce a number of definitions that we will use throughout this section.
+
+In this section we will introduce several important examples for cloud metrics that will be important for academic cloud providers.  Several metrics that we define here are are derived from experience with FutureGrid and FutureSystems. Several dimensions  are influencing the  the metrics (see Figure \ref{F:metric-dimesnion} ) including the time period on which the metric is applied and the value representation.
+
+\begin{figure}[htb] 
+  \centering 
+    \includegraphics[width=.3\columnwidth]{images/metric-dimension.pdf} 
+  \caption{Metric dimensions}\label{F:metric-dimesnion} 
+\end{figure} 
+
+
+\subsection{Time Period}
+
+The time dimension is an importnat dimension of any metrics framework. This includes the following:
+
 
 \begin{description}
 \setlength\itemsep{-2pt}
@@ -663,84 +685,32 @@ We will introduce a number of definitions that we will use throughout this secti
  
 \end{description}
 
-Additionally we find several kinds of metrics that agglomerate data. We will need the typical statistical measurements such as count, sum, mean, median, standard deviation, frequency, distribution, and others. Together these metric properties can be used to provide (a) effective summary reports, (b) periodicity reports (c) real time information. Trough the introduction of stakeholders (see Section ??)  some information may be restricted.
+\section{Value Representation}
+
+In many cases the data needs to be represented in agglomerated fashion to be easily comprehensible. Typical statistical measurements such as count, sum, mean, median, standard deviation, frequency, distribution, and others. Together these metric properties can be used to provide (a) effective summary reports, (b) periodicity reports (c) real time information. Trough the introduction of stakeholders  some information may be restricted.
 
 Examples of summary reports include walltime of servers used in a cluster as total over a particular time, the VM count, or the user count. Additional factors such as to which project the information is associated is important for project members or for those judging if the resources allocated for a project are justified. Center directors may need to report to their organization which scientific discipline have used the resource. These are just a very small but quite useful set of metrics that have had practical impact in existing academic cloud environments such as FutureGrid and FutureSystems.  For summary reports we also found it useful to overlap multiple metrics into the same chart over a given period. This way we can showcase, contrast or verify trends between different metrics.  To present the information the metrics may need to be able to be conveniently be displayed as charts, as time series data, in tables or json format or through RESTful service.  Properties that are important to consider as part of metrics include scalability, overhead, availability, accuracy, security, agility, and the integration of some of the metrics into autoscaling services.
 
-We provide a comprehensive list of useful metrics in Table \ref{T:metrics-bigtable}.
+\subsection{Metrics}
 
-\subsection{Metric Keywords}
+We provide a comprehensive list of useful metrics in Table \ref{T:project} to \ref{T:region}. These tables list a number of important metrics to consider for an academic cloud offering. However, this is just a starting point and additional metrics could useful. Hence we view this list as a starting point and not as a complete closed list of metrics. This also puts an additional requirement on the metrics framework itself. It needs to be easily expandable with new metrics and its data sources.\footnote{If you like to make suggestions of additional metrics, please e-mail to the corresponding author at {\textit laszewski@gmail.com}}
 
-To provide a starting point for discussions with other resource providers, we list a number of keywords that are associated with exemplary metrics that we are interested in deriving in more details while providing a subset of concrete metrics in Table ??.
-
-\begin{Verbatim}[fontfamily=times]
-o usage - runtime
-   - VM 
-   - image
-   - instance
-   - regions
-   - servers
-   o network
-     - public/private ip address
-     - traffic
-   o storage
-     - block storage
-     - objects
-     - files
-     - space
-o performance
-  - cpu usage (utilization) 
-  - network in/out bytes
-  - disk read/write throughput
-  - power consumption
-  - memory usage
-  - latency (e.g. network response or vm start)
-o physical hardware monitoring
-  - host contention
-  - degraded hardware
-  - outages
-  - downtime
-o automation
-  - recovery
-  - autoscaling
-  - policy/threshold to take actions
-  - live migration
-o billing/charging/accounting
-o monitoring service
-  o errors
-    - detect incidents
-    - trace issues/ bugs
-    - prevent long downtime
-  - alert/notification (e.g. text, email)
-  - diagnostics
-  - security
-  - capacity planning/prediction
-  - trend changes
-o audit/assurance
-  - user behavior
-\end{Verbatim}
+\begin{description}
+\setlength\itemsep{-2pt}
+\item [Project  management related metrics] (see Table \ref{T:project}). 
+\item [User related metrics] (see Table \ref{T:metrics-bigtable}).
+\item [Virtual machine metrics] (see Table \ref{T:vm}).
+\item [Image related metrics] (see Table \ref{T:image}).
+\item [Flavor related metrics] (see Table \ref{T:flavor}).
+\item [Storage related metrics] (see Table \ref{T:storage}).
+\item [Server related metrics] (see Table \ref{T:server}).
+\item [Network related metrics] (see Table \ref{T:network}).
+\item [Security related metrics] (see Table \ref{T:security}).
+\item [Region related metrics] (see Table \ref{T:region}).
+\end{description}
 
 
-\begin{verbatim}
-o  VM
-o  Usage
-o  Failure
-o  Prediction
-\end{verbatim}
-
-\begin{verbatim}
-Total User Count
-Count over Group
-Project, Center, Organization
-Counts the active users in the cloud
-\end{verbatim}
-
-\input{bigtable}
-
-ID
-realtime
-stakeholder = user, administrator, management, funder
-type = count, sum, distribution, ....
+\clearpage
 
 \hyungro{provide simple sceenshots of report figures related to the
   information listed in Fig 1a - 8a or are thes already displayed in
@@ -1436,8 +1406,8 @@ bib/tas-dedup,%
 bib/vonLaszewski-jabref,% 
 bib/cyberaide-metric,%
 bib/cyberaide-cloud,%
-metric-new}
-%bib/image-refs,% 
+metric-new,%
+bib/image-refs}
 \end{scriptsize}
    
 %bib/python,% 
@@ -1452,12 +1422,8 @@ This appendix includes a number of tables that summarize metrics that are expose
 
 \begin{description}
 
-\item[Table \ref{T:xdmod}] shows a main category of HPC Metrics from XDMoD and
-Compatible metrics for IaaS. The overall resource utilization and system
-popularity can be briefly described with these main metrics in HPC or in the
-cloud.  The metrics addressed in the table \ref{T:xdmod2} are grouped by these
-main metrics.
-
+\item[Table \ref{T:xdmod}] shows \hyungro{complete}.
+.
 \item[Table \ref{T:xdmod2}] shows \hyungro{complete}.
 
 \item[Table \ref{T:xdmod22}] shows \hyungro{complete}.
@@ -1472,16 +1438,16 @@ main metrics.
 \end{description}
 
 \begin{table*}[htb]
-  \caption{Main Metrics in HPC and IaaS}
+  \caption{HPC Metric Categories in XDMoD}
 \label{T:xdmod}
 \begin{scriptsize}
 \begin{tabular}{l|l|l} 
-HPC from XDMoD & Description & Compatibility with IaaS\\
+HPC Category & Compatibility with IaaS & Description\\
 \hline
-Jobs & The number of requested jobs in HPC & VMs\\
-Allocations & A funded project that is allowed to run jobs on resources & Projects(Tenants) \\
-Accounts & The number of user accounts registered or deleted & Accounts\\
-Requests & The number of registered projects or accounts & Requests\\
+Job & VM & The number of requested jobs in HPC or VM instance in the cloud\\
+Allocations & Project(Tenant) & A funded project that is allowed to run jobs (VMs) on resources \\
+Accounts & Accounts & The number of user accounts registered or deleted \\
+Requests & Requests & The number of registered projects or accounts\\
 % Performance & Performance & TBD \\
 % SUPREMM & - & TBD \\
 \hline
@@ -1683,3 +1649,21 @@ User NSF Status & TBD \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
+\begin{comment}
+Additional metrics that we have not yet included into the tables include the following
+
+\begin{Verbatim}[fontfamily=times]
+o monitoring service
+  o errors
+    - detect incidents
+    - trace issues/ bugs
+    - prevent long downtime
+  - alert/notification (e.g. text, email)
+  - diagnostics
+  - security
+  - capacity planning/prediction
+  - trend changes
+o audit/assurance
+  - user behavior
+\end{Verbatim}
+\end{comment}
