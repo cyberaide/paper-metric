@@ -1565,48 +1565,48 @@ Net:HPCC - PTRANS & The performance of parallell matrix transpose HPCC\\
 \begin{tabular}{l|l} 
 Metric & Description \\
 \hline
-Avg CPU \%: Idle: weighted by core-hour &  TBD \\
-Avg CPU \%: System: weighted by core-hour &  TBD \\
-Avg CPU \%: User: weighted by core-hour &  TBD \\
-Avg: /home write rate: Per Node weighted by node-hour &  TBD \\
-Avg: /scratch write rate: Per Node weighted by node-hour &  TBD \\
-Avg: /work write rate: Per Node weighted by node-hour &  TBD \\
-Avg: CPI: Per Core weighted by core-hour &  TBD \\
-Avg: CPLD: Per Core weighted by core-hour &  TBD \\
-Avg: CPU User CV: weighted by core-hour &  TBD \\
-Avg: CPU User Imbalance: weighted by core-hour &  TBD \\
-Avg: FLOPS: Per Core weighted by core-hour &  TBD \\
-Avg: InfiniBand rate: Per Node weighted by node-hour &  TBD \\
-Avg: Memory Bandwidth: Per Core weighted by core-hour &  TBD \\
-Avg: Memory: Per Core weighted by core-hour &  TBD \\
-Avg: Total Memory: Per Core weighted by core-hour &  TBD \\
-Avg: block sda read ops rate: Per Node weighted by node-hour &  TBD \\
-Avg: block sda read rate: Per Node weighted by node-hour &  TBD \\
-Avg: block sda write ops rate: Per Node weighted by node-hour &  TBD \\
-Avg: block sda write rate: Per Node weighted by node-hour &  TBD \\
-Avg: eth0 receive rate: Per Node weighted by node-hour &  TBD \\
-Avg: eth0 transmit rate: Per Node weighted by node-hour &  TBD \\
-Avg: ib0 receive rate: Per Node weighted by node-hour &  TBD \\
-Avg: ib0 transmit rate: Per Node weighted by node-hour &  TBD \\
-Avg: lustre receive rate: Per Node weighted by node-hour &  TBD \\
-Avg: lustre transmit rate: Per Node weighted by node-hour &  TBD \\
-Avg: mic0 receive rate: Per Node weighted by node-hour &  TBD \\
-Avg: mic0 transmit rate: Per Node weighted by node-hour &  TBD \\
-Avg: mic1 receive rate: Per Node weighted by node-hour &  TBD \\
-Avg: mic1 transmit rate: Per Node weighted by node-hour &  TBD \\
-CPU Hours: Idle: Total &  TBD \\
-CPU Hours: System: Total &  TBD \\
-CPU Hours: Total &  TBD \\
-CPU Hours: User: Total &  TBD \\
-Number of Jobs Ended &  TBD \\
-Number of Jobs Running &  TBD \\
-Number of Jobs Started &  TBD \\
-Number of Jobs Submitted &  TBD \\
-Wait Hours: Per Job &  TBD \\
-Wait Hours: Total &  TBD \\
-Wall Hours: Per Job &  TBD \\
-Wall Hours: Requested: Per Job &  TBD \\
-Wall Hours: Requested: Total &  TBD \\
+Avg CPU \%: Idle: weighted by core-hour & The average CPU idle \% weighted by core hours, over all jobs that were executing.\\
+Avg CPU \%: System: weighted by core-hour & The average CPU system \% weighted by core hours, over all jobs that were executing.\\
+Avg CPU \%: User: weighted by core-hour & The average CPU user \% weighted by core hours, over all jobs that were executing.\\
+Avg: /home write rate: Per Node weighted by node-hour & Average number of bytes written per second per node for the filesystem mounted on mount point /home\\
+Avg: /scratch write rate: Per Node weighted by node-hour & Average number of bytes written per second per node for the filesystem mounted on mount point /scratch\\
+Avg: /work write rate: Per Node weighted by node-hour & Average number of bytes written per second per node for the filesystem mounted on mount point /work\\
+Avg: CPI: Per Core weighted by core-hour & The average ratio of clock ticks to instructions per core weighted by core-hour. The CPI is calculated using the reference processor clock \\
+Avg: CPLD: Per Core weighted by core-hour & The average ratio of clock ticks to L1D cache loads per core weighted by core-hour. The CPLD is calculated using the reference processor clock\\
+Avg: CPU User CV: weighted by core-hour & The average CPU user coefficient of variation weighted by core-hour. The coefficient of variation is defined as the ratio of the standard deviation to the mean\\
+Avg: CPU User Imbalance: weighted by core-hour & The average normalized CPU user imbalance weighted by core-hour. Imbalance is defined as 100*(max-min)/max, where max is value of the CPU user for the CPU with the largest CPU user\\
+Avg: FLOPS: Per Core weighted by core-hour & The average number of floating point operations per second per core over all jobs that ran in the selected time period\\
+Avg: InfiniBand rate: Per Node weighted by node-hour & Average number of bytes received per second per node over the data interconnect. This value only includes the inter-node data transfers and does not count any other data over the interconnect (for example parallel filesystem data)\\
+Avg: Memory Bandwidth: Per Core weighted by core-hour & The average main-memory transfer rate per core weighted by core-hour\\
+Avg: Memory: Per Core weighted by core-hour & The average memory used per core for all selected jobs that ran in the selected time period\\
+Avg: Total Memory: Per Core weighted by core-hour & The average total memory used (including kernel and disk cache) per core for all selected jobs that ran in the selected time period\\
+Avg: block sda read ops rate: Per Node weighted by node-hour & Average number of read operations per second per node for the local hard disk device sda\\
+Avg: block sda read rate: Per Node weighted by node-hour & Average number of bytes read per second per node from the local hard disk device sda\\
+Avg: block sda write ops rate: Per Node weighted by node-hour & Average number of write operations per second per node for the local hard disk device sda\\
+Avg: block sda write rate: Per Node weighted by node-hour & Average number of bytes written per second per node to the local hard disk device sda\\
+Avg: eth0 receive rate: Per Node weighted by node-hour & Average number of bytes received per second per node for network device eth0\\
+Avg: eth0 transmit rate: Per Node weighted by node-hour & Average number of bytes transmitted per second per node for network device eth0\\
+Avg: ib0 receive rate: Per Node weighted by node-hour & Average number of bytes received per second per node for network device ib0\\
+Avg: ib0 transmit rate: Per Node weighted by node-hour & Average number of bytes transmitted per second per node for network device ib0\\
+Avg: lustre receive rate: Per Node weighted by node-hour & Average number of bytes received per second per node from the lustre filesystem \\
+Avg: lustre transmit rate: Per Node weighted by node-hour & Average number of bytes transmitted per second per node to the lustre filesystem\\
+Avg: mic0 receive rate: Per Node weighted by node-hour & Average number of bytes received per second per node for network device mic0\\
+Avg: mic0 transmit rate: Per Node weighted by node-hour & Average number of bytes transmitted per second per node for network device mic0\\
+Avg: mic1 receive rate: Per Node weighted by node-hour & Average number of bytes received per second per node for network device mic1\\
+Avg: mic1 transmit rate: Per Node weighted by node-hour & Average number of bytes transmitted per second per node for network device mic1\\
+CPU Hours: Idle: Total & The idle CPU hours for all jobs that were executing during the time period\\
+CPU Hours: System: Total & The system CPU hours for all jobs that were executing during the time period\\
+CPU Hours: Total & The total core time, in hours\\
+CPU Hours: User: Total & The user CPU hours for all jobs that were executing during the time period \\
+Number of Jobs Ended & The total number of jobs that ended within the selected duration \\
+Number of Jobs Running & The total number of running jobs \\
+Number of Jobs Started & The total number of jobs that started executing within the selected duration\\
+Number of Jobs Submitted & The total number of jobs that were submitted/queued within the selected duration\\
+Wait Hours: Per Job & The average time, in hours, a job waits before execution on the designated resource\\
+Wait Hours: Total & The total time, in hours, jobs waited before execution on their designated resource\\
+Wall Hours: Per Job & The average time, in hours, a job takes to execute\\
+Wall Hours: Requested: Per Job & The average time, in hours, a job requested for execution\\
+Wall Hours: Requested: Total & The total time, in hours, jobs requested for execution\\
 \hline 
 \end{tabular}\\
 \end{scriptsize}
